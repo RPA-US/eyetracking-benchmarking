@@ -78,6 +78,28 @@ def calculate_metrics(df):
     print(f"Average duration of fixations that intersect with Keyboard or MouseClick events: {format_timedelta(avg_duration_intersecting)}")
     print(f"Average duration of fixations that do not intersect with Keyboard or MouseClick events: {format_timedelta(avg_duration_non_intersecting)}")
     
+    results = {
+        "Number of events of Keyboard or MouseClick": num_events,
+        "Number of screenshots taken": num_screenshots,
+        "Total Number of Fixations": total_fixations,
+        "Total Number of Baseline Fixations": total_baseline_fixations,
+        "Total Number of non-Baseline Fixations": total_non_baseline_fixations,
+        "Mean number of fixations captured per Keyboard or MouseClick event": avg_fixations_per_event,
+        "%Baseline Fixations": percentage_baseline_fixations,
+        "%Non-Baseline Fixations": percentage_non_baseline_fixations,
+        "Percentage of screenshots that contain at least one GazeFixation": percentage_screenshots_with_fixations,
+        "Percentage of screenshots that contain at least one GazeFixation Baseline": percentage_screenshots_with_fixations_baseline,
+        "Percentage of screenshots that contain at least one GazeFixation non-Baseline": percentage_screenshots_with_fixations_non_baseline,
+        "Total time of the test": format_timedelta(total_time),
+        "Total duration of fixations that intersect with Keyboard or MouseClick events": format_timedelta(total_duration_intersecting),
+        "Total duration of fixations that do not intersect with Keyboard or MouseClick events": format_timedelta(total_duration_non_intersecting),
+        "Average duration of fixations that intersect with Keyboard or MouseClick events": format_timedelta(avg_duration_intersecting),
+        "Average duration of fixations that do not intersect with Keyboard or MouseClick events": format_timedelta(avg_duration_non_intersecting)
+    }
+    
+    return results
+    
+    
 def calculate_rq3_notification_popup(df):
     # Especificar el formato de fecha y hora
     df["time:timestamp"] = pd.to_datetime(df["time:timestamp"], format='%H:%M:%S') 
@@ -108,10 +130,27 @@ def calculate_rq3_notification_popup(df):
     print(f"Total duration of fixations that intersect with the notification popup: {format_timedelta(total_duration_intersecting)}")
     print(f"Mean duration of fixations that intersect with the notification popup: {format_timedelta(avg_duration_intersecting)}")
     
+    results = {
+        "Total number of fixations that intersect with the notification popup": total_fixations_intersecting,
+        "Mean number of fixations that intersect with the notification popup per Keyboard or MouseClick event": avg_fixations_intersecting_per_event,
+        "Percentage of fixations that intersect with the notification popup": percentage_fixations_intersecting,
+        "Total duration of fixations that intersect with the notification popup": format_timedelta(total_duration_intersecting),
+        "Mean duration of fixations that intersect with the notification popup": format_timedelta(avg_duration_intersecting)
+    }
+    
+    return results
+    
     
 # Directorios de entrada y salida. Elegir tests correspondiente al suejeto
 input_dir = os.path.join('tests', 't1', 'preprocessed')
 output_dir = os.path.join('tests', 't1', 'postprocessed')
+results_dir = os.path.join('tests', 't1', 'results')
+
+# Crear el directorio de resultados si no existe
+os.makedirs(results_dir, exist_ok=True)
+
+# Lista para almacenar todos los resultados
+all_results = []
     
 for csv_test in os.listdir('tests/t1/postprocessed'):
     if csv_test.endswith('.csv'):
@@ -119,18 +158,26 @@ for csv_test in os.listdir('tests/t1/postprocessed'):
         print(f"EXTRACTING RESULTS FROM {csv_test.upper()}...")
         print("#" * 75 + "\n")
         df = pd.read_csv(f'tests/t1/postprocessed/{csv_test}')
-        calculate_metrics(df)
+        metrics=calculate_metrics(df)
+        metrics["Filename"] = csv_test
+        all_results.append(metrics)
         
         if csv_test.endswith('_notification_postprocessed.csv'):
             print("-------------------------------------------------------------------------------")
-            print("RQ3_tobii_notification.csv extra metrics:")
-            calculate_rq3_notification_popup(df)
-            time.sleep(10)
+            print("RQ3_notification extra metrics:")
+            rq3_metrics = calculate_rq3_notification_popup(df)
+            for key, value in rq3_metrics.items():
+                metrics[key] = value
         
-        # time.sleep(1)
-
         print(f"PROCESSED {csv_test}!")
 
+# Crear un DataFrame con todos los resultados
+results_df = pd.DataFrame(all_results)
 
+# Guardar el DataFrame en un archivo CSV
+results_csv_path = os.path.join(results_dir, 'results_summary.csv')
+results_df.to_csv(results_csv_path, index=False)
+
+print(f"All results saved to {results_csv_path}")
         
 
