@@ -20,24 +20,29 @@ def preprocess_df(df):
     df["coordX"] = df["coordX"].round(2)
     df["coordY"] = df["coordY"].round(2)
     
-    # Añadir la columna Gaze_Fixation_target
-    df["Gaze_Fixation_target"] = False
+    # Añadir la columna Gaze_Fixation_target y Gaze_Fixation_id
+    df["Gaze_Fixation_Target"] = False
+    df["Gaze_Fixation_Index"] = 0
+    
+    # Inicializar el índice de fijación
+    fixation_index = 0
     
     # Iterar sobre el DataFrame para encontrar fijaciones y eventos de Keyboard o MouseClick
-    for i in range(len(df) - 1):
+    for i in range(len(df)):
         if df.loc[i, "category"] == "GazeFixation":
+            df.loc[i, "Gaze_Fixation_Index"] = fixation_index
             for j in range(i + 1, len(df)):
                 next_event = df.loc[j]
                 if next_event["category"] in ["Keyboard", "MouseClick"]:
                     if ellipses_intersect(df.loc[i, "coordX"], df.loc[i, "coordY"], next_event["coordX"], next_event["coordY"], I_DT_THRESHOLD_DISPERSION):
-                        df.loc[i, "Gaze_Fixation_target"] = True
+                        df.loc[i, "Gaze_Fixation_Target"] = True
                     break
-    
-    # Cambiar el tipo de datos de la columna Gaze_Fixation_target a object
-    df["Gaze_Fixation_target"] = df["Gaze_Fixation_target"].astype(object)
+        elif df.loc[i, "category"] in ["Keyboard", "MouseClick"]:
+            fixation_index += 1
     
     # Establecer las celdas de Gaze_Fixation_target como vacías para filas con category Keyboard o MouseClick
-    df.loc[df["category"].isin(["Keyboard", "MouseClick"]), "Gaze_Fixation_target"] = ""
+    df.loc[df["category"].isin(["Keyboard", "MouseClick"]), "Gaze_Fixation_Target"] = ""
+    df.loc[df["category"].isin(["Keyboard", "MouseClick"]), "Gaze_Fixation_Index"] = ""
     
     return df
 
@@ -62,5 +67,3 @@ for filename in os.listdir(input_dir):
         preprocessed_df.to_csv(output_file_path, index=False)
         
         print(f"Preprocessed DataFrame saved to {output_file_path}")
-        
-        
