@@ -1,3 +1,4 @@
+import logging
 import pandas as pd
 import os
 import numpy as np
@@ -114,3 +115,6 @@ for filename in os.listdir(input_dir):
         preprocessed_df.to_csv(output_file_path, index=False)
         
         print(f"Preprocessed DataFrame saved to {output_file_path}")
+    else:
+        logging.error("No CSV files found in the specified directory.")
+        raise FileNotFoundError("No CSV files found in the specified directory. Please, save the preprocessed CSV files in 'tests\tx\preprocessed' root.")

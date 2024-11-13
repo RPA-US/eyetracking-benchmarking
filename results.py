@@ -1,5 +1,6 @@
 #Elegir a continuación la carpeta de tests correspondiente al sujeto
 
+import logging
 import os
 import pandas as pd
 import time
@@ -125,11 +126,11 @@ for csv_test in os.listdir('tests/t1/postprocessed'):
             print("-------------------------------------------------------------------------------")
             print("RQ3_tobii_notification.csv extra metrics:")
             calculate_rq3_notification_popup(df)
-            time.sleep(10)
-        
-        # time.sleep(1)
 
         print(f"PROCESSED {csv_test}!")
+    else:
+        logging.error("No CSV files found in the specified directory.")
+        raise FileNotFoundError("No CSV postprocessed files found in the specified directory. Please, execute 'python metrics.py' in the terminal to get the postprocessed CSV files.")
 
 
         
