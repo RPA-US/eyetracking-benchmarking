@@ -103,11 +103,11 @@ for filename in os.listdir(input_dir):
             preprocess_notification_popup(preprocessed_df)
         
         #Si existe el archivo RQ3_tobii_notification.csv en la ruta tests/t1/preprocessed, se ejecuta la función preprocess_notification_popup__p1_tobii
-        if os.path.exists(os.path.join('tests','t1','preprocessed', 'RQ3_tobii_notification.csv')):
+        if filename == 'RQ3_tobii_notification.csv':
             preprocess_notification_popup__p1_tobii(preprocessed_df)
         
         #Si existe el archivo RQ3_tobii_notification.csv en la ruta tests/t1/preprocessed, se ejecuta la función preprocess_notification_popup__p1_tobii
-        if os.path.exists(os.path.join('tests','t1','preprocessed', 'RQ3_webgazer_notification.csv')):
+        if filename == 'RQ3_webgazer_notification.csv':
             preprocess_notification_popup__p1_webgazer(preprocessed_df)
         
         # Guardar el DataFrame preprocesado en el directorio de salida
