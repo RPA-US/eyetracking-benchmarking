@@ -39,4 +39,3 @@ def get_distance_threshold_by_resolution(
     print(f"I-DT threshold (in pixels): {pixels_threshold_i_dt} px.")
     return pixels_threshold_i_dt
 
-I_DT_THRESHOLD_DISPERSION = get_distance_threshold_by_resolution()
