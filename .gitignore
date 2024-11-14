@@ -1,3 +1,5 @@
 \.venv
 \postprocessed
 \results
+\venv
+\__pycache__

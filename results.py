@@ -3,7 +3,6 @@
 import logging
 import os
 import pandas as pd
-import time
 
 def format_timedelta(td):
     if pd.isna(td):
@@ -39,7 +38,10 @@ def calculate_metrics(df):
     #Total Number of Fixations (["category"] == "GazeFixation")
     total_fixations = len(df[df["category"] == "GazeFixation"])
     #Total Number of Baseline Fixations (["Gaze_Fixation_Baseline"] == True)
-    total_baseline_fixations = len(df[df["Gaze_Fixation_Baseline"] == "True"])
+    total_baseline_fixations = len(pd.concat([
+    df[df["Gaze_Fixation_Baseline"] == "True"],
+    df[df["Gaze_Fixation_Baseline"] == "AOI_Name_True"]
+]))
     #Total Number of non-Baseline Fixations (["Gaze_Fixation_Baseline"] == False)
     total_non_baseline_fixations = len(df[df["Gaze_Fixation_Baseline"] == "False"])  
     #Mean number of fixations captured per Keyboard or MouseClick event 
@@ -62,7 +64,7 @@ def calculate_metrics(df):
     percentage_screenshots_with_fixations_non_baseline = df[(df["Gaze_Fixation_Baseline"] == "False") & (df["category"] == "GazeFixation")]["screenshot"].nunique() / num_screenshots * 100 if num_screenshots > 0 else 0
     
 
-    
+    #RQ3_NOTIFICATION POPUP    
     total_fixations_intersecting_pop_up = len(df[(df["Gaze_Fixation_Baseline"] == "PopUp_True") & (df["category"] == "GazeFixation")])
     #Mean number of fixations that intersect with the notification popup per Keyboard or MouseClick event
     avg_fixations_intersecting_pop_up_per_event = total_fixations_intersecting_pop_up / num_events if num_events > 0 else 0
@@ -72,6 +74,17 @@ def calculate_metrics(df):
     total_duration_intersecting_pop_up = df[(df["Gaze_Fixation_Baseline"] == "PopUp_True") & (df["category"] == "GazeFixation")]["duration"].sum()
     #Mean duration of fixations that intersect with the notification popup
     avg_duration_intersecting_pop_up = df[(df["Gaze_Fixation_Baseline"] == "PopUp_True") & (df["category"] == "GazeFixation")]["duration"].mean()
+
+    #RQ4_MULTISCREEN_AOI_NAME
+    #Total number of fixations that intersect with the AOI_name
+    total_fixations_intersecting_aoi = len(df[(df["Gaze_Fixation_Baseline"] == "AOI_Name_True") & (df["category"] == "GazeFixation")])
+    avg_fixations_intersecting_pop_up_per_event = total_fixations_intersecting_pop_up / num_events if num_events > 0 else 0
+    #Percentage of fixations that intersect with the AOI_name
+    percentage_fixations_intersecting_aoi = total_fixations_intersecting_aoi / total_fixations * 100 if total_fixations > 0 else 0
+    #Total duration of fixations that intersect with the AOI_name
+    total_duration_intersecting_aoi = df[(df["Gaze_Fixation_Baseline"] == "AOI_Name_True") & (df["category"] == "GazeFixation")]["duration"].sum()
+    #Mean duration of fixations that intersect with the AOI_name
+    avg_duration_intersecting_aoi = df[(df["Gaze_Fixation_Baseline"] == "AOI_Name_True") & (df["category"] == "GazeFixation")]["duration"].mean()
 
     # Mostrar los resultados por consola
     print(f"Number of events of Keyboard or MouseClick: {num_events}")
@@ -102,33 +115,47 @@ def calculate_metrics(df):
     print(f"Percentage (%) of fixations that intersect with the notification popup: {percentage_fixations_intersecting_pop_up:.2f}%")
     print(f"Total duration of fixations that intersect with the notification popup: {format_timedelta(total_duration_intersecting_pop_up)}")
     print(f"Mean duration of fixations that intersect with the notification popup: {format_timedelta(avg_duration_intersecting_pop_up)}")
-    
+    print("\n")
+    print("------------------------------------------------------------------------------------------------------------")
+    print("METRICS FOR RQ4_MULTISCREEN_AOI_NAME:")
+    print(f"Total number of fixations that intersect with the AOI_name: {total_fixations_intersecting_aoi}")
+    print(f"Mean number of fixations that intersect with the AOI_name per Keyboard or MouseClick event: {avg_fixations_intersecting_pop_up_per_event:.2f}")
+    print(f"Percentage (%) of fixations that intersect with the AOI_name: {percentage_fixations_intersecting_aoi:.2f}%")
+    print(f"Total duration of fixations that intersect with the AOI_name: {format_timedelta(total_duration_intersecting_aoi)}")
+    print(f"Mean duration of fixations that intersect with the AOI_name: {format_timedelta(avg_duration_intersecting_aoi)}")
+    print("\n")
+
     results = {
-        "Number of events of Keyboard or MouseClick": num_events,
-        "Number of screenshots taken": num_screenshots,
-        "Total Number of Fixations": total_fixations,
-        "Total Number of Baseline Fixations": total_baseline_fixations,
-        "Total Number of non-Baseline Fixations": total_non_baseline_fixations,
-        "Mean number of fixations captured per Keyboard or MouseClick event": avg_fixations_per_event,
-        "%Baseline Fixations": percentage_baseline_fixations,
-        "%Non-Baseline Fixations": percentage_non_baseline_fixations,
-        "Percentage of screenshots that contain at least one GazeFixation": percentage_screenshots_with_fixations,
-        "Percentage of screenshots that contain at least one GazeFixation Baseline": percentage_screenshots_with_fixations_baseline,
-        "Percentage of screenshots that contain at least one GazeFixation non-Baseline": percentage_screenshots_with_fixations_non_baseline,
-        "Total time of the test": format_timedelta(total_time),
-        "Total duration of fixations that intersect with Keyboard or MouseClick events": format_timedelta(total_duration_intersecting),
-        "Total duration of fixations that do not intersect with Keyboard or MouseClick events": format_timedelta(total_duration_non_intersecting),
-        "Average duration of fixations that intersect with Keyboard or MouseClick events": format_timedelta(avg_duration_intersecting),
-        "Average duration of fixations that do not intersect with Keyboard or MouseClick events": format_timedelta(avg_duration_non_intersecting),
-        "Total number of fixations that intersect with the notification popup": total_fixations_intersecting_pop_up,
-        "Mean number of fixations that intersect with the notification popup per Keyboard or MouseClick event": avg_fixations_intersecting_pop_up_per_event,
-        "Percentage of fixations that intersect with the notification popup": percentage_fixations_intersecting_pop_up,
-        "Total duration of fixations that intersect with the notification popup": format_timedelta(total_duration_intersecting_pop_up),
-        "Mean duration of fixations that intersect with the notification popup": format_timedelta(avg_duration_intersecting_pop_up)
+        "NumEvents": num_events,  # "Number of events of Keyboard or MouseClick"
+        "NumScreenshots": num_screenshots,  # "Number of screenshots taken"
+        "TotalFixations": total_fixations,  # "Total Number of Fixations"
+        "TotalBaselineFixations": total_baseline_fixations,  # "Total Number of Baseline Fixations"
+        "TotalNonBaselineFixations": total_non_baseline_fixations,  # "Total Number of non-Baseline Fixations"
+        "AvgFixationsPerEvent": avg_fixations_per_event,  # "Mean number of fixations captured per Keyboard or MouseClick event"
+        "PctBaselineFixations": percentage_baseline_fixations,  # "%Baseline Fixations"
+        "PctNonBaselineFixations": percentage_non_baseline_fixations,  # "%Non-Baseline Fixations"
+        "PctScreenshotsWithFixations": percentage_screenshots_with_fixations,  # "Percentage of screenshots that contain at least one GazeFixation"
+        "PctScreenshotsWithBaselineFixations": percentage_screenshots_with_fixations_baseline,  # "Percentage of screenshots that contain at least one GazeFixation Baseline"
+        "PctScreenshotsWithNonBaselineFixations": percentage_screenshots_with_fixations_non_baseline,  # "Percentage of screenshots that contain at least one GazeFixation non-Baseline"
+        "TotalTestTime": format_timedelta(total_time),  # "Total time of the test"
+        "TotalDurationIntersecting": format_timedelta(total_duration_intersecting),  # "Total duration of fixations that intersect with Keyboard or MouseClick events"
+        "TotalDurationNonIntersecting": format_timedelta(total_duration_non_intersecting),  # "Total duration of fixations that do not intersect with Keyboard or MouseClick events"
+        "AvgDurationIntersecting": format_timedelta(avg_duration_intersecting),  # "Average duration of fixations that intersect with Keyboard or MouseClick events"
+        "AvgDurationNonIntersecting": format_timedelta(avg_duration_non_intersecting),  # "Average duration of fixations that do not intersect with Keyboard or MouseClick events"
+        "TotalFixationsIntersectingPopup": total_fixations_intersecting_pop_up,  # "Total number of fixations that intersect with the notification popup"
+        "AvgFixationsIntersectingPopupPerEvent": avg_fixations_intersecting_pop_up_per_event,  # "Mean number of fixations that intersect with the notification popup per Keyboard or MouseClick event"
+        "PctFixationsIntersectingPopup": percentage_fixations_intersecting_pop_up,  # "Percentage of fixations that intersect with the notification popup"
+        "TotalDurationIntersectingPopup": format_timedelta(total_duration_intersecting_pop_up),  # "Total duration of fixations that intersect with the notification popup"
+        "AvgDurationIntersectingPopup": format_timedelta(avg_duration_intersecting_pop_up),  # "Mean duration of fixations that intersect with the notification popup"
+        "TotalFixationsIntersectingAOI": total_fixations_intersecting_aoi,  # "Total number of fixations that intersect with the AOI_name"
+        "AvgFixationsIntersectingAOIPerEvent": avg_fixations_intersecting_pop_up_per_event,  # "Mean number of fixations that intersect with the AOI_name per Keyboard or MouseClick event"
+        "PctFixationsIntersectingAOI": percentage_fixations_intersecting_aoi,  # "Percentage of fixations that intersect with the AOI_name"
+        "TotalDurationIntersectingAOI": format_timedelta(total_duration_intersecting_aoi),  # "Total duration of fixations that intersect with the AOI_name"
+        "AvgDurationIntersectingAOI": format_timedelta(avg_duration_intersecting_aoi)  # "Mean duration of fixations that intersect with the AOI_name"
     }
-    
+
     return results
-    
+
     
     
 # Directorios de entrada y salida. Elegir tests correspondiente al suejeto
