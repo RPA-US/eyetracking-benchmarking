@@ -11,5 +11,4 @@ def run_scripts():
         print(f"Error al ejecutar un script: {e}")
 
 if __name__ == "__main__":
-    print(pd.__version__)
     run_scripts()
