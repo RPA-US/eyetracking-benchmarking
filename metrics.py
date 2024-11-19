@@ -74,20 +74,22 @@ def process_RQ1_df(df, polygons, threshold):
             for j in range(i + 1, len(df)):
                 next_event = df.loc[j]
                 if next_event["category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
-                    polygons_group=polygons_group_containing_point(df.loc[i, "coordX"], df.loc[i, "coordY"], polygons)
-                    if polygons_group:
-                        df.loc[i, "Gaze_Fixation_Baseline"] = is_gaze_fixation_baseline(df.loc[i, "coordX"], df.loc[i, "coordY"], polygons_group, threshold)
+                    group = name_group_containing_point(next_event["coordX"], next_event["coordY"], polygons)
+                    if group:
+                        for k in range(i, j):
+                            if df.loc[k, "category"] == "GazeFixation":
+                                df.loc[k, "Gaze_Fixation_Baseline"] = is_gaze_fixation_baseline(df.loc[k, "coordX"], df.loc[k, "coordY"], {group: polygons[group]}, threshold)
                     break
         elif df.loc[i, "category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
-             fixation_index += 1
-    
+            fixation_index += 1
+
     df["Gaze_Fixation_Baseline"] = df["Gaze_Fixation_Baseline"].astype(object)
-    df["Gaze_Fixation_Index"] = df["Gaze_Fixation_Index"].astype(object)    
-    
+    df["Gaze_Fixation_Index"] = df["Gaze_Fixation_Index"].astype(object)
+
     # Establecer las celdas de Gaze_Fixation_target como vacías para filas con category Keyboard o MouseClick
     df.loc[df["category"].isin(["Keyboard", "MouseClick", "DoubleMouseClick"]), "Gaze_Fixation_Baseline"] = "BaselineComponentClick"
     df.loc[df["category"].isin(["Keyboard", "MouseClick", "DoubleMouseClick"]), "Gaze_Fixation_Index"] = ""
-    
+
     return df
 
 
