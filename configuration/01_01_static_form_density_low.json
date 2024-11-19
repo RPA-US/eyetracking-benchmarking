@@ -1,0 +1,159 @@
+{
+    "form": {
+        "elements": [
+            {
+                "id": 1,
+                "group":"name",
+                "name": "name_caption",
+                "type": "text",
+                "shape": "rectangle",
+                "dimensions": ["472,315", "625,315", "625,336", "472,336"],
+                "centroid": "548.5,325.5"
+            },
+            {
+                "id": 2,
+                "group":"name",
+                "name": "name",
+                "type": "inputText",
+                "shape": "rectangle",
+                "dimensions": ["418,370", "678,370", "678,416", "418,416"],
+                "centroid": "548,393"
+            },
+            {
+                "id": 3,
+                "group":"country",
+                "name": "flag_spain_caption",
+                "type": "text",
+                "shape": "rectangle",
+                "dimensions": ["1204,319", "1541,319", "1541,334", "1204,334"],
+                "centroid": "1372.5,326.5"
+            },
+            {
+                "id": 4,
+                "group":"country",
+                "name": "flag_spain",
+                "type": "image",
+                "shape": "rectangle",
+                "dimensions": ["1322,376", "1424,376", "1424,443", "1322,443"],
+                "centroid": "1373,409.5"
+            },
+            {
+                "id": 5,
+                "group":"country",
+                "name": "yes_spain",
+                "type": "imageButton",
+                "shape": "rectangle",
+                "dimensions": ["1092,457", "1320,457", "1320,497", "1092,497"],
+                "centroid": "1206,477"
+            },
+            {
+                "id": 6,
+                "group":"country",
+                "name": "no_spain",
+                "type": "imageButton",
+                "shape": "rectangle",
+                "dimensions": ["1424,460", "1655,460", "1655,496", "1424,496"],
+                "centroid": "1539.5,478"
+            },
+            {
+                "id": 7,
+                "group":"account",
+                "name": "active_account_caption",
+                "type": "text",
+                "shape": "rectangle",
+                "dimensions": ["434,562", "660,562", "660,576", "434,576"],
+                "centroid": "547,569"
+            },
+            {
+                "id": 8,
+                "group":"account",
+                "name": "active_twitter_account",
+                "type": "radioButton",
+                "shape": "rectangle",
+                "dimensions": ["513,618", "580,618", "580,649", "513,649"],
+                "centroid": "546.5,633.5"
+            },
+            {
+                "id": 9,
+                "group":"gender",
+                "name": "gender_caption",
+                "type": "text",
+                "shape": "rectangle",
+                "dimensions": ["1345,562", "1402,562", "1402,579", "1345,579"],
+                "centroid": "1373.5,570.5"
+            },
+            {
+                "id": 10,
+                "group":"gender",
+                "name": "male",
+                "type": "radioButton",
+                "shape": "rectangle",
+                "dimensions": ["996,618", "1101,618", "1101,664", "996,664"],
+                "centroid": "1048.5,641"
+            },
+            {
+                "id": 11,
+                "group":"gender",
+                "name": "female",
+                "type": "radioButton",
+                "shape": "rectangle",
+                "dimensions": ["1356,621", "1438,621", "1438,656", "1356,656"],
+                "centroid": "1397,638.5"
+            },
+            {
+                "id": 12,
+                "group":"gender",
+                "name": "other",
+                "type": "radioButton",
+                "shape": "rectangle",
+                "dimensions": ["1706,618", "1744,618", "1744,655", "1706,655"],
+                "centroid": "1725,636.5"
+            },
+            {
+                "id": 13,
+                "group":"preferences",
+                "name": "preferences_caption",
+                "type": "text",
+                "shape": "rectangle",
+                "dimensions": ["499,759", "596,759", "596,776", "499,776"],
+                "centroid": "547.5,767.5"
+            },
+            {
+                "id": 14,
+                "group":"preferences",
+                "name": "preference_sport",
+                "type": "checkbox",
+                "shape": "rectangle",
+                "dimensions": ["176,820", "240,820", "240,856", "176,856"],
+                "centroid": "208,838"
+            },
+            {
+                "id": 15,
+                "group":"preferences",
+                "name": "preference_music",
+                "type": "checkbox",
+                "shape": "rectangle",
+                "dimensions": ["520,821", "577,821", "577,853", "520,853"],
+                "centroid": "548.5,837"
+            },
+            {
+                "id": 16,
+                "group":"preferences",
+                "name": "preference_reading",
+                "type": "button",
+                "shape": "rectangle",
+                "dimensions": ["859,821", "917,821", "917,853", "859,853"],
+                "centroid": "888,837"
+            },
+            {
+                "id": 17,
+                "group":"submit",
+                "name": "submit",
+                "type": "button",
+                "shape": "rectangle",
+                "dimensions": ["1213,793", "1534,793", "1534,864", "1213,864"],
+                "centroid": "1373.5,828.5"
+            }
+        ]
+    }
+}
