@@ -1,0 +1,8 @@
+{
+    "id": 2,
+    "name":"email",
+    "type": "text,image,button,imageButton,textInput,radiobutton,checkbox",
+    "shape": "rectangle,circle,ellipse",
+    "dimensions": ["x1,y1", "x2,y1", "x1,y2", "x2,y2"],
+    "centroid": ["xc,yc"]
+}
