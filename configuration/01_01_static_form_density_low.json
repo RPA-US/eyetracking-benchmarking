@@ -7,8 +7,8 @@
                 "name": "name_caption",
                 "type": "text",
                 "shape": "rectangle",
-                "dimensions": ["472,315", "625,315", "472,336", "625,336"],
-                "centroid": "549,326"
+                "dimensions": ["472,315", "625,315", "625,336", "472,336"],
+                "centroid": "548.5,325.5"
             },
             {
                 "id": 2,
@@ -16,8 +16,8 @@
                 "name": "name",
                 "type": "inputText",
                 "shape": "rectangle",
-                "dimensions": ["421,375", "670,375", "421,408", "670,408"],
-                "centroid": "546,392"
+                "dimensions": ["418,370", "678,370", "678,416", "418,416"],
+                "centroid": "548,393"
             },
             {
                 "id": 3,
@@ -25,8 +25,8 @@
                 "name": "flag_spain_caption",
                 "type": "text",
                 "shape": "rectangle",
-                "dimensions": ["1204,319", "1541,319", "1204,334", "1541,334"],
-                "centroid": "1323,327"
+                "dimensions": ["1204,319", "1541,319", "1541,334", "1204,334"],
+                "centroid": "1372.5,326.5"
             },
             {
                 "id": 4,
@@ -34,8 +34,8 @@
                 "name": "flag_spain",
                 "type": "image",
                 "shape": "rectangle",
-                "dimensions": ["1322,376", "1424,376", "1322,443", "1424,443"],
-                "centroid": "1373,410"
+                "dimensions": ["1322,376", "1424,376", "1424,443", "1322,443"],
+                "centroid": "1373,409.5"
             },
             {
                 "id": 5,
@@ -43,7 +43,7 @@
                 "name": "yes_spain",
                 "type": "imageButton",
                 "shape": "rectangle",
-                "dimensions": ["1092,457", "1320,457", "1092,497", "1320,497"],
+                "dimensions": ["1092,457", "1320,457", "1320,497", "1092,497"],
                 "centroid": "1206,477"
             },
             {
@@ -52,8 +52,8 @@
                 "name": "no_spain",
                 "type": "imageButton",
                 "shape": "rectangle",
-                "dimensions": ["1424,460", "1655,460", "1424,496", "1655,496"],
-                "centroid": "1540,478"
+                "dimensions": ["1424,460", "1655,460", "1655,496", "1424,496"],
+                "centroid": "1539.5,478"
             },
             {
                 "id": 7,
@@ -61,7 +61,7 @@
                 "name": "active_account_caption",
                 "type": "text",
                 "shape": "rectangle",
-                "dimensions": ["434,562", "660,562", "434,576", "660,576"],
+                "dimensions": ["434,562", "660,562", "660,576", "434,576"],
                 "centroid": "547,569"
             },
             {
@@ -70,8 +70,8 @@
                 "name": "active_twitter_account",
                 "type": "radioButton",
                 "shape": "rectangle",
-                "dimensions": ["513,618", "580,618", "513,649", "580,649"],
-                "centroid": "547,634"
+                "dimensions": ["513,618", "580,618", "580,649", "513,649"],
+                "centroid": "546.5,633.5"
             },
             {
                 "id": 9,
@@ -79,8 +79,8 @@
                 "name": "gender_caption",
                 "type": "text",
                 "shape": "rectangle",
-                "dimensions": ["1345,562", "1402,562", "1345,579", "1402,579"],
-                "centroid": "1374,570"
+                "dimensions": ["1345,562", "1402,562", "1402,579", "1345,579"],
+                "centroid": "1373.5,570.5"
             },
             {
                 "id": 10,
@@ -88,8 +88,8 @@
                 "name": "male",
                 "type": "radioButton",
                 "shape": "rectangle",
-                "dimensions": ["1345,618", "1402,618", "1345,649", "1402,649"],
-                "centroid": "1374,634"
+                "dimensions": ["996,618", "1101,618", "1101,664", "996,664"],
+                "centroid": "1048.5,641"
             },
             {
                 "id": 11,
@@ -97,8 +97,8 @@
                 "name": "female",
                 "type": "radioButton",
                 "shape": "rectangle",
-                "dimensions": ["1356,621", "1438,621", "1356,656", "1438,656"],
-                "centroid": "1397,639"
+                "dimensions": ["1356,621", "1438,621", "1438,656", "1356,656"],
+                "centroid": "1397,638.5"
             },
             {
                 "id": 12,
@@ -106,8 +106,8 @@
                 "name": "other",
                 "type": "radioButton",
                 "shape": "rectangle",
-                "dimensions": ["1706,618", "1744,618", "1706,655", "1744,655"],
-                "centroid": "1725,637"
+                "dimensions": ["1706,618", "1744,618", "1744,655", "1706,655"],
+                "centroid": "1725,636.5"
             },
             {
                 "id": 13,
@@ -115,8 +115,8 @@
                 "name": "preferences_caption",
                 "type": "text",
                 "shape": "rectangle",
-                "dimensions": ["499,759", "596,759", "499,776", "596,776"],
-                "centroid": "548,767"
+                "dimensions": ["499,759", "596,759", "596,776", "499,776"],
+                "centroid": "547.5,767.5"
             },
             {
                 "id": 14,
@@ -124,7 +124,7 @@
                 "name": "preference_sport",
                 "type": "checkbox",
                 "shape": "rectangle",
-                "dimensions": ["176,820", "240,820", "176,856", "240,856"],
+                "dimensions": ["176,820", "240,820", "240,856", "176,856"],
                 "centroid": "208,838"
             },
             {
@@ -133,8 +133,8 @@
                 "name": "preference_music",
                 "type": "checkbox",
                 "shape": "rectangle",
-                "dimensions": ["520,821", "577,821", "520,853", "577,853"],
-                "centroid": "549,837"
+                "dimensions": ["520,821", "577,821", "577,853", "520,853"],
+                "centroid": "548.5,837"
             },
             {
                 "id": 16,
@@ -142,7 +142,7 @@
                 "name": "preference_reading",
                 "type": "button",
                 "shape": "rectangle",
-                "dimensions": ["859,821", "917,821", "859,853", "917,853"],
+                "dimensions": ["859,821", "917,821", "917,853", "859,853"],
                 "centroid": "888,837"
             },
             {
@@ -151,8 +151,8 @@
                 "name": "submit",
                 "type": "button",
                 "shape": "rectangle",
-                "dimensions": ["1213,793", "1534,793", "1213,864", "1534,864"],
-                "centroid": "1364,829"
+                "dimensions": ["1213,793", "1534,793", "1534,864", "1213,864"],
+                "centroid": "1373.5,828.5"
             }
         ]
     }

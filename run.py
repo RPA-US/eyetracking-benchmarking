@@ -1,5 +1,5 @@
 import subprocess
-import pandas as pd
+
 
 def run_scripts():
     try:

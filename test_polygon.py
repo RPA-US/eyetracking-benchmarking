@@ -18,18 +18,67 @@ def is_point_in_any_polygon(coordX, coordY, polygons):
     return False
 
 # Ejemplo de uso
-polygons = [
-    Polygon([(472, 315), (625, 315), (472, 336), (472, 315)]),
-    Polygon([(421, 375), (670, 375), (421, 408), (670, 408)]),
 
-]
-
-coordX = 597.76
-coordY = 433.12
+coordX = 1190.0
+coordY = 479.0
 
 
+# Coordenadas como cadenas de texto
+coordinates = [
+   "1092,457", "1320,457", "1092,497", "1320,497"
+    ]
+
+# Convertir las coordenadas a tuplas de enteros
+coordinates = [tuple(map(int, coord.split(','))) for coord in coordinates]
+
+# Crear el polígono
+polygon = Polygon(coordinates)
+
+polygons = [polygon]
+
+
+print(polygon)
 
 if is_point_in_any_polygon(coordX, coordY, polygons):
     print("El punto está contenido en alguno de los polígonos.")
 else:
     print("El punto no está contenido en ninguno de los polígonos.")
+
+
+
+def polygon_contains_point(polygon,point):
+    """
+    Verifica si un punto está contenido en un polígono.
+
+    Args:
+    polygon (Polygon): Objeto Polygon.
+    point (Point): Objeto Point.
+
+    Returns:
+    bool: True si el punto está contenido en el polígono, False en caso contrario.
+    """
+    return polygon.contains(point)
+
+# Ejemplo de uso
+coordinates=["418,370", "678,370", "418,416", "678,416"]
+coordinates = [tuple(map(int, coord.split(','))) for coord in coordinates]
+print(coordinates)
+polygon2 = Polygon(coordinates)
+point3 = Point(538, 394)
+
+print (polygon2)
+print("el poligono contiene el punto?",polygon_contains_point(polygon2,point3))
+
+
+# Coordenadas del polígono (en el orden correcto)
+vertices = [(418, 370), (678, 370), (678, 416), (418, 416)]
+poligono = Polygon(vertices)
+
+# Punto que queremos verificar
+punto = Point(538, 394)
+
+# Verificar si el punto está dentro del polígono
+if poligono.contains(punto):
+    print("El punto está dentro del polígono.")
+else:
+    print("El punto está fuera del polígono.")

@@ -62,12 +62,12 @@ def calculate_metrics(df):
     # %Non-Baseline Fixations: % ["Gaze_Fixation_Baseline"] == False
     percentage_non_baseline_fixations = round(total_non_baseline_fixations / total_fixations * 100, 2) if total_fixations > 0 else 0
     # % de screenshots que contienen al menos algun GazeFixation (["category"] == "GazeFixation" / ["screenshot"].nunique())
-    screenshots_with_fixations = df[df["category"] == "GazeFixation"]["screenshot"].nunique()
+    screenshots_with_fixations = df[df["category"] == "GazeFixation"]["screenshot"].nunique()+1
     percentage_screenshots_with_fixations = round(screenshots_with_fixations / num_screenshots * 100, 2) if num_screenshots > 0 else 0
     # % de screenshots que contienen al menos algun GazeFixation Baseline (["Gaze_Fixation_Baseline"] == True / ["screenshot"].nunique())
-    percentage_screenshots_with_fixations_baseline = round(df[(df["Gaze_Fixation_Baseline"] == "True") & (df["category"] == "GazeFixation")]["screenshot"].nunique() / num_screenshots * 100, 2) if num_screenshots > 0 else 0
+    percentage_screenshots_with_fixations_baseline = round((df[(df["Gaze_Fixation_Baseline"] == "True") & (df["category"] == "GazeFixation")]["screenshot"].nunique()+1) / num_screenshots * 100, 2) if num_screenshots > 0 else 0
     # % de screenshots que contienen al menos algun GazeFixation no Baseline (["Gaze_Fixation_Baseline"] == False / ["screenshot"].nunique())
-    percentage_screenshots_with_fixations_non_baseline = round(df[(df["Gaze_Fixation_Baseline"] == "False") & (df["category"] == "GazeFixation")]["screenshot"].nunique() / num_screenshots * 100, 2) if num_screenshots > 0 else 0
+    percentage_screenshots_with_fixations_non_baseline = round((df[(df["Gaze_Fixation_Baseline"] == "False") & (df["category"] == "GazeFixation")]["screenshot"].nunique()+1) / num_screenshots * 100, 2) if num_screenshots > 0 else 0
     
     # RQ3_NOTIFICATION POPUP
     total_fixations_intersecting_pop_up = len(df[(df["Gaze_Fixation_Baseline"] == "PopUp_True") & (df["category"] == "GazeFixation")])
