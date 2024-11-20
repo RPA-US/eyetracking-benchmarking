@@ -82,3 +82,23 @@ if poligono.contains(punto):
     print("El punto está dentro del polígono.")
 else:
     print("El punto está fuera del polígono.")
+
+
+
+import json
+
+# Cargar el JSON
+with open('configuration/01_03_static_form_density_high.json', 'r') as file:
+    data = json.load(file)
+
+# Convertir las dimensiones
+for element in data['form']['elements']:
+    element['dimensions'] = [f"{int(float(coord.split(',')[0]))},{int(float(coord.split(',')[1]))}" for coord in element['dimensions']]
+
+# Convertir el centroid
+    centroid_coords = element['centroid'].split(',')
+    element['centroid'] = f"{int(float(centroid_coords[0]))},{int(float(centroid_coords[1]))}"
+
+# Guardar el JSON modificado
+with open('configuration/01_03_static_form_density_high.json', 'w') as file:
+    json.dump(data, file, indent=4)
