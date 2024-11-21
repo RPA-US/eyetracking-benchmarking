@@ -86,7 +86,7 @@ def postprocess_df(df):
     df.loc[df["category"].isin(["Keyboard", "MouseClick", "DoubleMouseClick"]), "Gaze_Fixation_Index"] = ""
     df.loc[df["category"].isin(["Keyboard", "MouseClick", "DoubleMouseClick"]), "Gaze_Fixation_Baseline"] = "BaselineComponentClick"
 
-    # Eliminar las filas que no tengan "Group" vacío
+    # Eliminar las filas que  tengan "Group" vacío
     df = df[df["Group"].notna()]
 
     if 'index' in df.columns:
@@ -126,14 +126,14 @@ def process_RQ1_RQ2_df(df, polygons, threshold):
     return postprocess_df(df)
 
 
-def execute_RQ1_RQ2(json_path):
+def execute_RQ1_RQ2(json_path,filename):
     # Cargar los polígonos de las AOIs
     polygons_json = load_polygons(json_path)
     # Calcular el umbral de distancia
     threshold = get_distance_threshold_by_resolution()
     # Procesar los archivos CSV
-    for filename in os.listdir(input_dir):
-        if filename in ['RQ1_tobii_form_density_low.csv', 'RQ1_webgazer_form_density_low.csv']:
+    for file in os.listdir(input_dir):
+        if file == filename:
             input_file_path = os.path.join(input_dir, filename)
             df = pd.read_csv(input_file_path)
             preprocessed_df = preprocess_df(df)
@@ -153,5 +153,10 @@ os.makedirs(output_dir, exist_ok=True)
 
 
 ###Ejecuciones###
-execute_RQ1_RQ2("configuration/01_01_static_form_density_low.json",)
+execute_RQ1_RQ2("configuration/01_01_static_form_density_low.json","RQ1_tobii_form_density_low.csv")
+execute_RQ1_RQ2("configuration/01_01_static_form_density_low.json","RQ1_webgazer_form_density_low.csv")
+execute_RQ1_RQ2("configuration/01_02_static_form_density_medium.json","RQ1_tobii_form_density_medium.csv")
+execute_RQ1_RQ2("configuration/01_02_static_form_density_medium.json","RQ1_webgazer_form_density_medium.csv")
+execute_RQ1_RQ2("configuration/01_03_static_form_density_high.json","RQ1_tobii_form_density_high.csv")
+execute_RQ1_RQ2("configuration/01_03_static_form_density_high.json","RQ1_webgazer_form_density_high.csv")
 
