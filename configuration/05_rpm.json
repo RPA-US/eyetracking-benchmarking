@@ -1,0 +1,112 @@
+{
+    "elements": [
+        {
+            "id": 1,
+            "group": "q1",
+            "name": "parragraph_1",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["423,226","887,226","887,318","423,318"],
+            "centroid": "370,266"
+        },
+        {
+            "id": 2,
+            "group": "q1",
+            "name": "client_1",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1351,126","1901,126","1901,185","1351,185"],
+            "centroid": "1128,266"
+        },
+        {
+            "id": 3,
+            "group": "q1",
+            "name": "service_1",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1351,207","1901,207","1901,263","1351,263"],
+            "centroid": "370,480"
+        },
+        {
+            "id": 4,
+            "group": "q1",
+            "name": "price_1",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1351,285", "1901,285","1901,340","1351,340"],
+            "centroid": "1127,480"
+        },
+        {
+            "id": 5,
+            "group": "q2",
+            "name": "parragraph_2",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["446,519","864,519","864,608","446,608"],
+            "centroid": "371,693"
+        },
+        {
+            "id": 6,
+            "group": "q2",
+            "name": "client_2",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1351,446","1901,446","1901,506","1351,506"],
+            "centroid": "1127,694"
+        },
+        {
+            "id": 7,
+            "group": "q2",
+            "name": "service_2",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1351,525","1901,525","1901,583","1351,583"],
+            "centroid": "371,905"
+        },
+        {
+            "id": 8,
+            "group": "q2",
+            "name": "price_2",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1351,603","1901,603","1901,662","1351,662"],
+            "centroid": "1127,900"
+        },
+        {
+            "id": 9,
+            "group": "q3",
+            "name": "parragraph_3",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["469,810","840,810","840,890","469,890"],
+            "centroid": "370,266"
+        },
+        {
+            "id": 10,
+            "group": "q3",
+            "name": "client_3",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1351,765","1901,765","1901,824","1351,824"],
+            "centroid": "1128,266"
+        },
+        {
+            "id": 11,
+            "group": "q3",
+            "name": "service_3",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1351,846","1901,846","1901,902","1351,902"],
+            "centroid": "370,480"
+        },
+        {
+            "id": 12,
+            "group": "q3",
+            "name": "price_3",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1351,922", "1901,922","1901,980","1351,980"],
+            "centroid": "1127,480"
+        }
+    ]
+}

@@ -1,0 +1,85 @@
+{
+    "elements": [
+        {
+            "id": 1,
+            "group": "q1",
+            "name": "question_1",
+            "type": "select",
+            "shape": "rectangle",
+            "dimensions": ["204,206","537,206","537,326","204,326"],
+            "centroid": "370,266"
+        },
+        {
+            "id": 2,
+            "group": "q2",
+            "name": "question_2",
+            "type": "select",
+            "shape": "rectangle",
+            "dimensions": ["967,206","1289,206","1289,326","967,326"],
+            "centroid": "1128,266"
+        },
+        {
+            "id": 3,
+            "group": "q3",
+            "name": "question_3",
+            "type": "select",
+            "shape": "rectangle",
+            "dimensions": ["168,421","573,421","573,540","168,540"],
+            "centroid": "370,480"
+        },
+        {
+            "id": 4,
+            "group": "q4",
+            "name": "question_4",
+            "type": "select",
+            "shape": "rectangle",
+            "dimensions": ["950,421", "1305,421","1305,540","950,540"],
+            "centroid": "1127,480"
+        },
+        {
+            "id": 5,
+            "group": "q5",
+            "name": "question_5",
+            "type": "select",
+            "shape": "rectangle",
+            "dimensions": ["256,633","487,633","487,753","256,753"],
+            "centroid": "371,693"
+        },
+        {
+            "id": 6,
+            "group": "q6",
+            "name": "question_6",
+            "type": "select",
+            "shape": "rectangle",
+            "dimensions": ["974,633","1280,634","1280,755","974,755"],
+            "centroid": "1127,694"
+        },
+        {
+            "id": 7,
+            "group": "q7",
+            "name": "question_7",
+            "type": "select",
+            "shape": "rectangle",
+            "dimensions": ["208,845","533,845","534,966","208,966"],
+            "centroid": "371,905"
+        },
+        {
+            "id": 8,
+            "group": "q8",
+            "name": "question_8",
+            "type": "select",
+            "shape": "rectangle",
+            "dimensions": ["903,845","1352,845","1352,955","903,955"],
+            "centroid": "1127,900"
+        },
+        {
+            "id": 9,
+            "group": "pop_up",
+            "name": "pop_up",
+            "type": "container",
+            "shape": "rectangle",
+            "dimensions": ["1529,922","1910,922","1910,1030","1529,1030"],
+            "centroid": "1719,976"
+        }
+    ]
+}

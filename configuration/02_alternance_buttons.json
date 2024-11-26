@@ -1,0 +1,67 @@
+{
+    "elements": [
+        {
+            "id": 1,
+            "group": "top_left",
+            "name": "circle1",
+            "type": "button",
+            "shape": "circle",
+            "dimensions": ["17,185", "90,185", "90,258", "17,258"],
+            "centroid": "54,222"
+        },
+        {
+            "id": 2,
+            "group": "top_right",
+            "name": "circle_2",
+            "type": "button",
+            "shape": "circle",
+            "dimensions": ["1828,185", "1901,185", "1901,258", "1828,258"],
+            "centroid": "1865,222"
+        },
+        {
+            "id": 3,
+            "group": "medium_left",
+            "name": "circle_3",
+            "type": "button",
+            "shape": "circle",
+            "dimensions": ["17,567", "90,567", "90,640", "17,640"],
+            "centroid": "54,604"
+        },
+        {
+            "id": 4,
+            "group": "medium_right",
+            "name": "circle_4",
+            "type": "button",
+            "shape": "circle",
+            "dimensions": ["1828,567", "1901,567", "1901,640", "1828,640"],
+            "centroid": "1865,604"
+        },
+        {
+            "id": 5,
+            "group": "center",
+            "name": "circle_5",
+            "type": "button",
+            "shape": "circle",
+            "dimensions": ["923,567", "996,567", "996,640", "923,640"],
+            "centroid": "960,604"
+        },
+        {
+            "id": 6,
+            "group": "bottom_left",
+            "name": "circle_6",
+            "type": "button",
+            "shape": "circle",
+            "dimensions": ["17,948", "90,948", "90,1021", "17,1021"],
+            "centroid": "54,985"
+        },
+        {
+            "id": 7,
+            "group": "bottom_right",
+            "name": "circle_7",
+            "type": "button",
+            "shape": "circle",
+            "dimensions": ["1828,948", "1901,948", "1901,1021", "1828,1021"],
+            "centroid": "1865,985"
+        }
+    ]
+}
