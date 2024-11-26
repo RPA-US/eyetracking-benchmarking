@@ -27,45 +27,54 @@ def calculate_metrics(df):
     # Calcular la duración de cada evento
     df["duration"] = df["time:timestamp"].diff().shift(-1).fillna(pd.Timedelta(seconds=0))
     # Calcular el tiempo total de fijaciones
-    total_duration_intersecting = df[(df["Gaze_Fixation_Baseline"] == "True") & (df["category"] == "GazeFixation")]["duration"].sum()
+    total_duration_intersecting = df[(df["Match_Fixation"] == "True") & (df["category"] == "GazeFixation")]["duration"].sum()
     # Calcular el tiempo total de no fijaciones
     total_duration_non_intersecting = total_time - total_duration_intersecting
     # Calcular la duración promedio de fijaciones que intersectan con eventos de Keyboard o MouseClick
-    avg_duration_intersecting = df[(df["Gaze_Fixation_Baseline"] == "True") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
+    avg_duration_intersecting = df[(df["Match_Fixation"] == "True") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
     avg_duration_intersecting = round(avg_duration_intersecting, 2)
     # Calcular la duración promedio de fijaciones que no intersectan con eventos de Keyboard o MouseClick
-    avg_duration_non_intersecting = df[(df["Gaze_Fixation_Baseline"] == "False") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
+    avg_duration_non_intersecting = df[(df["Match_Fixation"] == "False") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
     avg_duration_non_intersecting = round(avg_duration_non_intersecting, 2)
     
-    # Number of events of Keyboard or MouseClick taken (Number of ["Gaze_Fixation_Baseline"] == "BaselineComponentClick")
-    num_events = len(df[df["Gaze_Fixation_Baseline"] == "BaselineComponentClick"])
+    # Number of events of Keyboard or MouseClick taken (Number of ["Match_Fixation"] == "BaselineComponentClick")
+    num_events = len(df[df["Match_Fixation"] == "BaselineComponentClick"])
 
     # Total Number of Fixations (["category"] == "GazeFixation")
     total_fixations = len(df[df["category"] == "GazeFixation"])
-    # Total Number of Baseline Fixations (["Gaze_Fixation_Baseline"] == True)
+    # Total Number of Baseline Fixations (["Match_Fixation"] == True)
     total_baseline_fixations = len(pd.concat([
-        df[df["Gaze_Fixation_Baseline"] == "True"],
-        df[df["Gaze_Fixation_Baseline"] == "AOI_Name_True"]
+        df[df["Match_Fixation"] == "True"],
+        df[df["Match_Fixation"] == "AOI_Name_True"]
     ]))
-    # Total Number of non-Baseline Fixations (["Gaze_Fixation_Baseline"] == False)
-    total_non_baseline_fixations = len(df[df["Gaze_Fixation_Baseline"] == "False"])
+    # Total Number of non-Baseline Fixations (["Match_Fixation"] == False)
+    total_non_baseline_fixations = len(df[df["Match_Fixation"] == "False"])
     # Mean number of fixations captured per Keyboard or MouseClick event
     avg_fixations_per_event = round(total_fixations / num_events, 2) if num_events > 0 else 0
     # Mean number of fixations baseline captured per Keyboard or MouseClick event (Baseline Fixations)
     avg_fixations_baseline_per_event = round(total_baseline_fixations / num_events, 2) if num_events > 0 else 0
     # Mean number of fixations non-baseline captured per Keyboard or MouseClick event (Non-Baseline Fixations)
     avg_fixations_non_baseline_per_event = round(total_non_baseline_fixations / num_events, 2) if num_events > 0 else 0
-    
-    # %Baseline Fixations: % ["Gaze_Fixation_Baseline"] == True
+    # %Baseline Fixations: % ["Match_Fixation"] == True
     percentage_baseline_fixations = round(total_baseline_fixations / total_fixations * 100, 2) if total_fixations > 0 else 0
-    # %Non-Baseline Fixations: % ["Gaze_Fixation_Baseline"] == False
+    # %Non-Baseline Fixations: % ["Match_Fixation"] == False
     percentage_non_baseline_fixations = round(total_non_baseline_fixations / total_fixations * 100, 2) if total_fixations > 0 else 0
+    
+    # Calcular el porcentaje de eventos que incluyen "GazeFixation" entre filas de eventos
+    baseline_events = df[df["Match_Fixation"] == "BaselineComponentClick"]
+    count_events_with_fixations = 1 #El ultimo evento no se cuenta, ya que es un submit y no tiene fijaciones sucesivas.
+    for i in baseline_events.index:
+        if i + 1 < len(df) and df.loc[i + 1, "category"] == "GazeFixation":
+            count_events_with_fixations += 1
+    percentage_events_with_fixations = (count_events_with_fixations / len(baseline_events)) * 100 if len(baseline_events) > 0 else 0
+    percentage_events_with_fixations = round(percentage_events_with_fixations, 2)
+    
     
     num_screenshots = len(df["screenshot"].unique())
    
     
     # RQ3_NOTIFICATION POPUP
-    total_fixations_intersecting_pop_up = len(df[(df["Gaze_Fixation_Baseline"] == "PopUp_True") & (df["category"] == "GazeFixation")])
+    total_fixations_intersecting_pop_up = len(df[(df["Match_Fixation"] == "PopUp_True") & (df["category"] == "GazeFixation")])
     # Mean number of fixations that intersect with the notification popup per Keyboard or MouseClick event
     avg_fixations_intersecting_pop_up_per_event = (total_fixations_intersecting_pop_up / num_events) if num_events > 0 else 0
     if avg_fixations_intersecting_pop_up_per_event > 0:
@@ -75,15 +84,15 @@ def calculate_metrics(df):
     if percentage_fixations_intersecting_pop_up > 0:
         percentage_fixations_intersecting_pop_up = round(percentage_fixations_intersecting_pop_up, 2)
     # Total duration of fixations that intersect with the notification popup
-    total_duration_intersecting_pop_up = df[(df["Gaze_Fixation_Baseline"] == "PopUp_True") & (df["category"] == "GazeFixation")]["duration"].sum()
+    total_duration_intersecting_pop_up = df[(df["Match_Fixation"] == "PopUp_True") & (df["category"] == "GazeFixation")]["duration"].sum()
     # Mean duration of fixations that intersect with the notification popup
-    avg_duration_intersecting_pop_up = df[(df["Gaze_Fixation_Baseline"] == "PopUp_True") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
+    avg_duration_intersecting_pop_up = df[(df["Match_Fixation"] == "PopUp_True") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
     if avg_duration_intersecting_pop_up > 0:
         avg_duration_intersecting_pop_up = round(avg_duration_intersecting_pop_up, 2)
 
     # RQ4_MULTISCREEN_AOI_NAME
     # Total number of fixations that intersect with the AOI_name
-    total_fixations_intersecting_aoi = len(df[(df["Gaze_Fixation_Baseline"] == "AOI_Name_True") & (df["category"] == "GazeFixation")])
+    total_fixations_intersecting_aoi = len(df[(df["Match_Fixation"] == "AOI_Name_True") & (df["category"] == "GazeFixation")])
     avg_fixations_intersecting_aoi_per_event = (total_fixations_intersecting_aoi / num_events) if num_events > 0 else 0
     if avg_fixations_intersecting_aoi_per_event > 0:
         avg_fixations_intersecting_aoi_per_event = round(avg_fixations_intersecting_aoi_per_event, 2)
@@ -92,9 +101,9 @@ def calculate_metrics(df):
     if percentage_fixations_intersecting_aoi > 0:
         percentage_fixations_intersecting_aoi = round(percentage_fixations_intersecting_aoi, 2)
     # Total duration of fixations that intersect with the AOI_name
-    total_duration_intersecting_aoi = df[(df["Gaze_Fixation_Baseline"] == "AOI_Name_True") & (df["category"] == "GazeFixation")]["duration"].sum()
+    total_duration_intersecting_aoi = df[(df["Match_Fixation"] == "AOI_Name_True") & (df["category"] == "GazeFixation")]["duration"].sum()
     # Mean duration of fixations that intersect with the AOI_name
-    avg_duration_intersecting_aoi = df[(df["Gaze_Fixation_Baseline"] == "AOI_Name_True") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
+    avg_duration_intersecting_aoi = df[(df["Match_Fixation"] == "AOI_Name_True") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
     if avg_duration_intersecting_aoi > 0:
         avg_duration_intersecting_aoi = round(avg_duration_intersecting_aoi, 2)
     
@@ -111,6 +120,7 @@ def calculate_metrics(df):
     print(f"Mean number of fixations non-baseline captured per Keyboard or MouseClick event: {avg_fixations_non_baseline_per_event:.2f}")
     print(f"%Baseline Fixations: {percentage_baseline_fixations:.2f}%")
     print(f"%Non-Baseline Fixations: {percentage_non_baseline_fixations:.2f}%")
+    print(f"% of events with fixations: {percentage_events_with_fixations:.2f}%")
     print("\n")
     print(f"Total time of the test: {format_timedelta(total_time)}")
     print(f"Total duration of fixations that intersect with Keyboard or MouseClick events: {format_timedelta(total_duration_intersecting)}")
@@ -149,6 +159,7 @@ def calculate_metrics(df):
         "TotalDurationNonIntersecting": format_timedelta(total_duration_non_intersecting),  # "Total duration of fixations that do not intersect with Keyboard or MouseClick events"
         "AvgDurationIntersecting": format_timedelta(avg_duration_intersecting),  # "Average duration of fixations that intersect with Keyboard or MouseClick events"
         "AvgDurationNonIntersecting": format_timedelta(avg_duration_non_intersecting),  # "Average duration of fixations that do not intersect with Keyboard or MouseClick events"
+        "%EventsWithFixations": percentage_events_with_fixations,  # "%Events with at least one GazeFixation"
         "TotalFixationsIntersectingPopup": total_fixations_intersecting_pop_up,  # "Total number of fixations that intersect with the notification popup"
         "AvgFixationsIntersectingPopupPerEvent": avg_fixations_intersecting_pop_up_per_event,  # "Mean number of fixations that intersect with the notification popup per Keyboard or MouseClick event"
         "%FixationsIntersectingPopup": percentage_fixations_intersecting_pop_up,  # "Percentage of fixations that intersect with the notification popup"

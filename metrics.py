@@ -65,9 +65,9 @@ def preprocess_df(df):
     df["coordX"] = df["coordX"].round(2)
     df["coordY"] = df["coordY"].round(2)
     # Añadir la columna Gaze_Fixation_target y Gaze_Fixation_id
-    df["Gaze_Fixation_Baseline"] = False
+    df["Match_Fixation"] = False
     df["Gaze_Fixation_Index"] = 1
-    df["Gaze_Fixation_Baseline"] = df["Gaze_Fixation_Baseline"].astype(object)
+    df["Match_Fixation"] = df["Match_Fixation"].astype(object)
     df["Gaze_Fixation_Index"] = df["Gaze_Fixation_Index"].astype(object)
 
     # Encontrar el índice del último evento de MouseClick, Keyboard o DoubleMouseClick
@@ -80,11 +80,11 @@ def preprocess_df(df):
     return df
 
 def postprocess_df(df):
-    df["Gaze_Fixation_Baseline"] = df["Gaze_Fixation_Baseline"].astype(object)
+    df["Match_Fixation"] = df["Match_Fixation"].astype(object)
     df["Gaze_Fixation_Index"] = df["Gaze_Fixation_Index"].astype(object)
 
     df.loc[df["category"].isin(["Keyboard", "MouseClick", "DoubleMouseClick"]), "Gaze_Fixation_Index"] = ""
-    df.loc[df["category"].isin(["Keyboard", "MouseClick", "DoubleMouseClick"]), "Gaze_Fixation_Baseline"] = "BaselineComponentClick"
+    df.loc[df["category"].isin(["Keyboard", "MouseClick", "DoubleMouseClick"]), "Match_Fixation"] = "BaselineComponentClick"
 
     # Eliminar las filas que  tengan "Group" vacío
     df = df[df["Group"].notna()]
@@ -117,8 +117,8 @@ def process_RQ1_RQ2_df(df, polygons, threshold):
                     if group:
                         for k in range(i, j):
                             if df.loc[k, "category"] == "GazeFixation":
-                                df.at[k, "Gaze_Fixation_Baseline"] = is_gaze_fixation_baseline(df.loc[k, "coordX"], df.loc[k, "coordY"], filtered_groups, threshold)
-                                df.at[k, "Group"] = group
+                                df.at[k, "Match_Fixation"] = is_gaze_fixation_baseline(df.loc[k, "coordX"], df.loc[k, "coordY"], filtered_groups, threshold)
+                                df.at[k, "Group"] = get_polygon_group(df.loc[k, "coordX"], df.loc[k, "coordY"], polygons, threshold)
                     break
         elif df.loc[i, "category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
             fixation_index += 1
