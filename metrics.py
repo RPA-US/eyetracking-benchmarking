@@ -127,7 +127,7 @@ def process_RQ_df(df, polygons, threshold):
     return postprocess_df(df)
 
 
-def execute_RQ1_RQ2(json_path,filename):
+def execute(json_path,filename):
     # Cargar los polígonos de las AOIs
     polygons_json = load_polygons(json_path)
     # Calcular el umbral de distancia
@@ -154,10 +154,21 @@ os.makedirs(output_dir, exist_ok=True)
 
 
 ###Ejecuciones###
-execute_RQ1_RQ2("configuration/01_01_static_form_density_low.json","RQ1_tobii_form_density_low.csv")
-execute_RQ1_RQ2("configuration/01_01_static_form_density_low.json","RQ1_webgazer_form_density_low.csv")
-execute_RQ1_RQ2("configuration/01_02_static_form_density_medium.json","RQ1_tobii_form_density_medium.csv")
-execute_RQ1_RQ2("configuration/01_02_static_form_density_medium.json","RQ1_webgazer_form_density_medium.csv")
-execute_RQ1_RQ2("configuration/01_03_static_form_density_high.json","RQ1_tobii_form_density_high.csv")
-execute_RQ1_RQ2("configuration/01_03_static_form_density_high.json","RQ1_webgazer_form_density_high.csv")
+#RQ1
+execute("configuration/01_01_static_form_density_low.json","RQ1_tobii_form_density_low.csv")
+execute("configuration/01_01_static_form_density_low.json","RQ1_webgazer_form_density_low.csv")
+execute("configuration/01_02_static_form_density_medium.json","RQ1_tobii_form_density_medium.csv")
+execute("configuration/01_02_static_form_density_medium.json","RQ1_webgazer_form_density_medium.csv")
+execute("configuration/01_03_static_form_density_high.json","RQ1_tobii_form_density_high.csv")
+execute("configuration/01_03_static_form_density_high.json","RQ1_webgazer_form_density_high.csv")
+
+#RQ2
+execute("configuration/02_alternance_buttons.json","RQ2_tobii_alternance_buttons.csv")
+execute("configuration/02_alternance_buttons.json","RQ2_webgazer_alternance_buttons.csv")
+
+#RQ3
+execute("configuration/03_notification.json","RQ3_tobii_notification.csv")
+execute("configuration/03_notification.json","RQ3_webgazer_notification.csv")
+
+
 
