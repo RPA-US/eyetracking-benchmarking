@@ -11,7 +11,7 @@ def load_polygons(json_path):
     with open(json_path, 'r') as f:
         data = json.load(f)
     polygons_dict = {}
-    for element in data["form"]["elements"]:
+    for element in data["elements"]:
         group = element["group"]
         dimensions = [tuple(map(int, point.split(','))) for point in element["dimensions"]]
         if group not in polygons_dict:
@@ -31,7 +31,7 @@ def filter_polygons_by_point(coordX, coordY, polygons):
     
     
 
-def polygons_group_containing_point(coordX, coordY, polygons):
+def F(coordX, coordY, polygons):
     point = Point(coordX, coordY)
     polygons_group = set()
     for poly_list in polygons.values():
@@ -54,6 +54,7 @@ def get_polygon_group(x, y, polygons, threshold):
         for polygon in poly_list:
             if polygon.distance(point) <= threshold:
                 return group
+    return "None"        
    
 
 def preprocess_df(df):
@@ -100,7 +101,7 @@ def postprocess_df(df):
     
     return df
 
-def process_RQ1_RQ2_df(df, polygons, threshold):
+def process_RQ_df(df, polygons, threshold):
     fixation_index = 1
     for i in range(len(df)):
         if df.loc[i, "category"] == "GazeFixation":
@@ -108,7 +109,7 @@ def process_RQ1_RQ2_df(df, polygons, threshold):
             for j in range(i + 1, len(df)):
                 next_event = df.loc[j]
                 if next_event["category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
-                    filtered_groups = filter_polygons_by_point(next_event["coordX"], next_event["coordY"], polygons)
+                    filtered_groups = filter_polygons_by_point(next_event["coordX"], next_event["coordY"], polygons) #Quedarnos con el grupo donde se ha hecho el click
                     group = next(iter(filtered_groups), None)  # Obtener el primer grupo del diccionario filtrado
                     # print(f"Checking point ({next_event['coordX']}, {next_event['coordY']})")
                     # print(f"Filtered groups: {filtered_groups}")
@@ -117,8 +118,8 @@ def process_RQ1_RQ2_df(df, polygons, threshold):
                     if group:
                         for k in range(i, j):
                             if df.loc[k, "category"] == "GazeFixation":
-                                df.at[k, "Match_Fixation"] = is_gaze_fixation_baseline(df.loc[k, "coordX"], df.loc[k, "coordY"], filtered_groups, threshold)
-                                df.at[k, "Group"] = get_polygon_group(df.loc[k, "coordX"], df.loc[k, "coordY"], polygons, threshold)
+                                df.at[k, "Match_Fixation"] = is_gaze_fixation_baseline(df.loc[k, "coordX"], df.loc[k, "coordY"], filtered_groups, threshold) #Comprobar si la fijación está dentro del grupo del click
+                                df.at[k, "Group"] = get_polygon_group(df.loc[k, "coordX"], df.loc[k, "coordY"], polygons, threshold) #Asignar el grupo al que pertenece la fijación
                     break
         elif df.loc[i, "category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
             fixation_index += 1
@@ -137,14 +138,14 @@ def execute_RQ1_RQ2(json_path,filename):
             input_file_path = os.path.join(input_dir, filename)
             df = pd.read_csv(input_file_path)
             preprocessed_df = preprocess_df(df)
-            preprocessed_df = process_RQ1_RQ2_df(preprocessed_df, polygons_json, threshold)
+            preprocessed_df = process_RQ_df(preprocessed_df, polygons_json, threshold)
             output_file_path = os.path.join(output_dir, filename.replace('.csv', '_postprocessed.csv'))
             preprocessed_df.to_csv(output_file_path, index=False)
             print(f"Preprocessed DataFrame saved to {output_file_path}")
 
 
 
-# Directorios de entrada y salida. Elegir tests correspondiente al suejeto
+#DEFINIR Directorios de entrada y salida. Elegir tests correspondiente al suejeto
 input_dir = os.path.join('tests', 't1', 'preprocessed')
 output_dir = os.path.join('tests', 't1', 'postprocessed')
 
