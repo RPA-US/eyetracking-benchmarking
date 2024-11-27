@@ -62,6 +62,7 @@ def preprocess_df(df):
     # Seleccionar solo las columnas especificadas y la primera columna que indica el rowindex
     columns_to_keep = ["time:timestamp", "category", "application", "coordX", "coordY", "typed_word", "screenshot", "concept:name"]
     df = df.reset_index()[["index"] + columns_to_keep]
+    df["TotalEvents"] = len(df[df["category"].isin(["MouseClick", "DoubleMouseClick", "Keyboard"])])
     # Redondear las columnas coordX y coordY a dos decimales
     df["coordX"] = df["coordX"].round(2)
     df["coordY"] = df["coordY"].round(2)
@@ -154,7 +155,7 @@ os.makedirs(output_dir, exist_ok=True)
 
 
 ###Ejecuciones###
-#RQ1
+#RQ1 - Static UI elements - %Matching Fixations . Familiy Form Scenario (High and Low density)
 execute("configuration/01_01_static_form_density_low.json","RQ1_tobii_form_density_low.csv")
 execute("configuration/01_01_static_form_density_low.json","RQ1_webgazer_form_density_low.csv")
 execute("configuration/01_02_static_form_density_medium.json","RQ1_tobii_form_density_medium.csv")
@@ -162,13 +163,21 @@ execute("configuration/01_02_static_form_density_medium.json","RQ1_webgazer_form
 execute("configuration/01_03_static_form_density_high.json","RQ1_tobii_form_density_high.csv")
 execute("configuration/01_03_static_form_density_high.json","RQ1_webgazer_form_density_high.csv")
 
-#RQ2
+#RQ2 - Alternance UI Element - %Events captured - Buttons click Scenario
 execute("configuration/02_alternance_buttons.json","RQ2_tobii_alternance_buttons.csv")
 execute("configuration/02_alternance_buttons.json","RQ2_webgazer_alternance_buttons.csv")
 
-#RQ3
+#RQ3 - Notification - Pop-up Noise Detection - Notification Scenario
 execute("configuration/03_notification.json","RQ3_tobii_notification.csv")
 execute("configuration/03_notification.json","RQ3_webgazer_notification.csv")
+
+#RQ4 - RPM - Time Matching Intersection - RPM Scenario
+execute("configuration/05_rpm.json","RQ4_tobii_rpm.csv")
+execute("configuration/05_rpm.json","RQ4_webgazer_rpm.csv")
+
+#RQ5 - Position - %Matching Fixations - Medium Density form scenario
+execute("configuration/01_02_static_form_density_medium.json","RQ5_tobii_position.csv")
+execute("configuration/01_02_static_form_density_medium.json","RQ5_webgazer_position.csv")
 
 
 
