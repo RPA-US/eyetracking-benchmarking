@@ -56,6 +56,10 @@ def get_polygon_group(x, y, polygons, threshold):
                 return group
     return "None"        
    
+def pop_up_metrics(df):
+    # Cambiar el valor de "Match_Fixation" a "pop_up" donde "group" es "pop_up"
+    df.loc[df["Group"] == "pop_up_group", "Match_Fixation"] = "pop_up"
+    return df
 
 def preprocess_df(df):
     df = df.iloc[1:] # Eliminar la primera fila del DataFrame
@@ -140,6 +144,7 @@ def execute(json_path,filename):
             df = pd.read_csv(input_file_path)
             preprocessed_df = preprocess_df(df)
             preprocessed_df = process_RQ_df(preprocessed_df, polygons_json, threshold)
+            preprocessed_df = pop_up_metrics(preprocessed_df)
             output_file_path = os.path.join(output_dir, filename.replace('.csv', '_postprocessed.csv'))
             preprocessed_df.to_csv(output_file_path, index=False)
             print(f"Preprocessed DataFrame saved to {output_file_path}")

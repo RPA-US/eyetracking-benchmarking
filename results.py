@@ -17,6 +17,7 @@ def format_timedelta(td):
     milliseconds = int(td.microseconds / 1000)
     return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds:03}"
 
+
 def calculate_metrics(df):
     # Especificar el formato de fecha y hora
     df["time:timestamp"] = pd.to_datetime(df["time:timestamp"], format='%H:%M:%S')
@@ -38,7 +39,7 @@ def calculate_metrics(df):
     avg_duration_non_intersecting = round(avg_duration_non_intersecting, 2)
     
     # Number of events of Keyboard or MouseClick taken (Number of ["Match_Fixation"] == "MatchingComponentClick")
-    num_total_events =  df["TotalEvents"].iloc[0]
+    num_total_events =  int(df["TotalEvents"].iloc[0])
     num_events_with_fixations = len(df[df["Match_Fixation"] == "BaselineComponentClick"])
 
     # Total Number of Fixations (["category"] == "GazeFixation")
@@ -51,11 +52,11 @@ def calculate_metrics(df):
     # Total Number of non-Match Fixations (["Match_Fixation"] == False)
     total_non_match_fixations = len(df[df["Match_Fixation"] == "False"])
     # Mean number of fixations captured per Keyboard or MouseClick event
-    avg_fixations_per_event = round(total_fixations / num_events_with_fixations, 2) if num_events_with_fixations > 0 else 0
+    avg_fixations_per_event = round(total_fixations / num_total_events, 2) if num_total_events > 0 else 0
     # Mean number of fixations match captured per Keyboard or MouseClick event (Match Fixations)
-    avg_fixations_match_per_event = round(total_match_fixations / num_events_with_fixations, 2) if num_events_with_fixations > 0 else 0
+    avg_fixations_match_per_event = round(total_match_fixations / num_total_events, 2) if num_total_events > 0 else 0
     # Mean number of fixations non-match captured per Keyboard or MouseClick event (Non-Match Fixations)
-    avg_fixations_non_match_per_event = round(total_non_match_fixations / num_events_with_fixations, 2) if num_events_with_fixations > 0 else 0
+    avg_fixations_non_match_per_event = round(total_non_match_fixations / num_total_events, 2) if num_total_events > 0 else 0
     # %Match Fixations: % ["Match_Fixation"] == True
     percentage_match_fixations = round(total_match_fixations / total_fixations * 100, 2) if total_fixations > 0 else 0
     # %Non-Match Fixations: % ["Match_Fixation"] == False
@@ -68,16 +69,13 @@ def calculate_metrics(df):
         if i + 1 < len(df) and df.loc[i + 1, "category"] == "GazeFixation":
             count_events_with_fixations += 1
     percentage_events_with_fixations = (count_events_with_fixations / num_total_events) * 100 if len(baseline_events) > 0 else 0
-    percentage_events_with_fixations = round(percentage_events_with_fixations, 2)
-    
-    
-    num_screenshots = len(df["screenshot"].unique())
-   
+    percentage_events_with_fixations = round(percentage_events_with_fixations, 2)   
     
     # RQ3_NOTIFICATION POPUP
-    total_fixations_intersecting_pop_up = len(df[(df["Group"] == "pop_up") & (df["category"] == "GazeFixation")])
+
+    total_fixations_intersecting_pop_up = len(df[(df["Match_Fixation"] == "pop_up") & (df["category"] == "GazeFixation")])
     # Mean number of fixations that intersect with the notification popup per Keyboard or MouseClick event
-    avg_fixations_intersecting_pop_up_per_event = (total_fixations_intersecting_pop_up / num_events_with_fixations) if num_events_with_fixations > 0 else 0
+    avg_fixations_intersecting_pop_up_per_event = (total_fixations_intersecting_pop_up / num_total_events) if num_total_events > 0 else 0
     if avg_fixations_intersecting_pop_up_per_event > 0:
         avg_fixations_intersecting_pop_up_per_event = round(avg_fixations_intersecting_pop_up_per_event, 2)
     # Percentage of fixations that intersect with the notification popup
@@ -85,9 +83,9 @@ def calculate_metrics(df):
     if percentage_fixations_intersecting_pop_up > 0:
         percentage_fixations_intersecting_pop_up = round(percentage_fixations_intersecting_pop_up, 2)
     # Total duration of fixations that intersect with the notification popup
-    total_duration_intersecting_pop_up = df[(df["Group"] == "pop_up") & (df["category"] == "GazeFixation")]["duration"].sum()
+    total_duration_intersecting_pop_up = df[(df["Match_Fixation"] == "pop_up") & (df["category"] == "GazeFixation")]["duration"].sum()
     # Mean duration of fixations that intersect with the notification popup
-    avg_duration_intersecting_pop_up = df[(df["Group"] == "pop_up") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
+    avg_duration_intersecting_pop_up = df[(df["Match_Fixation"] == "pop_up") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
     if avg_duration_intersecting_pop_up > 0:
         avg_duration_intersecting_pop_up = round(avg_duration_intersecting_pop_up, 2)
         
@@ -111,8 +109,8 @@ def calculate_metrics(df):
     
     
     # Mostrar los resultados por consola
+    print(f"Number of total events: {num_total_events}")
     print(f"Number of events of Keyboard or MouseClick With Fixations: {num_events_with_fixations}")
-    print(f"Number of screenshots taken: {num_screenshots}")
     print("\n")
     print(f"Total Number of Fixations: {total_fixations}")
     print(f"Total Number of Matching Fixations: {total_match_fixations}")
@@ -148,9 +146,8 @@ def calculate_metrics(df):
     print("\n")
 
     results = {
-        "NumEvents": num_total_events,  # "Number of events of Keyboard or MouseClick"
-        "NumEventsWithScreenshots": num_events_with_fixations,  # "Number of events of Keyboard or MouseClick With Fixations"   
-        "NumScreenshots": num_screenshots,  # "Number of screenshots taken"
+        "Events": num_total_events,  # "Number of events of Keyboard or MouseClick"
+        "EventsIncludingFixations": num_events_with_fixations,  # "Number of events of Keyboard or MouseClick With Fixations"   
         "TotalFixations": total_fixations,  # "Total Number of Fixations"
         "TotalMatchingFixations": total_match_fixations,  # "Total Number of Matching Fixations"
         "TotalNonMatchingFixations": total_non_match_fixations,  # "Total Number of non-Matching Fixations"

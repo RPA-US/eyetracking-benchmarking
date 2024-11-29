@@ -74,8 +74,8 @@
         },
         {
             "id": 9,
-            "group": "pop_up",
-            "name": "pop_up",
+            "group": "pop_up_group",
+            "name": "pop_up_group",
             "type": "container",
             "shape": "rectangle",
             "dimensions": ["1529,922","1910,922","1910,1030","1529,1030"],
