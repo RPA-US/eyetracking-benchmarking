@@ -1,0 +1,22 @@
+{
+    "elements": [
+        {
+            "id": 1,
+            "group": "q_group",
+            "name": "questions",
+            "type": "container",
+            "shape": "rectangle",
+            "dimensions": ["25,160","1380,160","1380,1008","25,1008"],
+            "centroid": "370,266"
+        },
+        {
+            "id": 2,
+            "group": "pop_up_group",
+            "name": "pop_up_group",
+            "type": "container",
+            "shape": "rectangle",
+            "dimensions": ["1529,922","1910,922","1910,1030","1529,1030"],
+            "centroid": "1719,976"
+        }
+    ]
+}

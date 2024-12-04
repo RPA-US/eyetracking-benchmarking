@@ -173,8 +173,12 @@ execute("configuration/02_alternance_buttons.json","RQ2_tobii_alternance_buttons
 execute("configuration/02_alternance_buttons.json","RQ2_webgazer_alternance_buttons.csv")
 
 #RQ3 - Notification - Pop-up Noise Detection - Notification Scenario
-execute("configuration/03_notification.json","RQ3_tobii_notification.csv")
-execute("configuration/03_notification.json","RQ3_webgazer_notification.csv")
+#Only questions
+#execute("configuration/03_notification.json","RQ3_tobii_notification.csv")
+#execute("configuration/03_notification.json","RQ3_webgazer_notification.csv")
+#All container
+execute("configuration/03_02_notification_all.json","RQ3_tobii_notification.csv")
+execute("configuration/03_02_notification_all.json","RQ3_webgazer_notification.csv")
 
 #RQ4 - RPM - Time Matching Intersection - RPM Scenario
 execute("configuration/05_rpm.json","RQ4_tobii_rpm.csv")
