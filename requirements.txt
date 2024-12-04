@@ -1,2 +1,2 @@
-pandas
-shapely
+pandas == 2.2.3
+shapely == 2.0.6
