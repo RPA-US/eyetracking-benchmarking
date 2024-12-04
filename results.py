@@ -18,6 +18,22 @@ def format_timedelta(td):
     return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds:03}"
 
 
+def update_match_fixation_based_on_seconds(df):
+   
+    df["time:timestamp"] = df["time:timestamp"].astype(str)
+    # Filtrar las filas donde Match_Fixation es "Pop_Up"
+    pop_up_rows = df[df["Match_Fixation"] == "Pop_Up"]
+    
+    # Extraer el segundo de la columna time:timestamp
+    pop_up_rows["second"] = pop_up_rows["time:timestamp"].str.split(':').str[2].astype(int)
+    
+    # Actualizar el valor de Match_Fixation en función del segundo
+    df.loc[(df["Match_Fixation"] == "Pop_Up") & (pop_up_rows["second"].isin([0,1,2,3,4,10,11,12,13,14,20,21,22,23,24,30,31,32,33,34,40,41,42,43,44,50,51,52,53,54])), "Match_Fixation"] = "Pop_Up"
+    df.loc[(df["Match_Fixation"] == "Pop_Up") & (pop_up_rows["second"].isin([5,6,7,8,9,15,16,17,18,19,25,26,27,28,29,35,36,37,38,39,45,46,47,48,49,55,56,57,58,59])), "Match_Fixation"] = "False"
+    
+    return df
+
+
 def calculate_metrics(df):
     # Especificar el formato de fecha y hora
     df["time:timestamp"] = pd.to_datetime(df["time:timestamp"], format='%H:%M:%S')
@@ -27,6 +43,8 @@ def calculate_metrics(df):
     total_time = df["time:timestamp"].max() - df["time:timestamp"].min()
     # Calcular la duración de cada evento
     df["duration"] = df["time:timestamp"].diff().shift(-1).fillna(pd.Timedelta(seconds=0))
+    #Actualizar el valor de "Match_Fixation" en función de los segundos. Aplicable solo para el escenario de notifications
+    df= update_match_fixation_based_on_seconds(df)
     # Calcular el tiempo total de fijaciones
     total_duration_intersecting = df[(df["Match_Fixation"] == "True") & (df["category"] == "GazeFixation")]["duration"].sum()
     # Calcular el tiempo total de no fijaciones
@@ -73,7 +91,7 @@ def calculate_metrics(df):
     
     # RQ3_NOTIFICATION POPUP
 
-    total_fixations_intersecting_pop_up = len(df[(df["Match_Fixation"] == "pop_up") & (df["category"] == "GazeFixation")])
+    total_fixations_intersecting_pop_up = len(df[(df["Match_Fixation"] == "Pop_Up") & (df["category"] == "GazeFixation")])
     # Mean number of fixations that intersect with the notification popup per Keyboard or MouseClick event
     avg_fixations_intersecting_pop_up_per_event = (total_fixations_intersecting_pop_up / num_total_events) if num_total_events > 0 else 0
     if avg_fixations_intersecting_pop_up_per_event > 0:
@@ -83,9 +101,9 @@ def calculate_metrics(df):
     if percentage_fixations_intersecting_pop_up > 0:
         percentage_fixations_intersecting_pop_up = round(percentage_fixations_intersecting_pop_up, 2)
     # Total duration of fixations that intersect with the notification popup
-    total_duration_intersecting_pop_up = df[(df["Match_Fixation"] == "pop_up") & (df["category"] == "GazeFixation")]["duration"].sum()
+    total_duration_intersecting_pop_up = df[(df["Match_Fixation"] == "Pop_Up") & (df["category"] == "GazeFixation")]["duration"].sum()
     # Mean duration of fixations that intersect with the notification popup
-    avg_duration_intersecting_pop_up = df[(df["Match_Fixation"] == "pop_up") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
+    avg_duration_intersecting_pop_up = df[(df["Match_Fixation"] == "Pop_Up") & (df["category"] == "GazeFixation")]["duration"].mean().total_seconds()
     if avg_duration_intersecting_pop_up > 0:
         avg_duration_intersecting_pop_up = round(avg_duration_intersecting_pop_up, 2)
         

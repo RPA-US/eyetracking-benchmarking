@@ -57,8 +57,8 @@ def get_polygon_group(x, y, polygons, threshold):
     return "None"        
    
 def pop_up_metrics(df):
-    # Cambiar el valor de "Match_Fixation" a "pop_up" donde "group" es "pop_up"
-    df.loc[df["Group"] == "pop_up_group", "Match_Fixation"] = "pop_up"
+    # Cambiar el valor de "Match_Fixation" a "Pop_Up" donde "group" es "Pop_Up"
+    df.loc[df["Group"] == "pop_up_group", "Match_Fixation"] = "Pop_Up"
     return df
 
 def preprocess_df(df):
