@@ -1,32 +1,70 @@
 # eyetracking-benchmarking
 Analyzing experimental data comparing the performance of professional eyetrackers and webcam-based eyetrackers.
 
+## Authors
+Publication Name: WIP
+Journal: WIP
+DOI: WIP
 
-The data is located in the media folder
+- [Manuel García-Romero](https://scholar.google.com/citations?hl=es&user=eu0urvcAAAAJ)
+- [Antonio Martínez-Rojas](https://scholar.google.com/citations?user=qhMxtwMAAAAJ&hl=es&oi=ao)
+- [Andrés Jiménez Ramírez](https://scholar.google.com/citations?user=qxRi-4gAAAAJ&hl=es&oi=ao)
+- [José González Enríquez](https://scholar.google.com/citations?user=uMfdKyEAAAAJ&hl=es&oi=ao)
 
+The data is located in the tests folder after the execution is done.
 
+To execute this, you can create a virtual environment:
 
-Crea un entorno virtual en la carpeta actual
+Create a virtual environment in the current folder:
 
-    python -m venv .venv
-    ```
-3. Activa el entorno virtual:
-    - En Windows:
+```bash
+python -m venv .venv
+```
+
+3. Activate the virtual environment:
+    - On Windows:
         
 ```bash
-        .venv\Scripts\activate
-        ```
-    - En macOS/Linux:
+.venv\Scripts\activate
+```
+    - On macOS/Linux:
         
 ```bash
-        source .venv/bin/activate
-        ```
+source .venv/bin/activate
+```
 
-4. Asegúrate de que el entorno virtual esté activado. Deberías ver el nombre del entorno virtual en el prompt de la terminal.
+4. Make sure the virtual environment is activated. You should see the name of the virtual environment in the terminal prompt.
 
-5. Selecciona el intérprete de Python del entorno virtual en Visual Studio Code:
-    - Abre la paleta de comandos y ejecuta el comando **Python: Select Interpreter**.
-    
+5. Select the Python interpreter of the virtual environment in Visual Studio Code:
+    - Open the command palette and run the command **Python: Select Interpreter**.
 
+Run the following command to install the required packages:
 
-Ejecutar pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
+
+## Running the Project
+
+To run the project, execute the `run.py` script:
+
+```bash
+python run.py
+```
+
+## Project Structure
+
+- `configuration/`: Contains JSON configuration files for determined scenarios.
+- `metrics.py`: Contains functions for processing and analyzing metrics.
+- `results.py`: Handles the results of the analysis.
+- `run.py`: Main script to execute the project.
+- `settings.py`: Configuration settings for the project.
+- `tests/`: Contains test data and the results of the execution.
+
+## License
+
+This research was supported by the EQUAVEL project PID2022-137646OB-C31, funded
+by MICIU/AEI/10.13039/501100011033 and by FEDER, UE; the DISCOVERY project
+(2021/C005/00148631), funded by Unión Europea NextGeneration EU and “Plan de Recuperación,
+Transformación y Resiliencia” of the Ministry of Economic and Digital Transformation; and the
+grant FPU20/05984 funded by MICIU/AEI/10.13039/501100011033 and by FSE+.
