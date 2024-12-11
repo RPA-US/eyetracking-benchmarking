@@ -1,0 +1,143 @@
+{
+    "elements": [
+        {
+            "id": 1,
+            "group": "name",
+            "name": "name_caption",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["1135,345", "1267,345", "1267,363", "1135,363"],
+            "centroid": "54,222"
+        },
+        {
+            "id": 2,
+            "group": "name",
+            "name": "name",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1135,397", "1430,397", "1430,425", "1135,425"],
+            "centroid": "1865,222"
+        },
+        {
+            "id": 3,
+            "group": "position",
+            "name": "position_caption",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["1135,496", "1198,496", "1198,513", "1135,513"],
+            "centroid": "54,604"
+        },
+        {
+            "id": 4,
+            "group": "position",
+            "name": "position",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1135,551", "1429,551", "1429,575", "1135,575"],
+            "centroid": "1865,604"
+        },
+        {
+            "id": 5,
+            "group": "email",
+            "name": "email_caption",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["1135,645", "1178,645", "1178,664", "1135,664"],
+            "centroid": "960,604"
+        },
+        {
+            "id": 6,
+            "group": "email",
+            "name": "email",
+            "type": "text_input",
+            "shape": "rectangle",
+            "dimensions": ["1135,700", "1431,700", "1431,727", "1135,727"],
+            "centroid": "54,985"
+        },
+        {
+            "id": 7,
+            "group": "car_need",
+            "name": "car_need_caption",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["1135,795", "1356,795", "1356,815", "1135,815"],
+            "centroid": "1865,985"
+        },
+        {
+            "id": 8,
+            "group": "car_need",
+            "name": "car_need_yes",
+            "type": "radio",
+            "shape": "rectangle",
+            "dimensions": ["1135,842", "1185,842", "1185,864", "1135,864"],
+            "centroid": "960,985"
+        },
+        {
+            "id": 9,
+            "group": "car_need",
+            "name": "car_need_no",
+            "type": "radio",
+            "shape": "rectangle",
+            "dimensions": ["1135,881", "1185,881", "1185,904", "1135,904"],
+            "centroid": "960,1057"
+        },
+        {
+            "id": 10,
+            "group": "submit",
+            "name": "submit",
+            "type": "button",
+            "shape": "rectangle",
+            "dimensions": ["1111,985", "1201,985", "1201,1022", "1111,1022"],
+            "centroid": "960,1130"
+        },
+        {
+            "id": 11,
+            "group": "excel",
+            "name": "excel_info",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["655,802", "876,802", "876,821", "655,821"],
+            "centroid": "1865,985"
+        },
+        {
+            "id": 12,
+            "group": "excel",
+            "test_object": "fullname_excel",
+            "name": "fullname_excel",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["655,848", "702,848", "702,872", "655,872"],
+            "centroid": "960,985"
+        },
+        {
+            "id": 13,
+            "group": "excel",
+            "test_object": "position_excel",
+            "name": "position_excel",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["655,888", "712,888", "712,913", "655,913"],
+            "centroid": "960,1057"
+        },
+        {
+            "id": 14,
+            "group": "excel",
+            "test_object": "email_excel",
+            "name": "email_excel",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["655,888", "712,888", "712,913", "655,913"],
+            "centroid": "960,1057"
+        },
+        {
+            "id": 15,
+            "group": "excel",
+            "test_object": "car_need_excel",
+            "name": "car_need_excel",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["655,888", "712,888", "712,913", "655,913"],
+            "centroid": "960,1057"
+        }
+    ]
+}
