@@ -91,53 +91,53 @@
             "centroid": "960,1130"
         },
         {
+            "id": 12,
+            "group": "name",
+            "test_object": "fullname_excel",
+            "name": "fullname_excel",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["27,258", "937,258", "937,310", "27,310"],
+            "centroid": "960,985"
+        },
+        {
+            "id": 13,
+            "group": "position",
+            "test_object": "excel_position",
+            "name": "excel_position",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["27,657", "937,657", "937,676", "27,676"],
+            "centroid": "960,1057"
+        },
+        {
+            "id": 14,
+            "group": "email",
+            "test_object": "excel_email",
+            "name": "excel_email",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["27,500", "937,500", "937,520", "27,520"],
+            "centroid": "960,1057"
+        },
+        {
+            "id": 15,
+            "group": "car_need",
+            "test_object": "excel_car_need",
+            "name": "excel_car_need",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["27,967", "937,967", "937,983", "27,983"],
+            "centroid": "960,1057"
+        },
+        {
             "id": 11,
             "group": "excel",
             "name": "excel_info",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["655,802", "876,802", "876,821", "655,821"],
+            "dimensions": ["27,258", "937,258", "937,989", "27,989"],
             "centroid": "1865,985"
-        },
-        {
-            "id": 12,
-            "group": "excel",
-            "test_object": "fullname_excel",
-            "name": "fullname_excel",
-            "type": "text",
-            "shape": "rectangle",
-            "dimensions": ["655,848", "702,848", "702,872", "655,872"],
-            "centroid": "960,985"
-        },
-        {
-            "id": 13,
-            "group": "excel",
-            "test_object": "position_excel",
-            "name": "position_excel",
-            "type": "text",
-            "shape": "rectangle",
-            "dimensions": ["655,888", "712,888", "712,913", "655,913"],
-            "centroid": "960,1057"
-        },
-        {
-            "id": 14,
-            "group": "excel",
-            "test_object": "email_excel",
-            "name": "email_excel",
-            "type": "text",
-            "shape": "rectangle",
-            "dimensions": ["655,888", "712,888", "712,913", "655,913"],
-            "centroid": "960,1057"
-        },
-        {
-            "id": 15,
-            "group": "excel",
-            "test_object": "car_need_excel",
-            "name": "car_need_excel",
-            "type": "text",
-            "shape": "rectangle",
-            "dimensions": ["655,888", "712,888", "712,913", "655,913"],
-            "centroid": "960,1057"
         }
     ]
 }

@@ -28,8 +28,6 @@ def filter_polygons_by_point(coordX, coordY, polygons):
                 filtered_polygons[group] = poly_list
                 break  # Salir del bucle interno si se encuentra un polígono que contiene el punto
     return filtered_polygons
-    
-    
 
 def get_polygon_group_by_containing_point(coordX, coordY, polygons):
     point = Point(coordX, coordY)
@@ -56,10 +54,6 @@ def get_polygon_group_by_threshold(x, y, polygons, threshold):
                 return group
     return "None"        
    
-def pop_up_metrics(df):
-    # Cambiar el valor de "Match_Fixation" a "Pop_Up" donde "group" es "Pop_Up"
-    df.loc[df["Group"] == "pop_up_group", "Match_Fixation"] = "Pop_Up"
-    return df
 
 def preprocess_df(df):
     df = df.iloc[1:] # Eliminar la primera fila del DataFrame
@@ -92,8 +86,8 @@ def postprocess_df(df):
     df.loc[df["category"].isin(["Keyboard", "MouseClick", "DoubleMouseClick"]), "Gaze_Fixation_Index"] = ""
     df.loc[df["category"].isin(["Keyboard", "MouseClick", "DoubleMouseClick"]), "Match_Fixation"] = "BaselineComponentClick"
 
-    # Eliminar las filas que  tengan "Group" vacío
-    df = df[df["Group"].notna()]
+    #Eliminar las filas que  tengan "Group" vacío
+    # df = df[df["Group"].notna()]
 
     if 'index' in df.columns:
         df = df.drop(columns=["index"])
@@ -119,12 +113,19 @@ def process_RQ_df(df, polygons, threshold):
                     # print(f"Checking point ({next_event['coordX']}, {next_event['coordY']})")
                     # print(f"Filtered groups: {filtered_groups}")
                     df.at[j, "Group"] = group
+        
                     # print(f"Assigned group: {group}")
                     if group:
                         for k in range(i, j):
                             if df.loc[k, "category"] == "GazeFixation":
                                 df.at[k, "Match_Fixation"] = is_gaze_fixation_baseline(df.loc[k, "coordX"], df.loc[k, "coordY"], filtered_groups, threshold) #Comprobar si la fijación está dentro del grupo del click
                                 df.at[k, "Group"] = get_polygon_group_by_threshold(df.loc[k, "coordX"], df.loc[k, "coordY"], polygons, threshold) #Asignar el grupo al que pertenece la fijación
+                                if df.loc[k, "Group"] == df.loc[j, "Group"]:
+                                    df.at[k, "Target Object"] = "Test Object"
+                                    df.at[j, "Target Object"] = "True"
+                                else:
+                                    df.at[j, "Target Object"] = "False"
+
                     break
         elif df.loc[i, "category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
             fixation_index += 1
@@ -144,7 +145,6 @@ def execute(json_path,filename):
             df = pd.read_csv(input_file_path)
             preprocessed_df = preprocess_df(df)
             preprocessed_df = process_RQ_df(preprocessed_df, polygons_json, threshold)
-            preprocessed_df = pop_up_metrics(preprocessed_df)
             output_file_path = os.path.join(output_dir, filename.replace('.csv', '_postprocessed.csv'))
             preprocessed_df.to_csv(output_file_path, index=False)
             print(f"Preprocessed DataFrame saved to {output_file_path}")
@@ -173,11 +173,13 @@ execute("configuration/02_alternance_buttons.json","RQ2_tobii_alternance_buttons
 execute("configuration/02_alternance_buttons.json","RQ2_webgazer_alternance_buttons.csv")
 
 #RQ3 - Position - %Matching Fixations - Medium Density form scenario
-execute("configuration/03_position.json","RQ3_tobii_position.csv")
-execute("configuration/03_position.json","RQ3_webgazer_position.csv")
+execute("configuration/03_position.json","RQ3_tobii_position_far.csv")
+execute("configuration/03_position.json","RQ3_webgazer_position_far.csv")
+execute("configuration/03_position.json","RQ3_tobii_position_correct.csv")
+execute("configuration/03_position.json","RQ3_webgazer_position_correct.csv")
 #RQ4 - RPM - Time Matching Intersection - RPM Scenario
-execute("configuration/05_rpm.json","RQ4_tobii_rpm.csv")
-execute("configuration/05_rpm.json","RQ4_webgazer_rpm.csv")
+execute("configuration/04_rpm.json","RQ4_tobii_rpm.csv")
+execute("configuration/04_rpm.json","RQ4_webgazer_rpm.csv")
 
 
 #RQX (DISCARDED) - Notification - Pop-up Noise Detection - Notification Scenario

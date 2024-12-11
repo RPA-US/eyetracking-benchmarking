@@ -12,7 +12,7 @@
         {
             "id": 2,
             "group": "name",
-            "name": "name",
+            "name": "name_input",
             "type": "text_input",
             "shape": "rectangle",
             "dimensions": ["655,404", "954,404", "954,434", "655,434"],
@@ -30,7 +30,7 @@
         {
             "id": 4,
             "group": "position",
-            "name": "position",
+            "name": "position_input",
             "type": "text_input",
             "shape": "rectangle",
             "dimensions": ["655,556", "951,556", "951,584", "655,584"],
@@ -48,7 +48,7 @@
         {
             "id": 6,
             "group": "email",
-            "name": "email",
+            "name": "email_input",
             "type": "text_input",
             "shape": "rectangle",
             "dimensions": ["655,706", "951,706", "951,734", "655,706"],
