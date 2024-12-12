@@ -18,27 +18,27 @@ def format_timedelta(td):
     return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds:03}"
 
 def count_consecutive_baseline_clicks(df):
-    # Filtrar las filas donde Match_Fixation es BaselineComponentClick
-    baseline_clicks = df[df["Match_Fixation"] == "BaselineComponentClick"]
+    # Filtrar las filas donde Match_Fixation es 'BaselineComponentClick'
+    baseline_df = df[df['Match_Fixation'] == 'BaselineComponentClick']
     
-    # Inicializar contadores
-    consecutive_count = 0
-    num_consecutive_sequences = 0
+    # Variable para contar las ocurrencias
+    count = 0
     
-    # Iterar sobre las filas filtradas
-    for i in range(1, len(baseline_clicks)):
-        if baseline_clicks.index[i] == baseline_clicks.index[i - 1] + 1:
-            consecutive_count += 1
-        else:
-            if consecutive_count >= 1:
-                num_consecutive_sequences += consecutive_count
-            consecutive_count = 0
+    # Iterar sobre las filas del DataFrame filtrado
+    for i in range(1, len(baseline_df)):
+        # Comprobar si las filas son consecutivas en el índice
+        if baseline_df.iloc[i-1]['index'] + 1 == baseline_df.iloc[i]['index']:
+            prev_index = baseline_df.iloc[i-1]['index']
+            next_index = baseline_df.iloc[i]['index']
+            
+            # Comprobar si no hay una fila 'GazeFixation' entre las dos
+            intermediate_rows = df[(df['index'] > prev_index) & (df['index'] < next_index) & (df['category'] == 'GazeFixation')]
+            
+            # Si no hay filas 'GazeFixation' intermedias, incrementar el contador
+            if intermediate_rows.empty:
+                count += 1
     
-    # Contar la última secuencia si es válida
-    if consecutive_count >= 1:
-        num_consecutive_sequences += consecutive_count
-    
-    return num_consecutive_sequences
+    return count
 
 def calculate_metrics(df):
     # Especificar el formato de fecha y hora
