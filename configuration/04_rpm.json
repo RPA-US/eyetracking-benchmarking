@@ -91,18 +91,18 @@
             "centroid": "960,1130"
         },
         {
-            "id": 12,
-            "group": "name",
-            "test_object": "fullname_excel",
-            "name": "fullname_excel",
+            "id": 11,
+            "group": "excel_name",
+            "test_object": "excel_name",
+            "name": "excel_name",
             "type": "text",
             "shape": "rectangle",
             "dimensions": ["27,258", "937,258", "937,310", "27,310"],
             "centroid": "960,985"
         },
         {
-            "id": 13,
-            "group": "position",
+            "id": 12,
+            "group": "excel_position",
             "test_object": "excel_position",
             "name": "excel_position",
             "type": "text",
@@ -111,8 +111,8 @@
             "centroid": "960,1057"
         },
         {
-            "id": 14,
-            "group": "email",
+            "id": 13,
+            "group": "excel_email",
             "test_object": "excel_email",
             "name": "excel_email",
             "type": "text",
@@ -121,8 +121,8 @@
             "centroid": "960,1057"
         },
         {
-            "id": 15,
-            "group": "car_need",
+            "id": 14,
+            "group": "excel_car_need",
             "test_object": "excel_car_need",
             "name": "excel_car_need",
             "type": "text",
@@ -131,12 +131,30 @@
             "centroid": "960,1057"
         },
         {
-            "id": 11,
-            "group": "excel",
-            "name": "excel_info",
+            "id": 15,
+            "group" :"excel_up",
+            "name": "excel_up",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["27,258", "937,258", "937,989", "27,989"],
+            "dimensions": ["27,348", "937,348", "937,462", "27,462"],
+            "centroid": "1865,985"
+        },
+        {
+            "id": 16,
+            "group": "excel_middle",
+            "name": "excel_middle",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["27,555", "937,555", "937,621", "27,621"],
+            "centroid": "1865,985"
+        },
+        {
+            "id": 17,
+            "group": "excel_down",
+            "name": "excel_down",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["27,711", "937,711", "937,930", "27,930"],
             "centroid": "1865,985"
         }
     ]

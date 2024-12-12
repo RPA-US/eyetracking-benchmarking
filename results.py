@@ -17,6 +17,29 @@ def format_timedelta(td):
     milliseconds = int(td.microseconds / 1000)
     return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds:03}"
 
+def count_consecutive_baseline_clicks(df):
+    # Filtrar las filas donde Match_Fixation es BaselineComponentClick
+    baseline_clicks = df[df["Match_Fixation"] == "BaselineComponentClick"]
+    
+    # Inicializar contadores
+    consecutive_count = 0
+    num_consecutive_sequences = 0
+    
+    # Iterar sobre las filas filtradas
+    for i in range(1, len(baseline_clicks)):
+        if baseline_clicks.index[i] == baseline_clicks.index[i - 1] + 1:
+            consecutive_count += 1
+        else:
+            if consecutive_count >= 1:
+                num_consecutive_sequences += consecutive_count
+            consecutive_count = 0
+    
+    # Contar la última secuencia si es válida
+    if consecutive_count >= 1:
+        num_consecutive_sequences += consecutive_count
+    
+    return num_consecutive_sequences
+
 def calculate_metrics(df):
     # Especificar el formato de fecha y hora
     df["time:timestamp"] = pd.to_datetime(df["time:timestamp"], format='%H:%M:%S')
@@ -40,7 +63,9 @@ def calculate_metrics(df):
     
     # Number of events of Keyboard or MouseClick taken (Number of ["Match_Fixation"] == "MatchingComponentClick")
     num_total_events =  int(df["TotalEvents"].iloc[0])
-    num_events_with_fixations = len(df[df["Match_Fixation"] == "BaselineComponentClick"])
+    
+    #Quiero calcular el numero de veces que en hay dos filas o más consecutivas con Match_Fixation BaselineCompomentClick en el df
+    num_events_without_fixations = count_consecutive_baseline_clicks(df)
 
     # Total Number of Fixations (["category"] == "GazeFixation")
     total_fixations = len(df[df["category"] == "GazeFixation"])
@@ -60,40 +85,56 @@ def calculate_metrics(df):
     percentage_non_match_fixations = round(total_non_match_fixations / total_fixations * 100, 2) if total_fixations > 0 else 0
     
     # Calcular el porcentaje de eventos que incluyen "GazeFixation" entre filas de eventos
-    baseline_events = df[df["Match_Fixation"] == "BaselineComponentClick"]
-    count_events_with_fixations = 1 #El ultimo evento no se cuenta, ya que es un submit y no tiene fijaciones sucesivas.
-    for i in baseline_events.index:
-        if i + 1 < len(df) and df.loc[i + 1, "category"] == "GazeFixation":
-            count_events_with_fixations += 1
-    percentage_events_with_fixations = (count_events_with_fixations / num_total_events) * 100 if len(baseline_events) > 0 else 0
-    percentage_events_with_fixations = round(percentage_events_with_fixations, 2)   
+    count_events_with_fixations = num_total_events - num_events_without_fixations
+    percentage_events_with_fixations = (count_events_with_fixations / num_total_events) * 100 if num_total_events > 0 else 0
+    percentage_events_with_fixations = round(percentage_events_with_fixations, 2)
     
+    
+    #RQ4
+    #TEST OBJECT y RelevantFixations   
+    if "Relevant_Fixation" in df.columns:
+        # Filtrar las filas donde Relevant_Fixation es "True" o "False"
+        print(df.head())
+        # Contar el número de filas con "True" en la columna "Relevant_Fixation"
+        true_count = (df["Relevant_Fixation"] == "True").sum()
+        # Contar el número de filas con "False" en la columna "Relevant_Fixation"
+        false_count = (df["Relevant_Fixation"] == "False").sum()
+        # Mostrar los resultados
+        print(f"Número de filas con 'True': {true_count}")
+        print(f"Número de filas con 'False': {false_count}")
+        
+        total_relevant_fixations = len(df[df["Relevant_Fixation"].isin(["True", "False"])])
+        total_relevant_fixations_true = len(df[df["Relevant_Fixation"] == "True"])
+        total_relevant_fixations_false = len(df[df["Relevant_Fixation"] == "False"])
+    
+        # Porcentaje de Relevant Fixations que son True
+        percentage_relevant_fixations = round(total_relevant_fixations_true / total_relevant_fixations * 100, 2) if total_relevant_fixations > 0 else 0
+    else:
+        total_relevant_fixations = 0
+        total_relevant_fixations_true = 0
+        total_relevant_fixations_false = 0
+        percentage_relevant_fixations = 0
+    
+    if all(col in df.columns for col in ["Target_Object", "Match_Fixation"]):
+        # Filtrar las filas donde Target_Object es "True", "False" o "NA" y Match_Fixation es "BaselineComponentClick"
+        events_with_target_object = len(df[(df["Target_Object"].isin(["True", "False", "NA"])) & (df["Match_Fixation"] == "BaselineComponentClick")])
+    
+        # Filtrar las filas donde Target_Object es "True" y Match_Fixation es "BaselineComponentClick"
+        all_events_with_target_object_true = len(df[(df["Target_Object"] == "True") & (df["Match_Fixation"] == "BaselineComponentClick")])
+    
+        # Porcentaje de eventos con Test Object True
+        percentage_events_with_target_object_true = (all_events_with_target_object_true / events_with_target_object) * 100 if events_with_target_object > 0 else 0
+    else:
+        events_with_target_object = 0
+        all_events_with_target_object_true = 0
+        percentage_events_with_target_object_true = 0
+
         
     
-    # Mostrar los resultados por consola
-    print(f"Number of total events: {num_total_events}")
-    print(f"Number of events of Keyboard or MouseClick With Fixations: {num_events_with_fixations}")
-    print("\n")
-    print(f"Total Number of Fixations: {total_fixations}")
-    print(f"Total Number of Matching Fixations: {total_match_fixations}")
-    print(f"Total Number of non-Matching Fixations: {total_non_match_fixations}")
-    print(f"Mean number of fixations captured per Keyboard or MouseClick event: {avg_fixations_per_event:.2f}")
-    print(f"Mean number of fixations match captured per Keyboard or MouseClick event: {avg_fixations_match_per_event:.2f}")
-    print(f"Mean number of fixations non-match captured per Keyboard or MouseClick event: {avg_fixations_non_match_per_event:.2f}")
-    print(f"%Matching Fixations: {percentage_match_fixations:.2f}%")
-    print(f"%Non-Matching Fixations: {percentage_non_match_fixations:.2f}%")
-    print(f"% of events with fixations: {percentage_events_with_fixations:.2f}%")
-    print("\n")
-    print(f"Total time of the test: {format_timedelta(total_time)}")
-    print(f"Total duration of fixations that intersect with Keyboard or MouseClick events: {format_timedelta(total_duration_intersecting)}")
-    print(f"Total duration of fixations that do not intersect with Keyboard or MouseClick events: {format_timedelta(total_duration_non_intersecting)}")
-    print(f"Average duration of fixations that intersect with Keyboard or MouseClick events: {format_timedelta(avg_duration_intersecting)}")
-    print(f"Average duration of fixations that do not intersect with Keyboard or MouseClick events: {format_timedelta(avg_duration_non_intersecting)}")
-    print("\n")
-
+    #RESULTADOS FINALES
     results = {
         "Events": num_total_events,  # "Number of events of Keyboard or MouseClick"
-        "EventsIncludingFixations": num_events_with_fixations,  # "Number of events of Keyboard or MouseClick With Fixations"   
+        "EventsIncludingFixations": count_events_with_fixations,  # "Number of events of Keyboard or MouseClick With Fixations"   
         "TotalFixations": total_fixations,  # "Total Number of Fixations"
         "TotalMatchingFixations": total_match_fixations,  # "Total Number of Matching Fixations"
         "TotalNonMatchingFixations": total_non_match_fixations,  # "Total Number of non-Matching Fixations"
@@ -106,7 +147,45 @@ def calculate_metrics(df):
         "AvgDurationIntersecting": format_timedelta(avg_duration_intersecting),  # "Average duration of fixations that intersect with Keyboard or MouseClick events"
         "AvgDurationNonIntersecting": format_timedelta(avg_duration_non_intersecting),  # "Average duration of fixations that do not intersect with Keyboard or MouseClick events"
         "%EventsWithFixations": percentage_events_with_fixations,  # "%Events with at least one GazeFixation"
+        "EventsWithTestObject": events_with_target_object,  # "Total Number of events with Test Object"
+        "AllEventsWithTestObjectTrue": all_events_with_target_object_true,  # "Number of events with Test Object equals True"
+        "PercentageEventsWithTestObjectTrue": percentage_events_with_target_object_true,  # "% of events with Test Object equals True"
+        "TotalRelevantFixations": total_relevant_fixations,  # "Total Number of Relevant Fixations"
+        "TotalRelevantFixationsTrue": total_relevant_fixations_true,  # "Total Number of Relevant Fixations equals True"
+        "TotalRelevantFixationsFalse": total_relevant_fixations_false,  # "Total Number of Relevant Fixations equals False"
+        "%RelevantFixations": percentage_relevant_fixations  # "% of Relevant Fixations equals True"
     }
+    
+    # Mostrar los resultados por consola
+    print(f"Number of total events: {num_total_events}")
+    print(f"Number of events of Keyboard or MouseClick With Fixations: {count_events_with_fixations}")
+    print("\n")
+    print(f"Total Number of Fixations: {total_fixations}")
+    print(f"Total Number of Matching Fixations: {total_match_fixations}")
+    print(f"Total Number of non-Matching Fixations: {total_non_match_fixations}")
+    print(f"Mean number of fixations captured per Keyboard or MouseClick event: {avg_fixations_per_event:.2f}")
+    print(f"Mean number of fixations match captured per Keyboard or MouseClick event: {avg_fixations_match_per_event:.2f}")
+    print(f"Mean number of fixations non-match captured per Keyboard or MouseClick event: {avg_fixations_non_match_per_event:.2f}")
+    print(f"%Matching Fixations: {percentage_match_fixations:.2f}%")
+    print(f"%Non-Matching Fixations: {percentage_non_match_fixations:.2f}%")
+    print(f"% of events with fixations: {percentage_events_with_fixations:.2f}%")
+    print("\n")
+    print(f"Total time of the test: {format_timedelta(total_time)}")
+    print(f"Total duration of fixations that intersect with Keyboard or MouseClick events (tMATCH_FIXATIONS): {format_timedelta(total_duration_intersecting)}")
+    print(f"Total duration of fixations that do not intersect with Keyboard or MouseClick events (tNonMATCHING_FIXATIONS) : {format_timedelta(total_duration_non_intersecting)}")
+    print(f"Average duration of fixations that intersect with Keyboard or MouseClick events (tMATCH_FIXATIONS): {format_timedelta(avg_duration_intersecting)}")
+    print(f"Average duration of fixations that do not intersect with Keyboard or MouseClick event (tNonMATCHING_FIXATIONS): {format_timedelta(avg_duration_non_intersecting)}")
+    print("\n")
+    print("Only for RQ4")
+    print(f"Total Number of events with Test Object: {events_with_target_object}")
+    print(f"Number of events with Test Object equals True: {all_events_with_target_object_true}")
+    print(f"% of events with Test Object equals True: {percentage_events_with_target_object_true:.2f}%")
+    print(f"Total Number of Relevant Fixations: {total_relevant_fixations}")
+    print(f"Total Number of Relevant Fixations equals True: {total_relevant_fixations_true}")
+    print(f"Total Number of Relevant Fixations equals False: {total_relevant_fixations_false}")
+    print(f"% of Relevant Fixations equals True: {percentage_relevant_fixations:.2f}%")
+    
+
 
     return results
 

@@ -105,32 +105,83 @@ def process_RQ_df(df, polygons, threshold):
     for i in range(len(df)):
         if df.loc[i, "category"] == "GazeFixation":
             df.loc[i, "Gaze_Fixation_Index"] = fixation_index
+            # Buscar el primer evento de tipo "Keyboard", "MouseClick" o "DoubleMouseClick" después de la fijación
             for j in range(i + 1, len(df)):
                 next_event = df.loc[j]
                 if next_event["category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
-                    filtered_groups = filter_polygons_by_point(next_event["coordX"], next_event["coordY"], polygons) #Quedarnos con el grupo donde se ha hecho el click
-                    group = next(iter(filtered_groups), None)  # Obtener el primer grupo del diccionario filtrado
-                    # print(f"Checking point ({next_event['coordX']}, {next_event['coordY']})")
-                    # print(f"Filtered groups: {filtered_groups}")
+                    filtered_groups = filter_polygons_by_point(next_event["coordX"], next_event["coordY"], polygons)
+                    group = next(iter(filtered_groups), None)
                     df.at[j, "Group"] = group
-        
-                    # print(f"Assigned group: {group}")
+
                     if group:
                         for k in range(i, j):
                             if df.loc[k, "category"] == "GazeFixation":
-                                df.at[k, "Match_Fixation"] = is_gaze_fixation_baseline(df.loc[k, "coordX"], df.loc[k, "coordY"], filtered_groups, threshold) #Comprobar si la fijación está dentro del grupo del click
-                                df.at[k, "Group"] = get_polygon_group_by_threshold(df.loc[k, "coordX"], df.loc[k, "coordY"], polygons, threshold) #Asignar el grupo al que pertenece la fijación
-                                if df.loc[k, "Group"] == df.loc[j, "Group"]:
-                                    df.at[k, "Target Object"] = "Test Object"
-                                    df.at[j, "Target Object"] = "True"
-                                else:
-                                    df.at[j, "Target Object"] = "False"
+                                # Verificar si la fijación está dentro del grupo del clic
+                                df.at[k, "Match_Fixation"] = is_gaze_fixation_baseline(df.loc[k, "coordX"], df.loc[k, "coordY"], filtered_groups, threshold)
+                                # Asignar el grupo de la fijación
+                                df.at[k, "Group"] = get_polygon_group_by_threshold(df.loc[k, "coordX"], df.loc[k, "coordY"], polygons, threshold)
+                                
+                                # Lógica para asignar Target_Object
+                                assign_target_object(df, k, j)
 
+                                # Lógica para asignar RelevantFixation
+                                assign_relevant_fixation(df, k, j)
                     break
         elif df.loc[i, "category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
             fixation_index += 1
 
     return postprocess_df(df)
+
+# Función auxiliar para asignar el "Target_Object"
+def assign_target_object(df, k, j):
+    group_k = df.loc[k, "Group"]
+    group_j = df.loc[j, "Group"]
+    
+    if (group_k == "excel_name" and group_j == "name") or (group_k == "excel_position" and group_j == "position") or \
+       (group_k == "excel_email" and group_j == "email") or (group_k == "excel_car_need" and group_j == "car_need"):
+        df.at[k, "Target_Object"] = "Target_Object"
+        df.at[j, "Target_Object"] = "True"
+
+# Función auxiliar para asignar el "RelevantFixation"
+def assign_relevant_fixation(df, k, j):
+    group_k = df.loc[k, "Group"]
+    group_j = df.loc[j, "Group"]
+    
+    relevant_groups = {
+        "name": ["excel_up", "excel_down", "excel_middle", "excel_name", "excel_position", "excel_email", "excel_car_need","name"],
+        "position": ["excel_up", "excel_down", "excel_middle", "excel_position", "excel_name", "excel_email","excel_car_need","position"],
+        "email": ["excel_up", "excel_down", "excel_middle", "excel_email", "excel_position", "excel_name", "excel_car_need", "email"],
+        "car_need": ["excel_up", "excel_down", "excel_middle", "excel_car_need", "excel_email", "excel_position", "excel_name", "car_need"]
+    }
+    
+    if group_j in relevant_groups and group_k in relevant_groups[group_j]:
+        df.at[k, "Relevant_Fixation"] = "True"
+
+
+
+def postprocess_RQ4_df(df, filename):
+    #Procesamientos impornates para RQ4
+    if filename == "RQ4_tobii_rpm.csv" or filename == "RQ4_webgazer_rpm.csv":
+        #Las que tengan Target_Object vació porque no haya gazefixation con el group en cuestión dependiendo del BaselineComponentClick, como puede ser "name", "position", "email" o "car_need", añadir un False 
+        condition_baseline = (df["Match_Fixation"] == "BaselineComponentClick") & (df["Target_Object"] == "")
+        df.loc[condition_baseline, "Target_Object"] = "False"        
+                
+        #Todas las gazeFixation que no tengon un Relevant_Fixation=True, se les asigna False
+        condition_relevant = (df["Relevant_Fixation"] != "True") & (df["category"] == "GazeFixation")
+        df.loc[condition_relevant, "Relevant_Fixation"] = "False"
+        
+        #Las filas que tengan como match_fixation el BaselineComponentClick y no tengan un Target_Object asignado, se les asigna False
+        condition_target_object_false = (df["Match_Fixation"] == "BaselineComponentClick") & (df["Target_Object"] != "True")
+        df.loc[condition_target_object_false, "Target_Object"] = "False"
+        
+        #EL submit no tiene Target_Object. Se deja como NA
+        condition_submit = df["Group"] == "submit"
+        df.loc[condition_submit, "Target_Object"] = "NA"
+        
+        condition_component = df["Match_Fixation"] == "BaselineComponentClick"
+        df.loc[condition_component, "Relevant_Fixation"] = "BaselineComponentClick"
+    
+    return df
 
 
 def execute(json_path,filename):
@@ -145,6 +196,7 @@ def execute(json_path,filename):
             df = pd.read_csv(input_file_path)
             preprocessed_df = preprocess_df(df)
             preprocessed_df = process_RQ_df(preprocessed_df, polygons_json, threshold)
+            preprocessed_df = postprocess_RQ4_df(preprocessed_df, filename)
             output_file_path = os.path.join(output_dir, filename.replace('.csv', '_postprocessed.csv'))
             preprocessed_df.to_csv(output_file_path, index=False)
             print(f"Preprocessed DataFrame saved to {output_file_path}")
