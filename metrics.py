@@ -162,6 +162,8 @@ def assign_relevant_fixation(df, k, j):
 def postprocess_RQ4_df(df, filename):
     #Procesamientos impornates para RQ4
     if filename == "RQ4_tobii_rpm.csv" or filename == "RQ4_webgazer_rpm.csv":
+        if "Target_Object" not in df.columns:
+            df["Target_Object"] = ""
         #Las que tengan Target_Object vació porque no haya gazefixation con el group en cuestión dependiendo del BaselineComponentClick, como puede ser "name", "position", "email" o "car_need", añadir un False 
         condition_baseline = (df["Match_Fixation"] == "BaselineComponentClick") & (df["Target_Object"] == "")
         df.loc[condition_baseline, "Target_Object"] = "False"        
@@ -195,10 +197,10 @@ def execute(json_path,filename):
             input_file_path = os.path.join(input_dir, filename)
             df = pd.read_csv(input_file_path)
             preprocessed_df = preprocess_df(df)
-            preprocessed_df = process_RQ_df(preprocessed_df, polygons_json, threshold)
-            preprocessed_df = postprocess_RQ4_df(preprocessed_df, filename)
+            preprocessed_df_1 = process_RQ_df(preprocessed_df, polygons_json, threshold)
+            preprocessed_df_2 = postprocess_RQ4_df(preprocessed_df_1, filename)
             output_file_path = os.path.join(output_dir, filename.replace('.csv', '_postprocessed.csv'))
-            preprocessed_df.to_csv(output_file_path, index=False)
+            preprocessed_df_2.to_csv(output_file_path, index=False)
             print(f"Preprocessed DataFrame saved to {output_file_path}")
 
 
