@@ -241,10 +241,12 @@ execute("configuration/02_alternance_buttons.json","RQ2_tobii_alternance_buttons
 execute("configuration/02_alternance_buttons.json","RQ2_webgazer_alternance_buttons.csv")
 
 #RQ3 - Position - %Matching Fixations - Medium Density form scenario
-execute("configuration/03_position.json","RQ3_tobii_position_far.csv")
-execute("configuration/03_position.json","RQ3_webgazer_position_far.csv")
-execute("configuration/03_position.json","RQ3_tobii_position_correct.csv")
-execute("configuration/03_position.json","RQ3_webgazer_position_correct.csv")
+# execute("configuration/03_position.json","RQ3_tobii_position_far.csv")
+# execute("configuration/03_position.json","RQ3_webgazer_position_far.csv")
+# execute("configuration/03_position.json","RQ3_tobii_position_correct.csv")
+# execute("configuration/03_position.json","RQ3_webgazer_position_correct.csv")
+execute("configuration/03_position.json","RQ3_tobii_position.csv")
+execute("configuration/03_position.json","RQ3_webgazer_position.csv")
 #RQ4 - RPM - Time Matching Intersection - RPM Scenario
 execute("configuration/04_rpm.json","RQ4_tobii_rpm.csv")
 execute("configuration/04_rpm.json","RQ4_webgazer_rpm.csv")

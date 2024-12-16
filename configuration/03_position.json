@@ -51,7 +51,7 @@
             "name": "email_input",
             "type": "text_input",
             "shape": "rectangle",
-            "dimensions": ["655,706", "951,706", "951,734", "655,706"],
+            "dimensions": ["655,706", "951,706", "951,734", "655,734"],
             "centroid": "54,985"
         },
         {
