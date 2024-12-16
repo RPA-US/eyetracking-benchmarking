@@ -13,17 +13,19 @@ def load_polygons(json_path):
     polygons_dict = {}
     for element in data["elements"]:
         group = element["group"]
+        name = element["name"]
         dimensions = [tuple(map(int, point.split(','))) for point in element["dimensions"]]
         if group not in polygons_dict:
             polygons_dict[group] = []
-        polygons_dict[group].append(Polygon(dimensions))
+        polygons_dict[group].append({"polygon": Polygon(dimensions), "name": name})
     return polygons_dict
 
 def filter_polygons_by_point(coordX, coordY, polygons):
     point = Point(coordX, coordY)
     filtered_polygons = {}
     for group, poly_list in polygons.items():
-        for polygon in poly_list:
+        for poly_info in poly_list:
+            polygon = poly_info["polygon"]
             if polygon.contains(point):
                 filtered_polygons[group] = poly_list
                 break  # Salir del bucle interno si se encuentra un polígono que contiene el punto
@@ -33,7 +35,8 @@ def get_polygon_group_by_containing_point(coordX, coordY, polygons):
     point = Point(coordX, coordY)
     polygons_group = set()
     for poly_list in polygons.values():
-        for polygon in poly_list:
+        for poly_info in poly_list:
+            polygon = poly_info["polygon"]
             if polygon.contains(point):
                 polygons_group.add(poly_list)
     return polygons_group
@@ -41,7 +44,8 @@ def get_polygon_group_by_containing_point(coordX, coordY, polygons):
 def is_gaze_fixation_baseline(x, y, polygons, threshold):
     point = Point(x, y)
     for poly_list in polygons.values():
-        for polygon in poly_list:
+        for poly_info in poly_list:
+            polygon = poly_info["polygon"]
             if polygon.distance(point) <= threshold:
                 return "True"
     return "False"
@@ -49,10 +53,21 @@ def is_gaze_fixation_baseline(x, y, polygons, threshold):
 def get_polygon_group_by_threshold(x, y, polygons, threshold):
     point = Point(x, y)
     for group, poly_list in polygons.items():
-        for polygon in poly_list:
+        for poly_info in poly_list:
+            polygon = poly_info["polygon"]
             if polygon.distance(point) <= threshold:
                 return group
-    return "None"        
+    return "None" 
+
+def get_polygon_test_object_list_by_threshold(x, y, polygons, threshold):
+    point = Point(x, y)
+    names_within_threshold = []
+    for name, poly_list in polygons.items():
+        for poly_info in poly_list:
+            polygon = poly_info["polygon"]
+            if polygon.distance(point) <= threshold:
+                names_within_threshold.append(poly_info["name"])
+    return names_within_threshold
    
 
 def preprocess_df(df):
@@ -121,11 +136,15 @@ def process_RQ_df(df, polygons, threshold):
                                 # Asignar el grupo de la fijación
                                 df.at[k, "Group"] = get_polygon_group_by_threshold(df.loc[k, "coordX"], df.loc[k, "coordY"], polygons, threshold)
                                 
-                                # Lógica para asignar Target_Object
-                                assign_target_object(df, k, j)
+                                name_list = get_polygon_test_object_list_by_threshold(df.loc[k, "coordX"], df.loc[k, "coordY"], polygons, threshold)
+                                # Asegurarse de que la columna Target_Object_List existe
+                                if "Target_Object_List" not in df.columns:
+                                    df["Target_Object_List"] = None
+                                df.at[k, "Target_Object_List"] = name_list
+                                assign_target_object(df, k, j, name_list)
 
                                 # Lógica para asignar RelevantFixation
-                                assign_relevant_fixation(df, k, j)
+                                assign_relevant_fixation(df, k, j, name_list)
                     break
         elif df.loc[i, "category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
             fixation_index += 1
@@ -133,50 +152,45 @@ def process_RQ_df(df, polygons, threshold):
     return postprocess_df(df)
 
 # Función auxiliar para asignar el "Target_Object"
-def assign_target_object(df, k, j):
-    group_k = df.loc[k, "Group"]
+def assign_target_object(df, k, j, name_list):
     group_j = df.loc[j, "Group"]
     
-    if (group_k == "excel_name" and group_j == "name") or (group_k == "excel_position" and group_j == "position") or \
-       (group_k == "excel_email" and group_j == "email") or (group_k == "excel_car_need" and group_j == "car_need"):
-        df.at[k, "Target_Object"] = "Target_Object"
-        df.at[j, "Target_Object"] = "True"
+    for name in name_list:
+        if (name == "excel_name" and group_j == "name") or \
+            (name == "excel_position" and group_j == "position") or \
+           (name == "excel_email" and group_j == "email") or  (name == "excel_car_need" and group_j == "car_need"):
+            df.at[k, "Target_Object"] = "Target_Object"
+            df.at[j, "Target_Object"] = "True"
 
 # Función auxiliar para asignar el "RelevantFixation"
-def assign_relevant_fixation(df, k, j):
-    group_k = df.loc[k, "Group"]
+def assign_relevant_fixation(df, k, j, name_list):
     group_j = df.loc[j, "Group"]
     
-    relevant_groups = {
-        "name": ["excel_up", "excel_down", "excel_middle", "excel_name", "excel_position", "excel_email", "excel_car_need","name"],
-        "position": ["excel_up", "excel_down", "excel_middle", "excel_position", "excel_name", "excel_email","excel_car_need","position"],
-        "email": ["excel_up", "excel_down", "excel_middle", "excel_email", "excel_position", "excel_name", "excel_car_need", "email"],
-        "car_need": ["excel_up", "excel_down", "excel_middle", "excel_car_need", "excel_email", "excel_position", "excel_name", "car_need"]
-    }
-    
-    if group_j in relevant_groups and group_k in relevant_groups[group_j]:
-        df.at[k, "Relevant_Fixation"] = "True"
-
+    for name in name_list:
+        if (name == "excel_name" and group_j == "name") or \
+            (name == "excel_position" and group_j == "position") or \
+           (name == "excel_email" and group_j == "email") or (name == "excel_car_need" and group_j == "car_need") or (name == "excel_car_need_yes" and group_j == "car_need") or (name == "excel_car_need_no" and group_j == "car_need"):
+            df.at[k, "Relevant_Fixation"] = "True"
 
 
 def postprocess_RQ4_df(df, filename):
-    #Procesamientos impornates para RQ4
+    # Procesamientos importantes para RQ4
     if filename == "RQ4_tobii_rpm.csv" or filename == "RQ4_webgazer_rpm.csv":
         if "Target_Object" not in df.columns:
             df["Target_Object"] = ""
-        #Las que tengan Target_Object vació porque no haya gazefixation con el group en cuestión dependiendo del BaselineComponentClick, como puede ser "name", "position", "email" o "car_need", añadir un False 
+        # Las que tengan Target_Object vacío porque no haya gazefixation con el group en cuestión dependiendo del BaselineComponentClick, como puede ser "name", "position", "email" o "car_need", añadir un False 
         condition_baseline = (df["Match_Fixation"] == "BaselineComponentClick") & (df["Target_Object"] == "")
         df.loc[condition_baseline, "Target_Object"] = "False"        
                 
-        #Todas las gazeFixation que no tengon un Relevant_Fixation=True, se les asigna False
+        # Todas las gazeFixation que no tengan un Relevant_Fixation=True, se les asigna False
         condition_relevant = (df["Relevant_Fixation"] != "True") & (df["category"] == "GazeFixation")
         df.loc[condition_relevant, "Relevant_Fixation"] = "False"
         
-        #Las filas que tengan como match_fixation el BaselineComponentClick y no tengan un Target_Object asignado, se les asigna False
+        # Las filas que tengan como match_fixation el BaselineComponentClick y no tengan un Target_Object asignado, se les asigna False
         condition_target_object_false = (df["Match_Fixation"] == "BaselineComponentClick") & (df["Target_Object"] != "True")
         df.loc[condition_target_object_false, "Target_Object"] = "False"
         
-        #EL submit no tiene Target_Object. Se deja como NA
+        # El submit no tiene Target_Object. Se deja como NA
         condition_submit = df["Group"] == "submit"
         df.loc[condition_submit, "Target_Object"] = "NA"
         
@@ -186,7 +200,7 @@ def postprocess_RQ4_df(df, filename):
     return df
 
 
-def execute(json_path,filename):
+def execute(json_path, filename):
     # Cargar los polígonos de las AOIs
     polygons_json = load_polygons(json_path)
     # Calcular el umbral de distancia

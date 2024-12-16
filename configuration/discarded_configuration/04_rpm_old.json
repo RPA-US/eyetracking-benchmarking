@@ -92,39 +92,70 @@
         },
         {
             "id": 11,
-            "group": "excel",
+            "group": "excel_name",
+            "test_object": "excel_name",
             "name": "excel_name",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["27,258", "937,258", "937,278", "27,278"],
+            "dimensions": ["27,258", "937,258", "937,310", "27,310"],
             "centroid": "960,985"
         },
         {
             "id": 12,
-            "group": "excel",
+            "group": "excel_position",
+            "test_object": "excel_position",
             "name": "excel_position",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["27,279", "937,279", "937,299", "27,299"],
+            "dimensions": ["27,657", "937,657", "937,676", "27,676"],
             "centroid": "960,1057"
         },
         {
             "id": 13,
-            "group": "excel",
+            "group": "excel_email",
+            "test_object": "excel_email",
             "name": "excel_email",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["27,300", "937,300", "937,320", "27,320"],
+            "dimensions": ["27,500", "937,500", "937,520", "27,520"],
             "centroid": "960,1057"
         },
         {
             "id": 14,
-            "group": "excel",
+            "group": "excel_car_need",
+            "test_object": "excel_car_need",
             "name": "excel_car_need",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["27,321", "937,321", "937,341", "27,341"],
+            "dimensions": ["27,967", "937,967", "937,983", "27,983"],
             "centroid": "960,1057"
+        },
+        {
+            "id": 15,
+            "group" :"excel_up",
+            "name": "excel_up",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["27,348", "937,348", "937,462", "27,462"],
+            "centroid": "1865,985"
+        },
+        {
+            "id": 16,
+            "group": "excel_middle",
+            "name": "excel_middle",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["27,555", "937,555", "937,621", "27,621"],
+            "centroid": "1865,985"
+        },
+        {
+            "id": 17,
+            "group": "excel_down",
+            "name": "excel_down",
+            "type": "text",
+            "shape": "rectangle",
+            "dimensions": ["27,711", "937,711", "937,930", "27,930"],
+            "centroid": "1865,985"
         }
     ]
 }
