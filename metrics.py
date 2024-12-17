@@ -173,6 +173,28 @@ def assign_relevant_fixation(df, k, j, name_list):
             df.at[k, "Relevant_Fixation"] = "True"
 
 
+
+def postprocess_RQ3_df(df):
+    df["Number_True_Fixation_In_This_Event"] = ""
+    df["Number_False_Fixation_In_This_Event"] = ""
+
+    true_cont = 0
+    false_cont = 0
+
+    for i in range(len(df)):
+        if df.loc[i, "category"] == "GazeFixation":
+            if df.loc[i, "Match_Fixation"] == "True":
+                true_cont += 1
+            elif df.loc[i, "Match_Fixation"] == "False":
+                false_cont += 1
+        elif df.loc[i, "category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
+            df.at[i, "Number_True_Fixation_In_This_Event"] = true_cont
+            df.at[i, "Number_False_Fixation_In_This_Event"] = false_cont
+            true_cont = 0
+            false_cont = 0
+
+    return df
+
 def postprocess_RQ4_df(df, filename):
     # Procesamientos importantes para RQ4
     if filename == "RQ4_tobii_rpm.csv" or filename == "RQ4_webgazer_rpm.csv":
@@ -200,6 +222,7 @@ def postprocess_RQ4_df(df, filename):
     return df
 
 
+
 def execute(json_path, filename):
     # Cargar los polígonos de las AOIs
     polygons_json = load_polygons(json_path)
@@ -211,10 +234,11 @@ def execute(json_path, filename):
             input_file_path = os.path.join(input_dir, filename)
             df = pd.read_csv(input_file_path)
             preprocessed_df = preprocess_df(df)
-            preprocessed_df_1 = process_RQ_df(preprocessed_df, polygons_json, threshold)
-            preprocessed_df_2 = postprocess_RQ4_df(preprocessed_df_1, filename)
+            processed_df = process_RQ_df(preprocessed_df, polygons_json, threshold)
+            postprocessed_df_1 = postprocess_RQ3_df(processed_df)
+            postprocessed_df_2 = postprocess_RQ4_df(postprocessed_df_1, filename)
             output_file_path = os.path.join(output_dir, filename.replace('.csv', '_postprocessed.csv'))
-            preprocessed_df_2.to_csv(output_file_path, index=False)
+            postprocessed_df_2.to_csv(output_file_path, index=False)
             print(f"Preprocessed DataFrame saved to {output_file_path}")
 
 
