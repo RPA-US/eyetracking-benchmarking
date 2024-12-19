@@ -177,6 +177,7 @@ def assign_relevant_fixation(df, k, j, name_list):
 def postprocess_RQ3_df(df):
     df["Number_True_Fixation_In_This_Event"] = ""
     df["Number_False_Fixation_In_This_Event"] = ""
+    df["Percentage_Fixation_Matching_In_This_Event"] = ""
 
     true_cont = 0
     false_cont = 0
@@ -190,6 +191,7 @@ def postprocess_RQ3_df(df):
         elif df.loc[i, "category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
             df.at[i, "Number_True_Fixation_In_This_Event"] = true_cont
             df.at[i, "Number_False_Fixation_In_This_Event"] = false_cont
+            df.at[i, "Percentage_Fixation_Matching_In_This_Event"] = round(((true_cont / (true_cont + false_cont))*100),2)  if (true_cont + false_cont) > 0 else 0
             true_cont = 0
             false_cont = 0
 
