@@ -192,9 +192,10 @@ def calculate_metrics(df):
     
     
 # Directorios de entrada y salida. Elegir tests correspondiente al suejeto
-input_dir = os.path.join('tests', 't1', 'preprocessed')
-output_dir = os.path.join('tests', 't1', 'postprocessed')
-results_dir = os.path.join('tests', 't1', 'results')
+test= "t2"
+input_dir = os.path.join('tests', test, 'preprocessed')
+output_dir = os.path.join('tests', test, 'postprocessed')
+results_dir = os.path.join('tests', test, 'results')
 
 # Crear el directorio de resultados si no existe
 os.makedirs(results_dir, exist_ok=True)
@@ -202,17 +203,17 @@ os.makedirs(results_dir, exist_ok=True)
 # Lista para almacenar todos los resultados
 all_results = []
 
-for csv_test in os.listdir('tests/t1/postprocessed'):
+for csv_test in os.listdir(f'tests/{test}/postprocessed'):
     if csv_test.endswith('.csv'):
         print("\n" + "#" * 75)
         print(f"EXTRACTING RESULTS FROM {csv_test.upper()}...")
         print("#" * 75 + "\n")
-        print(f"Sacando métricas para tests/t1/postprocessed/{csv_test}'")
-        df = pd.read_csv(f'tests/t1/postprocessed/{csv_test}')
+        print(f"Sacando métricas para tests/{test}/postprocessed/{csv_test}'")
+        df = pd.read_csv(f'tests/t2/postprocessed/{csv_test}')
         df.head()
         print("-----")
         metrics=calculate_metrics(df)
-        metrics["Subject"] = "T1"
+        metrics["Subject"] = test
         metrics["Filename"] = csv_test
         all_results.append(metrics)
         print(f"PROCESSED {csv_test}!")
