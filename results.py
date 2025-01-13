@@ -192,7 +192,7 @@ def calculate_metrics(df):
     
     
 # Directorios de entrada y salida. Elegir tests correspondiente al suejeto
-test= "t2"
+test= "t1"
 input_dir = os.path.join('tests', test, 'preprocessed')
 output_dir = os.path.join('tests', test, 'postprocessed')
 results_dir = os.path.join('tests', test, 'results')
@@ -225,7 +225,7 @@ for csv_test in os.listdir(f'tests/{test}/postprocessed'):
 results_df = pd.DataFrame(all_results)
 
 # Guardar el DataFrame en un archivo CSV
-results_csv_path = os.path.join(results_dir, 'results_summary.csv')
+results_csv_path = os.path.join(results_dir, f'results_summary_{test}.csv')
 results_df.to_csv(results_csv_path, index=False)
 
 print(f"All results saved to {results_csv_path}")

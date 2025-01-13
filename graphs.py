@@ -1,9 +1,14 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
+import os
+
+# Crear la carpeta si no existe
+os.makedirs('tests/figs', exist_ok=True)
 
 # Datos actualizados RQ1
 data = {
-    '% Matching Fixation True': [61.97, 51.00, 6.73, 19.36],
+    '% Matching Fixation True': [61.97, 51.00, 18.40, 27.39],
     'Tool/Software': ['Infrared/Tobii', 'Infrared/Tobii', 'Webcam/Webgazer.js', 'Webcam/Webgazer.js'],
     'Scenario': ['Form High Density', 'Form Low Density', 'Form High Density', 'Form Low Density']
 }
@@ -28,14 +33,16 @@ plt.xticks(rotation=45, ha='right', fontsize=10)
 plt.ylim(0, 100)
 plt.tight_layout()
 
+# Guardar la gráfica
+plt.savefig('tests/figs/RQ1_matching_fixations.jpg')
 # Mostrar la gráfica
-plt.show()
+# plt.show()
 
 
 ############## RQ2 ##############
 # Matching Fixation True by Tool/Software
 new_data_rq2 = {
-    '% Matching Fixation True': [80.95, 54.04],
+    '% Matching Fixation True': [80.95, 41.15],
     'Tool/Software': ['Infrared/Tobii', 'Webcam/Webgazer.js']
 }
 
@@ -57,8 +64,10 @@ plt.xticks(rotation=0, ha='center', fontsize=10)
 plt.ylim(0, 100)
 plt.tight_layout()
 
+# Guardar la gráfica
+plt.savefig('tests/figs/RQ2_Matching_fixation.jpg')
 # Mostrar la gráfica
-plt.show()
+# 00
 
 
 # Datos %Event Including Captured Fixations
@@ -80,15 +89,14 @@ for bar in bars:
     ax.text(bar.get_x() + bar.get_width()/2., height + 2,
             f'{height:.2f}%', ha='center', va='bottom')
 
-# Mostrar gráfico
+# Guardar la gráfica
 plt.tight_layout()
-plt.show()
+plt.savefig('tests/figs/RQ2_events_including_fixations.jpg')
+# Mostrar gráfico
+# plt.show()
 
 
 ############## RQ3 ##############
-import matplotlib.pyplot as plt
-import numpy as np
-
 # Datos grafica barras events_captured_fixations
 tools = ["Infrared/Tobii","Webcam/Webgazer.js"]
 positions = ["50cm", "70cm", "90cm"]
@@ -121,9 +129,11 @@ def add_labels(bars):
 add_labels(bars_tobii)
 add_labels(bars_webgazer)
 
-# Mostrar gráfico
+# Guardar la gráfica
 plt.tight_layout()
-plt.show()
+plt.savefig('tests/figs/RQ3_events_captured_fixations_bars.jpg')
+# Mostrar gráfico
+# plt.show()
 
 # Datos grafico linea events_captured_fixations
 positions = ["50cm", "70cm", "90cm"]
@@ -143,15 +153,17 @@ plt.ylim(0, 110)  # Limitar el eje Y al rango de 0 a 110
 plt.grid(True, linestyle='--', alpha=0.6)
 plt.legend()
 
-# Mostrar la gráfica 
+# Guardar la gráfica
 plt.tight_layout()
-plt.show()
+plt.savefig('tests/figs/RQ3_events_captured_fixations_line.jpg')
+# Mostrar la gráfica 
+# plt.show()
 
 # Datos grafica matching fixations barras
 tools = ["Infrared/Tobii","Webcam/Webgazer.js"]
 positions = ["50cm", "70cm", "90cm"]
 percentages_tobii = [81.79, 79.74, 0.00]
-percentages_webgazer = [3.45, 18.55, 4.08]
+percentages_webgazer = [22.79, 61.95, 17.92]
 
 x = np.arange(len(positions))  # Posiciones para las etiquetas del eje X
 width = 0.35  # Ancho de las barras
@@ -171,24 +183,20 @@ ax.set_ylim(0, 100)
 ax.legend()
 
 # Mostrar porcentaje en las barras
-def add_labels(bars):
-    for bar in bars:
-        height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width()/2., height + 2,
-                f'{height:.2f}%', ha='center', va='bottom')
-
 add_labels(bars_tobii)
 add_labels(bars_webgazer)
 
-# Mostrar gráfico
+# Guardar la gráfica
 plt.tight_layout()
-plt.show()
+plt.savefig('tests/figs/RQ3_matching_fixations_bars.jpg')
+# Mostrar gráfico
+# plt.show()
 
 
 # Datos Matching fixations linea
 positions = ["50cm", "70cm", "90cm"]
 percentages_tobii = [81.79, 79.74, 0.00]
-percentages_webgazer = [3.45, 18.55, 4.08]
+percentages_webgazer = [22.79, 61.95, 17.92]
 
 # Crear la gráfica
 plt.figure(figsize=(8, 5))
@@ -203,9 +211,11 @@ plt.ylim(0, 100)  # Limitar el eje Y al rango de 0 a 100
 plt.grid(True, linestyle='--', alpha=0.6)
 plt.legend()
 
-# Mostrar la gráfica
+# Guardar la gráfica
 plt.tight_layout()
-plt.show()
+plt.savefig('tests/figs/RQ3_matching_fixations_line.jpg')
+# Mostrar la gráfica
+# plt.show()
 
 
 ############## RQ4 ##############
@@ -229,13 +239,15 @@ for bar in bars:
     ax.text(bar.get_x() + bar.get_width()/2., height + 2,
             f'{height:.2f}%', ha='center', va='bottom')
 
-# Mostrar gráfico
+# Guardar la gráfica
 plt.tight_layout()
-plt.show()
+plt.savefig('tests/figs/RQ4_event_including_test_object_fixations.jpg')
+# Mostrar gráfico
+# plt.show()
 
 # Datos %Matching_test_object_fixations
 tools = ["Infrared/Tobii", "Webcam/Webgazer.js"]
-percentages = [99.36,57.9]
+percentages = [99.36,70.34]
 
 # Crear la gráfica
 fig, ax = plt.subplots(figsize=(6, 4))
@@ -252,7 +264,8 @@ for bar in bars:
     ax.text(bar.get_x() + bar.get_width()/2., height + 2,
             f'{height:.2f}%', ha='center', va='bottom')
 
-# Mostrar gráfico
+# Guardar la gráfica
 plt.tight_layout()
-plt.show()
-
+plt.savefig('tests/figs/RQ4_matching_test_object_fixations.jpg')
+# Mostrar gráfico
+# plt.show()
