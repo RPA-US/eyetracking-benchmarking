@@ -209,7 +209,7 @@ for csv_test in os.listdir(f'tests/{test}/postprocessed'):
         print(f"EXTRACTING RESULTS FROM {csv_test.upper()}...")
         print("#" * 75 + "\n")
         print(f"Sacando métricas para tests/{test}/postprocessed/{csv_test}'")
-        df = pd.read_csv(f'tests/t2/postprocessed/{csv_test}')
+        df = pd.read_csv(f'tests/{test}/postprocessed/{csv_test}')
         df.head()
         print("-----")
         metrics=calculate_metrics(df)

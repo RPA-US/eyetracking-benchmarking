@@ -167,9 +167,7 @@ def assign_relevant_fixation(df, k, j, name_list):
     group_j = df.loc[j, "Group"]
     
     for name in name_list:
-        if (name == "excel_name" and group_j == "name") or \
-            (name == "excel_position" and group_j == "position") or \
-           (name == "excel_email" and group_j == "email") or (name == "excel_car_need" and group_j == "car_need") or (name == "excel_car_need_yes" and group_j == "car_need") or (name == "excel_car_need_no" and group_j == "car_need"):
+        if ((name == "excel_name" or "excel_position" or "excel_email" or "excel_car_need" or "exce") and (group_j == "submit" or group_j == "name" or group_j == "position" or group_j == "email" or group_j == "car_need")):
             df.at[k, "Relevant_Fixation"] = "True"
 
 
@@ -244,10 +242,10 @@ def execute(json_path, filename):
             print(f"Preprocessed DataFrame saved to {output_file_path}")
 
 
-
+test= "t2"
 #DEFINIR Directorios de entrada y salida. Elegir tests correspondiente al suejeto
-input_dir = os.path.join('tests', 't2', 'preprocessed')
-output_dir = os.path.join('tests', 't2', 'postprocessed')
+input_dir = os.path.join('tests', f'{test}', 'preprocessed')
+output_dir = os.path.join('tests', f'{test}', 'postprocessed')
 
 # Crear el directorio de salida si no existe
 os.makedirs(output_dir, exist_ok=True)
