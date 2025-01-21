@@ -15,7 +15,7 @@
             "name": "name_input",
             "type": "text_input",
             "shape": "rectangle",
-            "dimensions": ["655,386", "954,386", "954,434", "655,434"],
+            "dimensions": ["655,386", "954,386", "954,450", "655,450"],
             "centroid": "1865,222"
         },
         {
@@ -33,7 +33,7 @@
             "name": "position_input",
             "type": "text_input",
             "shape": "rectangle",
-            "dimensions": ["655,525", "951,525", "951,600", "655,600"],
+            "dimensions": ["655,525", "951,525", "951,601", "655,601"],
             "centroid": "1865,604"
         },
         {
@@ -51,7 +51,7 @@
             "name": "email_input",
             "type": "text_input",
             "shape": "rectangle",
-            "dimensions": ["655,680", "951,680", "951,744", "655,744"],
+            "dimensions": ["655,680", "951,680", "951,750", "655,750"],
             "centroid": "54,985"
         },
         {
@@ -69,7 +69,7 @@
             "name": "car_need_yes",
             "type": "radio",
             "shape": "rectangle",
-            "dimensions": ["655,833", "702,833", "702,872", "655,872"],
+            "dimensions": ["655,833", "702,833", "702,889", "655,889"],
             "centroid": "960,985"
         },
         {
@@ -78,7 +78,7 @@
             "name": "car_need_no",
             "type": "radio",
             "shape": "rectangle",
-            "dimensions": ["655,879", "712,879", "712,918", "655,918"],
+            "dimensions": ["655,890", "712,890", "712,918", "655,918"],
             "centroid": "960,1057"
         },
         {
