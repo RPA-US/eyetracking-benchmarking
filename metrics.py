@@ -242,7 +242,7 @@ def execute(json_path, filename):
             print(f"Preprocessed DataFrame saved to {output_file_path}")
 
 
-test= "t1"
+test= "s1"
 #DEFINIR Directorios de entrada y salida. Elegir tests correspondiente al suejeto
 input_dir = os.path.join('tests', f'{test}', 'preprocessed')
 output_dir = os.path.join('tests', f'{test}', 'postprocessed')

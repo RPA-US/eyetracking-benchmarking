@@ -192,7 +192,7 @@ def calculate_metrics(df):
     
     
 # Directorios de entrada y salida. Elegir tests correspondiente al suejeto
-test= "t1"
+test= "s1"
 input_dir = os.path.join('tests', test, 'preprocessed')
 output_dir = os.path.join('tests', test, 'postprocessed')
 results_dir = os.path.join('tests', test, 'results')
