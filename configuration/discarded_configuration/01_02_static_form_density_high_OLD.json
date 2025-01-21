@@ -1,0 +1,1038 @@
+{
+    "elements": [
+        {
+            "group": "name",
+            "name": "name_caption",
+            "type": "text",
+            "dimensions": [
+                "164,274",
+                "224,274",
+                "224,297",
+                "164,297"
+            ],
+            "shape": "rectangle",
+            "id": 1,
+            "centroid": "194,286"
+        },
+        {
+            "group": "name",
+            "name": "name",
+            "type": "inputText",
+            "dimensions": [
+                "233,277",
+                "452,277",
+                "452,310",
+                "233,310"
+            ],
+            "shape": "rectangle",
+            "id": 2,
+            "centroid": "342,293"
+        },
+        {
+            "group": "surname",
+            "name": "surname_caption",
+            "type": "text",
+            "dimensions": [
+                "468,279",
+                "536,279",
+                "536,299",
+                "468,299"
+            ],
+            "shape": "rectangle",
+            "id": 3,
+            "centroid": "502,289"
+        },
+        {
+            "group": "surname",
+            "name": "surname",
+            "type": "inputText",
+            "dimensions": [
+                "546,275",
+                "757,275",
+                "757,308",
+                "546,308"
+            ],
+            "shape": "rectangle",
+            "id": 4,
+            "centroid": "652,292"
+        },
+        {
+            "group": "email",
+            "name": "email_caption",
+            "type": "text",
+            "dimensions": [
+                "884,278",
+                "930,278",
+                "930,296",
+                "884,296"
+            ],
+            "shape": "rectangle",
+            "id": 5,
+            "centroid": "907,287"
+        },
+        {
+            "group": "email",
+            "name": "email",
+            "type": "inputText",
+            "dimensions": [
+                "940,275",
+                "1218,275",
+                "1218,308",
+                "940,308"
+            ],
+            "shape": "rectangle",
+            "id": 6,
+            "centroid": "1079,292"
+        },
+        {
+            "group": "city",
+            "name": "city_caption",
+            "type": "text",
+            "dimensions": [
+                "1238,277",
+                "1406,277",
+                "1406,296",
+                "1238,296"
+            ],
+            "shape": "rectangle",
+            "id": 7,
+            "centroid": "1322,286"
+        },
+        {
+            "group": "city",
+            "name": "city",
+            "type": "inputText",
+            "dimensions": [
+                "1413,275",
+                "1691,275",
+                "1691,312",
+                "1413,312"
+            ],
+            "shape": "rectangle",
+            "id": 8,
+            "centroid": "1552,294"
+        },
+        {
+            "group": "age",
+            "name": "age_caption",
+            "type": "text",
+            "dimensions": [
+                "163,397",
+                "206,397",
+                "206,417",
+                "163,417"
+            ],
+            "shape": "rectangle",
+            "id": 9,
+            "centroid": "185,407"
+        },
+        {
+            "group": "age",
+            "name": "age",
+            "type": "inputText",
+            "dimensions": [
+                "210,397",
+                "430,397",
+                "430,427",
+                "210,427"
+            ],
+            "shape": "rectangle",
+            "id": 10,
+            "centroid": "320,412"
+        },
+        {
+            "group": "years",
+            "name": "years_caption",
+            "type": "text",
+            "dimensions": [
+                "439,395",
+                "558,395",
+                "558,418",
+                "439,418"
+            ],
+            "shape": "rectangle",
+            "id": 11,
+            "centroid": "499,407"
+        },
+        {
+            "group": "years",
+            "name": "years",
+            "type": "inputText",
+            "dimensions": [
+                "567,393",
+                "785,393",
+                "785,429",
+                "567,429"
+            ],
+            "shape": "rectangle",
+            "id": 12,
+            "centroid": "676,411"
+        },
+        {
+            "group": "country",
+            "name": "country_caption",
+            "type": "text",
+            "dimensions": [
+                "1200,371",
+                "1442,371",
+                "1442,389",
+                "1200,389"
+            ],
+            "shape": "rectangle",
+            "id": 13,
+            "centroid": "1321,380"
+        },
+        {
+            "group": "country",
+            "name": "flag_us",
+            "type": "imageButton",
+            "dimensions": [
+                "905,410",
+                "958,410",
+                "958,443",
+                "905,443"
+            ],
+            "shape": "rectangle",
+            "id": 14,
+            "centroid": "931,426"
+        },
+        {
+            "group": "country",
+            "name": "flag_france",
+            "type": "imageButton",
+            "dimensions": [
+                "989,410",
+                "1041,410",
+                "1041,443",
+                "989,443"
+            ],
+            "shape": "rectangle",
+            "id": 15,
+            "centroid": "1015,426"
+        },
+        {
+            "group": "country",
+            "name": "flag_germany",
+            "type": "imageButton",
+            "dimensions": [
+                "1077,410",
+                "1130,410",
+                "1130,443",
+                "1077,443"
+            ],
+            "shape": "rectangle",
+            "id": 16,
+            "centroid": "1103,426"
+        },
+        {
+            "group": "country",
+            "name": "flag_italy",
+            "type": "imageButton",
+            "dimensions": [
+                "1163,407",
+                "1216,407",
+                "1216,443",
+                "1163,443"
+            ],
+            "shape": "rectangle",
+            "id": 17,
+            "centroid": "1189,425"
+        },
+        {
+            "group": "country",
+            "name": "flag_mexico",
+            "type": "imageButton",
+            "dimensions": [
+                "1250,411",
+                "1303,411",
+                "1303,443",
+                "1250,443"
+            ],
+            "shape": "rectangle",
+            "id": 18,
+            "centroid": "1277,427"
+        },
+        {
+            "group": "country",
+            "name": "flag_brazil",
+            "type": "imageButton",
+            "dimensions": [
+                "1339,411",
+                "1390,411",
+                "1390,443",
+                "1339,443"
+            ],
+            "shape": "rectangle",
+            "id": 19,
+            "centroid": "1364,427"
+        },
+        {
+            "group": "country",
+            "name": "flag_argentina",
+            "type": "imageButton",
+            "dimensions": [
+                "1423,411",
+                "1478,411",
+                "1478,444",
+                "1423,444"
+            ],
+            "shape": "rectangle",
+            "id": 20,
+            "centroid": "1450,427"
+        },
+        {
+            "group": "country",
+            "name": "flag_spain",
+            "type": "imageButton",
+            "dimensions": [
+                "1512,410",
+                "1563,410",
+                "1563,444",
+                "1512,444"
+            ],
+            "shape": "rectangle",
+            "id": 21,
+            "centroid": "1538,427"
+        },
+        {
+            "group": "country",
+            "name": "flag_japan",
+            "type": "imageButton",
+            "dimensions": [
+                "1599,406",
+                "1655,406",
+                "1655,444",
+                "1599,444"
+            ],
+            "shape": "rectangle",
+            "id": 22,
+            "centroid": "1627,425"
+        },
+        {
+            "group": "country",
+            "name": "flag_china",
+            "type": "imageButton",
+            "dimensions": [
+                "1685,410",
+                "1735,410",
+                "1735,441",
+                "1685,441"
+            ],
+            "shape": "rectangle",
+            "id": 23,
+            "centroid": "1710,425"
+        },
+        {
+            "group": "account",
+            "name": "account_caption",
+            "type": "text",
+            "dimensions": [
+                "356,515",
+                "634,515",
+                "634,535",
+                "356,535"
+            ],
+            "shape": "rectangle",
+            "id": 24,
+            "centroid": "495,525"
+        },
+        {
+            "group": "account",
+            "name": "active_facebook_account",
+            "type": "switch",
+            "dimensions": [
+                "184,543",
+                "234,543",
+                "234,589",
+                "184,589"
+            ],
+            "shape": "rectangle",
+            "id": 25,
+            "centroid": "209,566"
+        },
+        {
+            "group": "account",
+            "name": "active_instagram_account",
+            "type": "switch",
+            "dimensions": [
+                "275,540",
+                "333,540",
+                "333,588",
+                "275,588"
+            ],
+            "shape": "rectangle",
+            "id": 26,
+            "centroid": "304,564"
+        },
+        {
+            "group": "account",
+            "name": "active_linkedin_account",
+            "type": "switch",
+            "dimensions": [
+                "372,541",
+                "427,541",
+                "427,589",
+                "372,589"
+            ],
+            "shape": "rectangle",
+            "id": 27,
+            "centroid": "399,565"
+        },
+        {
+            "group": "account",
+            "name": "active_youtube_account",
+            "type": "switch",
+            "dimensions": [
+                "466,543",
+                "523,543",
+                "523,589",
+                "466,589"
+            ],
+            "shape": "rectangle",
+            "id": 28,
+            "centroid": "494,566"
+        },
+        {
+            "group": "account",
+            "name": "active_tiktok_account",
+            "type": "switch",
+            "dimensions": [
+                "566,541",
+                "616,541",
+                "616,589",
+                "566,589"
+            ],
+            "shape": "rectangle",
+            "id": 29,
+            "centroid": "591,565"
+        },
+        {
+            "group": "account",
+            "name": "active_twitter_account",
+            "type": "switch",
+            "dimensions": [
+                "662,538",
+                "713,538",
+                "713,590",
+                "662,590"
+            ],
+            "shape": "rectangle",
+            "id": 30,
+            "centroid": "688,564"
+        },
+        {
+            "group": "account",
+            "name": "active_account_snapchat",
+            "type": "switch",
+            "dimensions": [
+                "757,543",
+                "808,543",
+                "808,585",
+                "757,585"
+            ],
+            "shape": "rectangle",
+            "id": 31,
+            "centroid": "783,564"
+        },
+        {
+            "group": "civil_status",
+            "name": "civil_status_caption",
+            "type": "text",
+            "dimensions": [
+                "447,657",
+                "542,657",
+                "542,675",
+                "447,675"
+            ],
+            "shape": "rectangle",
+            "id": 32,
+            "centroid": "495,666"
+        },
+        {
+            "group": "civil_status",
+            "name": "widow",
+            "type": "radioButton",
+            "dimensions": [
+                "191,686",
+                "238,686",
+                "238,723",
+                "191,723"
+            ],
+            "shape": "rectangle",
+            "id": 33,
+            "centroid": "214,705"
+        },
+        {
+            "group": "civil_status",
+            "name": "divorced",
+            "type": "radioButton",
+            "dimensions": [
+                "274,688",
+                "357,688",
+                "357,724",
+                "274,724"
+            ],
+            "shape": "rectangle",
+            "id": 34,
+            "centroid": "316,706"
+        },
+        {
+            "group": "civil_status",
+            "name": "separated",
+            "type": "radioButton",
+            "dimensions": [
+                "391,685",
+                "463,685",
+                "463,724",
+                "391,724"
+            ],
+            "shape": "rectangle",
+            "id": 35,
+            "centroid": "427,705"
+        },
+        {
+            "group": "civil_status",
+            "name": "single",
+            "type": "radioButton",
+            "dimensions": [
+                "497,686",
+                "561,686",
+                "561,724",
+                "497,724"
+            ],
+            "shape": "rectangle",
+            "id": 36,
+            "centroid": "529,705"
+        },
+        {
+            "group": "civil_status",
+            "name": "married",
+            "type": "radioButton",
+            "dimensions": [
+                "586,686",
+                "649,686",
+                "649,724",
+                "586,724"
+            ],
+            "shape": "rectangle",
+            "id": 37,
+            "centroid": "617,705"
+        },
+        {
+            "group": "civil_status",
+            "name": "engaged",
+            "type": "radioButton",
+            "dimensions": [
+                "685,684",
+                "799,684",
+                "799,724",
+                "685,724"
+            ],
+            "shape": "rectangle",
+            "id": 38,
+            "centroid": "742,704"
+        },
+        {
+            "group": "occupation",
+            "name": "occupation_caption",
+            "type": "text",
+            "dimensions": [
+                "162,819",
+                "247,819",
+                "247,839",
+                "162,839"
+            ],
+            "shape": "rectangle",
+            "id": 39,
+            "centroid": "205,829"
+        },
+        {
+            "group": "occupation",
+            "name": "occupation",
+            "dimensions": [
+                "258,821",
+                "457,821",
+                "457,851",
+                "258,851"
+            ],
+            "shape": "rectangle",
+            "id": 40,
+            "centroid": "358,836"
+        },
+        {
+            "group": "company",
+            "name": "company_caption",
+            "type": "text",
+            "dimensions": [
+                "490,807",
+                "594,807",
+                "594,850",
+                "490,850"
+            ],
+            "shape": "rectangle",
+            "id": 41,
+            "centroid": "542,829"
+        },
+        {
+            "group": "company",
+            "name": "company",
+            "dimensions": [
+                "628,818",
+                "825,818",
+                "825,851",
+                "628,851"
+            ],
+            "shape": "rectangle",
+            "id": 42,
+            "centroid": "727,835"
+        },
+        {
+            "group": "gender",
+            "name": "gender_caption",
+            "type": "text",
+            "dimensions": [
+                "1291,513",
+                "1353,513",
+                "1353,534",
+                "1291,534"
+            ],
+            "shape": "rectangle",
+            "id": 43,
+            "centroid": "1322,524"
+        },
+        {
+            "group": "gender",
+            "name": "other",
+            "type": "radioButton",
+            "dimensions": [
+                "897,541",
+                "936,541",
+                "936,583",
+                "897,583"
+            ],
+            "shape": "rectangle",
+            "id": 44,
+            "centroid": "917,562"
+        },
+        {
+            "group": "gender",
+            "name": "nonbinary",
+            "type": "radioButton",
+            "dimensions": [
+                "979,541",
+                "1050,541",
+                "1050,582",
+                "979,582"
+            ],
+            "shape": "rectangle",
+            "id": 45,
+            "centroid": "1014,561"
+        },
+        {
+            "group": "gender",
+            "name": "fluid",
+            "type": "radioButton",
+            "dimensions": [
+                "1100,543",
+                "1196,543",
+                "1196,580",
+                "1100,580"
+            ],
+            "shape": "rectangle",
+            "id": 46,
+            "centroid": "1148,561"
+        },
+        {
+            "group": "gender",
+            "name": "female",
+            "type": "radioButton",
+            "dimensions": [
+                "1231,543",
+                "1308,543",
+                "1308,579",
+                "1231,579"
+            ],
+            "shape": "rectangle",
+            "id": 47,
+            "centroid": "1270,561"
+        },
+        {
+            "group": "gender",
+            "name": "nongender",
+            "type": "radioButton",
+            "dimensions": [
+                "1340,541",
+                "1405,541",
+                "1405,583",
+                "1340,583"
+            ],
+            "shape": "rectangle",
+            "id": 48,
+            "centroid": "1372,562"
+        },
+        {
+            "group": "gender",
+            "name": "male",
+            "type": "radioButton",
+            "dimensions": [
+                "1441,541",
+                "1522,541",
+                "1522,584",
+                "1441,584"
+            ],
+            "shape": "rectangle",
+            "id": 49,
+            "centroid": "1481,563"
+        },
+        {
+            "group": "gender",
+            "name": "bigender",
+            "type": "radioButton",
+            "dimensions": [
+                "1553,541",
+                "1627,541",
+                "1553,541",
+                "1627,583"
+            ],
+            "shape": "rectangle",
+            "id": 50,
+            "centroid": "1590,562"
+        },
+        {
+            "group": "gender",
+            "name": "pangender",
+            "type": "radioButton",
+            "dimensions": [
+                "1657,545",
+                "1745,545",
+                "1745,584",
+                "1657,584"
+            ],
+            "shape": "rectangle",
+            "id": 51,
+            "centroid": "1701,565"
+        },
+        {
+            "group": "preferences",
+            "name": "preferences_caption",
+            "type": "text",
+            "dimensions": [
+                "1270,658",
+                "1372,658",
+                "1372,675",
+                "1270,675"
+            ],
+            "shape": "rectangle",
+            "id": 52,
+            "centroid": "1321,667"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_sport",
+            "type": "checkbox",
+            "dimensions": [
+                "884,689",
+                "949,689",
+                "949,725",
+                "884,725"
+            ],
+            "shape": "rectangle",
+            "id": 53,
+            "centroid": "916,707"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_music",
+            "type": "checkbox",
+            "dimensions": [
+                "956,685",
+                "1012,685",
+                "1012,725",
+                "956,725"
+            ],
+            "shape": "rectangle",
+            "id": 54,
+            "centroid": "984,705"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_reading",
+            "type": "checkbox",
+            "dimensions": [
+                "1024,685",
+                "1085,685",
+                "1085,723",
+                "1024,723"
+            ],
+            "shape": "rectangle",
+            "id": 55,
+            "centroid": "1055,704"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_cinema",
+            "type": "checkbox",
+            "dimensions": [
+                "1092,688",
+                "1124,688",
+                "1124,725",
+                "1092,725"
+            ],
+            "shape": "rectangle",
+            "id": 56,
+            "centroid": "1108,707"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_traveling",
+            "type": "checkbox",
+            "dimensions": [
+                "1135,690",
+                "1181,690",
+                "1181,722",
+                "1135,722"
+            ],
+            "shape": "rectangle",
+            "id": 57,
+            "centroid": "1158,706"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_cooking",
+            "type": "checkbox",
+            "dimensions": [
+                "1189,690",
+                "1245,690",
+                "1245,724",
+                "1189,724"
+            ],
+            "shape": "rectangle",
+            "id": 58,
+            "centroid": "1217,707"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_motor",
+            "type": "checkbox",
+            "dimensions": [
+                "1250,688",
+                "1301,688",
+                "1301,725",
+                "1250,725"
+            ],
+            "shape": "rectangle",
+            "id": 59,
+            "centroid": "1275,707"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_technology",
+            "type": "checkbox",
+            "dimensions": [
+                "1316,690",
+                "1396,690",
+                "1396,724",
+                "1316,724"
+            ],
+            "shape": "rectangle",
+            "id": 60,
+            "centroid": "1356,707"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_photography",
+            "type": "checkbox",
+            "dimensions": [
+                "1401,686",
+                "1480,686",
+                "1480,725",
+                "1401,725"
+            ],
+            "shape": "rectangle",
+            "id": 61,
+            "centroid": "1441,706"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_fashion",
+            "type": "checkbox",
+            "dimensions": [
+                "1488,686",
+                "1535,686",
+                "1535,724",
+                "1488,724"
+            ],
+            "shape": "rectangle",
+            "id": 62,
+            "centroid": "1511,705"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_gardening",
+            "type": "checkbox",
+            "dimensions": [
+                "1544,685",
+                "1618,685",
+                "1618,725",
+                "1544,725"
+            ],
+            "shape": "rectangle",
+            "id": 63,
+            "centroid": "1581,705"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_history",
+            "type": "checkbox",
+            "dimensions": [
+                "1625,686",
+                "1692,686",
+                "1692,725",
+                "1625,725"
+            ],
+            "shape": "rectangle",
+            "id": 64,
+            "centroid": "1659,706"
+        },
+        {
+            "group": "preferences",
+            "name": "preference_science",
+            "type": "checkbox",
+            "dimensions": [
+                "1702,683",
+                "1757,683",
+                "1757,724",
+                "1702,724"
+            ],
+            "shape": "rectangle",
+            "id": 65,
+            "centroid": "1730,704"
+        },
+        {
+            "group": "studies",
+            "name": "studies_caption",
+            "type": "text",
+            "dimensions": [
+                "1253,793",
+                "1392,793",
+                "1253,793",
+                "1392,815"
+            ],
+            "shape": "rectangle",
+            "id": 66,
+            "centroid": "1323,804"
+        },
+        {
+            "group": "studies",
+            "name": "graduate",
+            "type": "radioButton",
+            "dimensions": [
+                "931,824",
+                "1034,824",
+                "1034,863",
+                "931,863"
+            ],
+            "shape": "rectangle",
+            "id": 67,
+            "centroid": "983,844"
+        },
+        {
+            "group": "studies",
+            "name": "technician",
+            "type": "radioButton",
+            "dimensions": [
+                "1067,827",
+                "1129,827",
+                "1129,863",
+                "1067,863"
+            ],
+            "shape": "rectangle",
+            "id": 68,
+            "centroid": "1098,845"
+        },
+        {
+            "group": "studies",
+            "name": "masters",
+            "type": "radioButton",
+            "dimensions": [
+                "1161,825",
+                "1230,825",
+                "1230,866",
+                "1161,866"
+            ],
+            "shape": "rectangle",
+            "id": 69,
+            "centroid": "1195,846"
+        },
+        {
+            "group": "studies",
+            "name": "secondary",
+            "type": "radioButton",
+            "dimensions": [
+                "1262,822",
+                "1352,822",
+                "1352,863",
+                "1262,863"
+            ],
+            "shape": "rectangle",
+            "id": 70,
+            "centroid": "1307,843"
+        },
+        {
+            "group": "studies",
+            "name": "primary",
+            "type": "radioButton",
+            "dimensions": [
+                "1381,822",
+                "1453,822",
+                "1453,863",
+                "1381,863"
+            ],
+            "shape": "rectangle",
+            "id": 71,
+            "centroid": "1417,843"
+        },
+        {
+            "group": "studies",
+            "name": "postdoctoral",
+            "type": "radioButton",
+            "dimensions": [
+                "1481,821",
+                "1597,821",
+                "1597,863",
+                "1481,863"
+            ],
+            "shape": "rectangle",
+            "id": 72,
+            "centroid": "1539,842"
+        },
+        {
+            "group": "studies",
+            "name": "phd",
+            "type": "radioButton",
+            "dimensions": [
+                "1624,822",
+                "1711,822",
+                "1711,863",
+                "1624,863"
+            ],
+            "shape": "rectangle",
+            "id": 73,
+            "centroid": "1667,843"
+        },
+        {
+            "group": "submit",
+            "name": "submit",
+            "type": "button",
+            "dimensions": [
+                "923,915",
+                "997,915",
+                "997,961",
+                "923,961"
+            ],
+            "shape": "rectangle",
+            "id": 74,
+            "centroid": "960,938"
+        }
+    ]
+}
