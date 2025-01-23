@@ -78,7 +78,7 @@
             "name": "car_need_no",
             "type": "radio",
             "shape": "rectangle",
-            "dimensions": ["655,890", "712,890", "712,918", "655,918"],
+            "dimensions": ["655,890", "712,890", "712,955", "655,955"],
             "centroid": "960,1057"
         },
         {
