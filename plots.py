@@ -172,10 +172,30 @@ plt.savefig('tests/figs/RQ2_events_including_fixations.jpg')
 
 ############## RQ3 ##############
 # Datos grafica barras events_captured_fixations
-tools = ["Infrared/Tobii","Webcam/Webgazer.js"]
+
+rq3__tobii_position_50cm = data_collection_csv[data_collection_csv['Filename'] == 'RQ3_tobii_position_50cm_postprocessed.csv']
+rq3__tobii_position_70cm = data_collection_csv[data_collection_csv['Filename'] == 'RQ3_tobii_position_70cm_postprocessed.csv']
+rq3__tobii_position_90cm = data_collection_csv[data_collection_csv['Filename'] == 'RQ3_tobii_position_90cm_postprocessed.csv']
+rq3__webgazer_position_50cm = data_collection_csv[data_collection_csv['Filename'] == 'RQ3_webgazer_position_50cm_postprocessed.csv']
+rq3__webgazer_position_70cm = data_collection_csv[data_collection_csv['Filename'] == 'RQ3_webgazer_position_70cm_postprocessed.csv']
+rq3__webgazer_position_90cm = data_collection_csv[data_collection_csv['Filename'] == 'RQ3_webgazer_position_90cm_postprocessed.csv']
+
+percentage_events_including_fixations_rq3_tobii_position_50cm = rq3__tobii_position_50cm['%EventsWithFixations'].mean()
+percentage_events_including_fixations_rq3_tobii_position_70cm = rq3__tobii_position_70cm['%EventsWithFixations'].mean()
+percentage_events_including_fixations_rq3_tobii_position_90cm = rq3__tobii_position_90cm['%EventsWithFixations'].mean()
+
+percentage_events_including_fixations_rq3_webgazer_position_50cm = rq3__webgazer_position_50cm['%EventsWithFixations'].mean()
+percentage_events_including_fixations_rq3_webgazer_position_70cm = rq3__webgazer_position_70cm['%EventsWithFixations'].mean()
+percentage_events_including_fixations_rq3_webgazer_position_90cm = rq3__webgazer_position_90cm['%EventsWithFixations'].mean()
+
 positions = ["50cm", "70cm", "90cm"]
-percentages_tobii = [100.00, 100.00, 40.00]
-percentages_webgazer = [100.00, 100.00, 100.00]
+percentages_tobii = [percentage_events_including_fixations_rq3_tobii_position_50cm,
+                     percentage_events_including_fixations_rq3_tobii_position_70cm,
+                     percentage_events_including_fixations_rq3_tobii_position_90cm]
+
+percentages_webgazer = [percentage_events_including_fixations_rq3_webgazer_position_50cm,
+                        percentage_events_including_fixations_rq3_webgazer_position_70cm,
+                        percentage_events_including_fixations_rq3_webgazer_position_90cm]
 
 x = np.arange(len(positions))  # Posiciones para las etiquetas del eje X
 width = 0.35  # Ancho de las barras
@@ -210,9 +230,23 @@ plt.savefig('tests/figs/RQ3_events_captured_fixations_bars.jpg')
 # plt.show()
 
 # Datos grafico linea events_captured_fixations
+
+percentage_events_including_fixations_rq3_tobii_position_50cm = rq3__tobii_position_50cm['%EventsWithFixations'].mean()
+percentage_events_including_fixations_rq3_tobii_position_70cm = rq3__tobii_position_70cm['%EventsWithFixations'].mean()
+percentage_events_including_fixations_rq3_tobii_position_90cm = rq3__tobii_position_90cm['%EventsWithFixations'].mean()
+
+percentage_events_including_fixations_rq3_webgazer_position_50cm = rq3__webgazer_position_50cm['%EventsWithFixations'].mean()
+percentage_events_including_fixations_rq3_webgazer_position_70cm = rq3__webgazer_position_70cm['%EventsWithFixations'].mean()
+percentage_events_including_fixations_rq3_webgazer_position_90cm = rq3__webgazer_position_90cm['%EventsWithFixations'].mean()
+
 positions = ["50cm", "70cm", "90cm"]
-percentages_tobii = [100.00, 100.00, 40.00]
-percentages_webgazer = [100.00, 100.00, 100.00]
+percentages_tobii = [percentage_events_including_fixations_rq3_tobii_position_50cm,
+                     percentage_events_including_fixations_rq3_tobii_position_70cm,
+                     percentage_events_including_fixations_rq3_tobii_position_90cm]
+
+percentages_webgazer = [percentage_events_including_fixations_rq3_webgazer_position_50cm,
+                        percentage_events_including_fixations_rq3_webgazer_position_70cm,
+                        percentage_events_including_fixations_rq3_webgazer_position_90cm]
 
 # Crear la gráfica
 plt.figure(figsize=(8, 5))
@@ -234,10 +268,22 @@ plt.savefig('tests/figs/RQ3_events_captured_fixations_line.jpg')
 # plt.show()
 
 # Datos grafica matching fixations barras
+
+percentage_matching_fixation_rq3_tobii_position_50cm = rq3__tobii_position_50cm['%MatchingFixations'].mean()
+percentage_matching_fixation_rq3_tobii_position_70cm = rq3__tobii_position_70cm['%MatchingFixations'].mean()
+percentage_matching_fixation_rq3_tobii_position_90cm = rq3__tobii_position_90cm['%MatchingFixations'].mean()
+percentage_matching_fixation_rq3_webgazer_position_50cm = rq3__webgazer_position_50cm['%MatchingFixations'].mean()
+percentage_matching_fixation_rq3_webgazer_position_70cm = rq3__webgazer_position_70cm['%MatchingFixations'].mean()
+percentage_matching_fixation_rq3_webgazer_position_90cm = rq3__webgazer_position_90cm['%MatchingFixations'].mean()
+
 tools = ["Infrared/Tobii","Webcam/Webgazer.js"]
 positions = ["50cm", "70cm", "90cm"]
-percentages_tobii = [81.79, 79.74, 0.00]
-percentages_webgazer = [22.79, 61.95, 17.92]
+percentages_tobii = [percentage_matching_fixation_rq3_tobii_position_50cm,
+                     percentage_matching_fixation_rq3_tobii_position_70cm,
+                     percentage_matching_fixation_rq3_tobii_position_90cm]
+percentages_webgazer = [percentage_matching_fixation_rq3_webgazer_position_50cm,
+                        percentage_matching_fixation_rq3_webgazer_position_70cm,
+                        percentage_matching_fixation_rq3_webgazer_position_90cm]
 
 x = np.arange(len(positions))  # Posiciones para las etiquetas del eje X
 width = 0.35  # Ancho de las barras
@@ -269,8 +315,12 @@ plt.savefig('tests/figs/RQ3_matching_fixations_bars.jpg')
 
 # Datos Matching fixations linea
 positions = ["50cm", "70cm", "90cm"]
-percentages_tobii = [81.79, 79.74, 0.00]
-percentages_webgazer = [22.79, 61.95, 17.92]
+percentages_tobii = [percentage_matching_fixation_rq3_tobii_position_50cm,
+                     percentage_matching_fixation_rq3_tobii_position_70cm,
+                     percentage_matching_fixation_rq3_tobii_position_90cm]
+percentages_webgazer = [percentage_matching_fixation_rq3_webgazer_position_50cm,
+                        percentage_matching_fixation_rq3_webgazer_position_70cm,
+                        percentage_matching_fixation_rq3_webgazer_position_90cm]
 
 # Crear la gráfica
 plt.figure(figsize=(8, 5))
@@ -294,9 +344,16 @@ plt.savefig('tests/figs/RQ3_matching_fixations_line.jpg')
 
 ############## RQ4 ##############
 
+rq4_tobii_rpm = data_collection_csv[data_collection_csv['Filename'] == 'RQ4_tobii_rpm_postprocessed.csv']
+rq4_webgazer_rpm = data_collection_csv[data_collection_csv['Filename'] == 'RQ4_webgazer_rpm_postprocessed.csv']
+
+percentage_events_including_test_object_fixations_rq4_tobii_rpm = rq4_tobii_rpm['PercentageEventsWithTestObjectTrue'].mean()
+percentage_events_including_test_object_fixations_rq4_webgazer_rpm = rq4_webgazer_rpm['PercentageEventsWithTestObjectTrue'].mean()
+
 # Datos %Event Including Relevant Fixations
 tools = [ "Infrared/Tobii","Webcam/Webgazer.js"]
-percentages = [100.00, 100.00]
+percentages = [percentage_events_including_test_object_fixations_rq4_tobii_rpm, 
+               percentage_events_including_test_object_fixations_rq4_webgazer_rpm]
 
 # Crear la gráfica
 fig, ax = plt.subplots(figsize=(6, 4))
@@ -320,8 +377,13 @@ plt.savefig('tests/figs/RQ4_event_including_test_object_fixations.jpg')
 # plt.show()
 
 # Datos %Matching_test_object_fixations
+percentage_matching_test_object_fixations_rq4_tobii_rpm = rq4_tobii_rpm['%RelevantFixations'].mean()
+percentage_matching_test_object_fixations_rq4_webgazer_rpm = rq4_webgazer_rpm['%RelevantFixations'].mean()
+
+
 tools = ["Infrared/Tobii", "Webcam/Webgazer.js"]
-percentages = [99.36,70.34]
+percentages = [percentage_matching_test_object_fixations_rq4_tobii_rpm,
+               percentage_matching_test_object_fixations_rq4_webgazer_rpm]
 
 # Crear la gráfica
 fig, ax = plt.subplots(figsize=(6, 4))

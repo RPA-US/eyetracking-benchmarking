@@ -57,6 +57,7 @@ python run.py
 - `configuration/`: Contains JSON configuration files for determined scenarios.
 - `metrics.py`: Contains functions for processing and analyzing metrics.
 - `results.py`: Handles the results of the analysis.
+- `plots.py` : Plots are generated from the analysis.
 - `run.py`: Main script to execute the project.
 - `settings.py`: Configuration settings for the project.
 - `tests/`: Contains test data and the results of the execution.

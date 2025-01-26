@@ -7,6 +7,8 @@ def run_scripts():
         subprocess.run(["python", "metrics.py"], check=True)
         # Ejecutar results.py
         subprocess.run(["python", "results.py"], check=True)
+        # Ejecutar plots.py
+        subprocess.run(["python", "plots.py"], check=True)
     except subprocess.CalledProcessError as e:
         print(f"Error al ejecutar un script: {e}")
 
