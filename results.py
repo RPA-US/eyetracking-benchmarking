@@ -192,42 +192,44 @@ def calculate_metrics(df):
     
     
 # Directorios de entrada y salida. Elegir tests correspondiente al suejeto
-test= "s1"
-input_dir = os.path.join('tests', test, 'preprocessed')
-output_dir = os.path.join('tests', test, 'postprocessed')
-results_dir = os.path.join('tests', test, 'results')
+tests = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"]
+for t in tests:
+    test= t
+    input_dir = os.path.join('tests', test, 'preprocessed')
+    output_dir = os.path.join('tests', test, 'postprocessed')
+    results_dir = os.path.join('tests', test, 'results')
 
-# Crear el directorio de resultados si no existe
-os.makedirs(results_dir, exist_ok=True)
+    # Crear el directorio de resultados si no existe
+    os.makedirs(results_dir, exist_ok=True)
 
-# Lista para almacenar todos los resultados
-all_results = []
+    # Lista para almacenar todos los resultados
+    all_results = []
 
-for csv_test in os.listdir(f'tests/{test}/postprocessed'):
-    if csv_test.endswith('.csv'):
-        print("\n" + "#" * 75)
-        print(f"EXTRACTING RESULTS FROM {csv_test.upper()}...")
-        print("#" * 75 + "\n")
-        print(f"Sacando métricas para tests/{test}/postprocessed/{csv_test}'")
-        df = pd.read_csv(f'tests/{test}/postprocessed/{csv_test}')
-        df.head()
-        print("-----")
-        metrics=calculate_metrics(df)
-        metrics["Subject"] = test
-        metrics["Filename"] = csv_test
-        all_results.append(metrics)
-        print(f"PROCESSED {csv_test}!")
-    else:
-        logging.error("No CSV files found in the specified directory.")
-        raise FileNotFoundError("No CSV postprocessed files found in the specified directory. Please, execute 'python metrics.py' in the terminal to get the postprocessed CSV files.")
+    for csv_test in os.listdir(f'tests/{test}/postprocessed'):
+        if csv_test.endswith('.csv'):
+            print("\n" + "#" * 75)
+            print(f"EXTRACTING RESULTS FROM {csv_test.upper()}...")
+            print("#" * 75 + "\n")
+            print(f"Sacando métricas para tests/{test}/postprocessed/{csv_test}'")
+            df = pd.read_csv(f'tests/{test}/postprocessed/{csv_test}')
+            df.head()
+            print("-----")
+            metrics=calculate_metrics(df)
+            metrics["Subject"] = test
+            metrics["Filename"] = csv_test
+            all_results.append(metrics)
+            print(f"PROCESSED {csv_test}!")
+        else:
+            logging.error("No CSV files found in the specified directory.")
+            raise FileNotFoundError("No CSV postprocessed files found in the specified directory. Please, execute 'python metrics.py' in the terminal to get the postprocessed CSV files.")
 
-# Crear un DataFrame con todos los resultados
-results_df = pd.DataFrame(all_results)
+    # Crear un DataFrame con todos los resultados
+    results_df = pd.DataFrame(all_results)
 
-# Guardar el DataFrame en un archivo CSV
-results_csv_path = os.path.join(results_dir, f'results_summary_{test}.csv')
-results_df.to_csv(results_csv_path, index=False)
+    # Guardar el DataFrame en un archivo CSV
+    results_csv_path = os.path.join(results_dir, f'results_summary_{test}.csv')
+    results_df.to_csv(results_csv_path, index=False)
 
-print(f"All results saved to {results_csv_path}")
+    print(f"All results saved to {results_csv_path}")
         
 

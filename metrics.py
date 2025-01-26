@@ -5,7 +5,7 @@ import numpy as np
 import json
 from shapely.geometry import Point, Polygon
 from settings import get_distance_threshold_by_resolution
-
+import sys
 
 def load_polygons(json_path):
     with open(json_path, 'r') as f:
@@ -68,7 +68,6 @@ def get_polygon_test_object_list_by_threshold(x, y, polygons, threshold):
             if polygon.distance(point) <= threshold:
                 names_within_threshold.append(poly_info["name"])
     return names_within_threshold
-   
 
 def preprocess_df(df):
     df = df.iloc[1:] # Eliminar la primera fila del DataFrame
@@ -170,8 +169,6 @@ def assign_relevant_fixation(df, k, j, name_list):
         if ((name == "excel_name" or "excel_position" or "excel_email" or "excel_car_need" or "exce") and (group_j == "submit" or group_j == "name" or group_j == "position" or group_j == "email" or group_j == "car_need")):
             df.at[k, "Relevant_Fixation"] = "True"
 
-
-
 def postprocess_RQ3_df(df):
     df["Number_True_Fixation_In_This_Event"] = ""
     df["Number_False_Fixation_In_This_Event"] = ""
@@ -221,8 +218,6 @@ def postprocess_RQ4_df(df, filename):
     
     return df
 
-
-
 def execute(json_path, filename):
     # Cargar los polígonos de las AOIs
     polygons_json = load_polygons(json_path)
@@ -241,49 +236,53 @@ def execute(json_path, filename):
             postprocessed_df_2.to_csv(output_file_path, index=False)
             print(f"Preprocessed DataFrame saved to {output_file_path}")
 
+tests = ["s1","s2", "s3", "s4", "s5", "s6", "s7", "s8"]
 
-test= "s1"
-#DEFINIR Directorios de entrada y salida. Elegir tests correspondiente al suejeto
-input_dir = os.path.join('tests', f'{test}', 'preprocessed')
-output_dir = os.path.join('tests', f'{test}', 'postprocessed')
+for i, test in enumerate(tests, start=1):
+    # DEFINIR Directorios de entrada y salida. Elegir tests correspondiente al suejeto
+    input_dir = os.path.join('tests', f'{test}', 'preprocessed')
+    output_dir = os.path.join('tests', f'{test}', 'postprocessed')
 
-# Crear el directorio de salida si no existe
-os.makedirs(output_dir, exist_ok=True)
+    # Crear el directorio de salida si no existe
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Barra de progreso
+    progress = (i / len(tests)) * 100
+    sys.stdout.write(f"\Postprocessing UB Log Progress: [{i}/{len(tests)}] {progress:.2f}%")
+    sys.stdout.flush()
+
+    ### Ejecuciones ###
+    # RQ1 - Static UI elements - %Matching Fixations . Familiy Form Scenario (High and Low density)
+    execute("configuration/01_01_static_form_density_low.json", "RQ1_tobii_form_density_low.csv")
+    execute("configuration/01_01_static_form_density_low.json", "RQ1_webgazer_form_density_low.csv")
+    # execute("configuration/01_02_static_form_density_medium.json", "RQ1_tobii_form_density_medium.csv")
+    # execute("configuration/01_02_static_form_density_medium.json", "RQ1_webgazer_form_density_medium.csv")
+    execute("configuration/01_02_static_form_density_high.json", "RQ1_tobii_form_density_high.csv")
+    execute("configuration/01_02_static_form_density_high.json", "RQ1_webgazer_form_density_high.csv")
+
+    # RQ2 - Alternance UI Element - %Events captured - Buttons click Scenario
+    execute("configuration/02_alternance_buttons.json", "RQ2_tobii_alternance_buttons.csv")
+    execute("configuration/02_alternance_buttons.json", "RQ2_webgazer_alternance_buttons.csv")
+
+    # RQ3 - Position - %Matching Fixations - Medium Density form scenario
+    execute("configuration/03_position.json", "RQ3_tobii_position_50cm.csv")
+    execute("configuration/03_position.json", "RQ3_tobii_position_70cm.csv")
+    execute("configuration/03_position.json", "RQ3_tobii_position_90cm.csv")
+    execute("configuration/03_position.json", "RQ3_webgazer_position_50cm.csv")
+    execute("configuration/03_position.json", "RQ3_webgazer_position_70cm.csv")
+    execute("configuration/03_position.json", "RQ3_webgazer_position_90cm.csv")
+
+    # RQ4 - RPM - Time Matching Intersection - RPM Scenario
+    execute("configuration/04_rpm.json", "RQ4_tobii_rpm.csv")
+    execute("configuration/04_rpm.json", "RQ4_webgazer_rpm.csv")
+
+    # RQX (DISCARDED) - Notification - Pop-up Noise Detection - Notification Scenario
+    # Only questions
+    # execute("configuration/03_notification.json", "RQ3_tobii_notification.csv")
+    # execute("configuration/03_notification.json", "RQ3_webgazer_notification.csv")
+    # All container
+    # execute("configuration/03_02_notification_all.json", "RQ3_tobii_notification.csv")
+    # execute("configuration/03_02_notification_all.json", "RQ3_webgazer_notification.csv")
 
 
-###Ejecuciones###
-#RQ1 - Static UI elements - %Matching Fixations . Familiy Form Scenario (High and Low density)
-execute("configuration/01_01_static_form_density_low.json","RQ1_tobii_form_density_low.csv")
-execute("configuration/01_01_static_form_density_low.json","RQ1_webgazer_form_density_low.csv")
-# execute("configuration/01_02_static_form_density_medium.json","RQ1_tobii_form_density_medium.csv")
-# execute("configuration/01_02_static_form_density_medium.json","RQ1_webgazer_form_density_medium.csv")
-execute("configuration/01_02_static_form_density_high.json","RQ1_tobii_form_density_high.csv")
-execute("configuration/01_02_static_form_density_high.json","RQ1_webgazer_form_density_high.csv")
-
-#RQ2 - Alternance UI Element - %Events captured - Buttons click Scenario
-execute("configuration/02_alternance_buttons.json","RQ2_tobii_alternance_buttons.csv")
-execute("configuration/02_alternance_buttons.json","RQ2_webgazer_alternance_buttons.csv")
-
-#RQ3 - Position - %Matching Fixations - Medium Density form scenario
-execute("configuration/03_position.json","RQ3_tobii_position_50cm.csv")
-execute("configuration/03_position.json","RQ3_tobii_position_70cm.csv")
-execute("configuration/03_position.json","RQ3_tobii_position_90cm.csv")
-execute("configuration/03_position.json","RQ3_webgazer_position_50cm.csv")
-execute("configuration/03_position.json","RQ3_webgazer_position_70cm.csv")
-execute("configuration/03_position.json","RQ3_webgazer_position_90cm.csv")
-#RQ4 - RPM - Time Matching Intersection - RPM Scenario
-execute("configuration/04_rpm.json","RQ4_tobii_rpm.csv")
-execute("configuration/04_rpm.json","RQ4_webgazer_rpm.csv")
-
-
-#RQX (DISCARDED) - Notification - Pop-up Noise Detection - Notification Scenario
-#Only questions
-#execute("configuration/03_notification.json","RQ3_tobii_notification.csv")
-#execute("configuration/03_notification.json","RQ3_webgazer_notification.csv")
-#All container
-# execute("configuration/03_02_notification_all.json","RQ3_tobii_notification.csv")
-# execute("configuration/03_02_notification_all.json","RQ3_webgazer_notification.csv")
-
-
-
-
+print("\nCompleted!")
