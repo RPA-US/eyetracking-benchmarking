@@ -87,7 +87,7 @@
             "name": "submit",
             "type": "button",
             "shape": "rectangle",
-            "dimensions": ["630,992", "720,992", "720,1030", "630,1030"],
+            "dimensions": ["630,959", "722,959", "722,1030", "630,1030"],
             "centroid": "960,1130"
         }
     ]

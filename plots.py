@@ -8,7 +8,7 @@ os.makedirs('tests/figs', exist_ok=True)
 
 # Especificar la ruta base del proyecto y la salida deseada
 base_path = "data/data_collection"
-output_file = "data/combined_data.csv"
+
 
 
 def collect_csv_files(base_path, output_file):
@@ -19,37 +19,9 @@ def collect_csv_files(base_path, output_file):
         base_path (str): Ruta principal del proyecto donde buscar los CSV.
         output_file (str): Ruta del archivo combinado de salida.
     """
-    # Lista para almacenar los DataFrames
-    combined_data = []
-
-    # Recorrer todas las subcarpetas y archivos
-    for root, dirs, files in os.walk(base_path):
-        for file in files:
-            if file.endswith('.csv'):  # Identificar archivos CSV
-                file_path = os.path.join(root, file)
-                try:
-                    # Leer cada CSV y añadirlo a la lista
-                    df = pd.read_csv(file_path)
-                    combined_data.append(df)
-                    print(f"Archivo leído: {file_path}")
-                except Exception as e:
-                    print(f"Error al leer {file_path}: {e}")
-
-    if combined_data:
-        # Combinar todos los DataFrames
-        combined_df = pd.concat(combined_data, ignore_index=True)
-
-        # Guardar en el archivo de salida
-        try:
-            combined_df.to_csv(output_file, index=False)
-            print(f"Archivo combinado guardado en: {output_file}")
-        except Exception as e:
-            print(f"Error al guardar el archivo combinado: {e}")
-    else:
-        print("No se encontraron archivos CSV para combinar.")
 
 #GRÁFICAS
-collect_csv_files(base_path, output_file)
+output_file = "data/combined_data.csv"
 data_collection_csv = pd.read_csv(output_file)
 
 # Filtrar las filas que corresponden al Filename "RQ1_tobii_form_density_high_postprocessed.csv"
@@ -361,7 +333,7 @@ bars = ax.bar(tools, percentages, color=[ 'orange','skyblue',])
 
 # Añadir etiquetas y título
 ax.set_ylabel("% Event Including Test Object Fixations")
-ax.set_title("Comparison of Tools: Test Object Fixations")
+ax.set_title("Comparison of Tools: %Events  Test Object Fixations")
 ax.set_ylim(0, 110)  # Limitar el eje Y para espacio adicional
 
 # Mostrar porcentaje en las barras
@@ -405,3 +377,6 @@ plt.tight_layout()
 plt.savefig('tests/figs/RQ4_matching_test_object_fixations.jpg')
 # Mostrar gráfico
 # plt.show()
+
+
+print("Plots correctly generated in folder: tests/figs")

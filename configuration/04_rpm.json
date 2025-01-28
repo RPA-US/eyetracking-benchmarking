@@ -60,7 +60,7 @@
             "name": "car_need_caption",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["1135,795", "1356,795", "1356,815", "1135,815"],
+            "dimensions": ["1130,795", "1356,795", "1356,815", "1130,815"],
             "centroid": "1245.5,805"
         },
         {
@@ -69,7 +69,7 @@
             "name": "car_need_yes",
             "type": "radio",
             "shape": "rectangle",
-            "dimensions": ["1132,832", "1185,832", "1185,874", "1135,874"],
+            "dimensions": ["1130,832", "1185,832", "1185,874", "1130,874"],
             "centroid": "1160,853"
         },
         {
@@ -78,7 +78,7 @@
             "name": "car_need_no",
             "type": "radio",
             "shape": "rectangle",
-            "dimensions": ["1132,879", "1185,879", "1185,918", "1135,918"],
+            "dimensions": ["1130,879", "1185,879", "1185,918", "1130,918"],
             "centroid": "1160,892.5"
         },
         {

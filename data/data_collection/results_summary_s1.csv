@@ -1,5 +1,5 @@
 Events,EventsIncludingFixations,TotalFixations,TotalMatchingFixations,TotalNonMatchingFixations,AvgFixationsPerEvent,%MatchingFixations,%NonMatchingFixations,TotalTestTime,TotalDurationIntersecting,TotalDurationNonIntersecting,AvgDurationIntersecting,AvgDurationNonIntersecting,%EventsWithFixations,EventsWithTestObject,AllEventsWithTestObjectTrue,PercentageEventsWithTestObjectTrue,TotalRelevantFixations,TotalRelevantFixationsTrue,TotalRelevantFixationsFalse,%RelevantFixations,Subject,Filename
-14,14,112,68,44,8.0,60.71,39.29,00:01:11.000,00:00:39.000,00:00:32.000,00:00:00.570,00:00:00.590,100.0,0,0,0.0,0,0,0,0.0,s1,RQ1_tobii_form_density_high_postprocessed.csv
+14,14,112,71,41,8.0,63.39,36.61,00:01:11.000,00:00:41.000,00:00:30.000,00:00:00.580,00:00:00.590,100.0,0,0,0.0,0,0,0,0.0,s1,RQ1_tobii_form_density_high_postprocessed.csv
 6,6,40,30,10,6.67,75.0,25.0,00:00:26.000,00:00:22.000,00:00:04.000,00:00:00.730,00:00:00.400,100.0,0,0,0.0,0,0,0,0.0,s1,RQ1_tobii_form_density_low_postprocessed.csv
 15,15,302,49,253,20.13,16.23,83.77,00:01:42.000,00:00:20.000,00:01:22.000,00:00:00.410,00:00:00.310,100.0,0,0,0.0,0,0,0,0.0,s1,RQ1_webgazer_form_density_high_postprocessed.csv
 6,6,119,49,70,19.83,41.18,58.82,00:00:35.000,00:00:13.000,00:00:22.000,00:00:00.270,00:00:00.290,100.0,0,0,0.0,0,0,0,0.0,s1,RQ1_webgazer_form_density_low_postprocessed.csv

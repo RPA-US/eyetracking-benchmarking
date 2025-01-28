@@ -3,6 +3,7 @@
 import logging
 import os
 import pandas as pd
+import shutil
 
 def format_timedelta(td):
     if isinstance(td, float):
@@ -194,13 +195,15 @@ def calculate_metrics(df):
 # Directorios de entrada y salida. Elegir tests correspondiente al suejeto
 tests = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"]
 for t in tests:
-    test= t
+    test = t
     input_dir = os.path.join('tests', test, 'preprocessed')
     output_dir = os.path.join('tests', test, 'postprocessed')
     results_dir = os.path.join('tests', test, 'results')
+    data_collection_dir = os.path.join('data', 'data_collection')
 
     # Crear el directorio de resultados si no existe
     os.makedirs(results_dir, exist_ok=True)
+    os.makedirs(data_collection_dir, exist_ok=True)
 
     # Lista para almacenar todos los resultados
     all_results = []
@@ -214,7 +217,7 @@ for t in tests:
             df = pd.read_csv(f'tests/{test}/postprocessed/{csv_test}')
             df.head()
             print("-----")
-            metrics=calculate_metrics(df)
+            metrics = calculate_metrics(df)
             metrics["Subject"] = test
             metrics["Filename"] = csv_test
             all_results.append(metrics)
@@ -230,6 +233,51 @@ for t in tests:
     results_csv_path = os.path.join(results_dir, f'results_summary_{test}.csv')
     results_df.to_csv(results_csv_path, index=False)
 
+    # Copiar el archivo CSV a la carpeta data/data_collection
+    shutil.copy(results_csv_path, data_collection_dir)
+
     print(f"All results saved to {results_csv_path}")
+    print(f"Copied {results_csv_path} to {data_collection_dir}")
         
 
+def collect_csv_files(base_path, output_file):
+    """
+    Función para recopilar y combinar todos los archivos CSV de un proyecto en un solo archivo.
+
+    Args:
+        base_path (str): Ruta principal del proyecto donde buscar los CSV.
+        output_file (str): Ruta del archivo combinado de salida.
+    """
+    # Lista para almacenar los DataFrames
+    combined_data = []
+
+    # Recorrer todas las subcarpetas y archivos
+    for root, dirs, files in os.walk(base_path):
+        for file in files:
+            if file.endswith('.csv'):  # Identificar archivos CSV
+                file_path = os.path.join(root, file)
+                try:
+                    # Leer cada CSV y añadirlo a la lista
+                    df = pd.read_csv(file_path)
+                    combined_data.append(df)
+                    print(f"Archivo leído: {file_path}")
+                except Exception as e:
+                    print(f"Error al leer {file_path}: {e}")
+
+    if combined_data:
+        # Combinar todos los DataFrames
+        combined_df = pd.concat(combined_data, ignore_index=True)
+
+        # Guardar en el archivo de salida
+        try:
+            combined_df.to_csv(output_file, index=False)
+            print(f"Archivo combinado guardado en: {output_file}")
+        except Exception as e:
+            print(f"Error al guardar el archivo combinado: {e}")
+    else:
+        print("No se encontraron archivos CSV para combinar.")
+
+# Especificar la ruta base del proyecto y la salida deseada
+base_path = "data/data_collection"
+output_file = "data/combined_data.csv"
+collect_csv_files(base_path, output_file)
