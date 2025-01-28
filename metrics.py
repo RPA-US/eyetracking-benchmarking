@@ -236,7 +236,7 @@ def execute(json_path, filename):
             postprocessed_df_2.to_csv(output_file_path, index=False)
             print(f"Preprocessed DataFrame saved to {output_file_path}")
 
-tests = ["s1","s2", "s3", "s4", "s5", "s6", "s7", "s8"]
+tests = ["s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9"]
 
 for i, test in enumerate(tests, start=1):
     # DEFINIR Directorios de entrada y salida. Elegir tests correspondiente al suejeto
