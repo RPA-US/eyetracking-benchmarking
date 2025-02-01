@@ -6,6 +6,7 @@ import json
 from shapely.geometry import Point, Polygon
 from settings import get_distance_threshold_by_resolution
 import sys
+import math
 
 def load_polygons(json_path):
     with open(json_path, 'r') as f:
@@ -116,6 +117,7 @@ def postprocess_df(df):
 
 def process_RQ_df(df, polygons, threshold):
     fixation_index = 1
+
     for i in range(len(df)):
         if df.loc[i, "category"] == "GazeFixation":
             df.loc[i, "Gaze_Fixation_Index"] = fixation_index
@@ -123,19 +125,25 @@ def process_RQ_df(df, polygons, threshold):
             for j in range(i + 1, len(df)):
                 next_event = df.loc[j]
                 if next_event["category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
-                    filtered_groups = filter_polygons_by_point(next_event["coordX"], next_event["coordY"], polygons)
+                    filtered_groups = filter_polygons_by_point(float(next_event["coordX"]), float(next_event["coordY"]), polygons)
                     group = next(iter(filtered_groups), None)
                     df.at[j, "Group"] = group
 
                     if group:
+                        total_distance_error = 0
+                        fixation_count = 0
                         for k in range(i, j):
                             if df.loc[k, "category"] == "GazeFixation":
                                 # Verificar si la fijación está dentro del grupo del clic
-                                df.at[k, "Match_Fixation"] = is_gaze_fixation_baseline(df.loc[k, "coordX"], df.loc[k, "coordY"], filtered_groups, threshold)
+                                df.at[k, "Match_Fixation"] = is_gaze_fixation_baseline(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), filtered_groups, threshold)
                                 # Asignar el grupo de la fijación
-                                df.at[k, "Group"] = get_polygon_group_by_threshold(df.loc[k, "coordX"], df.loc[k, "coordY"], polygons, threshold)
+                                if df.at[k, "Match_Fixation"] == "False":
+                                    distance_error = math.sqrt((float(df.loc[k, "coordX"]) - float(df.loc[j, "coordX"]))**2 + (float(df.loc[k, "coordY"]) - float(df.loc[j, "coordY"]))**2)
+                                    total_distance_error += distance_error
+                                    fixation_count += 1
+                                df.at[k, "Group"] = get_polygon_group_by_threshold(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), polygons, threshold)
                                 
-                                name_list = get_polygon_test_object_list_by_threshold(df.loc[k, "coordX"], df.loc[k, "coordY"], polygons, threshold)
+                                name_list = get_polygon_test_object_list_by_threshold(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), polygons, threshold)
                                 # Asegurarse de que la columna Target_Object_List existe
                                 if "Target_Object_List" not in df.columns:
                                     df["Target_Object_List"] = None
@@ -144,6 +152,9 @@ def process_RQ_df(df, polygons, threshold):
 
                                 # Lógica para asignar RelevantFixation
                                 assign_relevant_fixation(df, k, j, name_list)
+                        
+                        average_distance_error = total_distance_error / fixation_count if fixation_count > 0 else 0
+                        df.at[j, "Average_Distance_Error"] = average_distance_error
                     break
         elif df.loc[i, "category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
             fixation_index += 1
