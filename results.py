@@ -130,6 +130,16 @@ def calculate_metrics(df):
         all_events_with_target_object_true = 0
         percentage_events_with_target_object_true = 0
 
+    #Error en las distancias de las fijaciones respecto al target de evento
+    #Sumar todos los errores de distancia
+    total_distance_error = int(df["Distance_to_Target_Event"].sum())
+    #Promedio de distancia de error por fijaciones
+    avg_distance_error = round(total_distance_error / total_fixations, 2) if total_fixations > 0 else 0
+    #Promedio de distancia de error por fijaciones y eventos
+    avg_distance_error_per_event = round(avg_distance_error / num_total_events, 2) if num_total_events > 0 else 0
+
+
+
         
     
     #RESULTADOS FINALES
@@ -154,7 +164,8 @@ def calculate_metrics(df):
         "TotalRelevantFixations": total_relevant_fixations,  # "Total Number of Relevant Fixations"
         "TotalRelevantFixationsTrue": total_relevant_fixations_true,  # "Total Number of Relevant Fixations equals True"
         "TotalRelevantFixationsFalse": total_relevant_fixations_false,  # "Total Number of Relevant Fixations equals False"
-        "%RelevantFixations": percentage_relevant_fixations  # "% of Relevant Fixations equals True"
+        "%RelevantFixations": percentage_relevant_fixations,  # "% of Relevant Fixations equals True"
+        "AvgDistanceErrorPx": avg_distance_error_per_event,  # "Total Distance Error"
     }
     
     # Mostrar los resultados por consola

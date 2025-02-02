@@ -1,0 +1,13 @@
+Events,EventsIncludingFixations,TotalFixations,TotalMatchingFixations,TotalNonMatchingFixations,AvgFixationsPerEvent,%MatchingFixations,%NonMatchingFixations,TotalTestTime,TotalDurationIntersecting,TotalDurationNonIntersecting,AvgDurationIntersecting,AvgDurationNonIntersecting,%EventsWithFixations,EventsWithTestObject,AllEventsWithTestObjectTrue,PercentageEventsWithTestObjectTrue,TotalRelevantFixations,TotalRelevantFixationsTrue,TotalRelevantFixationsFalse,%RelevantFixations,AvgDistanceErrorPx,Subject,Filename
+15,15,153,145,8,10.2,94.77,5.23,00:01:26.000,00:01:20.000,00:00:06.000,00:00:00.550,00:00:00.380,100.0,0,0,0.0,0,0,0,0.0,2.89,s3,RQ1_tobii_form_density_high_postprocessed.csv
+6,6,65,64,1,10.83,98.46,1.54,00:00:31.000,00:00:30.000,00:00:01.000,00:00:00.470,00:00:00.000,100.0,0,0,0.0,0,0,0,0.0,2.04,s3,RQ1_tobii_form_density_low_postprocessed.csv
+15,15,377,72,305,25.13,19.1,80.9,00:01:26.000,00:00:13.000,00:01:13.000,00:00:00.180,00:00:00.240,100.0,0,0,0.0,0,0,0,0.0,24.05,s3,RQ1_webgazer_form_density_high_postprocessed.csv
+6,6,136,36,100,22.67,26.47,73.53,00:00:31.000,00:00:11.000,00:00:20.000,00:00:00.310,00:00:00.190,100.0,0,0,0.0,0,0,0,0.0,50.73,s3,RQ1_webgazer_form_density_low_postprocessed.csv
+19,19,60,26,34,3.16,43.33,56.67,00:00:23.000,00:00:10.000,00:00:13.000,00:00:00.380,00:00:00.260,100.0,0,0,0.0,0,0,0,0.0,32.0,s3,RQ2_webgazer_alternance_buttons_postprocessed.csv
+5,5,21,16,5,4.2,76.19,23.81,00:00:25.000,00:00:20.000,00:00:05.000,00:00:01.250,00:00:01.000,100.0,0,0,0.0,0,0,0,0.0,14.31,s3,RQ3_tobii_position_50cm_postprocessed.csv
+5,5,40,34,6,8.0,85.0,15.0,00:00:32.000,00:00:27.000,00:00:05.000,00:00:00.790,00:00:00.670,100.0,0,0,0.0,0,0,0,0.0,4.85,s3,RQ3_tobii_position_70cm_postprocessed.csv
+5,5,106,64,42,21.2,60.38,39.62,00:00:28.000,00:00:14.000,00:00:14.000,00:00:00.220,00:00:00.310,100.0,0,0,0.0,0,0,0,0.0,18.34,s3,RQ3_webgazer_position_50cm_postprocessed.csv
+5,5,96,28,68,19.2,29.17,70.83,00:00:32.000,00:00:07.000,00:00:25.000,00:00:00.250,00:00:00.370,100.0,0,0,0.0,0,0,0,0.0,38.36,s3,RQ3_webgazer_position_70cm_postprocessed.csv
+5,5,88,27,61,17.6,30.68,69.32,00:00:26.000,00:00:09.000,00:00:17.000,00:00:00.330,00:00:00.260,100.0,0,0,0.0,0,0,0,0.0,41.59,s3,RQ3_webgazer_position_90cm_postprocessed.csv
+5,5,95,44,51,19.0,46.32,53.68,00:00:51.000,00:00:31.000,00:00:20.000,00:00:00.700,00:00:00.330,100.0,4,4,100.0,95,93,2,97.89,93.06,s3,RQ4_tobii_rpm_postprocessed.csv
+5,5,241,4,237,48.2,1.66,98.34,00:00:51.000,00:00:01.000,00:00:50.000,00:00:00.250,00:00:00.210,100.0,4,1,25.0,241,78,163,32.37,101.42,s3,RQ4_webgazer_rpm_postprocessed.csv
