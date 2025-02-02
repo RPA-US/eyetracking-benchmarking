@@ -6,7 +6,7 @@
             "name": "name_caption",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["655,352", "785,352", "785,372", "655,372"],
+            "dimensions": ["630,352", "785,352", "785,372", "630,372"],
             "centroid": "54,222"
         },
         {
@@ -15,7 +15,7 @@
             "name": "name_input",
             "type": "text_input",
             "shape": "rectangle",
-            "dimensions": ["655,386", "954,386", "954,450", "655,450"],
+            "dimensions": ["630,386", "954,386", "954,450", "630,450"],
             "centroid": "1865,222"
         },
         {
@@ -24,7 +24,7 @@
             "name": "position_caption",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["656,504", "717,504", "717,520", "656,520"],
+            "dimensions": ["630,504", "717,504", "717,520", "630,520"],
             "centroid": "54,604"
         },
         {
@@ -33,7 +33,7 @@
             "name": "position_input",
             "type": "text_input",
             "shape": "rectangle",
-            "dimensions": ["655,525", "951,525", "951,601", "655,601"],
+            "dimensions": ["630,525", "951,525", "951,601", "630,601"],
             "centroid": "1865,604"
         },
         {
@@ -42,7 +42,7 @@
             "name": "email_caption",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["655,655", "699,655", "699,670", "655,670"],
+            "dimensions": ["630,655", "699,655", "699,670", "630,670"],
             "centroid": "960,604"
         },
         {
@@ -51,7 +51,7 @@
             "name": "email_input",
             "type": "text_input",
             "shape": "rectangle",
-            "dimensions": ["655,680", "951,680", "951,750", "655,750"],
+            "dimensions": ["630,680", "951,680", "951,750", "630,750"],
             "centroid": "54,985"
         },
         {
@@ -60,7 +60,7 @@
             "name": "car_need_caption",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["655,802", "876,802", "876,821", "655,821"],
+            "dimensions": ["630,802", "876,802", "876,821", "630,821"],
             "centroid": "1865,985"
         },
         {
@@ -69,7 +69,7 @@
             "name": "car_need_yes",
             "type": "radio",
             "shape": "rectangle",
-            "dimensions": ["655,833", "702,833", "702,889", "655,889"],
+            "dimensions": ["630,833", "702,833", "702,889", "630,889"],
             "centroid": "960,985"
         },
         {
@@ -78,7 +78,7 @@
             "name": "car_need_no",
             "type": "radio",
             "shape": "rectangle",
-            "dimensions": ["655,890", "712,890", "712,955", "655,955"],
+            "dimensions": ["630,890", "712,890", "712,955", "630,955"],
             "centroid": "960,1057"
         },
         {

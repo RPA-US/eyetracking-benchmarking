@@ -6,7 +6,7 @@
             "name": "name_caption",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["1135,345", "1267,345", "1267,363", "1135,363"],
+            "dimensions": ["1107,345", "1267,345", "1267,363", "1107,363"],
             "centroid": "1201,354"
         },
         {
@@ -15,7 +15,7 @@
             "name": "name",
             "type": "text_input",
             "shape": "rectangle",
-            "dimensions": ["1135,397", "1430,397", "1430,440", "1135,440"],
+            "dimensions": ["1107,397", "1430,397", "1430,440", "1107,440"],
             "centroid": "1282.5,411"
         },
         {
@@ -24,7 +24,7 @@
             "name": "position_caption",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["1135,496", "1198,496", "1198,513", "1135,513"],
+            "dimensions": ["1107,496", "1198,496", "1198,513", "1107,513"],
             "centroid": "1166.5,504.5"
         },
         {
@@ -33,7 +33,7 @@
             "name": "position",
             "type": "text_input",
             "shape": "rectangle",
-            "dimensions": ["1135,531", "1429,531", "1429,603", "1135,603"],
+            "dimensions": ["1107,531", "1429,531", "1429,603", "1107,603"],
             "centroid": "1282,563"
         },
         {
@@ -42,7 +42,7 @@
             "name": "email_caption",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["1135,645", "1178,645", "1178,664", "1135,664"],
+            "dimensions": ["1107,645", "1178,645", "1178,664", "1107,664"],
             "centroid": "1156.5,654.5"
         },
         {
@@ -51,7 +51,7 @@
             "name": "email",
             "type": "text_input",
             "shape": "rectangle",
-            "dimensions": ["1135,680", "1431,680", "1431,755", "1135,755"],
+            "dimensions": ["1107,680", "1431,680", "1431,755", "1107,755"],
             "centroid": "1283,713.5"
         },
         {
@@ -60,7 +60,7 @@
             "name": "car_need_caption",
             "type": "text",
             "shape": "rectangle",
-            "dimensions": ["1130,795", "1356,795", "1356,815", "1130,815"],
+            "dimensions": ["1107,795", "1356,795", "1356,815", "1107,815"],
             "centroid": "1245.5,805"
         },
         {
@@ -69,7 +69,7 @@
             "name": "car_need_yes",
             "type": "radio",
             "shape": "rectangle",
-            "dimensions": ["1130,832", "1185,832", "1185,874", "1130,874"],
+            "dimensions": ["1107,832", "1185,832", "1185,874", "1107,874"],
             "centroid": "1160,853"
         },
         {
@@ -78,7 +78,7 @@
             "name": "car_need_no",
             "type": "radio",
             "shape": "rectangle",
-            "dimensions": ["1130,879", "1185,879", "1185,918", "1130,918"],
+            "dimensions": ["1107,875", "1185,875", "1185,918", "1107,918"],
             "centroid": "1160,892.5"
         },
         {
@@ -87,7 +87,7 @@
             "name": "submit",
             "type": "button",
             "shape": "rectangle",
-            "dimensions": ["1111,985", "1201,985", "1201,1022", "1111,1022"],
+            "dimensions": ["1107,950", "1201,950", "1201,1022", "1107,1022"],
             "centroid": "1156,1003.5"
         },
         {

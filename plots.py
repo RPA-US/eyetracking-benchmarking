@@ -193,8 +193,8 @@ def add_labels(bars):
         ax.text(bar.get_x() + bar.get_width()/2., height + 2,
                 f'{height:.2f}%', ha='center', va='bottom')
 
-add_labels(bars_tobii)
 add_labels(bars_webgazer)
+add_labels(bars_tobii)
 
 # Guardar la gráfica
 plt.tight_layout()
