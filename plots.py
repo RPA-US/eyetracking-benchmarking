@@ -161,7 +161,7 @@ for bar, pct in zip(bars, df['Mean Error Distance']):
     plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}', ha='center', va='bottom', fontsize=10)
 
 # Personalización del gráfico
-plt.title('Mean Error Distance (MED) by Device/Software (TC1)', fontsize=12)
+plt.title('Mean Error Distance (MED) by Device/Software (TC2)', fontsize=12)
 plt.ylabel('MED (px)', fontsize=12)
 plt.xticks(rotation=45, ha='right', fontsize=10)
 plt.ylim(0, 60)
