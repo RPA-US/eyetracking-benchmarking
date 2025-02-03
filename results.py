@@ -137,9 +137,7 @@ def calculate_metrics(df):
     avg_distance_error = round(total_distance_error / total_fixations, 2) if total_fixations > 0 else 0
     #Promedio de distancia de error por fijaciones y eventos
     avg_distance_error_per_event = round(avg_distance_error / num_total_events, 2) if num_total_events > 0 else 0
-
-
-
+    
         
     
     #RESULTADOS FINALES
@@ -165,7 +163,7 @@ def calculate_metrics(df):
         "TotalRelevantFixationsTrue": total_relevant_fixations_true,  # "Total Number of Relevant Fixations equals True"
         "TotalRelevantFixationsFalse": total_relevant_fixations_false,  # "Total Number of Relevant Fixations equals False"
         "%RelevantFixations": percentage_relevant_fixations,  # "% of Relevant Fixations equals True"
-        "AvgDistanceErrorPx": avg_distance_error_per_event,  # "Total Distance Error"
+        "MeanErrorDistance": avg_distance_error_per_event,  # "Total Distance Error"
     }
     
     # Mostrar los resultados por consola

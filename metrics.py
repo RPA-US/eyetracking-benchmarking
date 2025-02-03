@@ -76,7 +76,7 @@ def calculate_euclidean_distance(x1, y1, x2, y2):
 def preprocess_df(df):
     df = df.iloc[1:] # Eliminar la primera fila del DataFrame
     # Seleccionar solo las columnas especificadas y la primera columna que indica el rowindex
-    columns_to_keep = ["time:timestamp", "category", "application", "coordX", "coordY", "typed_word", "screenshot", "concept:name"]
+    columns_to_keep = ["time:timestamp", "category", "application", "coordX", "coordY", "typed_word", "concept:name"]
     df = df.reset_index()[["index"] + columns_to_keep]
     df["TotalEvents"] = len(df[df["category"].isin(["MouseClick", "DoubleMouseClick", "Keyboard"])])
     # Redondear las columnas coordX y coordY a dos decimales
