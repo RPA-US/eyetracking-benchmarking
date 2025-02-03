@@ -570,100 +570,98 @@ plt.savefig('output/figs/RQ4_MTOF_TC7.jpg')
 print("Plots correctly generated in folder: output/figs")
 
 
-
-
 # Crear un DataFrame para almacenar todos los resultados
 final_results = []
 
 # RQ1 Matching Fixation por Device y Test Case Scenario
 rq1_data = [
-    ['Infrared/Tobii', 'TC1', percentage_matching_fixation_rq1_tobii_form_density_low],
-    ['Infrared/Tobii', 'TC2', percentage_matching_fixation_rq1_tobii_form_density_high],
-    ['Webcam/Webgazer.js', 'TC1', percentage_matching_fixation_rq1_webgazer_form_density_low],
-    ['Webcam/Webgazer.js', 'TC2', percentage_matching_fixation_rq1_webgazer_form_density_high]
+    ['Infrared/Tobii', 'TC1', round(percentage_matching_fixation_rq1_tobii_form_density_low, 2)],
+    ['Infrared/Tobii', 'TC2', round(percentage_matching_fixation_rq1_tobii_form_density_high, 2)],
+    ['Webcam/Webgazer.js', 'TC1', round(percentage_matching_fixation_rq1_webgazer_form_density_low, 2)],
+    ['Webcam/Webgazer.js', 'TC2', round(percentage_matching_fixation_rq1_webgazer_form_density_high, 2)]
 ]
 df_rq1 = pd.DataFrame(rq1_data, columns=['Device/Software', 'TC', '% MF'])
 final_results.append(df_rq1)
 
 rq1_med = [
-    ['Infrared/Tobii', 'TC1', average_error_distance_rq1_tobii_form_density_low],
-    ['Infrared/Tobii', 'TC2', average_error_distance_rq1_tobii_form_density_high],
-    ['Webcam/Webgazer.js', 'TC1', average_error_distance_rq1_webgazer_form_density_low],
-    ['Webcam/Webgazer.js', 'TC2', average_error_distance_rq1_webgazer_form_density_high],
+    ['Infrared/Tobii', 'TC1', round(average_error_distance_rq1_tobii_form_density_low, 2)],
+    ['Infrared/Tobii', 'TC2', round(average_error_distance_rq1_tobii_form_density_high, 2)],
+    ['Webcam/Webgazer.js', 'TC1', round(average_error_distance_rq1_webgazer_form_density_low, 2)],
+    ['Webcam/Webgazer.js', 'TC2', round(average_error_distance_rq1_webgazer_form_density_high, 2)],
 ]
 df_rq1_med = pd.DataFrame(rq1_med, columns=['Device/Software', 'TC', 'MED (px)'])
 final_results.append(df_rq1_med)
 
 # RQ2 Matching Fixation True por Tool/Software
 rq2_data = [
-    ['Infrared/Tobii', 'TC3', percentage_matching_fixation_rq2_tobii_alternance_buttons],
-    ['Webcam/Webgazer.js', 'TC3', percentage_matching_fixation_rq2_webgazer_alternance_buttons]
+    ['Infrared/Tobii', 'TC3', round(percentage_matching_fixation_rq2_tobii_alternance_buttons, 2)],
+    ['Webcam/Webgazer.js', 'TC3', round(percentage_matching_fixation_rq2_webgazer_alternance_buttons, 2)]
 ]
 df_rq2 = pd.DataFrame(rq2_data, columns=['Device/Software', 'TC', '% MF'])
 final_results.append(df_rq2)
 
 # RQ2 Events Including Fixations por Tool/Software
 rq2_eif_data = [
-    ['Infrared/Tobii', 'TC3', percentage_events_including_fixations_rq2_tobii_alternance_buttons],
-    ['Webcam/Webgazer.js', 'TC3', percetange_events_including_fixations_rq2_webgazer_alternance_buttons]
+    ['Infrared/Tobii', 'TC3', round(percentage_events_including_fixations_rq2_tobii_alternance_buttons, 2)],
+    ['Webcam/Webgazer.js', 'TC3', round(percetange_events_including_fixations_rq2_webgazer_alternance_buttons, 2)]
 ]
 df_rq2_eif = pd.DataFrame(rq2_eif_data, columns=['Device/Software', 'TC', '% EIF'])
 final_results.append(df_rq2_eif)
 
 rq2_med = [
-    ['Infrared/Tobii', 'TC3', average_error_distance_rq2_tobii_alternance_buttons],
-    ['Webcam/Webgazer.js', 'TC3', average_error_distance_rq2_webgazer_alternance_buttons]
+    ['Infrared/Tobii', 'TC3', round(average_error_distance_rq2_tobii_alternance_buttons, 2)],
+    ['Webcam/Webgazer.js', 'TC3', round(average_error_distance_rq2_webgazer_alternance_buttons, 2)]
 ]
 df_rq2_med = pd.DataFrame(rq2_med, columns=['Device/Software', 'TC', 'MED (px)'])
 final_results.append(df_rq2_med)
 
 # RQ3 Events Including Fixations por Device y Distance
 rq3_eif_data = [
-    ['Infrared/Tobii', 'TC4', percentage_events_including_fixations_rq3_tobii_position_50cm],
-    ['Infrared/Tobii', 'TC5', percentage_events_including_fixations_rq3_tobii_position_70cm],
-    ['Infrared/Tobii', 'TC6', percentage_events_including_fixations_rq3_tobii_position_90cm],
-    ['Webcam/Webgazer.js', 'TC4', percentage_events_including_fixations_rq3_webgazer_position_50cm],
-    ['Webcam/Webgazer.js', 'TC5', percentage_events_including_fixations_rq3_webgazer_position_70cm],
-    ['Webcam/Webgazer.js', 'TC6', percentage_events_including_fixations_rq3_webgazer_position_90cm]
+    ['Infrared/Tobii', 'TC4', round(percentage_events_including_fixations_rq3_tobii_position_50cm, 2)],
+    ['Infrared/Tobii', 'TC5', round(percentage_events_including_fixations_rq3_tobii_position_70cm, 2)],
+    ['Infrared/Tobii', 'TC6', round(percentage_events_including_fixations_rq3_tobii_position_90cm, 2)],
+    ['Webcam/Webgazer.js', 'TC4', round(percentage_events_including_fixations_rq3_webgazer_position_50cm, 2)],
+    ['Webcam/Webgazer.js', 'TC5', round(percentage_events_including_fixations_rq3_webgazer_position_70cm, 2)],
+    ['Webcam/Webgazer.js', 'TC6', round(percentage_events_including_fixations_rq3_webgazer_position_90cm, 2)]
 ]
 df_rq3_eif = pd.DataFrame(rq3_eif_data, columns=['Device/Software', 'TC', '% EIF'])
 final_results.append(df_rq3_eif)
 
 # RQ3 Matching Fixation por Device y Distance
 rq3_mf_data = [
-    ['Infrared/Tobii', 'TC4', percentage_matching_fixation_rq3_tobii_position_50cm],
-    ['Infrared/Tobii', 'TC5', percentage_matching_fixation_rq3_tobii_position_70cm],
-    ['Infrared/Tobii', 'TC6', percentage_matching_fixation_rq3_tobii_position_90cm],
-    ['Webcam/Webgazer.js', 'TC4', percentage_matching_fixation_rq3_webgazer_position_50cm],
-    ['Webcam/Webgazer.js', 'TC5', percentage_matching_fixation_rq3_webgazer_position_70cm],
-    ['Webcam/Webgazer.js', 'TC6', percentage_matching_fixation_rq3_webgazer_position_90cm]
+    ['Infrared/Tobii', 'TC4', round(percentage_matching_fixation_rq3_tobii_position_50cm, 2)],
+    ['Infrared/Tobii', 'TC5', round(percentage_matching_fixation_rq3_tobii_position_70cm, 2)],
+    ['Infrared/Tobii', 'TC6', round(percentage_matching_fixation_rq3_tobii_position_90cm, 2)],
+    ['Webcam/Webgazer.js', 'TC4', round(percentage_matching_fixation_rq3_webgazer_position_50cm, 2)],
+    ['Webcam/Webgazer.js', 'TC5', round(percentage_matching_fixation_rq3_webgazer_position_70cm, 2)],
+    ['Webcam/Webgazer.js', 'TC6', round(percentage_matching_fixation_rq3_webgazer_position_90cm, 2)]
 ]
 df_rq3_mf = pd.DataFrame(rq3_mf_data, columns=['Device/Software', 'TC', '% MF'])
 final_results.append(df_rq3_mf)
 
 rq3_med = [
-    ['Infrared/Tobii', 'TC4', average_error_distance_rq3_tobii_position_50cm],
-    ['Infrared/Tobii', 'TC5', average_error_distance_rq3_tobii_position_70cm],
-    ['Infrared/Tobii', 'TC6', average_error_distance_rq3_tobii_position_90cm],
-    ['Webcam/Webgazer.js', 'TC4', average_error_distance_rq3_webgazer_position_50cm],
-    ['Webcam/Webgazer.js', 'TC5', average_error_distance_rq3_webgazer_position_70cm],
-    ['Webcam/Webgazer.js', 'TC6', average_error_distance_rq3_webgazer_position_90cm]
+    ['Infrared/Tobii', 'TC4', round(average_error_distance_rq3_tobii_position_50cm, 2)],
+    ['Infrared/Tobii', 'TC5', round(average_error_distance_rq3_tobii_position_70cm, 2)],
+    ['Infrared/Tobii', 'TC6', round(average_error_distance_rq3_tobii_position_90cm, 2)],
+    ['Webcam/Webgazer.js', 'TC4', round(average_error_distance_rq3_webgazer_position_50cm, 2)],
+    ['Webcam/Webgazer.js', 'TC5', round(average_error_distance_rq3_webgazer_position_70cm, 2)],
+    ['Webcam/Webgazer.js', 'TC6', round(average_error_distance_rq3_webgazer_position_90cm, 2)]
 ]
 df_rq3_med = pd.DataFrame(rq3_med, columns=['Device/Software', 'TC', 'MED (px)'])
 final_results.append(df_rq3_med)
 
 # RQ4 Events Including Test Object Fixations por Device
 rq4_eitof_data = [
-    ['Infrared/Tobii', 'TC7', percentage_events_including_test_object_fixations_rq4_tobii_rpm],
-    ['Webcam/Webgazer.js', 'TC7', percentage_events_including_test_object_fixations_rq4_webgazer_rpm]
+    ['Infrared/Tobii', 'TC7', round(percentage_events_including_test_object_fixations_rq4_tobii_rpm, 2)],
+    ['Webcam/Webgazer.js', 'TC7', round(percentage_events_including_test_object_fixations_rq4_webgazer_rpm, 2)]
 ]
 df_rq4_eitof = pd.DataFrame(rq4_eitof_data, columns=['Device/Software', 'TC', '% EITOF'])
 final_results.append(df_rq4_eitof)
 
 # RQ4 Matching Test Object Fixations por Device
 rq4_mtof_data = [
-    ['Infrared/Tobii', 'TC7', percentage_matching_test_object_fixations_rq4_tobii_rpm],
-    ['Webcam/Webgazer.js', 'TC7', percentage_matching_test_object_fixations_rq4_webgazer_rpm]
+    ['Infrared/Tobii', 'TC7', round(percentage_matching_test_object_fixations_rq4_tobii_rpm, 2)],
+    ['Webcam/Webgazer.js', 'TC7', round(percentage_matching_test_object_fixations_rq4_webgazer_rpm, 2)]
 ]
 df_rq4_mtof = pd.DataFrame(rq4_mtof_data, columns=['Device/Software', 'TC', '% MTOF'])
 final_results.append(df_rq4_mtof)
