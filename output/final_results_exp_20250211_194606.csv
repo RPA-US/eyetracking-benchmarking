@@ -1,0 +1,15 @@
+Device/Software,TC,% MF,MED (px),% EIF,% EITOF,% MTOF
+Infrared/Tobii,TC1,86.22,17.47,,,
+Infrared/Tobii,TC2,89.45,3.98,,,
+Infrared/Tobii,TC3,65.83,9.91,95.94,,
+Infrared/Tobii,TC4,78.65,12.79,100.0,,
+Infrared/Tobii,TC5,72.11,14.11,91.11,,
+Infrared/Tobii,TC6,18.5,31.17,42.5,,
+Infrared/Tobii,TC7,,,,94.44,96.51
+Webcam/Webgazer.js,TC1,31.49,53.85,,,
+Webcam/Webgazer.js,TC2,35.03,18.77,,,
+Webcam/Webgazer.js,TC3,32.26,30.23,99.38,,
+Webcam/Webgazer.js,TC4,39.46,33.79,100.0,,
+Webcam/Webgazer.js,TC5,37.58,36.0,100.0,,
+Webcam/Webgazer.js,TC6,35.47,41.87,100.0,,
+Webcam/Webgazer.js,TC7,,,,72.22,60.52
