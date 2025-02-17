@@ -92,7 +92,7 @@
         },
         {
             "id": 11,
-            "group": "excel",
+            "group": "name",
             "name": "excel_name",
             "type": "text",
             "shape": "rectangle",
@@ -101,7 +101,7 @@
         },
         {
             "id": 12,
-            "group": "excel",
+            "group": "position",
             "name": "excel_position",
             "type": "text",
             "shape": "rectangle",
@@ -110,7 +110,7 @@
         },
         {
             "id": 13,
-            "group": "excel",
+            "group": "email",
             "name": "excel_email",
             "type": "text",
             "shape": "rectangle",
@@ -119,7 +119,7 @@
         },
         {
             "id": 14,
-            "group": "excel",
+            "group": "car_need",
             "name": "excel_car_need",
             "type": "text",
             "shape": "rectangle",

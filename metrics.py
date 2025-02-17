@@ -60,6 +60,19 @@ def get_polygon_group_by_threshold(x, y, polygons, threshold):
                 return group
     return "None" 
 
+def get_min_distance_to_polygon_group(x, y, polygons, group):
+    point = Point(x, y)
+    min_distance = float('inf')  # Inicializamos con infinito
+    
+    for poly_list in polygons.values():
+        for poly_info in poly_list:
+            if poly_info["name"] == group:
+                polygon = poly_info["polygon"]
+                distance = polygon.distance(point)
+                min_distance = min(min_distance, distance)  
+    
+    return min_distance if min_distance != float('inf') else None  
+
 def get_polygon_test_object_list_by_threshold(x, y, polygons, threshold):
     point = Point(x, y)
     names_within_threshold = []
@@ -87,6 +100,7 @@ def preprocess_df(df):
     df["Gaze_Fixation_Index"] = 1
     df["Match_Fixation"] = df["Match_Fixation"].astype(object)
     df["Gaze_Fixation_Index"] = df["Gaze_Fixation_Index"].astype(object)
+    df["Distance_to_Target_Event"] = 0.0
 
     # Encontrar el índice del último evento de MouseClick, Keyboard o DoubleMouseClick
     last_event_index = df[df["category"].isin(["MouseClick", "Keyboard", "DoubleMouseClick"])].index.max()
@@ -140,7 +154,7 @@ def process_RQ_df(df, polygons, threshold):
                                 # Procesar cada fijación
                                 df.at[k, "Match_Fixation"] = is_gaze_fixation_baseline(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), filtered_groups, threshold)
                                 df.at[k, "Group"] = get_polygon_group_by_threshold(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), polygons, threshold)
-                                # Asignamos el objeto de destino para la fijación
+                                df.at[k, "Distance_to_Target_Event"] = get_min_distance_to_polygon_group(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), polygons, group)
                                 name_list = get_polygon_test_object_list_by_threshold(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), polygons, threshold)
                                 if "Target_Object_List" not in df.columns:
                                     df["Target_Object_List"] = None
@@ -223,35 +237,6 @@ def postprocess_RQ4_df(df, filename):
         df.loc[condition_component, "Relevant_Fixation"] = "BaselineComponentClick"
     
     return df
-def postprocess_average_error(df):
-    # Crear nuevas columnas
-    df["Distance_to_Target_Event"] = ""
-
-    # Recorrer todo el DataFrame
-    for i in range(len(df)):
-        # Procesar cuando la fila es una fijación de mirada
-        if df.loc[i, "category"] == "GazeFixation":
-            # Buscar los eventos que ocurren después de una fijación de mirada
-            for j in range(i + 1, len(df)):
-                # Si encontramos un evento de tipo Keyboard, MouseClick o DoubleMouseClick
-                if df.loc[j, "category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
-                    # Recorrer las filas de fijación entre i y j para calcular las distancias
-                    for k in range(i, j):
-                        if df.loc[k, "Match_Fixation"] == "True":
-                            df.at[k, "Distance_to_Target_Event"] = 0  # Fijación correcta
-                        elif df.loc[k, "Match_Fixation"] == "False":
-                            # Asegurarse de convertir las coordenadas a float
-                            distance = calculate_euclidean_distance(
-                                float(df.loc[k, "coordX"]), 
-                                float(df.loc[k, "coordY"]), 
-                                float(df.loc[j, "coordX"]), 
-                                float(df.loc[j, "coordY"])
-                            )
-                            # Convertir la distancia a un valor entero
-                            df.at[k, "Distance_to_Target_Event"] = int(distance)
-                    break  # Salir una vez que se procesó un evento de entrada
-
-    return df
 
 def execute(json_path, filename):
     # Cargar los polígonos de las AOIs
@@ -267,9 +252,8 @@ def execute(json_path, filename):
             processed_df = process_RQ_df(preprocessed_df, polygons_json, threshold)
             postprocessed_df_1 = postprocess_RQ3_df(processed_df)
             postprocessed_df_2 = postprocess_RQ4_df(postprocessed_df_1, filename)
-            postprocessed_df_3 = postprocess_average_error(postprocessed_df_2)
             output_file_path = os.path.join(output_dir, filename.replace('.csv', '_postprocessed.csv'))
-            postprocessed_df_3.to_csv(output_file_path, index=False)
+            postprocessed_df_2.to_csv(output_file_path, index=False)
             print(f"Preprocessed DataFrame saved to {output_file_path}")
 
 tests = ["s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10","s11"]
