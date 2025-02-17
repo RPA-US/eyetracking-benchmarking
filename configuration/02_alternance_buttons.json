@@ -6,7 +6,7 @@
             "name": "top_left",
             "type": "button",
             "shape": "circle",
-            "dimensions": ["17,185", "90,185", "90,258", "17,258"],
+            "dimensions": ["17,185", "90,185", "90,288", "17,288"],
             "centroid": "54,222"
         },
         {
@@ -15,7 +15,7 @@
             "name": "top_right",
             "type": "button",
             "shape": "circle",
-            "dimensions": ["1828,185", "1901,185", "1901,258", "1828,258"],
+            "dimensions": ["1828,185", "1901,185", "1901,263", "1828,263"],
             "centroid": "1865,222"
         },
         {
@@ -33,7 +33,7 @@
             "name": "medium_right",
             "type": "button",
             "shape": "circle",
-            "dimensions": ["1828,567", "1901,567", "1901,640", "1828,640"],
+            "dimensions": ["1828,561", "1901,561", "1901,640", "1828,640"],
             "centroid": "1865,604"
         },
         {
@@ -51,7 +51,7 @@
             "name": "bottom_left",
             "type": "button",
             "shape": "circle",
-            "dimensions": ["17,948", "90,948", "90,1021", "17,1021"],
+            "dimensions": ["17,939", "90,939", "90,1021", "17,1021"],
             "centroid": "54,985"
         },
         {
@@ -60,7 +60,7 @@
             "name": "bottom_right",
             "type": "button",
             "shape": "circle",
-            "dimensions": ["1828,948", "1901,948", "1901,1021", "1828,1021"],
+            "dimensions": ["1828,938", "1901,938", "1901,1021", "1828,1021"],
             "centroid": "1865,985"
         }
     ]

@@ -134,9 +134,9 @@ def calculate_metrics(df):
     #Sumar todos los errores de distancia
     total_distance_error = int(df["Distance_to_Target_Event"].sum())
     #Promedio de distancia de error por fijaciones
-    avg_distance_error = round(total_distance_error / total_fixations, 2) if total_fixations > 0 else 0
+    MAE = round(total_distance_error / total_non_match_fixations, 2) if total_non_match_fixations > 0 else 0
     #Promedio de distancia de error por fijaciones y eventos
-    avg_distance_error_per_event = round(avg_distance_error / num_total_events, 2) if num_total_events > 0 else 0
+    avg_distance_error_per_event = round(MAE / num_total_events, 2) if num_total_events > 0 else 0
     
         
     
@@ -163,7 +163,7 @@ def calculate_metrics(df):
         "TotalRelevantFixationsTrue": total_relevant_fixations_true,  # "Total Number of Relevant Fixations equals True"
         "TotalRelevantFixationsFalse": total_relevant_fixations_false,  # "Total Number of Relevant Fixations equals False"
         "%RelevantFixations": percentage_relevant_fixations,  # "% of Relevant Fixations equals True"
-        "MeanErrorDistance": avg_distance_error_per_event,  # "Total Distance Error"
+        "MAE": MAE,  # "Total Distance Error"
     }
     
     # Mostrar los resultados por consola
@@ -194,6 +194,7 @@ def calculate_metrics(df):
     print(f"Total Number of Relevant Fixations equals True: {total_relevant_fixations_true}")
     print(f"Total Number of Relevant Fixations equals False: {total_relevant_fixations_false}")
     print(f"% of Relevant Fixations equals True: {percentage_relevant_fixations:.2f}%")
+    print(f"Mean Absolute Error (MAE): {MAE}")
     
 
 

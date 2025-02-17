@@ -60,18 +60,23 @@ def get_polygon_group_by_threshold(x, y, polygons, threshold):
                 return group
     return "None" 
 
-def get_min_distance_to_polygon_group(x, y, polygons, group):
+def get_min_distance_to_polygon_group(x, y, filtered_group_polygons,threshold):
     point = Point(x, y)
-    min_distance = float('inf')  # Inicializamos con infinito
-    
-    for poly_list in polygons.values():
+    min_distance = float('inf')
+
+    for key_group, poly_list in filtered_group_polygons.items():
+        print(poly_list)
         for poly_info in poly_list:
-            if poly_info["name"] == group:
-                polygon = poly_info["polygon"]
-                distance = polygon.distance(point)
-                min_distance = min(min_distance, distance)  
+            polygon = poly_info["polygon"]
+            print(polygon)
+            distance = polygon.distance(point)
+            if distance <= threshold:
+                distance = 0.0
+            else:
+                distance = distance - threshold
+            min_distance = min(min_distance, distance)  
     
-    return min_distance if min_distance != float('inf') else None  
+    return round(min_distance,2) if min_distance != float('inf') else None  
 
 def get_polygon_test_object_list_by_threshold(x, y, polygons, threshold):
     point = Point(x, y)
@@ -134,6 +139,7 @@ def postprocess_df(df):
 
 def process_RQ_df(df, polygons, threshold):
     fixation_index = 1
+   
 
     for i in range(len(df)):
         if df.loc[i, "category"] == "GazeFixation":
@@ -144,6 +150,7 @@ def process_RQ_df(df, polygons, threshold):
                 next_event = df.loc[j]
                 if next_event["category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
                     filtered_groups = filter_polygons_by_point(float(next_event["coordX"]), float(next_event["coordY"]), polygons)
+                    print("filtered groups",filtered_groups)
                     group = next(iter(filtered_groups), None)
                     df.at[j, "Group"] = group
 
@@ -154,7 +161,9 @@ def process_RQ_df(df, polygons, threshold):
                                 # Procesar cada fijación
                                 df.at[k, "Match_Fixation"] = is_gaze_fixation_baseline(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), filtered_groups, threshold)
                                 df.at[k, "Group"] = get_polygon_group_by_threshold(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), polygons, threshold)
-                                df.at[k, "Distance_to_Target_Event"] = get_min_distance_to_polygon_group(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), polygons, group)
+                                df.at[k, "Distance_to_Target_Event"] = get_min_distance_to_polygon_group(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), filtered_groups, threshold)
+                                print("distance to target event",df.at[k, "Distance_to_Target_Event"])
+                                print("group:",df.at[k, "Group"])
                                 name_list = get_polygon_test_object_list_by_threshold(float(df.loc[k, "coordX"]), float(df.loc[k, "coordY"]), polygons, threshold)
                                 if "Target_Object_List" not in df.columns:
                                     df["Target_Object_List"] = None
@@ -165,6 +174,7 @@ def process_RQ_df(df, polygons, threshold):
                     break
         elif df.loc[i, "category"] in ["Keyboard", "MouseClick", "DoubleMouseClick"]:
             fixation_index += 1
+   
 
     return postprocess_df(df)
 

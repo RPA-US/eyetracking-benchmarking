@@ -37,11 +37,11 @@ percentage_matching_fixation_rq1_webgazer_form_density_low = rq1_webgazer_form_d
 percentage_matching_fixation_rq1_tobii_form_density_high = rq1_tobii_form_density_high['%MatchingFixations'].mean()
 percentage_matching_fixation_rq1_webgazer_form_density_high = rq1_webgazer_form_density_high['%MatchingFixations'].mean()
 
-# Calcular la media de la columna MeanErrorDistance
-average_error_distance_rq1_tobii_form_density_high = rq1_tobii_form_density_high['MeanErrorDistance'].mean()
-average_error_distance_rq1_webgazer_form_density_high = rq1_webgazer_form_density_high['MeanErrorDistance'].mean()
-average_error_distance_rq1_tobii_form_density_low = rq1_tobii_form_density_low['MeanErrorDistance'].mean()
-average_error_distance_rq1_webgazer_form_density_low = rq1_webgazer_form_density_low['MeanErrorDistance'].mean()
+# Calcular la media de la columna MAE
+average_error_distance_rq1_tobii_form_density_high = rq1_tobii_form_density_high['MAE'].mean()
+average_error_distance_rq1_webgazer_form_density_high = rq1_webgazer_form_density_high['MAE'].mean()
+average_error_distance_rq1_tobii_form_density_low = rq1_tobii_form_density_low['MAE'].mean()
+average_error_distance_rq1_webgazer_form_density_low = rq1_webgazer_form_density_low['MAE'].mean()
 
 # Datos actualizados RQ1_TC1 (Form Density Low)
 data = {
@@ -107,7 +107,7 @@ plt.savefig('output/figs/RQ1_MF_TC2.jpg')
 # Mostrar la gráfica
 # plt.show()
 
-# Datos actualizados RQ1_TC1 (mean MeanErrorDistance)
+# Datos actualizados RQ1_TC1 (mean MAE)
 data = {
     'Mean Error Distance': [average_error_distance_rq1_tobii_form_density_low,
                             average_error_distance_rq1_webgazer_form_density_low,],
@@ -131,7 +131,7 @@ for bar, pct in zip(bars, df['Mean Error Distance']):
 plt.title('Mean Error Distance (MED) by Device/Software (TC1)', fontsize=12)
 plt.ylabel('MED (px)', fontsize=12)
 plt.xticks(rotation=45, ha='right', fontsize=10)
-plt.ylim(0, 60)
+plt.ylim(0, 800)
 plt.tight_layout()
 
 # Guardar la gráfica
@@ -140,7 +140,7 @@ plt.savefig('output/figs/RQ1_MED_TC1.jpg')
 # plt.show()
 
 
-# Datos actualizados RQ1_TC2 (mean MeanErrorDistance)
+# Datos actualizados RQ1_TC2 (mean MAE)
 data = {
     'Mean Error Distance': [average_error_distance_rq1_tobii_form_density_high,
                             average_error_distance_rq1_webgazer_form_density_high,],
@@ -244,10 +244,10 @@ plt.savefig('output/figs/RQ2_EIF_TC3.jpg')
 # plt.show()
 
 
-average_error_distance_rq2_tobii_alternance_buttons = rq2_tobii_alternance_buttons['MeanErrorDistance'].mean()
-average_error_distance_rq2_webgazer_alternance_buttons = rq2_webgazer_alternance_buttons['MeanErrorDistance'].mean()
+average_error_distance_rq2_tobii_alternance_buttons = rq2_tobii_alternance_buttons['MAE'].mean()
+average_error_distance_rq2_webgazer_alternance_buttons = rq2_webgazer_alternance_buttons['MAE'].mean()
 
-# Datos actualizados RQ1_TC2 (mean MeanErrorDistance)
+# Datos actualizados RQ1_TC2 (mean MAE)
 data = {
     'Mean Error Distance': [average_error_distance_rq2_tobii_alternance_buttons,
                             average_error_distance_rq2_webgazer_alternance_buttons,],
@@ -452,13 +452,13 @@ plt.savefig('output/figs/RQ3_MF_TC4_TC5_TC6_line.jpg')
 # plt.show()
 
 
-# Datos mean MeanErrorDistance RQ3
-average_error_distance_rq3_tobii_position_50cm = rq3__tobii_position_50cm['MeanErrorDistance'].mean()
-average_error_distance_rq3_tobii_position_70cm = rq3__tobii_position_70cm['MeanErrorDistance'].mean()
-average_error_distance_rq3_tobii_position_90cm = rq3__tobii_position_90cm['MeanErrorDistance'].mean()
-average_error_distance_rq3_webgazer_position_50cm = rq3__webgazer_position_50cm['MeanErrorDistance'].mean()
-average_error_distance_rq3_webgazer_position_70cm = rq3__webgazer_position_70cm['MeanErrorDistance'].mean()
-average_error_distance_rq3_webgazer_position_90cm = rq3__webgazer_position_90cm['MeanErrorDistance'].mean()
+# Datos mean MAE RQ3
+average_error_distance_rq3_tobii_position_50cm = rq3__tobii_position_50cm['MAE'].mean()
+average_error_distance_rq3_tobii_position_70cm = rq3__tobii_position_70cm['MAE'].mean()
+average_error_distance_rq3_tobii_position_90cm = rq3__tobii_position_90cm['MAE'].mean()
+average_error_distance_rq3_webgazer_position_50cm = rq3__webgazer_position_50cm['MAE'].mean()
+average_error_distance_rq3_webgazer_position_70cm = rq3__webgazer_position_70cm['MAE'].mean()
+average_error_distance_rq3_webgazer_position_90cm = rq3__webgazer_position_90cm['MAE'].mean()
 
 positions = ["TC4 (50cm)", "TC5 (70cm)", "TC6 (90cm)"]
 med_tobii = [average_error_distance_rq3_tobii_position_50cm,
