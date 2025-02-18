@@ -1,10 +1,15 @@
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 import pandas as pd
 import numpy as np
 import os
 import datetime
 
-# Crear la carpeta si no existe
+font = {'family': 'serif', 'serif': ['Times New Roman'], 'weight': 'normal', 'size': 22}
+yticks = np.linspace(0, 100, 6)
+ytick_labels = [f"{y:.2f}%" for y in yticks]  
+yticks_mae = np.linspace(0, 400, 5)
+ytick_labels_mae = [f"{y:.2f}" for y in yticks_mae]
 os.makedirs('output/figs', exist_ok=True)
 
 # Especificar la ruta base del proyecto y la salida deseada
@@ -25,259 +30,206 @@ def collect_csv_files(base_path, output_file):
 output_file = "data/combined_data.csv"
 data_collection_csv = pd.read_csv(output_file)
 
-# Filtrar las filas que corresponden al Filename "RQ1_tobii_form_density_high_postprocessed.csv"
+
+#READING RQ1 Datasets
 rq1_tobii_form_density_high = data_collection_csv[data_collection_csv['Filename'] == 'RQ1_tobii_form_density_high_postprocessed.csv']
 rq1_tobii_form_density_low = data_collection_csv[data_collection_csv['Filename'] == 'RQ1_tobii_form_density_low_postprocessed.csv']
 rq1_webgazer_form_density_high = data_collection_csv[data_collection_csv['Filename'] == 'RQ1_webgazer_form_density_high_postprocessed.csv']
 rq1_webgazer_form_density_low = data_collection_csv[data_collection_csv['Filename'] == 'RQ1_webgazer_form_density_low_postprocessed.csv']
-
 # Calcular la media de la columna %MatchingFixations
 percentage_matching_fixation_rq1_tobii_form_density_low = rq1_tobii_form_density_low['%MatchingFixations'].mean()
 percentage_matching_fixation_rq1_webgazer_form_density_low = rq1_webgazer_form_density_low['%MatchingFixations'].mean()
 percentage_matching_fixation_rq1_tobii_form_density_high = rq1_tobii_form_density_high['%MatchingFixations'].mean()
 percentage_matching_fixation_rq1_webgazer_form_density_high = rq1_webgazer_form_density_high['%MatchingFixations'].mean()
-
 # Calcular la media de la columna MAE
 average_error_distance_rq1_tobii_form_density_high = rq1_tobii_form_density_high['MAE'].mean()
 average_error_distance_rq1_webgazer_form_density_high = rq1_webgazer_form_density_high['MAE'].mean()
 average_error_distance_rq1_tobii_form_density_low = rq1_tobii_form_density_low['MAE'].mean()
 average_error_distance_rq1_webgazer_form_density_low = rq1_webgazer_form_density_low['MAE'].mean()
 
-# Datos actualizados RQ1_TC1 (Form Density Low)
+
+#RQ1_TC1 (Form Density Low)
 data = {
     '% Matching Fixation': [percentage_matching_fixation_rq1_tobii_form_density_low,
-                            percentage_matching_fixation_rq1_webgazer_form_density_low,],
-    
-    'Device/Software (TC1)': ['Infrared/Tobii', 'Webcam/Webgazer.js',],}
-
+                            percentage_matching_fixation_rq1_webgazer_form_density_low],
+    'Device/Software (TC1)': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js']}
 df = pd.DataFrame(data)
-
-
-# Crear la gráfica
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(12, 6))
 bars = plt.bar(df['Device/Software (TC1)'], df['% Matching Fixation'], 
-               color=['orange', 'skyblue'])
-
-# Etiquetas de porcentaje en las barras
+               color=['#E97132', '#156082'])
 for bar, pct in zip(bars, df['% Matching Fixation']):
     height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', ha='center', va='bottom', fontsize=10)
-
-# Personalización del gráfico
-plt.title('% Matching Fixation (%MF) by Device/Software (TC1)', fontsize=12)
-plt.ylabel('% MF', fontsize=12)
-plt.xticks(rotation=45, ha='right', fontsize=10)
-plt.ylim(0, 100)
+    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', 
+             ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555', weight='bold')
+plt.title('Single Target Matching Fixations (STMF) by Device (TC1)', 
+          fontsize=22, fontname='Times New Roman', color='#555555')
+plt.ylabel('SMTF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
+plt.ylim(0.00, 100.00)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
+plt.savefig('output/figs/RQ1_TC1_STMF.jpg')
 
-# Guardar la gráfica
-plt.savefig('output/figs/RQ1_MF_TC1.jpg')
-# Mostrar la gráfica
-# plt.show()
 
-# Datos actualizados RQ1_TC1 (Form Density Low)
+#RQ1_TC2 (Form Density High)
 data = {
     '% Matching Fixation': [percentage_matching_fixation_rq1_tobii_form_density_high,
-                            percentage_matching_fixation_rq1_webgazer_form_density_high,],
-    
-    'Device/Software (TC2)': ['Infrared/Tobii', 'Webcam/Webgazer.js',],}
-
+                          percentage_matching_fixation_rq1_webgazer_form_density_high],
+    'Device/Software (TC2)': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js']}
 df = pd.DataFrame(data)
-
-
-# Crear la gráfica
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(12, 6))
 bars = plt.bar(df['Device/Software (TC2)'], df['% Matching Fixation'], 
-               color=['orange', 'skyblue'])
-
-# Etiquetas de porcentaje en las barras
+               color=['#E97132', '#156082'])
 for bar, pct in zip(bars, df['% Matching Fixation']):
     height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', ha='center', va='bottom', fontsize=10)
-
-# Personalización del gráfico
-plt.title('% Matching Fixation (%MF) by Device/Software (TC2)', fontsize=12)
-plt.ylabel('% MF', fontsize=12)
-plt.xticks(rotation=45, ha='right', fontsize=10)
+    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', 
+             ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555', weight='bold')
+plt.title('Single Target Matching Fixations (STMF) by Device (TC2)', 
+          fontsize=22, fontname='Times New Roman', color='#555555')
+plt.ylabel('STMF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
 plt.ylim(0, 100)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
+plt.savefig('output/figs/RQ1_TC2_STMF.jpg')
 
-# Guardar la gráfica
-plt.savefig('output/figs/RQ1_MF_TC2.jpg')
-# Mostrar la gráfica
-# plt.show()
 
-# Datos actualizados RQ1_TC1 (mean MAE)
+# RQ1_TC1 (MAE Form Density Low)
 data = {
     'Mean Error Distance': [average_error_distance_rq1_tobii_form_density_low,
                             average_error_distance_rq1_webgazer_form_density_low,],
-    
-    'Device/Software (TC1)': ['Infrared/Tobii', 'Webcam/Webgazer.js',],}
-
+    'Device/Software (TC1)': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js',],}
 df = pd.DataFrame(data)
-
-
-# Crear la gráfica
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(12, 6))
 bars = plt.bar(df['Device/Software (TC1)'], df['Mean Error Distance'], 
-               color=['orange', 'skyblue'])
-
-# Etiquetas de porcentaje en las barras
+               color=['#E97132', '#156082'])
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}', ha='center', va='bottom', fontsize=10)
-
-# Personalización del gráfico
-plt.title('Mean Error Distance (MED) by Device/Software (TC1)', fontsize=12)
-plt.ylabel('MED (px)', fontsize=12)
-plt.xticks(rotation=45, ha='right', fontsize=10)
-plt.ylim(0, 800)
+    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}px',
+             ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555', weight='bold')
+plt.title('Mean Absolute Error (MAE) by Device (TC1)', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.ylabel('MAE (px)', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks_mae, ytick_labels_mae, fontsize=22, fontname='Times New Roman', color='#555555')
+plt.ylim(0, 400)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
-
-# Guardar la gráfica
-plt.savefig('output/figs/RQ1_MED_TC1.jpg')
-# Mostrar la gráfica
-# plt.show()
+plt.savefig('output/figs/RQ1_TC1_MAE.jpg')
 
 
-# Datos actualizados RQ1_TC2 (mean MAE)
+# RQ1_TC2 (MAE Form Density High)
 data = {
     'Mean Error Distance': [average_error_distance_rq1_tobii_form_density_high,
                             average_error_distance_rq1_webgazer_form_density_high,],
-    
-    'Device/Software (TC2)': ['Infrared/Tobii', 'Webcam/Webgazer.js',],}
-
+    'Device/Software (TC2)': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js',],}
 df = pd.DataFrame(data)
-
-
-# Crear la gráfica
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(12, 6))
 bars = plt.bar(df['Device/Software (TC2)'], df['Mean Error Distance'], 
-               color=['orange', 'skyblue'])
-
-# Etiquetas de porcentaje en las barras
+               color=['#E97132', '#156082'])
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}', ha='center', va='bottom', fontsize=10)
-
-# Personalización del gráfico
-plt.title('Mean Error Distance (MED) by Device/Software (TC2)', fontsize=12)
-plt.ylabel('MED (px)', fontsize=12)
-plt.xticks(rotation=45, ha='right', fontsize=10)
-plt.ylim(0, 60)
+    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}px',
+             ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555', weight='bold')
+plt.title('Mean Absolute Error (MAE) by Device (TC2)', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.ylabel('MAE (px)', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks_mae, ytick_labels_mae, fontsize=22, fontname='Times New Roman', color='#555555')
+plt.ylim(0, 400)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
-
-# Guardar la gráfica
-plt.savefig('output/figs/RQ1_MED_TC2.jpg')
-# Mostrar la gráfica
-# plt.show()
+plt.savefig('output/figs/RQ1_TC2_MAE.jpg')
 
 
 
-############## RQ2 ##############
-# Matching Fixation True by Tool/Software
-
+####RQ2####
+#Reading RQ2 Datasets
 rq2_tobii_alternance_buttons = data_collection_csv[data_collection_csv['Filename'] == 'RQ2_tobii_alternance_buttons_postprocessed.csv']
 rq2_webgazer_alternance_buttons = data_collection_csv[data_collection_csv['Filename'] == 'RQ2_webgazer_alternance_buttons_postprocessed.csv']
-
+#Matching fixation RQ2
 percentage_matching_fixation_rq2_tobii_alternance_buttons = rq2_tobii_alternance_buttons['%MatchingFixations'].mean()
 percentage_matching_fixation_rq2_webgazer_alternance_buttons = rq2_webgazer_alternance_buttons['%MatchingFixations'].mean()
-
-
-
-new_data_rq2 = {
-    '% Matching Fixation': [percentage_matching_fixation_rq2_tobii_alternance_buttons,
-                            percentage_matching_fixation_rq2_webgazer_alternance_buttons],
-    'Device/Software': ['Infrared/Tobii', 'Webcam/Webgazer.js']
-}
-
-new_df = pd.DataFrame(new_data_rq2)
-
-# Crear la gráfica
-fig, ax = plt.subplots(figsize=(8, 5))
-bars = plt.bar(new_df['Device/Software'], new_df['% Matching Fixation'], color=['orange', 'skyblue'])
-
-# Etiquetas de porcentaje en las barras
-for bar, pct in zip(bars, new_df['% Matching Fixation']):
-    height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', ha='center', va='bottom', fontsize=10)
-
-# Personalización del gráfico
-plt.title('% Matching Fixations (%MF) by Device/Software (TC3)', fontsize=14)
-plt.ylabel('% MF', fontsize=12)
-plt.xticks(rotation=0, ha='center', fontsize=10)
-plt.ylim(0, 100)
-plt.tight_layout()
-
-# Guardar la gráfica
-plt.savefig('output/figs/RQ2_MF_TC3.jpg')
-# Mostrar la gráfica
-
-
+#Events Including Fixations RQ2
 percentage_events_including_fixations_rq2_tobii_alternance_buttons = rq2_tobii_alternance_buttons['%EventsWithFixations'].mean()
 percetange_events_including_fixations_rq2_webgazer_alternance_buttons = rq2_webgazer_alternance_buttons['%EventsWithFixations'].mean()
-
-# Datos %Event Including Captured Fixations
-tools = [ "Infrared/Tobii","Webcam/Webgazer.js",]
-percentages = [percentage_events_including_fixations_rq2_tobii_alternance_buttons,
-               percetange_events_including_fixations_rq2_webgazer_alternance_buttons]
-
-# Crear la gráfica
-fig, ax = plt.subplots(figsize=(6, 4))
-bars = ax.bar(tools, percentages, color=['orange','skyblue'])
-
-# Añadir etiquetas y título
-ax.set_ylabel("% EIF")
-ax.set_title("% Events Including Fixation (EIF) by Device/Software (TC3)")
-ax.set_ylim(0, 110)  # Limitar el eje Y para espacio adicional
-
-# Mostrar porcentaje en las barras
-for bar in bars:
-    height = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width()/2., height + 2,
-            f'{height:.2f}%', ha='center', va='bottom')
-
-# Guardar la gráfica
-plt.tight_layout()
-plt.savefig('output/figs/RQ2_EIF_TC3.jpg')
-# Mostrar gráfico
-# plt.show()
-
-
+#Mean Absolute Error RQ2
 average_error_distance_rq2_tobii_alternance_buttons = rq2_tobii_alternance_buttons['MAE'].mean()
 average_error_distance_rq2_webgazer_alternance_buttons = rq2_webgazer_alternance_buttons['MAE'].mean()
 
-# Datos actualizados RQ1_TC2 (mean MAE)
+
+
+# TC3_RQ2_Matching fixations (Alternance Buttons)
+new_data_rq2 = {
+    '% Matching Fixation': [percentage_matching_fixation_rq2_tobii_alternance_buttons,
+                            percentage_matching_fixation_rq2_webgazer_alternance_buttons],
+    'Device/Software': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js']
+}
+new_df = pd.DataFrame(new_data_rq2)
+fig, ax = plt.subplots(figsize=(12, 6))
+bars = plt.bar(new_df['Device/Software'], new_df['% Matching Fixation'], color=['#E97132', '#156082'])
+for bar, pct in zip(bars, new_df['% Matching Fixation']):
+    height = bar.get_height()
+    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', 
+            ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555' ,weight='bold')
+plt.title('Single Target Matching Fixations (STMF) by Device (TC3)', fontsize=22 ,fontname='Times New Roman', color='#555555')
+plt.ylabel('STMF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
+plt.ylim(0, 100)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.tight_layout()
+plt.savefig('output/figs/RQ2_TC3_STMF.jpg')
+
+
+#RQ2_TC3 EIF (Alternance Buttons)
+tools = [ "Infrared/Tobii Pro Spark","Webcam/Webgazer.js",]
+percentages = [percentage_events_including_fixations_rq2_tobii_alternance_buttons,
+               percetange_events_including_fixations_rq2_webgazer_alternance_buttons]
+fig, ax = plt.subplots(figsize=(12, 6))
+bars = ax.bar(tools, percentages, color=['#E97132', '#156082'])
+ax.set_ylabel("% EIF")
+ax.set_title("% Events Including Fixation (EIF) by Device/Software (TC3)")
+ax.set_ylim(0, 110)  # Limitar el eje Y para espacio adicional
+for bar in bars:
+    height = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width() / 2, 
+            height - 5,  
+            f'{height:.2f}%',  
+            ha='center', va='top', 
+            fontsize=26, fontname='Times New Roman', color='white', weight='bold')     
+plt.title('Events Including Fixations (EIF) by Device (TC3)', fontsize=22 ,fontname='Times New Roman', color='#555555')
+plt.ylabel('EIF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
+plt.ylim(0, 100)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.tight_layout()
+plt.tight_layout()
+plt.savefig('output/figs/RQ2_TC3_EIF.jpg')
+
+
+#RQ2_TC3 (mean MAE)
 data = {
     'Mean Error Distance': [average_error_distance_rq2_tobii_alternance_buttons,
-                            average_error_distance_rq2_webgazer_alternance_buttons,],
-    
-    'Device/Software': ['Infrared/Tobii', 'Webcam/Webgazer.js',],}
-
+                            average_error_distance_rq2_webgazer_alternance_buttons,],   
+    'Device/Software': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js',],}
 df = pd.DataFrame(data)
-
-
-# Crear la gráfica
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(12, 6))
 bars = plt.bar(df['Device/Software'], df['Mean Error Distance'], 
-               color=['orange', 'skyblue'])
-
-# Etiquetas de porcentaje en las barras
+               color=['#E97132', '#156082'])
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}', ha='center', va='bottom', fontsize=10)
-
-# Personalización del gráfico
-plt.title('Mean Error Distance (MED) by Device/Software (TC3)', fontsize=12)
-plt.ylabel('MED (px)', fontsize=12)
-plt.xticks(rotation=45, ha='right', fontsize=10)
-plt.ylim(0, 100)
+    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}px',
+             ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555', weight='bold')
+plt.title('Mean Absolute Error (MAE) by Device (TC3)', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.ylabel('MAE (px)', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks_mae, ytick_labels_mae, fontsize=22, fontname='Times New Roman', color='#555555')
+plt.ylim(0, 400)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
-
-# Guardar la gráfica
-plt.savefig('output/figs/RQ2_MED_TC3.jpg')
-# Mostrar la gráfica
-# plt.show()
+plt.savefig('output/figs/RQ2_TC3_MAE.jpg')
 
 
 ############## RQ3 ##############
@@ -302,42 +254,38 @@ positions = ["TC4 (50cm)", "TC5 (70cm)", "TC6 (90cm)"]
 percentages_tobii = [percentage_events_including_fixations_rq3_tobii_position_50cm,
                      percentage_events_including_fixations_rq3_tobii_position_70cm,
                      percentage_events_including_fixations_rq3_tobii_position_90cm]
-
 percentages_webgazer = [percentage_events_including_fixations_rq3_webgazer_position_50cm,
                         percentage_events_including_fixations_rq3_webgazer_position_70cm,
                         percentage_events_including_fixations_rq3_webgazer_position_90cm]
-
-x = np.arange(len(positions))  # Posiciones para las etiquetas del eje X
-width = 0.35  # Ancho de las barras
-
-# Crear figura y ejes
-fig, ax = plt.subplots(figsize=(8, 5))
-bars_tobii = ax.bar(x + width/2, percentages_tobii, width, label="Infrared/Tobii", color='orange')
-bars_webgazer = ax.bar(x - width/2, percentages_webgazer, width, label="Webcam/Webgazer.js", color='skyblue')
-
-# Añadir etiquetas y título
-ax.set_xlabel("Test Case (Distance from subject to screen)")
-ax.set_ylabel("% EIF")
-ax.set_title("% Events Including Fixation (%EIF) by Device/Software and Distance (TC4,TC5,TC6)")
+x = np.arange(len(positions))  
+width = 0.3
+fig, ax = plt.subplots(figsize=(12, 6))
+bars_tobii = ax.bar(x + width, percentages_tobii, width, label="Infrared/Tobii Pro Spark", color='#E97132')
+bars_webgazer = ax.bar(x - width / 3, percentages_webgazer, width, label="Webcam/Webgazer.js", color='#156082')
+ax.set_xlabel("Test Case (User-Screen distance)", fontsize=20, fontname='Times New Roman', color='#555555')
+ax.set_ylabel("% EIF", fontsize=20, fontname='Times New Roman', color='#555555')
+ax.set_title("% Events Including Fixation (%EIF) by Device/Software and Test Case (TC4,TC5,TC6)", 
+             fontsize=20, fontname='Times New Roman', color='#555555')
 ax.set_xticks(x)
-ax.set_xticklabels(positions)
-ax.legend()
-
-# Mostrar porcentaje en las barras
+ax.set_xticklabels(positions, fontsize=20, fontname='Times New Roman', color='#555555')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+ax.tick_params(axis='y', labelsize=17, colors='#555555')
+ax.set_yticks(np.linspace(0, 100, 6))  
+ax.set_ylim(0, 100)  
+def percent_formatter(x, pos):
+    return f'{x:.2f}%'
+ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
 def add_labels(bars):
     for bar in bars:
         height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width()/2., height + 2,
-                f'{height:.2f}%', ha='center', va='bottom')
-
+        ax.text(bar.get_x() + bar.get_width() / 2, height - 5,  
+                f'{height:.2f}%', ha='center', va='top', fontsize=18, 
+                fontname='Times New Roman', color='white', weight='bold')  
 add_labels(bars_webgazer)
 add_labels(bars_tobii)
-
-# Guardar la gráfica
+ax.legend(fontsize=20, frameon=True)
 plt.tight_layout()
-plt.savefig('output/figs/RQ3_EIF_TC4_TC5_TC6_bars.jpg')
-# Mostrar gráfico
-# plt.show()
+plt.savefig('output/figs/RQ3_TC4_TC5_TC6_EIF_bars.jpg')
 
 # Datos grafico linea events_captured_fixations
 
