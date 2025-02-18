@@ -66,7 +66,7 @@ plt.title('Single Target Matching Fixations (STMF) by Device (TC1)',
 plt.ylabel('SMTF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
 plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
 plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
-plt.ylim(0.00, 100.00)
+plt.ylim(0.00, 110.00)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ1_TC1_STMF.jpg')
@@ -90,7 +90,7 @@ plt.title('Single Target Matching Fixations (STMF) by Device (TC2)',
 plt.ylabel('STMF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
 plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
 plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
-plt.ylim(0, 100)
+plt.ylim(0, 110)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ1_TC2_STMF.jpg')
@@ -176,7 +176,7 @@ plt.title('Single Target Matching Fixations (STMF) by Device (TC3)', fontsize=22
 plt.ylabel('STMF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
 plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
 plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
-plt.ylim(0, 100)
+plt.ylim(0, 110)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ2_TC3_STMF.jpg')
@@ -202,7 +202,7 @@ plt.title('Events Including Fixations (EIF) by Device (TC3)', fontsize=22 ,fontn
 plt.ylabel('EIF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
 plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
 plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
-plt.ylim(0, 100)
+plt.ylim(0, 110)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.tight_layout()
@@ -259,7 +259,7 @@ percentages_webgazer = [percentage_events_including_fixations_rq3_webgazer_posit
                         percentage_events_including_fixations_rq3_webgazer_position_90cm]
 x = np.arange(len(positions))  
 width = 0.3
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(12, 9))
 bars_tobii = ax.bar(x + width, percentages_tobii, width, label="Infrared/Tobii Pro Spark", color='#E97132')
 bars_webgazer = ax.bar(x - width / 3, percentages_webgazer, width, label="Webcam/Webgazer.js", color='#156082')
 ax.set_xlabel("Test Case (User-Screen distance)", fontsize=20, fontname='Times New Roman', color='#555555')
@@ -271,7 +271,7 @@ ax.set_xticklabels(positions, fontsize=20, fontname='Times New Roman', color='#5
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 ax.tick_params(axis='y', labelsize=17, colors='#555555')
 ax.set_yticks(np.linspace(0, 100, 6))  
-ax.set_ylim(0, 100)  
+ax.set_ylim(0, 110)  
 def percent_formatter(x, pos):
     return f'{x:.2f}%'
 ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
@@ -325,10 +325,10 @@ def percent_formatter(x, pos):
 ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
 
 for i, value in enumerate(percentages_tobii):
-    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=15, color='#E97132')
+    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=18, color='#E97132')
 
 for i, value in enumerate(percentages_webgazer):
-    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=15, color='#156082')
+    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=18, color='#156082')
 
 ax.legend(fontsize=20, frameon=True) 
 plt.tight_layout()
