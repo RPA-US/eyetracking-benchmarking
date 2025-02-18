@@ -289,41 +289,51 @@ plt.savefig('output/figs/RQ3_TC4_TC5_TC6_EIF_bars.jpg')
 
 # Datos grafico linea events_captured_fixations
 
-percentage_events_including_fixations_rq3_tobii_position_50cm = rq3__tobii_position_50cm['%EventsWithFixations'].mean()
-percentage_events_including_fixations_rq3_tobii_position_70cm = rq3__tobii_position_70cm['%EventsWithFixations'].mean()
-percentage_events_including_fixations_rq3_tobii_position_90cm = rq3__tobii_position_90cm['%EventsWithFixations'].mean()
-
-percentage_events_including_fixations_rq3_webgazer_position_50cm = rq3__webgazer_position_50cm['%EventsWithFixations'].mean()
-percentage_events_including_fixations_rq3_webgazer_position_70cm = rq3__webgazer_position_70cm['%EventsWithFixations'].mean()
-percentage_events_including_fixations_rq3_webgazer_position_90cm = rq3__webgazer_position_90cm['%EventsWithFixations'].mean()
-
 positions = ["TC4 (50cm)", "TC5 (70cm)", "TC6 (90cm)"]
 percentages_tobii = [percentage_events_including_fixations_rq3_tobii_position_50cm,
                      percentage_events_including_fixations_rq3_tobii_position_70cm,
                      percentage_events_including_fixations_rq3_tobii_position_90cm]
-
 percentages_webgazer = [percentage_events_including_fixations_rq3_webgazer_position_50cm,
                         percentage_events_including_fixations_rq3_webgazer_position_70cm,
                         percentage_events_including_fixations_rq3_webgazer_position_90cm]
 
-# Crear la gráfica
-plt.figure(figsize=(8, 5))
-plt.plot(positions, percentages_tobii, marker='o', label="Infrared/Tobii", color='orange')
-plt.plot(positions, percentages_webgazer, marker='o', label="Webcam/Webgazer.js", color='skyblue')
 
-# Añadir etiquetas, título y leyenda
-plt.xlabel("Test Case (Distance from subject to screen)")
-plt.ylabel("% EIF")
-plt.title("% Events Including Fixation (%EIF) by Device/Software and Distance (TC4,TC5,TC6)")
-plt.ylim(0, 110)  # Limitar el eje Y al rango de 0 a 110
-plt.grid(True, linestyle='--', alpha=0.6)
-plt.legend()
+x = np.arange(len(positions))  
+fig, ax = plt.subplots(figsize=(12, 6))
 
-# Guardar la gráfica
+ax.plot(x, percentages_tobii, marker='o', linestyle='-', linewidth=3, markersize=10, 
+        label="Infrared/Tobii Pro Spark", color='#E97132')
+ax.plot(x, percentages_webgazer, marker='s', linestyle='-', linewidth=3, markersize=10, 
+        label="Webcam/Webgazer.js", color='#156082')
+
+ax.set_xlabel("Test Case (User-Screen distance)", fontsize=20, fontname='Times New Roman', color='#555555')
+ax.set_ylabel("% EIF", fontsize=20, fontname='Times New Roman', color='#555555')
+ax.set_title("% Events Including Fixation (%EIF) by Device/Software and Test Case (TC4,TC5,TC6)", 
+             fontsize=20, fontname='Times New Roman', color='#555555')
+
+ax.set_xticks(x)
+ax.set_xticklabels(positions, fontsize=20, fontname='Times New Roman', color='#555555')
+
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+ax.tick_params(axis='y', labelsize=17, colors='#555555')
+ax.set_yticks(np.linspace(0, 100, 6))
+ax.set_ylim(0, 110)
+
+def percent_formatter(x, pos): 
+    return f'{x:.2f}%'
+
+ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
+
+for i, value in enumerate(percentages_tobii):
+    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=15, color='#E97132')
+
+for i, value in enumerate(percentages_webgazer):
+    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=15, color='#156082')
+
+ax.legend(fontsize=20, frameon=True) 
 plt.tight_layout()
-plt.savefig('output/figs/RQ3_EIF_TC4_TC5_TC6_line.jpg')
-# Mostrar la gráfica 
-# plt.show()
+plt.savefig('output/figs/RQ3_TC4_TC5_TC6_EIF_line.jpg')
+
 
 # Datos grafica matching fixations barras
 
