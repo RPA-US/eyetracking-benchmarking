@@ -5,7 +5,7 @@ import numpy as np
 import os
 import datetime
 
-font = {'family': 'serif', 'serif': ['Times New Roman'], 'weight': 'normal', 'size': 22}
+font = {'family': 'serif', 'serif': ['Times New Roman'], 'weight': 'normal', 'size': 16}
 yticks = np.linspace(0, 100, 6)
 ytick_labels = [f"{y:.2f}%" for y in yticks]  
 yticks_mae = np.linspace(0, 400, 5)
@@ -54,18 +54,18 @@ data = {
                             percentage_matching_fixation_rq1_webgazer_form_density_low],
     'Device/Software (TC1)': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js']}
 df = pd.DataFrame(data)
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
 bars = plt.bar(df['Device/Software (TC1)'], df['% Matching Fixation'], 
                color=['#E97132', '#156082'])
 for bar, pct in zip(bars, df['% Matching Fixation']):
     height = bar.get_height()
     plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', 
-             ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555', weight='bold')
+             ha='center', va='bottom', fontsize=16, fontname='Times New Roman', color='#555555', weight='bold')
 plt.title('Single Target Matching Fixations (STMF) by Device (TC1)', 
-          fontsize=22, fontname='Times New Roman', color='#555555')
-plt.ylabel('SMTF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
+          fontsize=16, fontname='Times New Roman', color='#555555')
+plt.ylabel('SMTF (%)', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=16, fontname='Times New Roman', color='#555555')
 plt.ylim(0.00, 110.00)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -78,18 +78,18 @@ data = {
                           percentage_matching_fixation_rq1_webgazer_form_density_high],
     'Device/Software (TC2)': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js']}
 df = pd.DataFrame(data)
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
 bars = plt.bar(df['Device/Software (TC2)'], df['% Matching Fixation'], 
                color=['#E97132', '#156082'])
 for bar, pct in zip(bars, df['% Matching Fixation']):
     height = bar.get_height()
     plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', 
-             ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555', weight='bold')
+             ha='center', va='bottom', fontsize=16, fontname='Times New Roman', color='#555555', weight='bold')
 plt.title('Single Target Matching Fixations (STMF) by Device (TC2)', 
-          fontsize=22, fontname='Times New Roman', color='#555555')
-plt.ylabel('STMF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
+          fontsize=16, fontname='Times New Roman', color='#555555')
+plt.ylabel('STMF (%)', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=16, fontname='Times New Roman', color='#555555')
 plt.ylim(0, 110)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -102,17 +102,17 @@ data = {
                             average_error_distance_rq1_webgazer_form_density_low,],
     'Device/Software (TC1)': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js',],}
 df = pd.DataFrame(data)
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
 bars = plt.bar(df['Device/Software (TC1)'], df['Mean Error Distance'], 
                color=['#E97132', '#156082'])
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
     plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}px',
-             ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555', weight='bold')
-plt.title('Mean Absolute Error (MAE) by Device (TC1)', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.ylabel('MAE (px)', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.yticks(yticks_mae, ytick_labels_mae, fontsize=22, fontname='Times New Roman', color='#555555')
+             ha='center', va='bottom', fontsize=16, fontname='Times New Roman', color='#555555', weight='bold')
+plt.title('Mean Absolute Error (MAE) by Device (TC1)', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.ylabel('MAE (px)', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks_mae, ytick_labels_mae, fontsize=16, fontname='Times New Roman', color='#555555')
 plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -125,17 +125,17 @@ data = {
                             average_error_distance_rq1_webgazer_form_density_high,],
     'Device/Software (TC2)': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js',],}
 df = pd.DataFrame(data)
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
 bars = plt.bar(df['Device/Software (TC2)'], df['Mean Error Distance'], 
                color=['#E97132', '#156082'])
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
     plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}px',
-             ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555', weight='bold')
-plt.title('Mean Absolute Error (MAE) by Device (TC2)', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.ylabel('MAE (px)', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.yticks(yticks_mae, ytick_labels_mae, fontsize=22, fontname='Times New Roman', color='#555555')
+             ha='center', va='bottom', fontsize=16, fontname='Times New Roman', color='#555555', weight='bold')
+plt.title('Mean Absolute Error (MAE) by Device (TC2)', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.ylabel('MAE (px)', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks_mae, ytick_labels_mae, fontsize=16, fontname='Times New Roman', color='#555555')
 plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -166,16 +166,16 @@ new_data_rq2 = {
     'Device/Software': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js']
 }
 new_df = pd.DataFrame(new_data_rq2)
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
 bars = plt.bar(new_df['Device/Software'], new_df['% Matching Fixation'], color=['#E97132', '#156082'])
 for bar, pct in zip(bars, new_df['% Matching Fixation']):
     height = bar.get_height()
     plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', 
-            ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555' ,weight='bold')
-plt.title('Single Target Matching Fixations (STMF) by Device (TC3)', fontsize=22 ,fontname='Times New Roman', color='#555555')
-plt.ylabel('STMF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
+            ha='center', va='bottom', fontsize=16, fontname='Times New Roman', color='#555555' ,weight='bold')
+plt.title('Single Target Matching Fixations (STMF) by Device (TC3)', fontsize=16 ,fontname='Times New Roman', color='#555555')
+plt.ylabel('STMF (%)', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=16, fontname='Times New Roman', color='#555555')
 plt.ylim(0, 110)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -186,7 +186,7 @@ plt.savefig('output/figs/RQ2_TC3_STMF.jpg')
 tools = [ "Infrared/Tobii Pro Spark","Webcam/Webgazer.js",]
 percentages = [percentage_events_including_fixations_rq2_tobii_alternance_buttons,
                percetange_events_including_fixations_rq2_webgazer_alternance_buttons]
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
 bars = ax.bar(tools, percentages, color=['#E97132', '#156082'])
 ax.set_ylabel("% EIF")
 ax.set_title("% Events Including Fixation (EIF) by Device/Software (TC3)")
@@ -197,11 +197,11 @@ for bar in bars:
             height - 5,  
             f'{height:.2f}%',  
             ha='center', va='top', 
-            fontsize=26, fontname='Times New Roman', color='white', weight='bold')     
-plt.title('Events Including Fixations (EIF) by Device (TC3)', fontsize=22 ,fontname='Times New Roman', color='#555555')
-plt.ylabel('EIF (%)', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.yticks(yticks, ytick_labels, fontsize=22, fontname='Times New Roman', color='#555555')
+            fontsize=16, fontname='Times New Roman', color='white', weight='bold')     
+plt.title('Events Including Fixations (EIF) by Device (TC3)', fontsize=16 ,fontname='Times New Roman', color='#555555')
+plt.ylabel('EIF (%)', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=16, fontname='Times New Roman', color='#555555')
 plt.ylim(0, 110)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -215,17 +215,17 @@ data = {
                             average_error_distance_rq2_webgazer_alternance_buttons,],   
     'Device/Software': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js',],}
 df = pd.DataFrame(data)
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
 bars = plt.bar(df['Device/Software'], df['Mean Error Distance'], 
                color=['#E97132', '#156082'])
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
     plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}px',
-             ha='center', va='bottom', fontsize=22, fontname='Times New Roman', color='#555555', weight='bold')
-plt.title('Mean Absolute Error (MAE) by Device (TC3)', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.ylabel('MAE (px)', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=22, fontname='Times New Roman', color='#555555')
-plt.yticks(yticks_mae, ytick_labels_mae, fontsize=22, fontname='Times New Roman', color='#555555')
+             ha='center', va='bottom', fontsize=16, fontname='Times New Roman', color='#555555', weight='bold')
+plt.title('Mean Absolute Error (MAE) by Device (TC3)', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.ylabel('MAE (px)', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks_mae, ytick_labels_mae, fontsize=16, fontname='Times New Roman', color='#555555')
 plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -259,17 +259,17 @@ percentages_webgazer = [percentage_events_including_fixations_rq3_webgazer_posit
                         percentage_events_including_fixations_rq3_webgazer_position_90cm]
 x = np.arange(len(positions))  
 width = 0.3
-fig, ax = plt.subplots(figsize=(12, 9))
-bars_tobii = ax.bar(x + width, percentages_tobii, width, label="Infrared/Tobii Pro Spark", color='#E97132')
-bars_webgazer = ax.bar(x - width / 3, percentages_webgazer, width, label="Webcam/Webgazer.js", color='#156082')
-ax.set_xlabel("Test Case (User-Screen distance)", fontsize=20, fontname='Times New Roman', color='#555555')
-ax.set_ylabel("% EIF", fontsize=20, fontname='Times New Roman', color='#555555')
-ax.set_title("% Events Including Fixation (%EIF) by Device/Software and Test Case (TC4,TC5,TC6)", 
-             fontsize=20, fontname='Times New Roman', color='#555555')
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
+bars_tobii = ax.bar(x - width / 3, percentages_tobii, width, label="Infrared/Tobii Pro Spark", color='#E97132')
+bars_webgazer = ax.bar(x + width, percentages_webgazer, width, label="Webcam/Webgazer.js", color='#156082')
+ax.set_xlabel("Test Case (User-Screen/Device distance)", fontsize=16, fontname='Times New Roman', color='#555555')
+ax.set_ylabel("EIF (%)", fontsize=16, fontname='Times New Roman', color='#555555')
+ax.set_title("Events Including Fixation (EIF) by Device and Test Case (TC4,TC5,TC6)", 
+             fontsize=16, fontname='Times New Roman', color='#555555')
 ax.set_xticks(x)
-ax.set_xticklabels(positions, fontsize=20, fontname='Times New Roman', color='#555555')
+ax.set_xticklabels(positions, fontsize=16, fontname='Times New Roman', color='#555555')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
-ax.tick_params(axis='y', labelsize=17, colors='#555555')
+ax.tick_params(axis='y', labelsize=16, colors='#555555')
 ax.set_yticks(np.linspace(0, 100, 6))  
 ax.set_ylim(0, 110)  
 def percent_formatter(x, pos):
@@ -279,11 +279,11 @@ def add_labels(bars):
     for bar in bars:
         height = bar.get_height()
         ax.text(bar.get_x() + bar.get_width() / 2, height - 5,  
-                f'{height:.2f}%', ha='center', va='top', fontsize=18, 
+                f'{height:.2f}%', ha='center', va='top', fontsize=16, 
                 fontname='Times New Roman', color='white', weight='bold')  
 add_labels(bars_webgazer)
 add_labels(bars_tobii)
-ax.legend(fontsize=20, frameon=True)
+ax.legend(fontsize=16, frameon=True)
 plt.tight_layout()
 plt.savefig('output/figs/RQ3_TC4_TC5_TC6_EIF_bars.jpg')
 
@@ -299,23 +299,23 @@ percentages_webgazer = [percentage_events_including_fixations_rq3_webgazer_posit
 
 
 x = np.arange(len(positions))  
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
 
 ax.plot(x, percentages_tobii, marker='o', linestyle='-', linewidth=3, markersize=10, 
         label="Infrared/Tobii Pro Spark", color='#E97132')
 ax.plot(x, percentages_webgazer, marker='s', linestyle='-', linewidth=3, markersize=10, 
         label="Webcam/Webgazer.js", color='#156082')
 
-ax.set_xlabel("Test Case (User-Screen distance)", fontsize=20, fontname='Times New Roman', color='#555555')
-ax.set_ylabel("% EIF", fontsize=20, fontname='Times New Roman', color='#555555')
-ax.set_title("% Events Including Fixation (%EIF) by Device/Software and Test Case (TC4,TC5,TC6)", 
-             fontsize=20, fontname='Times New Roman', color='#555555')
+ax.set_xlabel("Test Case (User-Screen/Device distance)", fontsize=16, fontname='Times New Roman', color='#555555')
+ax.set_ylabel("EIF (%)", fontsize=16, fontname='Times New Roman', color='#555555')
+ax.set_title("Events Including Fixation (EIF) by Device and Test Case (TC4,TC5,TC6)", 
+             fontsize=16, fontname='Times New Roman', color='#555555')
 
 ax.set_xticks(x)
-ax.set_xticklabels(positions, fontsize=20, fontname='Times New Roman', color='#555555')
+ax.set_xticklabels(positions, fontsize=16, fontname='Times New Roman', color='#555555')
 
 plt.grid(axis='y', linestyle='--', alpha=0.7)
-ax.tick_params(axis='y', labelsize=17, colors='#555555')
+ax.tick_params(axis='y', labelsize=16, colors='#555555')
 ax.set_yticks(np.linspace(0, 100, 6))
 ax.set_ylim(0, 110)
 
@@ -325,18 +325,17 @@ def percent_formatter(x, pos):
 ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
 
 for i, value in enumerate(percentages_tobii):
-    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=18, color='#E97132')
+    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=16, color='#E97132')
 
 for i, value in enumerate(percentages_webgazer):
-    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=18, color='#156082')
+    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=16, color='#156082')
 
-ax.legend(fontsize=20, frameon=True) 
+ax.legend(fontsize=16, frameon=True) 
 plt.tight_layout()
 plt.savefig('output/figs/RQ3_TC4_TC5_TC6_EIF_line.jpg')
 
 
-# Datos grafica matching fixations barras
-
+# RQ3_TC4_TC5_TC6 Matching Fixations (STMF)
 percentage_matching_fixation_rq3_tobii_position_50cm = rq3__tobii_position_50cm['%MatchingFixations'].mean()
 percentage_matching_fixation_rq3_tobii_position_70cm = rq3__tobii_position_70cm['%MatchingFixations'].mean()
 percentage_matching_fixation_rq3_tobii_position_90cm = rq3__tobii_position_90cm['%MatchingFixations'].mean()
@@ -344,7 +343,7 @@ percentage_matching_fixation_rq3_webgazer_position_50cm = rq3__webgazer_position
 percentage_matching_fixation_rq3_webgazer_position_70cm = rq3__webgazer_position_70cm['%MatchingFixations'].mean()
 percentage_matching_fixation_rq3_webgazer_position_90cm = rq3__webgazer_position_90cm['%MatchingFixations'].mean()
 
-tools = ["Infrared/Tobii","Webcam/Webgazer.js"]
+tools = ["Infrared/Tobii Pro Spark","Webcam/Webgazer.js"]
 positions = ["TC4 (50cm)", "TC5 (70cm)", "TC6 (90cm)"]
 percentages_tobii = [percentage_matching_fixation_rq3_tobii_position_50cm,
                      percentage_matching_fixation_rq3_tobii_position_70cm,
@@ -353,32 +352,35 @@ percentages_webgazer = [percentage_matching_fixation_rq3_webgazer_position_50cm,
                         percentage_matching_fixation_rq3_webgazer_position_70cm,
                         percentage_matching_fixation_rq3_webgazer_position_90cm]
 
-x = np.arange(len(positions))  # Posiciones para las etiquetas del eje X
-width = 0.35  # Ancho de las barras
-
-# Crear figura y ejes
-fig, ax = plt.subplots(figsize=(8, 5))
-bars_tobii = ax.bar(x - width/2, percentages_tobii, width, label="Infrared/Tobii", color='orange')
-bars_webgazer = ax.bar(x + width/2, percentages_webgazer, width, label="Webcam/Webgazer.js", color='skyblue')
-
-# Añadir etiquetas y título
-ax.set_xlabel("Position")
-ax.set_ylabel("% MF")
-ax.set_title("% Matching Fixation (%MF) by Device/Software and Distance (TC4,TC5,TC6)")
+x = np.arange(len(positions))  
+width = 0.3
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
+bars_tobii = ax.bar(x - width / 3, percentages_tobii, width, label="Infrared/Tobii Pro Spark", color='#E97132')
+bars_webgazer = ax.bar(x + width, percentages_webgazer, width, label="Webcam/Webgazer.js", color='#156082')
+ax.set_xlabel("Test Case (User-Screen/Device distance)", fontsize=16, fontname='Times New Roman', color='#555555')
+ax.set_ylabel("STMF (%)", fontsize=16, fontname='Times New Roman', color='#555555')
+ax.set_title("Single Target Matching Fixations (STMF) by Device and Test Case (TC4,TC5,TC6)", 
+             fontsize=16, fontname='Times New Roman', color='#555555')
 ax.set_xticks(x)
-ax.set_xticklabels(positions)
-ax.set_ylim(0, 100)
-ax.legend()
-
-# Mostrar porcentaje en las barras
+ax.set_xticklabels(positions, fontsize=16, fontname='Times New Roman', color='#555555')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+ax.tick_params(axis='y', labelsize=16, colors='#555555')
+ax.set_yticks(np.linspace(0, 100, 6))  
+ax.set_ylim(0, 110)  
+def percent_formatter(x, pos):
+    return f'{x:.2f}%'
+ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
+def add_labels(bars):
+    for bar in bars:
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width() / 2, height - 5,  
+                f'{height:.2f}%', ha='center', va='top', fontsize=16, 
+                fontname='Times New Roman', color='white', weight='bold')  
 add_labels(bars_tobii)
 add_labels(bars_webgazer)
-
-# Guardar la gráfica
+ax.legend(fontsize=16, frameon=True)
 plt.tight_layout()
-plt.savefig('output/figs/RQ3_MF_TC4_TC5_TC6_bar.jpg')
-# Mostrar gráfico
-# plt.show()
+plt.savefig('output/figs/RQ3_TC4_TC5_TC6_STMF_bars.jpg')
 
 
 # Datos Matching fixations linea
@@ -390,24 +392,41 @@ percentages_webgazer = [percentage_matching_fixation_rq3_webgazer_position_50cm,
                         percentage_matching_fixation_rq3_webgazer_position_70cm,
                         percentage_matching_fixation_rq3_webgazer_position_90cm]
 
-# Crear la gráfica
-plt.figure(figsize=(8, 5))
-plt.plot(positions, percentages_tobii, marker='o', label="Infrared/Tobii", color='orange')
-plt.plot(positions, percentages_webgazer, marker='o', label="Webcam/Webgazer.js", color='skyblue')
+x = np.arange(len(positions))  
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
 
-# Añadir etiquetas, título y leyenda
-plt.xlabel("Position")
-plt.ylabel("% MF")
-plt.title("% Matching Fixations (%MF) by Device/Software and Distance (TC4,TC5,TC6)")
-plt.ylim(0, 100)  # Limitar el eje Y al rango de 0 a 100
-plt.grid(True, linestyle='--', alpha=0.6)
-plt.legend()
+ax.plot(x, percentages_tobii, marker='o', linestyle='-', linewidth=3, markersize=10, 
+        label="Infrared/Tobii Pro Spark", color='#E97132')
+ax.plot(x, percentages_webgazer, marker='s', linestyle='-', linewidth=3, markersize=10, 
+        label="Webcam/Webgazer.js", color='#156082')
 
-# Guardar la gráfica
+ax.set_xlabel("Test Case (User-Screen/Device distance)", fontsize=16, fontname='Times New Roman', color='#555555')
+ax.set_ylabel("STMF (%)", fontsize=16, fontname='Times New Roman', color='#555555')
+ax.set_title("Single Target Matching Fixations (STMF) by Device and Test Case (TC4,TC5,TC6)", 
+             fontsize=16, fontname='Times New Roman', color='#555555')
+
+ax.set_xticks(x)
+ax.set_xticklabels(positions, fontsize=16, fontname='Times New Roman', color='#555555')
+
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+ax.tick_params(axis='y', labelsize=16, colors='#555555')
+ax.set_yticks(np.linspace(0, 100, 6))
+ax.set_ylim(0, 110)
+
+def percent_formatter(x, pos): 
+    return f'{x:.2f}%'
+
+ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
+
+for i, value in enumerate(percentages_tobii):
+    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=16, color='#E97132')
+
+for i, value in enumerate(percentages_webgazer):
+    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=16, color='#156082')
+
+ax.legend(fontsize=16, frameon=True) 
 plt.tight_layout()
-plt.savefig('output/figs/RQ3_MF_TC4_TC5_TC6_line.jpg')
-# Mostrar la gráfica
-# plt.show()
+plt.savefig('output/figs/RQ3_TC4_TC5_TC6_STMF_line.jpg')
 
 
 # Datos mean MAE RQ3
@@ -426,36 +445,35 @@ med_webgazer = [average_error_distance_rq3_webgazer_position_50cm,
                 average_error_distance_rq3_webgazer_position_70cm,
                 average_error_distance_rq3_webgazer_position_90cm]
 
-x = np.arange(len(positions))  # Posiciones para las etiquetas del eje X
-width = 0.35  # Ancho de las barras
-
-# Crear figura y ejes
-fig, ax = plt.subplots(figsize=(8, 5))
-bars_tobii = ax.bar(x - width/2, med_tobii, width, label="Infrared/Tobii", color='orange')
-bars_webgazer = ax.bar(x + width/2, med_webgazer, width, label="Webcam/Webgazer.js", color='skyblue')
-
-# Añadir etiquetas y título
-ax.set_xlabel("Position")
-ax.set_ylabel("MED (px)")
-ax.set_title("Mean Error Distance (MED) by Device/Software and Distance (TC4,TC5,TC6)")
+x = np.arange(len(positions))  
+width = 0.3
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
+bars_tobii = ax.bar(x - width / 3, med_tobii, width, label="Infrared/Tobii Pro Spark", color='#E97132')
+bars_webgazer = ax.bar(x + width, med_webgazer, width, label="Webcam/Webgazer.js", color='#156082')
+ax.set_xlabel("Test Case (User-Screen/Device distance)", fontsize=16, fontname='Times New Roman', color='#555555')
+ax.set_ylabel("MAE (px)", fontsize=16, fontname='Times New Roman', color='#555555')
+ax.set_title("Mean Absolute Error (MAE) by Device and Test Case (TC4,TC5,TC6)", 
+             fontsize=16, fontname='Times New Roman', color='#555555')
 ax.set_xticks(x)
-ax.set_xticklabels(positions)
-ax.set_ylim(0, max(max(med_tobii), max(med_webgazer)) + 10)
-ax.legend()
-
-# Mostrar valores en las barras
+ax.set_xticklabels(positions, fontsize=16, fontname='Times New Roman', color='#555555')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+ax.tick_params(axis='y', labelsize=16, colors='#555555')
+ax.set_yticks(np.linspace(0, 400, 5))  
+ax.set_ylim(0, 400)  
+def percent_formatter(x, pos):
+    return f'{x:.2f}'
+ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
 def add_labels(bars):
     for bar in bars:
         height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width()/2., height + 1,
-                f'{height:.2f}', ha='center', va='bottom')
-
+        ax.text(bar.get_x() + bar.get_width() / 2, height - 5,  
+                f'{height:.2f}px', ha='center', va='top', fontsize=16, 
+                fontname='Times New Roman', color='white', weight='bold')  
 add_labels(bars_tobii)
 add_labels(bars_webgazer)
-
-# Guardar la gráfica
+ax.legend(fontsize=16, frameon=True)
 plt.tight_layout()
-plt.savefig('output/figs/RQ3_MED_TC4_TC5_TC6.jpg')
+plt.savefig('output/figs/RQ3_TC4_TC5_TC6_MAE.jpg')
 # Mostrar la gráfica
 # plt.show()
 
@@ -490,7 +508,7 @@ for bar in bars:
 
 # Guardar la gráfica
 plt.tight_layout()
-plt.savefig('output/figs/RQ4_EITOF_TC7.jpg')
+# plt.savefig('output/figs/RQ4_EITOF_TC7.jpg')
 # Mostrar gráfico
 # plt.show()
 
@@ -499,28 +517,26 @@ percentage_matching_test_object_fixations_rq4_tobii_rpm = rq4_tobii_rpm['%Releva
 percentage_matching_test_object_fixations_rq4_webgazer_rpm = rq4_webgazer_rpm['%RelevantFixations'].mean()
 
 
-tools = ["Infrared/Tobii", "Webcam/Webgazer.js"]
-percentages = [percentage_matching_test_object_fixations_rq4_tobii_rpm,
-               percentage_matching_test_object_fixations_rq4_webgazer_rpm]
-
-# Crear la gráfica
-fig, ax = plt.subplots(figsize=(6, 4))
-bars = ax.bar(tools, percentages, color=[ 'orange','skyblue',])
-
-# Añadir etiquetas y título
-ax.set_ylabel("% MTOF")
-ax.set_title("% Matching Test Object Fixations (%MTOF) by Device/Software (TC7)")
-ax.set_ylim(0, 110)  # Limitar el eje Y para espacio adicional
-
-# Mostrar porcentaje en las barras
-for bar in bars:
+new_data_rq4 = {
+    '% Matching Fixation': [percentage_matching_test_object_fixations_rq4_tobii_rpm,
+                            percentage_matching_test_object_fixations_rq4_webgazer_rpm],
+    'Device/Software': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js']
+}
+new_df = pd.DataFrame(new_data_rq4)
+fig, ax = plt.subplots(figsize=(9.85, 5.5))
+bars = plt.bar(new_df['Device/Software'], new_df['% Matching Fixation'], color=['#E97132', '#156082'])
+for bar, pct in zip(bars, new_df['% Matching Fixation']):
     height = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width()/2., height + 2,
-            f'{height:.2f}%', ha='center', va='bottom')
-
-# Guardar la gráfica
+    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', 
+            ha='center', va='bottom', fontsize=16, fontname='Times New Roman', color='#555555' ,weight='bold')
+plt.title('Multiple Target Matching Fixations (MTMF) by Device (TC7)', fontsize=16 ,fontname='Times New Roman', color='#555555')
+plt.ylabel('MTMF (%)', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=16, fontname='Times New Roman', color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=16, fontname='Times New Roman', color='#555555')
+plt.ylim(0, 110)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
-plt.savefig('output/figs/RQ4_MTOF_TC7.jpg')
+plt.savefig('output/figs/RQ4_TC7_MTMF.jpg')
 # Mostrar gráfico
 # plt.show()
 
