@@ -69,15 +69,15 @@ average_error_distance_rq1_tobii_form_density_low = rq1_tobii_form_density_low['
 average_error_distance_rq1_webgazer_form_density_low = rq1_webgazer_form_density_low['MAE'].mean()
 
 
-#RQ1_TC1 (Form Density Low)
+#RQ1_TC1 STMF (Form Density Low)
 data = {
     '% Matching Fixation': [
         percentage_matching_fixation_rq1_tobii_form_density_low,
         percentage_matching_fixation_rq1_webgazer_form_density_low
     ],
     'Device/Software (TC1)': [
-        r'\textbf{Infrared/Tobii Pro Spark}',  # Texto en negrita en LaTeX
-        r'\textbf{Webcam/Webgazer.js}'  # Lo mismo para el segundo texto
+        r'\textbf{Infrared/Tobii Pro Spark}',  
+        r'\textbf{Webcam/Webgazer.js}'  
     ]
 }
 
@@ -94,7 +94,7 @@ bars = ax.bar(df['Device/Software (TC1)'], df['% Matching Fixation'],
 for bar, pct in zip(bars, df['% Matching Fixation']):
     height = bar.get_height()
     ax.text(bar.get_x() + bar.get_width() / 2.0, height + 2, rf'$\textbf{{{pct:.2f}\%}}$', 
-            ha='center', va='bottom', fontsize=18, color='#555555', weight='bold')  
+            ha='center', va='bottom', fontsize=22, color='#555555', weight='bold')  
 
 plt.text(-0.1, 1.20, r'\textbf{a)}', 
          fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
@@ -110,74 +110,100 @@ plt.savefig('output/figs/RQ1_TC1_STMF.jpg', dpi=300)
 plt.show()
 
 
-#RQ1_TC2 (Form Density High)
+#RQ1_TC2 STMF (Form Density High)
 data = {
     '% Matching Fixation': [percentage_matching_fixation_rq1_tobii_form_density_high,
                           percentage_matching_fixation_rq1_webgazer_form_density_high],
-    'Device/Software (TC2)': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js']}
+    'Device/Software (TC2)': 
+        [
+        r'\textbf{Infrared/Tobii Pro Spark}',  
+        r'\textbf{Webcam/Webgazer.js}' 
+        ]}
 df = pd.DataFrame(data)
 fig, ax = plt.subplots(figsize=(9.85, 5.5))
-bars = plt.bar(df['Device/Software (TC2)'], df['% Matching Fixation'], 
-               color=['#E97132', '#156082'])
+bar_colors = ['#B0B0B0', '#555555']  
+edge_colors = ['#4D4D4D', '#333333']  
+bars = ax.bar(df['Device/Software (TC2)'], df['% Matching Fixation'], 
+              color=bar_colors, edgecolor=edge_colors, linewidth=2, hatch=["//", "\\\\"])
+
 for bar, pct in zip(bars, df['% Matching Fixation']):
     height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', 
-             ha='center', va='bottom', fontsize=16,  color='#555555', weight='bold')
-plt.title('Single Target Matching Fixations (STMF) by Device (TC2)', 
-          fontsize=16,  color='#555555')
-plt.ylabel('STMF (%)', fontsize=16,  color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=16,  color='#555555')
-plt.yticks(yticks, ytick_labels, fontsize=16,  color='#555555')
-plt.ylim(0, 110)
+    ax.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}\%}}$', 
+             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+plt.text(-0.1, 1.20, r'\textbf{a)}', 
+         fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
+plt.ylabel(r'\textbf{STMF (\%)}', fontsize=16, color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=16, color='#555555')
+yticks = np.arange(0, 120, 20)
+ytick_labels = [rf"{y}\%" for y in yticks]
+plt.yticks(yticks, ytick_labels, fontsize=16, color='#555555')
+plt.ylim(0, 100)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ1_TC2_STMF.jpg')
+plt.show()
 
 
-# RQ1_TC1 (MAE Form Density Low)
+# RQ1_TC1 MAE (Form Density Low)
 data = {
     'Mean Error Distance': [average_error_distance_rq1_tobii_form_density_low,
                             average_error_distance_rq1_webgazer_form_density_low,],
-    'Device/Software (TC1)': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js',],}
+    'Device/Software (TC1)': [
+        r'\textbf{Infrared/Tobii Pro Spark}',  
+        r'\textbf{Webcam/Webgazer.js}' 
+        ],}
 df = pd.DataFrame(data)
 fig, ax = plt.subplots(figsize=(9.85, 5.5))
+bar_colors = ['#B0B0B0', '#555555']  
+edge_colors = ['#4D4D4D', '#333333']  
+
 bars = plt.bar(df['Device/Software (TC1)'], df['Mean Error Distance'], 
-               color=['#E97132', '#156082'])
+               color=bar_colors, edgecolor=edge_colors, linewidth=2,  hatch=["//", "\\\\"])
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}px',
-             ha='center', va='bottom', fontsize=16,  color='#555555', weight='bold')
-plt.title('Mean Absolute Error (MAE) by Device (TC1)', fontsize=16,  color='#555555')
-plt.ylabel('MAE (px)', fontsize=16,  color='#555555')
+    ax.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}px}}$', 
+             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+plt.text(-0.1, 1.20, r'\textbf{b)}', 
+         fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
+plt.ylabel(r'\textbf{MAE (px)}', fontsize=16,  color='#555555')
 plt.xticks(rotation=0, ha='center', fontsize=16,  color='#555555')
 plt.yticks(yticks_mae, ytick_labels_mae, fontsize=16,  color='#555555')
 plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ1_TC1_MAE.jpg')
+plt.show()
 
 
-# RQ1_TC2 (MAE Form Density High)
+# RQ1_TC2 MAE (Form Density High)
 data = {
     'Mean Error Distance': [average_error_distance_rq1_tobii_form_density_high,
                             average_error_distance_rq1_webgazer_form_density_high,],
-    'Device/Software (TC2)': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js',],}
+    'Device/Software (TC2)': [
+        r'\textbf{Infrared/Tobii Pro Spark}',  
+        r'\textbf{Webcam/Webgazer.js}' 
+        ],}
 df = pd.DataFrame(data)
 fig, ax = plt.subplots(figsize=(9.85, 5.5))
+bar_colors = ['#B0B0B0', '#555555']  
+edge_colors = ['#4D4D4D', '#333333']  
+
 bars = plt.bar(df['Device/Software (TC2)'], df['Mean Error Distance'], 
-               color=['#E97132', '#156082'])
+               color=bar_colors, edgecolor=edge_colors, linewidth=2,  hatch=["//", "\\\\"])
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}px',
-             ha='center', va='bottom', fontsize=16,  color='#555555', weight='bold')
-plt.title('Mean Absolute Error (MAE) by Device (TC2)', fontsize=16,  color='#555555')
-plt.ylabel('MAE (px)', fontsize=16,  color='#555555')
+    ax.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}px}}$', 
+             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+plt.text(-0.1, 1.20, r'\textbf{b)}', 
+         fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
+plt.ylabel(r'\textbf{MAE (px)}', fontsize=16,  color='#555555')
 plt.xticks(rotation=0, ha='center', fontsize=16,  color='#555555')
 plt.yticks(yticks_mae, ytick_labels_mae, fontsize=16,  color='#555555')
 plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ1_TC2_MAE.jpg')
+plt.show()
 
 
 
@@ -197,27 +223,38 @@ average_error_distance_rq2_webgazer_alternance_buttons = rq2_webgazer_alternance
 
 
 
-# TC3_RQ2_Matching fixations (Alternance Buttons)
+# TC3_RQ2 STMF (Alternance Buttons)
 new_data_rq2 = {
     '% Matching Fixation': [percentage_matching_fixation_rq2_tobii_alternance_buttons,
                             percentage_matching_fixation_rq2_webgazer_alternance_buttons],
-    'Device/Software': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js']
+    'Device/Software': [
+        r'\textbf{Infrared/Tobii Pro Spark}',  
+        r'\textbf{Webcam/Webgazer.js}' 
+        ]
 }
-new_df = pd.DataFrame(new_data_rq2)
+bar_colors = ['#B0B0B0', '#555555']  
+edge_colors = ['#4D4D4D', '#333333']  
+
+df = pd.DataFrame(new_data_rq2)
 fig, ax = plt.subplots(figsize=(9.85, 5.5))
-bars = plt.bar(new_df['Device/Software'], new_df['% Matching Fixation'], color=['#E97132', '#156082'])
-for bar, pct in zip(bars, new_df['% Matching Fixation']):
+bars = plt.bar(df['Device/Software'], df['% Matching Fixation'], 
+               color=bar_colors, edgecolor=edge_colors, linewidth=2,  hatch=["//", "\\\\"])
+for bar, pct in zip(bars, df['% Matching Fixation']):
     height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}%', 
-            ha='center', va='bottom', fontsize=16,  color='#555555' ,weight='bold')
-plt.title('Single Target Matching Fixations (STMF) by Device (TC3)', fontsize=16 , color='#555555')
-plt.ylabel('STMF (%)', fontsize=16,  color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=16,  color='#555555')
-plt.yticks(yticks, ytick_labels, fontsize=16,  color='#555555')
-plt.ylim(0, 110)
+    ax.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}\%}}$', 
+             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+plt.text(-0.1, 1.20, r'\textbf{a)}', 
+         fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
+plt.ylabel(r'\textbf{STMF (\%)}', fontsize=16, color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=16, color='#555555')
+yticks = np.arange(0, 120, 20)
+ytick_labels = [rf"{y}\%" for y in yticks]
+plt.yticks(yticks, ytick_labels, fontsize=16, color='#555555')
+plt.ylim(0, 100)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ2_TC3_STMF.jpg')
+plt.show()
 
 
 #RQ2_TC3 EIF (Alternance Buttons)
@@ -235,7 +272,7 @@ for bar in bars:
             height - 5,  
             f'{height:.2f}%',  
             ha='center', va='top', 
-            fontsize=16,  color='white', weight='bold')     
+            fontsize=22,  color='white', weight='bold')     
 plt.title('Events Including Fixations (EIF) by Device (TC3)', fontsize=16 , color='#555555')
 plt.ylabel('EIF (%)', fontsize=16,  color='#555555')
 plt.xticks(rotation=0, ha='center', fontsize=16,  color='#555555')
@@ -251,23 +288,30 @@ plt.savefig('output/figs/RQ2_TC3_EIF.jpg')
 data = {
     'Mean Error Distance': [average_error_distance_rq2_tobii_alternance_buttons,
                             average_error_distance_rq2_webgazer_alternance_buttons,],   
-    'Device/Software': ['Infrared/Tobii Pro Spark', 'Webcam/Webgazer.js',],}
+    'Device/Software': [ 
+        r'\textbf{Infrared/Tobii Pro Spark}',  
+        r'\textbf{Webcam/Webgazer.js}' 
+        ]}
 df = pd.DataFrame(data)
+bar_colors = ['#B0B0B0', '#555555']  
+edge_colors = ['#4D4D4D', '#333333']  
 fig, ax = plt.subplots(figsize=(9.85, 5.5))
 bars = plt.bar(df['Device/Software'], df['Mean Error Distance'], 
-               color=['#E97132', '#156082'])
+               color=bar_colors, edgecolor=edge_colors, linewidth=2,  hatch=["//", "\\\\"])
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{pct:.2f}px',
-             ha='center', va='bottom', fontsize=16,  color='#555555', weight='bold')
-plt.title('Mean Absolute Error (MAE) by Device (TC3)', fontsize=16,  color='#555555')
-plt.ylabel('MAE (px)', fontsize=16,  color='#555555')
+    plt.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}px}}$',
+             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+plt.text(-0.1, 1.20, r'\textbf{b)}', 
+         fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
+plt.ylabel(r'\textbf{MAE (px)}', fontsize=16,  color='#555555')
 plt.xticks(rotation=0, ha='center', fontsize=16,  color='#555555')
 plt.yticks(yticks_mae, ytick_labels_mae, fontsize=16,  color='#555555')
 plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ2_TC3_MAE.jpg')
+plt.show()
 
 
 ############## RQ3 ##############
