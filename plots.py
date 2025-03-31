@@ -258,30 +258,36 @@ plt.show()
 
 
 #RQ2_TC3 EIF (Alternance Buttons)
-tools = [ "Infrared/Tobii Pro Spark","Webcam/Webgazer.js",]
-percentages = [percentage_events_including_fixations_rq2_tobii_alternance_buttons,
-               percetange_events_including_fixations_rq2_webgazer_alternance_buttons]
+
+new_data_rq2 = {
+    '% EIF': [percentage_events_including_fixations_rq2_tobii_alternance_buttons,
+                            percetange_events_including_fixations_rq2_webgazer_alternance_buttons],
+    'Device/Software': [
+        r'\textbf{Infrared/Tobii Pro Spark}',  
+        r'\textbf{Webcam/Webgazer.js}' 
+        ]
+}
+bar_colors = ['#B0B0B0', '#555555']  
+edge_colors = ['#4D4D4D', '#333333']  
+df = pd.DataFrame(new_data_rq2)
 fig, ax = plt.subplots(figsize=(9.85, 5.5))
-bars = ax.bar(tools, percentages, color=['#E97132', '#156082'])
-ax.set_ylabel("% EIF")
-ax.set_title("% Events Including Fixation (EIF) by Device/Software (TC3)")
-ax.set_ylim(0, 110)  # Limitar el eje Y para espacio adicional
-for bar in bars:
+bars = plt.bar(df['Device/Software'], df['% EIF'], 
+               color=bar_colors, edgecolor=edge_colors, linewidth=2,  hatch=["//", "\\\\"])
+for bar, pct in zip(bars, df['% EIF']):
     height = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width() / 2, 
-            height - 5,  
-            f'{height:.2f}%',  
-            ha='center', va='top', 
-            fontsize=22,  color='white', weight='bold')     
-plt.title('Events Including Fixations (EIF) by Device (TC3)', fontsize=16 , color='#555555')
-plt.ylabel('EIF (%)', fontsize=16,  color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=16,  color='#555555')
-plt.yticks(yticks, ytick_labels, fontsize=16,  color='#555555')
-plt.ylim(0, 110)
+    ax.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}\%}}$', 
+             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+
+plt.ylabel(r'\textbf{EIF (\%)}', fontsize=16, color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=16, color='#555555')
+yticks = np.arange(0, 120, 20)
+ytick_labels = [rf"{y}\%" for y in yticks]
+plt.yticks(yticks, ytick_labels, fontsize=16, color='#555555')
+plt.ylim(0, 100)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
-plt.tight_layout()
 plt.savefig('output/figs/RQ2_TC3_EIF.jpg')
+plt.show()
 
 
 #RQ2_TC3 (mean MAE)
@@ -332,43 +338,6 @@ percentage_events_including_fixations_rq3_webgazer_position_50cm = rq3__webgazer
 percentage_events_including_fixations_rq3_webgazer_position_70cm = rq3__webgazer_position_70cm['%EventsWithFixations'].mean()
 percentage_events_including_fixations_rq3_webgazer_position_90cm = rq3__webgazer_position_90cm['%EventsWithFixations'].mean()
 
-positions = ["TC4 (50cm)", "TC5 (70cm)", "TC6 (90cm)"]
-percentages_tobii = [percentage_events_including_fixations_rq3_tobii_position_50cm,
-                     percentage_events_including_fixations_rq3_tobii_position_70cm,
-                     percentage_events_including_fixations_rq3_tobii_position_90cm]
-percentages_webgazer = [percentage_events_including_fixations_rq3_webgazer_position_50cm,
-                        percentage_events_including_fixations_rq3_webgazer_position_70cm,
-                        percentage_events_including_fixations_rq3_webgazer_position_90cm]
-x = np.arange(len(positions))  
-width = 0.3
-fig, ax = plt.subplots(figsize=(9.85, 5.5))
-bars_tobii = ax.bar(x - width / 3, percentages_tobii, width, label="Infrared/Tobii Pro Spark", color='#E97132')
-bars_webgazer = ax.bar(x + width, percentages_webgazer, width, label="Webcam/Webgazer.js", color='#156082')
-ax.set_xlabel("Test Case (User-Screen/Device distance)", fontsize=16,  color='#555555')
-ax.set_ylabel("EIF (%)", fontsize=16,  color='#555555')
-ax.set_title("Events Including Fixation (EIF) by Device and Test Case (TC4,TC5,TC6)", 
-             fontsize=16,  color='#555555')
-ax.set_xticks(x)
-ax.set_xticklabels(positions, fontsize=16,  color='#555555')
-plt.grid(axis='y', linestyle='--', alpha=0.7)
-ax.tick_params(axis='y', labelsize=16, colors='#555555')
-ax.set_yticks(np.linspace(0, 100, 6))  
-ax.set_ylim(0, 110)  
-def percent_formatter(x, pos):
-    return f'{x:.2f}%'
-ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
-def add_labels(bars):
-    for bar in bars:
-        height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width() / 2, height - 5,  
-                f'{height:.2f}%', ha='center', va='top', fontsize=16, 
-                 color='white', weight='bold')  
-add_labels(bars_webgazer)
-add_labels(bars_tobii)
-ax.legend(fontsize=16, frameon=True)
-plt.tight_layout()
-plt.savefig('output/figs/RQ3_TC4_TC5_TC6_EIF_bars.jpg')
-
 # Datos grafico linea events_captured_fixations
 
 positions = ["TC4 (50cm)", "TC5 (70cm)", "TC6 (90cm)"]
@@ -379,43 +348,59 @@ percentages_webgazer = [percentage_events_including_fixations_rq3_webgazer_posit
                         percentage_events_including_fixations_rq3_webgazer_position_70cm,
                         percentage_events_including_fixations_rq3_webgazer_position_90cm]
 
+x = np.arange(len(positions))
+width = 0.3
+bar_colors = ['#B0B0B0', '#555555']  # Colores de las barras
+edge_colors = ['#4D4D4D', '#333333']  # Bordes
+hatch_patterns = ["//", "\\\\"]
 
-x = np.arange(len(positions))  
+# Crear figura
 fig, ax = plt.subplots(figsize=(9.85, 5.5))
 
-ax.plot(x, percentages_tobii, marker='o', linestyle='-', linewidth=3, markersize=10, 
-        label="Infrared/Tobii Pro Spark", color='#E97132')
-ax.plot(x, percentages_webgazer, marker='s', linestyle='-', linewidth=3, markersize=10, 
-        label="Webcam/Webgazer.js", color='#156082')
+# Dibujar barras
+bars_tobii = ax.bar(x - width / 3, percentages_tobii, width, label=r"\textbf{Infrared/Tobii Pro Spark}",
+                     color=bar_colors[0], edgecolor=edge_colors[0], linewidth=2)
+bars_webgazer = ax.bar(x + width, percentages_webgazer, width, label=r"\textbf{Webcam/Webgazer.js}",
+                        color=bar_colors[1], edgecolor=edge_colors[1], linewidth=2)
 
-ax.set_xlabel("Test Case (User-Screen/Device distance)", fontsize=16,  color='#555555')
-ax.set_ylabel("EIF (%)", fontsize=16,  color='#555555')
-ax.set_title("Events Including Fixation (EIF) by Device and Test Case (TC4,TC5,TC6)", 
-             fontsize=16,  color='#555555')
+# Aplicar hatch a cada conjunto de barras
+for bars, hatch in zip([bars_tobii, bars_webgazer], hatch_patterns):
+    for bar in bars:
+        bar.set_hatch(hatch)
 
+# Etiquetas de barras con formato LaTeX
+for bars in [bars_tobii, bars_webgazer]:
+    for bar in bars:
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width() / 2, height - 5,  # Ajuste vertical
+                rf'$\mathbf{{{height:.2f}\%}}$', ha='center', va='top', fontsize=16, 
+                color='white', weight='bold')
+
+# Configuración de ejes
+ax.set_xlabel(r"\textbf{Test Case (User-Screen/Device distance)}", fontsize=16, color='#555555')
+ax.set_ylabel(r"\textbf{EIF (\%)}", fontsize=16, color='#555555')
 ax.set_xticks(x)
-ax.set_xticklabels(positions, fontsize=16,  color='#555555')
-
-plt.grid(axis='y', linestyle='--', alpha=0.7)
-ax.tick_params(axis='y', labelsize=16, colors='#555555')
+ax.set_xticklabels(positions, fontsize=16, color='#555555')
 ax.set_yticks(np.linspace(0, 100, 6))
-ax.set_ylim(0, 110)
+ax.set_ylim(0, 100)
+ax.tick_params(axis='y', labelsize=16, colors='#555555')
+ax.grid(axis='y', linestyle='--', alpha=0.7)
 
-def percent_formatter(x, pos): 
-    return f'{x:.2f}%'
-
+# Formato de porcentaje en eje Y
+def percent_formatter(x, pos):
+    return rf'$\mathbf{{{x:.0f}\%}}$'
 ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
 
-for i, value in enumerate(percentages_tobii):
-    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=16, color='#E97132')
+# Etiqueta de subfigura
+ax.text(-0.08, 1.15, r'\textbf{b)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
 
-for i, value in enumerate(percentages_webgazer):
-    ax.text(x[i], value + 2, f'{value:.1f}%', ha='center', fontsize=16, color='#156082')
+# Leyenda con formato LaTeX
+ax.legend(fontsize=16, frameon=True)
 
-ax.legend(fontsize=16, frameon=True) 
+# Ajuste final y guardado
 plt.tight_layout()
-plt.savefig('output/figs/RQ3_TC4_TC5_TC6_EIF_line.jpg')
-
+plt.savefig('output/figs/RQ3_TC4_TC5_TC6_EIF_bars.jpg', dpi=300)
+plt.show()
 
 # RQ3_TC4_TC5_TC6 Matching Fixations (STMF)
 percentage_matching_fixation_rq3_tobii_position_50cm = rq3__tobii_position_50cm['%MatchingFixations'].mean()
