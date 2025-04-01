@@ -2,7 +2,7 @@
 Analyzing experimental data comparing the performance of professional eyetrackers and webcam-based eyetrackers.
 
 ## Authors
-Publication Name: WIP
+Publication Name: Comparing Infrared and Webcam Eye Tracking for User Behavior Mining in Office Contexts
 Journal: WIP
 DOI: WIP
 
@@ -46,16 +46,30 @@ pip install -r requirements.txt
 
 ## Running the Project
 
-To run the project, execute the `run.py` script:
+To run the project, execute next scripts:
+
+1. To process "preprocessed raw data":
 
 ```bash
-python run.py
+python metrics.py
 ```
-To run plots, you need to install latex, ghostscript and dvipng binaries packages to proceed
+2. To obtain results from postprocessed data:
+
+```bash
+python results.py
+```
+
+3. To run plots, you need to install latex, ghostscript and dvipng binaries packages to proceed
 
 https://miktex.org/download
 https://ghostscript.com/
 https://www.nongnu.org/dvipng/
+
+Now you can execute this script to obtain plots:
+
+```bash
+python plots.py
+```
 
 ## Project Structure
 

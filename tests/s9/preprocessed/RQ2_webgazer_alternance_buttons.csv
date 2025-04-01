@@ -1,164 +1,96 @@
-Unnamed: 0,case:concept:name,case:creator,lifecycle:transition,time:timestamp,org:resource,category,application,coordX,coordY,typed_word,screenshot,concept:name,event_src_path,event_dest_path,clipboard_content,xpath,xpath_full,mouse_coord,workbook,current_worksheet,worksheets,sheets,cell_content,cell_range,cell_range_number,window_size,slides,effect,hotkey,id,title,description,browser_url,eventQual,tab_moved_from_index,tab_moved_to_index,newZoomFactor,oldZoomFactor,tab_pinned,tab_audible,tab_muted,window_ingognito,file_size,tag_category,tag_type,tag_name,tag_title,tag_value,tag_checked,tag_html,tag_href,tag_innerText,tag_option,tag_attributes,#events
-0,128103355214000,SmartRPA by marco2012,complete,10:34:22,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,972.0,592.0,,39_adf9eeb7_2025-01-28_10-34-23.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-1,128103355214000,,,10:34:22,,GazeFixation,Panel Administrativo - Google Chrome,1093.8775,524.13,,39_adf9eeb7_2025-01-28_10-34-23.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-2,128103355214000,,,10:34:22,,GazeFixation,Panel Administrativo - Google Chrome,1049.476,516.45,,39_adf9eeb7_2025-01-28_10-34-23.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-3,128103355214000,,,10:34:22,,GazeFixation,Panel Administrativo - Google Chrome,1052.9566666666667,534.2433333333333,,39_adf9eeb7_2025-01-28_10-34-23.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-4,128103355214000,,,10:34:22,,GazeFixation,Panel Administrativo - Google Chrome,947.4733333333334,586.1666666666666,,39_adf9eeb7_2025-01-28_10-34-23.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-5,128103355214000,,,10:34:22,,GazeFixation,Panel Administrativo - Google Chrome,1004.9275,629.09,,39_adf9eeb7_2025-01-28_10-34-23.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-6,128103355214000,,,10:34:22,,GazeFixation,Panel Administrativo - Google Chrome,974.2133333333333,575.1666666666666,,39_adf9eeb7_2025-01-28_10-34-23.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-7,128103355214000,,,10:34:23,,GazeFixation,Panel Administrativo - Google Chrome,1041.1075,518.2975,,39_adf9eeb7_2025-01-28_10-34-23.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-8,128103355214000,,,10:34:23,,GazeFixation,Panel Administrativo - Google Chrome,152.41333333333333,7.413333333333327,,39_adf9eeb7_2025-01-28_10-34-23.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-9,128103355214000,,,10:34:23,,GazeFixation,Panel Administrativo - Google Chrome,362.18,59.13,,39_adf9eeb7_2025-01-28_10-34-23.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-10,128103355214000,,,10:34:23,,GazeFixation,Panel Administrativo - Google Chrome,354.89333333333326,67.75,,39_adf9eeb7_2025-01-28_10-34-23.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-11,128103355214000,,,10:34:23,,GazeFixation,Panel Administrativo - Google Chrome,334.2933333333333,21.69999999999999,,39_adf9eeb7_2025-01-28_10-34-23.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-12,128103355214000,SmartRPA by marco2012,complete,10:34:24,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,52.0,220.0,,40_bca1007e_2025-01-28_10-34-25.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-13,128103355214000,,,10:34:24,,GazeFixation,Panel Administrativo - Google Chrome,386.8733333333333,77.77000000000004,,40_bca1007e_2025-01-28_10-34-25.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
-14,128103355214000,,,10:34:24,,GazeFixation,Panel Administrativo - Google Chrome,204.604,127.17200000000005,,40_bca1007e_2025-01-28_10-34-25.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-15,128103355214000,,,10:34:24,,GazeFixation,Panel Administrativo - Google Chrome,247.09,39.153333333333364,,40_bca1007e_2025-01-28_10-34-25.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-16,128103355214000,,,10:34:24,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,72.98666666666668,,40_bca1007e_2025-01-28_10-34-25.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-17,128103355214000,,,10:34:24,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,65.82749999999999,,40_bca1007e_2025-01-28_10-34-25.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-18,128103355214000,SmartRPA by marco2012,complete,10:34:25,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1861.0,220.0,,41_48e349a1_2025-01-28_10-34-26.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-19,128103355214000,,,10:34:25,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,53.97999999999999,,41_48e349a1_2025-01-28_10-34-26.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-20,128103355214000,,,10:34:25,,GazeFixation,Panel Administrativo - Google Chrome,1918.62125,37.31125,,41_48e349a1_2025-01-28_10-34-26.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8.0
-21,128103355214000,,,10:34:25,,GazeFixation,Panel Administrativo - Google Chrome,1894.516,49.863999999999976,,41_48e349a1_2025-01-28_10-34-26.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-22,128103355214000,,,10:34:25,,GazeFixation,Panel Administrativo - Google Chrome,1916.868333333333,25.45999999999998,,41_48e349a1_2025-01-28_10-34-26.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
-23,128103355214000,,,10:34:26,,GazeFixation,Panel Administrativo - Google Chrome,0.0,614.1637499999999,,41_48e349a1_2025-01-28_10-34-26.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8.0
-24,128103355214000,,,10:34:26,,GazeFixation,Panel Administrativo - Google Chrome,164.2433333333333,505.4566666666666,,41_48e349a1_2025-01-28_10-34-26.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-25,128103355214000,,,10:34:26,,GazeFixation,Panel Administrativo - Google Chrome,204.905,524.235,,41_48e349a1_2025-01-28_10-34-26.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-26,128103355214000,,,10:34:26,,GazeFixation,Panel Administrativo - Google Chrome,90.37,557.0074999999999,,41_48e349a1_2025-01-28_10-34-26.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-27,128103355214000,SmartRPA by marco2012,complete,10:34:27,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,72.0,589.0,,42_ac34d625_2025-01-28_10-34-27.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-28,128103355214000,,,10:34:27,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,393.21000000000004,,42_ac34d625_2025-01-28_10-34-27.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
-29,128103355214000,,,10:34:27,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,296.00666666666666,,42_ac34d625_2025-01-28_10-34-27.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-30,128103355214000,SmartRPA by marco2012,complete,10:34:28,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1858.0,585.0,,43_a7a4cc62_2025-01-28_10-34-29.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-31,128103355214000,,,10:34:28,,GazeFixation,Panel Administrativo - Google Chrome,1892.5233333333333,476.0333333333334,,43_a7a4cc62_2025-01-28_10-34-29.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-32,128103355214000,,,10:34:28,,GazeFixation,Panel Administrativo - Google Chrome,1817.3925,459.5825000000001,,43_a7a4cc62_2025-01-28_10-34-29.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-33,128103355214000,,,10:34:28,,GazeFixation,Panel Administrativo - Google Chrome,1838.9725,363.755,,43_a7a4cc62_2025-01-28_10-34-29.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-34,128103355214000,,,10:34:28,,GazeFixation,Panel Administrativo - Google Chrome,1888.4722222222224,315.02555555555546,,43_a7a4cc62_2025-01-28_10-34-29.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,9.0
-35,128103355214000,,,10:34:29,,GazeFixation,Panel Administrativo - Google Chrome,851.3639999999999,347.702,,43_a7a4cc62_2025-01-28_10-34-29.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-36,128103355214000,,,10:34:29,,GazeFixation,Panel Administrativo - Google Chrome,921.354,273.826,,43_a7a4cc62_2025-01-28_10-34-29.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-37,128103355214000,,,10:34:29,,GazeFixation,Panel Administrativo - Google Chrome,994.5233333333334,345.7733333333333,,43_a7a4cc62_2025-01-28_10-34-29.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-38,128103355214000,,,10:34:29,,GazeFixation,Panel Administrativo - Google Chrome,1042.91,338.6624999999999,,43_a7a4cc62_2025-01-28_10-34-29.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-39,128103355214000,SmartRPA by marco2012,complete,10:34:30,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,959.0,596.0,,44_ad935354_2025-01-28_10-34-30.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-40,128103355214000,,,10:34:30,,GazeFixation,Panel Administrativo - Google Chrome,0.0,836.0,,44_ad935354_2025-01-28_10-34-30.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,9.0
-41,128103355214000,,,10:34:30,,GazeFixation,Panel Administrativo - Google Chrome,15.965,913.4187499999998,,44_ad935354_2025-01-28_10-34-30.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8.0
-42,128103355214000,SmartRPA by marco2012,complete,10:34:31,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,66.0,963.0,,45_f8d2f5ea_2025-01-28_10-34-31.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-43,128103355214000,,,10:34:31,,GazeFixation,Panel Administrativo - Google Chrome,14.836666666666668,972.25,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-44,128103355214000,,,10:34:31,,GazeFixation,Panel Administrativo - Google Chrome,42.7625,865.0,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-45,128103355214000,,,10:34:31,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,923.45,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-46,128103355214000,,,10:34:32,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,842.0,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-47,128103355214000,,,10:34:32,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,941.7633333333331,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-48,128103355214000,,,10:34:32,,GazeFixation,Panel Administrativo - Google Chrome,1841.5075,859.0,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-49,128103355214000,,,10:34:32,,GazeFixation,Panel Administrativo - Google Chrome,1793.003333333333,903.8466666666666,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-50,128103355214000,,,10:34:32,,GazeFixation,Panel Administrativo - Google Chrome,1743.184,843.756,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-51,128103355214000,,,10:34:33,,GazeFixation,Panel Administrativo - Google Chrome,1815.1025,831.0,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-52,128103355214000,,,10:34:33,,GazeFixation,Panel Administrativo - Google Chrome,1828.144,834.0,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-53,128103355214000,,,10:34:33,,GazeFixation,Panel Administrativo - Google Chrome,1812.2866666666669,860.0,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-54,128103355214000,,,10:34:33,,GazeFixation,Panel Administrativo - Google Chrome,1804.56875,860.0,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8.0
-55,128103355214000,,,10:34:33,,GazeFixation,Panel Administrativo - Google Chrome,1849.0528571428567,827.0,,45_f8d2f5ea_2025-01-28_10-34-31.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
-56,128103355214000,SmartRPA by marco2012,complete,10:34:34,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1837.0,963.0,,46_ef19a768_2025-01-28_10-34-34.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-57,128103355214000,,,10:34:34,,GazeFixation,Panel Administrativo - Google Chrome,0.0,0.0,,46_ef19a768_2025-01-28_10-34-34.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,16.0
-58,128103355214000,SmartRPA by marco2012,complete,10:34:35,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,71.0,228.0,,47_1f09a846_2025-01-28_10-34-36.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-59,128103355214000,,,10:34:35,,GazeFixation,Panel Administrativo - Google Chrome,0.0,68.31666666666663,,47_1f09a846_2025-01-28_10-34-36.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,12.0
-60,128103355214000,,,10:34:36,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,89.6866666666667,,47_1f09a846_2025-01-28_10-34-36.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-61,128103355214000,,,10:34:36,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,10.656666666666666,,47_1f09a846_2025-01-28_10-34-36.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-62,128103355214000,,,10:34:36,,GazeFixation,Panel Administrativo - Google Chrome,1908.655,52.86750000000001,,47_1f09a846_2025-01-28_10-34-36.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-63,128103355214000,,,10:34:36,,GazeFixation,Panel Administrativo - Google Chrome,1792.3733333333332,26.22,,47_1f09a846_2025-01-28_10-34-36.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-64,128103355214000,,,10:34:36,,GazeFixation,Panel Administrativo - Google Chrome,1733.2099999999998,10.50666666666666,,47_1f09a846_2025-01-28_10-34-36.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-65,128103355214000,,,10:34:36,,GazeFixation,Panel Administrativo - Google Chrome,1764.9066666666668,41.64333333333337,,47_1f09a846_2025-01-28_10-34-36.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-66,128103355214000,SmartRPA by marco2012,complete,10:34:37,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1836.0,229.0,,48_91f38e5e_2025-01-28_10-34-38.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-67,128103355214000,,,10:34:37,,GazeFixation,Panel Administrativo - Google Chrome,1806.1471428571424,39.12571428571431,,48_91f38e5e_2025-01-28_10-34-38.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
-68,128103355214000,,,10:34:37,,GazeFixation,Panel Administrativo - Google Chrome,1696.8366666666668,82.76333333333329,,48_91f38e5e_2025-01-28_10-34-38.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-69,128103355214000,SmartRPA by marco2012,complete,10:34:38,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,84.0,595.0,,49_66b361f6_2025-01-28_10-34-39.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-70,128103355214000,,,10:34:38,,GazeFixation,Panel Administrativo - Google Chrome,0.0,388.8633333333332,,49_66b361f6_2025-01-28_10-34-39.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-71,128103355214000,,,10:34:38,,GazeFixation,Panel Administrativo - Google Chrome,0.0,408.8366666666667,,49_66b361f6_2025-01-28_10-34-39.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,9.0
-72,128103355214000,,,10:34:38,,GazeFixation,Panel Administrativo - Google Chrome,0.0,389.165,,49_66b361f6_2025-01-28_10-34-39.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-73,128103355214000,,,10:34:38,,GazeFixation,Panel Administrativo - Google Chrome,10.672,347.471,,49_66b361f6_2025-01-28_10-34-39.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.0
-74,128103355214000,,,10:34:39,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,353.56000000000006,,49_66b361f6_2025-01-28_10-34-39.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-75,128103355214000,,,10:34:39,,GazeFixation,Panel Administrativo - Google Chrome,1919.6275,130.87,,49_66b361f6_2025-01-28_10-34-39.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-76,128103355214000,,,10:34:40,,GazeFixation,Panel Administrativo - Google Chrome,1774.4714285714283,235.43857142857138,,49_66b361f6_2025-01-28_10-34-39.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
-77,128103355214000,,,10:34:40,,GazeFixation,Panel Administrativo - Google Chrome,1780.9166666666667,205.56,,49_66b361f6_2025-01-28_10-34-39.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-78,128103355214000,,,10:34:40,,GazeFixation,Panel Administrativo - Google Chrome,1855.88,232.82999999999993,,49_66b361f6_2025-01-28_10-34-39.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-79,128103355214000,,,10:34:40,,GazeFixation,Panel Administrativo - Google Chrome,1853.445,206.05,,49_66b361f6_2025-01-28_10-34-39.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-80,128103355214000,,,10:34:40,,GazeFixation,Panel Administrativo - Google Chrome,1805.156,296.0299999999999,,49_66b361f6_2025-01-28_10-34-39.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-81,128103355214000,SmartRPA by marco2012,complete,10:34:41,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1849.0,600.0,,50_8dc68657_2025-01-28_10-34-42.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-82,128103355214000,,,10:34:41,,GazeFixation,Panel Administrativo - Google Chrome,1741.6625,326.5575000000001,,50_8dc68657_2025-01-28_10-34-42.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-83,128103355214000,,,10:34:41,,GazeFixation,Panel Administrativo - Google Chrome,1836.45,182.69,,50_8dc68657_2025-01-28_10-34-42.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-84,128103355214000,,,10:34:41,,GazeFixation,Panel Administrativo - Google Chrome,1835.0666666666668,167.85000000000002,,50_8dc68657_2025-01-28_10-34-42.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-85,128103355214000,,,10:34:41,,GazeFixation,Panel Administrativo - Google Chrome,1800.4733333333334,387.01,,50_8dc68657_2025-01-28_10-34-42.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-86,128103355214000,,,10:34:42,,GazeFixation,Panel Administrativo - Google Chrome,552.2339999999999,501.698,,50_8dc68657_2025-01-28_10-34-42.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-87,128103355214000,,,10:34:42,,GazeFixation,Panel Administrativo - Google Chrome,809.9699999999999,516.4900000000001,,50_8dc68657_2025-01-28_10-34-42.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-88,128103355214000,SmartRPA by marco2012,complete,10:34:43,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,949.0,587.0,,51_257d045b_2025-01-28_10-34-43.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-89,128103355214000,,,10:34:43,,GazeFixation,Panel Administrativo - Google Chrome,878.6928571428572,366.49,,51_257d045b_2025-01-28_10-34-43.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
-90,128103355214000,,,10:34:43,,GazeFixation,Panel Administrativo - Google Chrome,3.849,908.9119999999998,,51_257d045b_2025-01-28_10-34-43.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.0
-91,128103355214000,SmartRPA by marco2012,complete,10:34:44,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,48.0,959.0,,52_55493795_2025-01-28_10-34-45.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-92,128103355214000,,,10:34:45,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,738.76,,52_55493795_2025-01-28_10-34-45.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-93,128103355214000,,,10:34:45,,GazeFixation,Panel Administrativo - Google Chrome,1906.0683333333327,844.5933333333332,,52_55493795_2025-01-28_10-34-45.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
-94,128103355214000,,,10:34:45,,GazeFixation,Panel Administrativo - Google Chrome,1801.4685714285715,757.2714285714284,,52_55493795_2025-01-28_10-34-45.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
-95,128103355214000,,,10:34:45,,GazeFixation,Panel Administrativo - Google Chrome,1772.5375,803.605,,52_55493795_2025-01-28_10-34-45.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-96,128103355214000,,,10:34:45,,GazeFixation,Panel Administrativo - Google Chrome,1698.5375,813.17,,52_55493795_2025-01-28_10-34-45.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-97,128103355214000,SmartRPA by marco2012,complete,10:34:46,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1851.0,955.0,,53_26d6198b_2025-01-28_10-34-47.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-98,128103355214000,,,10:34:46,,GazeFixation,Panel Administrativo - Google Chrome,1674.564,720.592,,53_26d6198b_2025-01-28_10-34-47.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-99,128103355214000,,,10:34:46,,GazeFixation,Panel Administrativo - Google Chrome,1761.6566666666668,710.3166666666666,,53_26d6198b_2025-01-28_10-34-47.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
-100,128103355214000,,,10:34:46,,GazeFixation,Panel Administrativo - Google Chrome,1776.3266666666668,763.2666666666668,,53_26d6198b_2025-01-28_10-34-47.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-101,128103355214000,SmartRPA by marco2012,complete,10:34:47,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,57.0,219.0,,54_d7703b82_2025-01-28_10-34-48.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-102,128103355214000,,,10:34:47,,GazeFixation,Panel Administrativo - Google Chrome,0.0,54.75999999999999,,54_d7703b82_2025-01-28_10-34-48.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-103,128103355214000,,,10:34:47,,GazeFixation,Panel Administrativo - Google Chrome,0.0,81.24000000000001,,54_d7703b82_2025-01-28_10-34-48.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-104,128103355214000,,,10:34:47,,GazeFixation,Panel Administrativo - Google Chrome,0.0,89.74000000000001,,54_d7703b82_2025-01-28_10-34-48.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-105,128103355214000,,,10:34:47,,GazeFixation,Panel Administrativo - Google Chrome,0.0,52.48200000000003,,54_d7703b82_2025-01-28_10-34-48.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-106,128103355214000,,,10:34:48,,GazeFixation,Panel Administrativo - Google Chrome,1905.965,54.64250000000001,,54_d7703b82_2025-01-28_10-34-48.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-107,128103355214000,,,10:34:48,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,79.60499999999999,,54_d7703b82_2025-01-28_10-34-48.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-108,128103355214000,,,10:34:48,,GazeFixation,Panel Administrativo - Google Chrome,1808.93,88.43333333333331,,54_d7703b82_2025-01-28_10-34-48.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-109,128103355214000,SmartRPA by marco2012,complete,10:34:49,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1855.0,218.0,,55_85fc132b_2025-01-28_10-34-49.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-110,128103355214000,,,10:34:49,,GazeFixation,Panel Administrativo - Google Chrome,1712.3766666666668,71.68666666666664,,55_85fc132b_2025-01-28_10-34-49.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
-111,128103355214000,,,10:34:49,,GazeFixation,Panel Administrativo - Google Chrome,0.0,246.41000000000003,,55_85fc132b_2025-01-28_10-34-49.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,11.0
-112,128103355214000,SmartRPA by marco2012,complete,10:34:50,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,58.0,602.0,,56_d6ccfea0_2025-01-28_10-34-51.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-113,128103355214000,,,10:34:50,,GazeFixation,Panel Administrativo - Google Chrome,0.0,197.58749999999998,,56_d6ccfea0_2025-01-28_10-34-51.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-114,128103355214000,,,10:34:50,,GazeFixation,Panel Administrativo - Google Chrome,8.388,266.958,,56_d6ccfea0_2025-01-28_10-34-51.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.0
-115,128103355214000,,,10:34:50,,GazeFixation,Panel Administrativo - Google Chrome,0.0,242.0433333333333,,56_d6ccfea0_2025-01-28_10-34-51.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
-116,128103355214000,,,10:34:51,,GazeFixation,Panel Administrativo - Google Chrome,1913.0260000000003,377.67599999999993,,56_d6ccfea0_2025-01-28_10-34-51.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-117,128103355214000,,,10:34:51,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,256.9225,,56_d6ccfea0_2025-01-28_10-34-51.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-118,128103355214000,,,10:34:51,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,173.926,,56_d6ccfea0_2025-01-28_10-34-51.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.0
-119,128103355214000,SmartRPA by marco2012,complete,10:34:52,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1856.0,595.0,,57_b79693ab_2025-01-28_10-34-52.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-120,128103355214000,,,10:34:52,,GazeFixation,Panel Administrativo - Google Chrome,1695.04,283.0625,,57_b79693ab_2025-01-28_10-34-52.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-121,128103355214000,,,10:34:52,,GazeFixation,Panel Administrativo - Google Chrome,634.275,265.3475,,57_b79693ab_2025-01-28_10-34-52.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-122,128103355214000,,,10:34:52,,GazeFixation,Panel Administrativo - Google Chrome,691.9366666666666,227.76999999999998,,57_b79693ab_2025-01-28_10-34-52.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-123,128103355214000,,,10:34:53,,GazeFixation,Panel Administrativo - Google Chrome,657.9833333333332,265.6133333333332,,57_b79693ab_2025-01-28_10-34-52.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-124,128103355214000,,,10:34:53,,GazeFixation,Panel Administrativo - Google Chrome,858.5433333333334,348.5533333333333,,57_b79693ab_2025-01-28_10-34-52.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-125,128103355214000,,,10:34:53,,GazeFixation,Panel Administrativo - Google Chrome,861.4725000000001,155.93,,57_b79693ab_2025-01-28_10-34-52.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-126,128103355214000,,,10:34:53,,GazeFixation,Panel Administrativo - Google Chrome,817.6733333333333,243.30666666666667,,57_b79693ab_2025-01-28_10-34-52.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-127,128103355214000,SmartRPA by marco2012,complete,10:34:54,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,964.0,601.0,,58_bbe741d6_2025-01-28_10-34-54.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-128,128103355214000,,,10:34:54,,GazeFixation,Panel Administrativo - Google Chrome,1004.1233333333332,389.3666666666667,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-129,128103355214000,,,10:34:55,,GazeFixation,Panel Administrativo - Google Chrome,706.3133333333334,109.97333333333336,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-130,128103355214000,,,10:34:55,,GazeFixation,Panel Administrativo - Google Chrome,285.2366666666667,863.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-131,128103355214000,,,10:34:56,,GazeFixation,Panel Administrativo - Google Chrome,71.57333333333334,861.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-132,128103355214000,,,10:34:56,,GazeFixation,Panel Administrativo - Google Chrome,1280.9675,859.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-133,128103355214000,,,10:34:56,,GazeFixation,Panel Administrativo - Google Chrome,1203.2266666666667,833.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-134,128103355214000,,,10:34:56,,GazeFixation,Panel Administrativo - Google Chrome,851.1300000000001,840.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-135,128103355214000,,,10:34:57,,GazeFixation,Panel Administrativo - Google Chrome,232.66666666666663,921.01,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-136,128103355214000,,,10:34:57,,GazeFixation,Panel Administrativo - Google Chrome,979.4533333333334,766.44,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-137,128103355214000,,,10:34:58,,GazeFixation,Panel Administrativo - Google Chrome,404.6966666666667,836.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-138,128103355214000,,,10:34:59,,GazeFixation,Panel Administrativo - Google Chrome,372.00666666666666,853.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-139,128103355214000,,,10:34:59,,GazeFixation,Panel Administrativo - Google Chrome,532.8433333333332,829.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-140,128103355214000,,,10:34:59,,GazeFixation,Panel Administrativo - Google Chrome,716.5566666666667,863.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-141,128103355214000,,,10:35:00,,GazeFixation,Panel Administrativo - Google Chrome,168.1966666666667,852.7333333333332,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-142,128103355214000,,,10:35:00,,GazeFixation,Panel Administrativo - Google Chrome,947.5333333333332,392.13666666666666,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-143,128103355214000,,,10:35:01,,GazeFixation,Panel Administrativo - Google Chrome,425.82,693.43,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-144,128103355214000,,,10:35:01,,GazeFixation,Panel Administrativo - Google Chrome,516.855,813.1950000000002,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
-145,128103355214000,,,10:35:01,,GazeFixation,Panel Administrativo - Google Chrome,385.2866666666667,749.7366666666668,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-146,128103355214000,,,10:35:01,,GazeFixation,Panel Administrativo - Google Chrome,595.1133333333333,743.58,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-147,128103355214000,,,10:35:01,,GazeFixation,Panel Administrativo - Google Chrome,480.0366666666666,741.0033333333334,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-148,128103355214000,,,10:35:02,,GazeFixation,Panel Administrativo - Google Chrome,672.8366666666667,630.8299999999999,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-149,128103355214000,,,10:35:02,,GazeFixation,Panel Administrativo - Google Chrome,536.33,596.9466666666667,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-150,128103355214000,,,10:35:03,,GazeFixation,Panel Administrativo - Google Chrome,1895.12,0.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-151,128103355214000,,,10:35:04,,GazeFixation,Panel Administrativo - Google Chrome,317.52333333333337,86.72833333333327,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
-152,128103355214000,,,10:35:04,,GazeFixation,Panel Administrativo - Google Chrome,798.2933333333334,895.7466666666668,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-153,128103355214000,,,10:35:04,,GazeFixation,Panel Administrativo - Google Chrome,1160.33,516.4133333333333,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-154,128103355214000,,,10:35:05,,GazeFixation,Panel Administrativo - Google Chrome,1919.459,0.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.0
-155,128103355214000,,,10:35:05,,GazeFixation,Panel Administrativo - Google Chrome,1748.8,90.52333333333331,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-156,128103355214000,,,10:35:05,,GazeFixation,Panel Administrativo - Google Chrome,1857.1733333333327,23.896666666666675,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-157,128103355214000,,,10:35:05,,GazeFixation,Panel Administrativo - Google Chrome,1841.42,41.22399999999999,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
-158,128103355214000,,,10:35:06,,GazeFixation,Panel Administrativo - Google Chrome,1906.99,68.875,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.0
-159,128103355214000,,,10:35:06,,GazeFixation,Panel Administrativo - Google Chrome,1840.27,69.72142857142856,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
-160,128103355214000,,,10:35:06,,GazeFixation,Panel Administrativo - Google Chrome,1842.5366666666669,85.79499999999999,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
-161,128103355214000,,,10:35:06,,GazeFixation,Panel Administrativo - Google Chrome,1708.3833333333334,0.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
-162,128103355214000,,,10:35:07,,GazeFixation,Panel Administrativo - Google Chrome,1402.7525,0.0,,58_bbe741d6_2025-01-28_10-34-54.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+,case:concept:name,case:creator,lifecycle:transition,time:timestamp,org:resource,category,application,coordX,coordY,typed_word,screenshot,concept:name,event_src_path,event_dest_path,clipboard_content,xpath,xpath_full,mouse_coord,workbook,current_worksheet,worksheets,sheets,cell_content,cell_range,cell_range_number,window_size,slides,effect,hotkey,id,title,description,browser_url,eventQual,tab_moved_from_index,tab_moved_to_index,newZoomFactor,oldZoomFactor,tab_pinned,tab_audible,tab_muted,window_ingognito,file_size,tag_category,tag_type,tag_name,tag_title,tag_value,tag_checked,tag_html,tag_href,tag_innerText,tag_option,tag_attributes,#events
+0,211104520602000,SmartRPA by marco2012,complete,10:45:56,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1239,231,,28_d38eb0d4_2025-02-11_10-45-57.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1,211104520602000,,,10:45:56,,GazeFixation,Panel Administrativo - Google Chrome,1268.5633333333333,494.6466666666667,,28_d38eb0d4_2025-02-11_10-45-57.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+2,211104520602000,,,10:45:56,,GazeFixation,Panel Administrativo - Google Chrome,1331.51375,426.91375,,28_d38eb0d4_2025-02-11_10-45-57.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8.0
+3,211104520602000,,,10:45:56,,GazeFixation,Panel Administrativo - Google Chrome,797.6633333333333,832.6533333333333,,28_d38eb0d4_2025-02-11_10-45-57.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+4,211104520602000,,,10:45:57,,GazeFixation,Panel Administrativo - Google Chrome,783.6671428571428,769.0257142857143,,28_d38eb0d4_2025-02-11_10-45-57.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
+5,211104520602000,,,10:45:57,,GazeFixation,Panel Administrativo - Google Chrome,796.2466666666666,1028.986666666667,,28_d38eb0d4_2025-02-11_10-45-57.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+6,211104520602000,SmartRPA by marco2012,complete,10:45:58,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,951,608,,29_22e74f4c_2025-02-11_10-45-59.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+7,211104520602000,,,10:45:58,,GazeFixation,Panel Administrativo - Google Chrome,797.4850000000001,773.7950000000001,,29_22e74f4c_2025-02-11_10-45-59.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+8,211104520602000,,,10:45:58,,GazeFixation,Panel Administrativo - Google Chrome,842.0466666666667,696.59,,29_22e74f4c_2025-02-11_10-45-59.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+9,211104520602000,,,10:45:58,,GazeFixation,Panel Administrativo - Google Chrome,829.6899999999999,949.5933333333334,,29_22e74f4c_2025-02-11_10-45-59.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+10,211104520602000,,,10:45:59,,GazeFixation,Panel Administrativo - Google Chrome,849.994,961.2,,29_22e74f4c_2025-02-11_10-45-59.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
+11,211104520602000,,,10:45:59,,GazeFixation,Panel Administrativo - Google Chrome,0.0,0.0,,29_22e74f4c_2025-02-11_10-45-59.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8.0
+12,211104520602000,,,10:45:59,,GazeFixation,Panel Administrativo - Google Chrome,0.0,197.8066666666667,,29_22e74f4c_2025-02-11_10-45-59.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+13,211104520602000,,,10:45:59,,GazeFixation,Panel Administrativo - Google Chrome,0.0,305.825,,29_22e74f4c_2025-02-11_10-45-59.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+14,211104520602000,SmartRPA by marco2012,complete,10:46:00,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,60,276,,30_83e2ab98_2025-02-11_10-46-00.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+15,211104520602000,,,10:46:00,,GazeFixation,Panel Administrativo - Google Chrome,0.0,351.122,,30_83e2ab98_2025-02-11_10-46-00.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
+16,211104520602000,,,10:46:00,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,268.01200000000006,,30_83e2ab98_2025-02-11_10-46-00.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
+17,211104520602000,SmartRPA by marco2012,complete,10:46:01,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1846,259,,31_5169f764_2025-02-11_10-46-02.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+18,211104520602000,,,10:46:01,,GazeFixation,Panel Administrativo - Google Chrome,1916.4071428571428,286.21142857142866,,31_5169f764_2025-02-11_10-46-02.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
+19,211104520602000,,,10:46:01,,GazeFixation,Panel Administrativo - Google Chrome,1790.59,275.1825,,31_5169f764_2025-02-11_10-46-02.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+20,211104520602000,SmartRPA by marco2012,complete,10:46:02,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,40,593,,32_383f280c_2025-02-11_10-46-03.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+21,211104520602000,,,10:46:02,,GazeFixation,Panel Administrativo - Google Chrome,0.0,705.876,,32_383f280c_2025-02-11_10-46-03.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.0
+22,211104520602000,,,10:46:02,,GazeFixation,Panel Administrativo - Google Chrome,2.83,724.3425,,32_383f280c_2025-02-11_10-46-03.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8.0
+23,211104520602000,,,10:46:02,,GazeFixation,Panel Administrativo - Google Chrome,55.3475,660.4825000000001,,32_383f280c_2025-02-11_10-46-03.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+24,211104520602000,SmartRPA by marco2012,complete,10:46:03,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1855,583,,33_7dbe5bbe_2025-02-11_10-46-04.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+25,211104520602000,,,10:46:03,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,874.4119999999999,,33_7dbe5bbe_2025-02-11_10-46-04.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
+26,211104520602000,,,10:46:03,,GazeFixation,Panel Administrativo - Google Chrome,1902.9728571428573,793.65,,33_7dbe5bbe_2025-02-11_10-46-04.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
+27,211104520602000,,,10:46:03,,GazeFixation,Panel Administrativo - Google Chrome,1777.8433333333332,867.2166666666667,,33_7dbe5bbe_2025-02-11_10-46-04.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+28,211104520602000,SmartRPA by marco2012,complete,10:46:04,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,952,601,,34_60c9d421_2025-02-11_10-46-05.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+29,211104520602000,,,10:46:04,,GazeFixation,Panel Administrativo - Google Chrome,781.9566666666666,937.4833333333332,,34_60c9d421_2025-02-11_10-46-05.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+30,211104520602000,SmartRPA by marco2012,complete,10:46:05,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,34,940,,35_117875ee_2025-02-11_10-46-06.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+31,211104520602000,,,10:46:05,,GazeFixation,Panel Administrativo - Google Chrome,3.781,1107.319,,35_117875ee_2025-02-11_10-46-06.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.0
+32,211104520602000,,,10:46:05,,GazeFixation,Panel Administrativo - Google Chrome,4.855714285714286,1126.6614285714284,,35_117875ee_2025-02-11_10-46-06.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
+33,211104520602000,SmartRPA by marco2012,complete,10:46:06,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1838,940,,36_33cfdff0_2025-02-11_10-46-07.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+34,211104520602000,,,10:46:06,,GazeFixation,Panel Administrativo - Google Chrome,1881.847142857143,1080.0,,36_33cfdff0_2025-02-11_10-46-07.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
+35,211104520602000,,,10:46:06,,GazeFixation,Panel Administrativo - Google Chrome,1799.8125,1080.0,,36_33cfdff0_2025-02-11_10-46-07.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+36,211104520602000,SmartRPA by marco2012,complete,10:46:07,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,39,258,,37_c881b5cd_2025-02-11_10-46-08.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+37,211104520602000,,,10:46:07,,GazeFixation,Panel Administrativo - Google Chrome,0.0,0.0,,37_c881b5cd_2025-02-11_10-46-08.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,13.0
+38,211104520602000,SmartRPA by marco2012,complete,10:46:08,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1842,253,,38_b1be1326_2025-02-11_10-46-09.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+39,211104520602000,,,10:46:08,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,0.0,,38_b1be1326_2025-02-11_10-46-09.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,13.0
+40,211104520602000,SmartRPA by marco2012,complete,10:46:09,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,35,595,,39_b1be1326_2025-02-11_10-46-10.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+41,211104520602000,,,10:46:09,,GazeFixation,Panel Administrativo - Google Chrome,0.0,590.1700000000001,,39_b1be1326_2025-02-11_10-46-10.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+42,211104520602000,,,10:46:09,,GazeFixation,Panel Administrativo - Google Chrome,0.0,499.3675,,39_b1be1326_2025-02-11_10-46-10.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8.0
+43,211104520602000,,,10:46:09,,GazeFixation,Panel Administrativo - Google Chrome,12.73875,405.78375,,39_b1be1326_2025-02-11_10-46-10.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8.0
+44,211104520602000,,,10:46:10,,GazeFixation,Panel Administrativo - Google Chrome,44.59666666666666,367.1566666666667,,39_b1be1326_2025-02-11_10-46-10.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
+45,211104520602000,,,10:46:10,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,421.1925,,39_b1be1326_2025-02-11_10-46-10.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8.0
+46,211104520602000,SmartRPA by marco2012,complete,10:46:11,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1877,621,,40_31250b72_2025-02-11_10-46-11.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+47,211104520602000,,,10:46:11,,GazeFixation,Panel Administrativo - Google Chrome,1920.0,501.0925,,40_31250b72_2025-02-11_10-46-11.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+48,211104520602000,SmartRPA by marco2012,complete,10:46:12,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,957,609,,41_ef0f139a_2025-02-11_10-46-12.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+49,211104520602000,,,10:46:12,,GazeFixation,Panel Administrativo - Google Chrome,687.2585714285714,810.38,,41_ef0f139a_2025-02-11_10-46-12.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
+50,211104520602000,,,10:46:12,,GazeFixation,Panel Administrativo - Google Chrome,15.056,1153.582,,41_ef0f139a_2025-02-11_10-46-12.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
+51,211104520602000,,,10:46:12,,GazeFixation,Panel Administrativo - Google Chrome,1.5325,1090.6174999999998,,41_ef0f139a_2025-02-11_10-46-12.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+52,211104520602000,SmartRPA by marco2012,complete,10:46:13,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,62,957,,42_69f04830_2025-02-11_10-46-13.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+53,211104520602000,,,10:46:13,,GazeFixation,Panel Administrativo - Google Chrome,15.75285714285714,1086.81,,42_69f04830_2025-02-11_10-46-13.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
+54,211104520602000,,,10:46:13,,GazeFixation,Panel Administrativo - Google Chrome,30.73,1119.3966666666668,,42_69f04830_2025-02-11_10-46-13.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+55,211104520602000,,,10:46:13,,GazeFixation,Panel Administrativo - Google Chrome,1906.4666666666665,1080.0,,42_69f04830_2025-02-11_10-46-13.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,12.0
+56,211104520602000,SmartRPA by marco2012,complete,10:46:14,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1872,969,,43_80860615_2025-02-11_10-46-14.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+57,211104520602000,,,10:46:14,,GazeFixation,Panel Administrativo - Google Chrome,0.0,196.58166666666668,,43_80860615_2025-02-11_10-46-14.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
+58,211104520602000,SmartRPA by marco2012,complete,10:46:15,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,43,242,,44_bbf2ded1_2025-02-11_10-46-15.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+59,211104520602000,,,10:46:15,,GazeFixation,Panel Administrativo - Google Chrome,0.0,256.596,,44_bbf2ded1_2025-02-11_10-46-15.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.0
+60,211104520602000,,,10:46:15,,GazeFixation,Panel Administrativo - Google Chrome,1911.28,401.66,,44_bbf2ded1_2025-02-11_10-46-15.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
+61,211104520602000,SmartRPA by marco2012,complete,10:46:16,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1864,262,,45_bf6317f9_2025-02-11_10-46-16.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+62,211104520602000,,,10:46:16,,GazeFixation,Panel Administrativo - Google Chrome,0.0,779.9,,45_bf6317f9_2025-02-11_10-46-16.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+63,211104520602000,SmartRPA by marco2012,complete,10:46:17,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,61,620,,46_a9abf513_2025-02-11_10-46-18.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+64,211104520602000,,,10:46:17,,GazeFixation,Panel Administrativo - Google Chrome,0.0,702.8950000000001,,46_a9abf513_2025-02-11_10-46-18.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
+65,211104520602000,,,10:46:17,,GazeFixation,Panel Administrativo - Google Chrome,4.738333333333333,651.4033333333333,,46_a9abf513_2025-02-11_10-46-18.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
+66,211104520602000,SmartRPA by marco2012,complete,10:46:18,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,1866,618,,47_005020de_2025-02-11_10-46-19.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+67,211104520602000,,,10:46:18,,GazeFixation,Panel Administrativo - Google Chrome,1545.5859999999998,1080.0,,47_005020de_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
+68,211104520602000,,,10:46:18,,GazeFixation,Panel Administrativo - Google Chrome,1270.6866666666665,1130.84,,47_005020de_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+69,211104520602000,,,10:46:18,,GazeFixation,Panel Administrativo - Google Chrome,1171.74,1153.9433333333334,,47_005020de_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+70,211104520602000,,,10:46:18,,GazeFixation,Panel Administrativo - Google Chrome,920.3499999999998,966.4157142857144,,47_005020de_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7.0
+71,211104520602000,SmartRPA by marco2012,complete,10:46:19,ES3-PORT-42,MouseClick,Panel Administrativo - Google Chrome,959,613,,48_21275eb9_2025-02-11_10-46-19.png,click,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+72,211104520602000,,,10:46:19,,GazeFixation,Panel Administrativo - Google Chrome,964.995,968.9825,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+73,211104520602000,,,10:46:19,,GazeFixation,Panel Administrativo - Google Chrome,943.7733333333332,885.5166666666668,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+74,211104520602000,,,10:46:19,,GazeFixation,Panel Administrativo - Google Chrome,929.4766666666666,804.3433333333332,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+75,211104520602000,,,10:46:20,,GazeFixation,Panel Administrativo - Google Chrome,584.2366666666667,690.8733333333333,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+76,211104520602000,,,10:46:20,,GazeFixation,Panel Administrativo - Google Chrome,987.3666666666668,943.6866666666666,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+77,211104520602000,,,10:46:20,,GazeFixation,Panel Administrativo - Google Chrome,947.6675,1028.2775,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+78,211104520602000,,,10:46:21,,GazeFixation,Panel Administrativo - Google Chrome,923.29,1009.9933333333332,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+79,211104520602000,,,10:46:21,,GazeFixation,Panel Administrativo - Google Chrome,952.804,997.814,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
+80,211104520602000,,,10:46:21,,GazeFixation,Panel Administrativo - Google Chrome,746.6466666666666,675.2266666666666,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+81,211104520602000,,,10:46:22,,GazeFixation,Panel Administrativo - Google Chrome,1025.968,861.132,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
+82,211104520602000,,,10:46:22,,GazeFixation,Panel Administrativo - Google Chrome,976.98,904.2766666666666,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+83,211104520602000,,,10:46:22,,GazeFixation,Panel Administrativo - Google Chrome,1120.01,874.9466666666667,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+84,211104520602000,,,10:46:22,,GazeFixation,Panel Administrativo - Google Chrome,1301.86,664.9000000000001,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+85,211104520602000,,,10:46:24,,GazeFixation,Panel Administrativo - Google Chrome,941.13,830.6880000000001,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
+86,211104520602000,,,10:46:24,,GazeFixation,Panel Administrativo - Google Chrome,937.3316666666668,830.6666666666666,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
+87,211104520602000,,,10:46:24,,GazeFixation,Panel Administrativo - Google Chrome,919.637,793.1569999999999,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.0
+88,211104520602000,,,10:46:25,,GazeFixation,Panel Administrativo - Google Chrome,940.095,747.2475000000001,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4.0
+89,211104520602000,,,10:46:25,,GazeFixation,Panel Administrativo - Google Chrome,509.38,1080.0,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,11.0
+90,211104520602000,,,10:46:26,,GazeFixation,Panel Administrativo - Google Chrome,386.4266666666667,1080.0,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6.0
+91,211104520602000,,,10:46:26,,GazeFixation,Panel Administrativo - Google Chrome,600.8933333333333,899.4966666666666,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
+92,211104520602000,,,10:46:26,,GazeFixation,Panel Administrativo - Google Chrome,668.038,859.942,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5.0
+93,211104520602000,,,10:46:27,,GazeFixation,Panel Administrativo - Google Chrome,1904.412,192.122,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.0
+94,211104520602000,,,10:46:28,,GazeFixation,Panel Administrativo - Google Chrome,1817.0,194.43,,48_21275eb9_2025-02-11_10-46-19.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3.0
