@@ -51,6 +51,11 @@ To run the project, execute the `run.py` script:
 ```bash
 python run.py
 ```
+To run plots, you need to install latex, ghostscript and dvipng binaries packages to proceed
+
+https://miktex.org/download
+https://ghostscript.com/
+https://www.nongnu.org/dvipng/
 
 ## Project Structure
 
@@ -65,7 +70,5 @@ python run.py
 ## License
 
 This research was supported by the EQUAVEL project PID2022-137646OB-C31, funded
-by MICIU/AEI/10.13039/501100011033 and by FEDER, UE; the DISCOVERY project
-(2021/C005/00148631), funded by Unión Europea NextGeneration EU and “Plan de Recuperación,
-Transformación y Resiliencia” of the Ministry of Economic and Digital Transformation; and the
+by MICIU/AEI/10.13039/501100011033 and by FEDER, UE; and the
 grant FPU20/05984 funded by MICIU/AEI/10.13039/501100011033 and by FSE+.
