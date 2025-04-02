@@ -107,7 +107,7 @@ plt.ylim(0, 100)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ1_TC1_STMF.jpg', dpi=300)
-plt.show()
+# plt.show()
 
 
 #RQ1_TC2 STMF (Form Density High)
@@ -141,7 +141,7 @@ plt.ylim(0, 100)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ1_TC2_STMF.jpg')
-plt.show()
+# plt.show()
 
 
 # RQ1_TC1 MAE (Form Density Low)
@@ -172,7 +172,7 @@ plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ1_TC1_MAE.jpg')
-plt.show()
+# plt.show()
 
 
 # RQ1_TC2 MAE (Form Density High)
@@ -203,7 +203,7 @@ plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ1_TC2_MAE.jpg')
-plt.show()
+# plt.show()
 
 
 
@@ -254,7 +254,7 @@ plt.ylim(0, 100)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ2_TC3_STMF.jpg')
-plt.show()
+# plt.show()
 
 
 #RQ2_TC3 EIF (Alternance Buttons)
@@ -287,7 +287,7 @@ plt.ylim(0, 100)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ2_TC3_EIF.jpg')
-plt.show()
+# plt.show()
 
 
 #RQ2_TC3 (mean MAE)
@@ -317,7 +317,7 @@ plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ2_TC3_MAE.jpg')
-plt.show()
+# plt.show()
 
 
 ############## RQ3 ##############
@@ -392,7 +392,7 @@ def percent_formatter(x, pos):
 ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
 
 # Etiqueta de subfigura
-ax.text(-0.08, 1.15, r'\textbf{b)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
+ax.text(-0.08, 1.15, r'\textbf{a)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
 
 # Leyenda con formato LaTeX
 ax.legend(fontsize=16, frameon=True)
@@ -400,7 +400,7 @@ ax.legend(fontsize=16, frameon=True)
 # Ajuste final y guardado
 plt.tight_layout()
 plt.savefig('output/figs/RQ3_TC4_TC5_TC6_EIF_bars.jpg', dpi=300)
-plt.show()
+# plt.show()
 
 #RQ3 TC4 TC5 TC6 EIF (linea)
 
@@ -454,7 +454,7 @@ for i, value in enumerate(percentages_webgazer):
     ax.text(x[i], value + 2, rf'$\mathbf{{{value:.2f}\%}}$', ha='center', fontsize=16, color='#555555')
 
 # Etiqueta de subfigura
-ax.text(-0.08, 1.15, r'\textbf{d)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
+ax.text(-0.08, 1.15, r'\textbf{b)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
 
 # Leyenda
 ax.legend(fontsize=16, frameon=True)
@@ -463,7 +463,7 @@ ax.legend(fontsize=16, frameon=True)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ3_TC4_TC5_TC6_EIF_line.jpg', dpi=300)
-plt.show()
+# plt.show()
 
 
 
@@ -527,7 +527,7 @@ def percent_formatter(x, pos):
 ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
 
 # Etiqueta de subfigura
-ax.text(-0.08, 1.15, r'\textbf{c)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
+ax.text(-0.08, 1.15, r'\textbf{1a)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
 
 # Leyenda con formato LaTeX
 ax.legend(fontsize=16, frameon=True)
@@ -535,7 +535,7 @@ ax.legend(fontsize=16, frameon=True)
 # Ajuste final y guardado
 plt.tight_layout()
 plt.savefig('output/figs/RQ3_TC4_TC5_TC6_STMF_bars.jpg', dpi=300)
-plt.show()
+# plt.show()
 
 
 
@@ -585,7 +585,7 @@ for i, value in enumerate(percentages_webgazer):
     ax.text(x[i], value + 2, rf'$\mathbf{{{value:.2f}\%}}$', ha='center', fontsize=16, color='#555555')
 
 # Etiqueta de subfigura
-ax.text(-0.08, 1.15, r'\textbf{d)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
+ax.text(-0.08, 1.15, r'\textbf{1b)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
 
 # Leyenda
 ax.legend(fontsize=16, frameon=True)
@@ -594,7 +594,7 @@ ax.legend(fontsize=16, frameon=True)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ3_TC4_TC5_TC6_STMF_line.jpg', dpi=300)
-plt.show()
+# plt.show()
 
 
 # Datos mean MAE RQ3
@@ -659,7 +659,7 @@ for bars in [bars_tobii, bars_webgazer]:
                 color='white', weight='bold')
 
 # Etiqueta de subfigura
-ax.text(-0.08, 1.15, r'\textbf{e)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
+ax.text(-0.08, 1.15, r'\textbf{2)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
 
 # Leyenda
 ax.legend(fontsize=16, frameon=True)
@@ -668,7 +668,7 @@ ax.legend(fontsize=16, frameon=True)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ3_TC4_TC5_TC6_MAE.jpg', dpi=300)
-plt.show()
+# plt.show()
 # Mostrar la gráfica
 # plt.show()
 
@@ -756,14 +756,11 @@ def percent_formatter(x, pos):
     return rf'$\mathbf{{{x:.0f}\%}}$'
 ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
 
-# Etiqueta de subfigura
-ax.text(-0.08, 1.15, r'\textbf{f)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
-
 # Ajuste final y guardado
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.savefig('output/figs/RQ4_TC7_MTMF.jpg', dpi=300)
-plt.show()
+# plt.show()
 # Mostrar gráfico
 # plt.show()
 
@@ -885,3 +882,328 @@ final_df.to_csv(output_csv_path, index=False)
 print(f"Datos guardados correctamente en: {output_csv_path}")
 
 
+
+
+############################ Questionnaire Plots ############################
+
+#1a Know and day-to-day use of Infrared Device
+labels = ["I know it and I work with it.", "I do not know it." , "I know, but I do not work with it."]
+sizes = [10, 40, 50] 
+colors = ['#6495ED', '#D2691E', '#B0B0B0'] 
+hatches = ['//', '\\\\', '']  
+
+fig, ax = plt.subplots(figsize=(5.5, 3.5))  
+wedges, texts, autotexts = ax.pie(sizes, labels=None, autopct='%1.2f%%',
+                                  colors=colors, startangle=140, pctdistance=0.8,
+                                  wedgeprops={'edgecolor': '#4D4D4D', 'linewidth': 2})
+i = 0
+for wedge in wedges:
+    wedge.set_hatch(hatches[i])
+    i += 1
+
+total_size = sum(sizes)
+for autotext in autotexts:
+    autotext.set_color('#333333')
+    autotext.set_fontsize(12)  
+    autotext.set_weight('bold')
+    autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
+
+ax.set_title(r'a) \textbf{Know and day-to-day use} of a \textbf{Infrared device}',
+             fontsize=11, color='black', pad=1) 
+
+ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
+plt.tight_layout(pad=0.1)
+plt.savefig('output/figs_questionnaire/1a_KnowUse_Infrared.jpg', dpi=300, bbox_inches='tight')
+
+
+#1b Know and day-to-day use of Webcam Device
+labels = ["I know it and I work with it.", "I know, but I do not work with it.", "I do not know it."]
+sizes = [80, 20]  
+colors = ['#6495ED', '#B0B0B0']  
+hatches = ['//', '']  
+
+fig, ax = plt.subplots(figsize=(5.5, 3.5))  
+wedges, texts, autotexts = ax.pie(sizes, labels=None, autopct='%1.2f%%',
+                                  colors=colors, startangle=140, pctdistance=0.8,
+                                  wedgeprops={'edgecolor': '#4D4D4D', 'linewidth': 2})
+i = 0
+for wedge in wedges:
+    wedge.set_hatch(hatches[i])
+    i += 1
+
+total_size = sum(sizes)
+for autotext in autotexts:
+    autotext.set_color('#333333')
+    autotext.set_fontsize(12)  
+    autotext.set_weight('bold')
+    autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
+
+ax.set_title(r'b) \textbf{Know and day-to-day use} of a \textbf{Webcam device}',
+             fontsize=11, color='black', pad=1) 
+
+ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
+plt.tight_layout(pad=0.1)
+plt.savefig('output/figs_questionnaire/1b_KnowUse_Webcam.jpg', dpi=300, bbox_inches='tight')
+
+
+
+#2a Fatigue feeling Infrared Device
+labels = ["Yes.", "No.", "Do not Know/Maybe."]
+sizes = [60, 30, 10] 
+colors = ['#6495ED', '#D2691E', '#B0B0B0'] 
+hatches = ['//', '\\\\', '']  
+
+fig, ax = plt.subplots(figsize=(5.5, 3.5))  
+wedges, texts, autotexts = ax.pie(sizes, labels=None, autopct='%1.2f%%',
+                                  colors=colors, startangle=140, pctdistance=0.8,
+                                  wedgeprops={'edgecolor': '#4D4D4D', 'linewidth': 2})
+i = 0
+for wedge in wedges:
+    wedge.set_hatch(hatches[i])
+    i += 1
+
+total_size = sum(sizes)
+for autotext in autotexts:
+    autotext.set_color('#333333')
+    autotext.set_fontsize(12)  
+    autotext.set_weight('bold')
+    autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
+
+ax.set_title(r'a) \textbf{Fatigue feeling} after experiment with \textbf{Infrared device}',
+             fontsize=11, color='black', pad=1) 
+
+ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
+plt.tight_layout(pad=0.1)
+plt.savefig('output/figs_questionnaire/2a_Fatigue_Infrared.jpg', dpi=300, bbox_inches='tight')
+
+#2b Fatigue feeling Webcam Device
+labels = ["Yes.", "No."]
+sizes = [30, 70,] 
+colors = ['#6495ED', '#D2691E'] 
+hatches = ['//', '\\\\',]  
+
+fig, ax = plt.subplots(figsize=(5.5, 3.5))  
+wedges, texts, autotexts = ax.pie(sizes, labels=None, autopct='%1.2f%%',
+                                  colors=colors, startangle=140, pctdistance=0.8,
+                                  wedgeprops={'edgecolor': '#4D4D4D', 'linewidth': 2})
+i = 0
+for wedge in wedges:
+    wedge.set_hatch(hatches[i])
+    i += 1
+
+total_size = sum(sizes)
+for autotext in autotexts:
+    autotext.set_color('#333333')
+    autotext.set_fontsize(12)  
+    autotext.set_weight('bold')
+    autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
+
+ax.set_title(r'b) \textbf{Fatigue feeling} after experiment with \textbf{Webcam device}',
+             fontsize=11, color='black', pad=1) 
+
+ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
+plt.tight_layout(pad=0.1)
+plt.savefig('output/figs_questionnaire/2b_Fatigue_Webcam.jpg', dpi=300, bbox_inches='tight')
+
+
+
+#3a Concentration Level Infrared Device
+labels = ["Yes.", "No."]
+sizes = [20, 80] 
+colors = ['#6495ED', '#D2691E'] 
+hatches = ['//', '\\\\',]  
+
+fig, ax = plt.subplots(figsize=(5.5, 3.5))  
+wedges, texts, autotexts = ax.pie(sizes, labels=None, autopct='%1.2f%%',
+                                  colors=colors, startangle=140, pctdistance=0.8,
+                                  wedgeprops={'edgecolor': '#4D4D4D', 'linewidth': 2})
+i = 0
+for wedge in wedges:
+    wedge.set_hatch(hatches[i])
+    i += 1
+
+total_size = sum(sizes)
+for autotext in autotexts:
+    autotext.set_color('#333333')
+    autotext.set_fontsize(12)  
+    autotext.set_weight('bold')
+    autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
+
+ax.set_title(r'a) \textbf{Concentration level} during experiment due to the use of \textbf{Infrared device}',
+             fontsize=11, color='black', pad=1) 
+
+ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
+plt.tight_layout(pad=0.1)
+plt.savefig('output/figs_questionnaire/3a_Concentration_Infrared.jpg', dpi=300, bbox_inches='tight')
+
+
+#3b Concentration Level Webcam Device
+labels = ["Yes.", "No.", "Do not Know/Maybe."]
+sizes = [10, 80, 10] 
+colors = ['#6495ED', '#D2691E', '#B0B0B0'] 
+hatches = ['//', '\\\\', '']  
+
+fig, ax = plt.subplots(figsize=(5.5, 3.5))  
+wedges, texts, autotexts = ax.pie(sizes, labels=None, autopct='%1.2f%%',
+                                  colors=colors, startangle=140, pctdistance=0.8,
+                                  wedgeprops={'edgecolor': '#4D4D4D', 'linewidth': 2})
+i = 0
+for wedge in wedges:
+    wedge.set_hatch(hatches[i])
+    i += 1
+
+total_size = sum(sizes)
+for autotext in autotexts:
+    autotext.set_color('#333333')
+    autotext.set_fontsize(12)  
+    autotext.set_weight('bold')
+    autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
+
+ax.set_title(r'b) \textbf{Concentration level} during experiment due to the use of \textbf{Webcam device}',
+             fontsize=11, color='black', pad=1) 
+
+ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
+plt.tight_layout(pad=0.1)
+plt.savefig('output/figs_questionnaire/3b_Concentration_Webcam.jpg', dpi=300, bbox_inches='tight')
+
+
+
+
+#4a Privacy Threat Infrared Device
+labels = ["Yes.", "No.", "Do not Know/Maybe."]
+sizes = [20, 50, 30] 
+colors = ['#6495ED', '#D2691E', '#B0B0B0'] 
+hatches = ['//', '\\\\', '']  
+
+fig, ax = plt.subplots(figsize=(5.5, 3.5))  
+wedges, texts, autotexts = ax.pie(sizes, labels=None, autopct='%1.2f%%',
+                                  colors=colors, startangle=140, pctdistance=0.8,
+                                  wedgeprops={'edgecolor': '#4D4D4D', 'linewidth': 2})
+i = 0
+for wedge in wedges:
+    wedge.set_hatch(hatches[i])
+    i += 1
+
+total_size = sum(sizes)
+for autotext in autotexts:
+    autotext.set_color('#333333')
+    autotext.set_fontsize(12)  
+    autotext.set_weight('bold')
+    autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
+
+ax.set_title(r'a) \textbf{Potential feeling of privacy threat} in the daily use of \textbf{Infrared device}',
+             fontsize=11, color='black', pad=1) 
+
+ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
+plt.tight_layout(pad=0.1)
+plt.savefig('output/figs_questionnaire/4a_Privacy_Infrared.jpg', dpi=300, bbox_inches='tight')
+
+#4b Privacy Threat Infrared Device
+labels = ["Yes.", "No.", "Do not Know/Maybe."]
+sizes = [20, 40, 40] 
+colors = ['#6495ED', '#D2691E', '#B0B0B0'] 
+hatches = ['//', '\\\\', '']  
+
+fig, ax = plt.subplots(figsize=(5.5, 3.5))  
+wedges, texts, autotexts = ax.pie(sizes, labels=None, autopct='%1.2f%%',
+                                  colors=colors, startangle=140, pctdistance=0.8,
+                                  wedgeprops={'edgecolor': '#4D4D4D', 'linewidth': 2})
+i = 0
+for wedge in wedges:
+    wedge.set_hatch(hatches[i])
+    i += 1
+
+total_size = sum(sizes)
+for autotext in autotexts:
+    autotext.set_color('#333333')
+    autotext.set_fontsize(12)  
+    autotext.set_weight('bold')
+    autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
+
+ax.set_title(r'b) \textbf{Potential feeling of privacy threat} in the daily use of \textbf{Webcam device}',
+             fontsize=11, color='black', pad=1) 
+
+ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
+plt.tight_layout(pad=0.1)
+plt.savefig('output/figs_questionnaire/4b_Privacy_Webcam.jpg', dpi=300, bbox_inches='tight')
+
+
+#5 Intrusiveness Sense after Experiment
+labels = ["Infrared Device was perceived as more intrusive.", "Webcam Device was perceived as more intrusive.", "Both were perceived equally intrusive.", "Neither were perceived intrusive."]
+sizes = [40, 30, 20, 10] 
+sizes = [40, 30, 20, 10] 
+colors = ['#6495ED', '#D2691E', '#B0B0B0', '#32CD32'] 
+hatches = ['//', '\\\\', '..', 'xx']
+
+fig, ax = plt.subplots(figsize=(5.5, 3.5))  
+wedges, texts, autotexts = ax.pie(sizes, labels=None, autopct='%1.2f%%',
+                                  colors=colors, startangle=140, pctdistance=0.8,
+                                  wedgeprops={'edgecolor': '#4D4D4D', 'linewidth': 2})
+i = 0
+for wedge in wedges:
+    wedge.set_hatch(hatches[i])
+    i += 1
+
+total_size = sum(sizes)
+for autotext in autotexts:
+    autotext.set_color('#333333')
+    autotext.set_fontsize(12)  
+    autotext.set_weight('bold')
+    autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
+
+ax.set_title(r'\textbf{Intrusiveness sense} after experiment',
+             fontsize=11, color='black', pad=1) 
+
+ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
+plt.tight_layout(pad=0.1)
+plt.savefig('output/figs_questionnaire/5_Intrusiveness_Sense.jpg', dpi=300, bbox_inches='tight')
+
+
+#6a Symtoms Infrared Device
+
+labels = ["No symptoms reported", "Tearing", "Burning Eyes", "Dryness", "Irritation", "Tiredness of eyes"]
+sizes = [3, 1, 1, 1, 3, 2]
+colors = ['#B0B0B0', '#555555', '#555555', '#555555', '#555555', '#555555']
+hatches = ['//', '', '', '', '', '', '']
+
+fig, ax = plt.subplots(figsize=(7, 3.5))
+y_pos = np.arange(len(labels))
+
+bars = ax.barh(y_pos, sizes, color=colors, edgecolor='#4D4D4D', linewidth=2)
+
+# Apply hatches
+for bar, hatch in zip(bars, hatches):
+    bar.set_hatch(hatch)
+
+ax.set_yticks(y_pos)
+ax.set_yticklabels(labels)
+ax.set_xlabel("Number of Participants", fontsize=16)
+ax.set_xticks(np.arange(0, max(sizes) + 1, 1))
+ax.set_title(r'Symptoms after experiment with \textbf{Infrared device}', fontsize=16, pad=8)
+
+plt.tight_layout(pad=0.5)
+plt.savefig('output/figs_questionnaire/6a_symptoms_infrared.jpg', dpi=300, bbox_inches='tight')
+
+#6a Symtoms Infrared Device
+
+labels = ["No symptoms reported", "Tearing", "Burning Eyes", "Dryness", "Irritation", "Tiredness of eyes"]
+sizes = [7, 0, 0, 2, 0, 1]
+colors = ['#B0B0B0', '#555555', '#555555', '#555555', '#555555', '#555555']
+hatches = ['//', '', '', '', '', '', '']
+
+fig, ax = plt.subplots(figsize=(7, 3.5))
+y_pos = np.arange(len(labels))
+
+bars = ax.barh(y_pos, sizes, color=colors, edgecolor='#4D4D4D', linewidth=2)
+
+# Apply hatches
+for bar, hatch in zip(bars, hatches):
+    bar.set_hatch(hatch)
+
+ax.set_yticks(y_pos)
+ax.set_yticklabels(labels)
+ax.set_xlabel("Number of Participants", fontsize=16)
+ax.set_xticks(np.arange(0, max(sizes) + 1, 1))
+ax.set_title(r'Symptoms after experiment with \textbf{Webcam device}', fontsize=16, pad=8)
+plt.tight_layout(pad=0.5)
+plt.savefig('output/figs_questionnaire/6b_symptoms_webcam.jpg', dpi=300, bbox_inches='tight')
