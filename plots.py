@@ -94,15 +94,15 @@ bars = ax.bar(df['Device/Software (TC1)'], df['% Matching Fixation'],
 for bar, pct in zip(bars, df['% Matching Fixation']):
     height = bar.get_height()
     ax.text(bar.get_x() + bar.get_width() / 2.0, height + 2, rf'$\textbf{{{pct:.2f}\%}}$', 
-            ha='center', va='bottom', fontsize=22, color='#555555', weight='bold')  
+            ha='center', va='bottom', fontsize=32, color='#555555', weight='bold')  
 
 plt.text(-0.1, 1.20, r'\textbf{a)}', 
-         fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
-plt.ylabel(r'\textbf{STMF (\%)}', fontsize=16, color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=16, color='#555555')
+         fontsize=32, color='black', ha='left', va='top', transform=ax.transAxes)
+plt.ylabel(r'\textbf{STMF (\%)}', fontsize=26, color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22, color='#555555')
 yticks = np.arange(0, 120, 20)
 ytick_labels = [rf"{y}\%" for y in yticks]
-plt.yticks(yticks, ytick_labels, fontsize=16, color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=26, color='#555555')
 plt.ylim(0, 100)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -129,14 +129,14 @@ bars = ax.bar(df['Device/Software (TC2)'], df['% Matching Fixation'],
 for bar, pct in zip(bars, df['% Matching Fixation']):
     height = bar.get_height()
     ax.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}\%}}$', 
-             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+             ha='center', va='bottom', fontsize=32,  color='#555555', weight='bold')
 plt.text(-0.1, 1.20, r'\textbf{a)}', 
-         fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
-plt.ylabel(r'\textbf{STMF (\%)}', fontsize=16, color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=16, color='#555555')
+         fontsize=32, color='black', ha='left', va='top', transform=ax.transAxes)
+plt.ylabel(r'\textbf{STMF (\%)}', fontsize=26, color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22, color='#555555')
 yticks = np.arange(0, 120, 20)
 ytick_labels = [rf"{y}\%" for y in yticks]
-plt.yticks(yticks, ytick_labels, fontsize=16, color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=22, color='#555555')
 plt.ylim(0, 100)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -162,12 +162,12 @@ bars = plt.bar(df['Device/Software (TC1)'], df['Mean Error Distance'],
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
     ax.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}px}}$', 
-             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+             ha='center', va='bottom', fontsize=32,  color='#555555', weight='bold')
 plt.text(-0.1, 1.20, r'\textbf{b)}', 
-         fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
-plt.ylabel(r'\textbf{MAE (px)}', fontsize=16,  color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=16,  color='#555555')
-plt.yticks(yticks_mae, ytick_labels_mae, fontsize=16,  color='#555555')
+         fontsize=32, color='black', ha='left', va='top', transform=ax.transAxes)
+plt.ylabel(r'\textbf{MAE (px)}', fontsize=26,  color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22,  color='#555555')
+plt.yticks(yticks_mae, ytick_labels_mae, fontsize=22,  color='#555555')
 plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -193,12 +193,12 @@ bars = plt.bar(df['Device/Software (TC2)'], df['Mean Error Distance'],
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
     ax.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}px}}$', 
-             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+             ha='center', va='bottom', fontsize=32,  color='#555555', weight='bold')
 plt.text(-0.1, 1.20, r'\textbf{b)}', 
-         fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
-plt.ylabel(r'\textbf{MAE (px)}', fontsize=16,  color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=16,  color='#555555')
-plt.yticks(yticks_mae, ytick_labels_mae, fontsize=16,  color='#555555')
+         fontsize=32, color='black', ha='left', va='top', transform=ax.transAxes)
+plt.ylabel(r'\textbf{MAE (px)}', fontsize=26,  color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22,  color='#555555')
+plt.yticks(yticks_mae, ytick_labels_mae, fontsize=22,  color='#555555')
 plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -242,14 +242,14 @@ bars = plt.bar(df['Device/Software'], df['% Matching Fixation'],
 for bar, pct in zip(bars, df['% Matching Fixation']):
     height = bar.get_height()
     ax.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}\%}}$', 
-             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+             ha='center', va='bottom', fontsize=32,  color='#555555', weight='bold')
 plt.text(-0.1, 1.20, r'\textbf{a)}', 
-         fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
-plt.ylabel(r'\textbf{STMF (\%)}', fontsize=16, color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=16, color='#555555')
+         fontsize=32, color='black', ha='left', va='top', transform=ax.transAxes)
+plt.ylabel(r'\textbf{STMF (\%)}', fontsize=26, color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22, color='#555555')
 yticks = np.arange(0, 120, 20)
 ytick_labels = [rf"{y}\%" for y in yticks]
-plt.yticks(yticks, ytick_labels, fontsize=16, color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=22, color='#555555')
 plt.ylim(0, 100)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -275,14 +275,14 @@ bars = plt.bar(df['Device/Software'], df['% EIF'],
                color=bar_colors, edgecolor=edge_colors, linewidth=2,  hatch=["//", "\\\\"])
 for bar, pct in zip(bars, df['% EIF']):
     height = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}\%}}$', 
-             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+    ax.text(bar.get_x() + bar.get_width() / 2, height - 12, rf'$\textbf{{{pct:.2f}\%}}$', 
+             ha='center', va='bottom', fontsize=32,  color='#555555', weight='bold', bbox=dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.3'))
 
-plt.ylabel(r'\textbf{EIF (\%)}', fontsize=16, color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=16, color='#555555')
+plt.ylabel(r'\textbf{EIF (\%)}', fontsize=32, color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22, color='#555555')
 yticks = np.arange(0, 120, 20)
 ytick_labels = [rf"{y}\%" for y in yticks]
-plt.yticks(yticks, ytick_labels, fontsize=16, color='#555555')
+plt.yticks(yticks, ytick_labels, fontsize=22, color='#555555')
 plt.ylim(0, 100)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -307,12 +307,12 @@ bars = plt.bar(df['Device/Software'], df['Mean Error Distance'],
 for bar, pct in zip(bars, df['Mean Error Distance']):
     height = bar.get_height()
     plt.text(bar.get_x() + bar.get_width() / 2.0, height, rf'$\textbf{{{pct:.2f}px}}$',
-             ha='center', va='bottom', fontsize=22,  color='#555555', weight='bold')
+             ha='center', va='bottom', fontsize=30,  color='#555555', weight='bold')
 plt.text(-0.1, 1.20, r'\textbf{b)}', 
-         fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
-plt.ylabel(r'\textbf{MAE (px)}', fontsize=16,  color='#555555')
-plt.xticks(rotation=0, ha='center', fontsize=16,  color='#555555')
-plt.yticks(yticks_mae, ytick_labels_mae, fontsize=16,  color='#555555')
+         fontsize=30, color='black', ha='left', va='top', transform=ax.transAxes)
+plt.ylabel(r'\textbf{MAE (px)}', fontsize=26,  color='#555555')
+plt.xticks(rotation=0, ha='center', fontsize=22,  color='#555555')
+plt.yticks(yticks_mae, ytick_labels_mae, fontsize=26,  color='#555555')
 plt.ylim(0, 400)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
@@ -372,18 +372,18 @@ for bars, hatch in zip([bars_tobii, bars_webgazer], hatch_patterns):
 for bars in [bars_tobii, bars_webgazer]:
     for bar in bars:
         height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width() / 2, height - 5,  # Ajuste vertical
-                rf'$\mathbf{{{height:.2f}\%}}$', ha='center', va='top', fontsize=16, 
-                color='white', weight='bold')
+        ax.text(bar.get_x() + bar.get_width() / 2, height - 12,  # Ajuste vertical
+                rf'$\mathbf{{{height:.2f}\%}}$', ha='center', va='bottom', fontsize=20, 
+                color='#555555', weight='bold' ,  bbox=dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.1'))
 
 # Configuración de ejes
-ax.set_xlabel(r"\textbf{Test Case (User-Screen/Device distance)}", fontsize=16, color='#555555')
-ax.set_ylabel(r"\textbf{EIF (\%)}", fontsize=16, color='#555555')
+ax.set_xlabel(r"\textbf{Test Case (User-Screen/Device distance)}", fontsize=18, color='#555555')
+ax.set_ylabel(r"\textbf{EIF (\%)}", fontsize=22, color='#555555')
 ax.set_xticks(x)
-ax.set_xticklabels(positions, fontsize=16, color='#555555')
+ax.set_xticklabels(positions, fontsize=20, color='#555555')
 ax.set_yticks(np.linspace(0, 100, 6))
-ax.set_ylim(0, 100)
-ax.tick_params(axis='y', labelsize=16, colors='#555555')
+ax.set_ylim(0, 110)
+ax.tick_params(axis='y', labelsize=20, colors='#555555' )
 ax.grid(axis='y', linestyle='--', alpha=0.7)
 
 # Formato de porcentaje en eje Y
@@ -422,24 +422,24 @@ hatch_patterns = ["//", "\\\\"]
 fig, ax = plt.subplots(figsize=(9.85, 5.5))
 
 # Configuración de líneas con formato
-ax.plot(x, percentages_tobii, marker='o', linestyle='-', linewidth=3, markersize=10, 
+ax.plot(x, percentages_tobii, marker='o', linestyle='-', linewidth=3, markersize=20, 
         label=r"\textbf{Infrared/Tobii Pro Spark}", color='#B0B0B0', markerfacecolor='white', markeredgewidth=2)
-ax.plot(x, percentages_webgazer, marker='s', linestyle='-', linewidth=3, markersize=10, 
+ax.plot(x, percentages_webgazer, marker='s', linestyle='-', linewidth=3, markersize=20, 
         label=r"\textbf{Webcam/Webgazer.js}", color='#555555', markerfacecolor='white', markeredgewidth=2)
 
 
 # Etiquetas de los ejes
-ax.set_xlabel(r"\textbf{Test Case (User-Screen/Device distance)}", fontsize=16, color='#555555')
-ax.set_ylabel(r"\textbf{EIF (px)}", fontsize=16, color='#555555')
+ax.set_xlabel(r"\textbf{Test Case (User-Screen/Device distance)}", fontsize=20, color='#555555')
+ax.set_ylabel(r"\textbf{EIF (px)}", fontsize=20, color='#555555')
 
 # Configuración del eje X
 ax.set_xticks(x)
-ax.set_xticklabels(positions, fontsize=16, color='#555555')
+ax.set_xticklabels(positions, fontsize=20, color='#555555')
 
 # Configuración del eje Y
 ax.set_yticks(np.linspace(0, 100, 6))
 ax.set_ylim(0, 110)
-ax.tick_params(axis='y', labelsize=16, colors='#555555')
+ax.tick_params(axis='y', labelsize=20, colors='#555555')
 
 # Formato de porcentaje en el eje Y
 def percent_formatter(x, pos): 
@@ -448,10 +448,10 @@ ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
 
 # Etiquetas de los puntos
 for i, value in enumerate(percentages_tobii):
-    ax.text(x[i], value + 2, rf'$\mathbf{{{value:.2f}\%}}$', ha='center', fontsize=16, color='#B0B0B0')
+    ax.text(x[i] +0.2, value -10, rf'$\mathbf{{{value:.2f}\%}}$', ha='center', va='top', fontsize=18, color='#B0B0B0', bbox=dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.1'))
 
 for i, value in enumerate(percentages_webgazer):
-    ax.text(x[i], value + 2, rf'$\mathbf{{{value:.2f}\%}}$', ha='center', fontsize=16, color='#555555')
+    ax.text(x[i] +0.2, value + 7, rf'$\mathbf{{{value:.2f}\%}}$', ha='center', va='bottom', fontsize=18, color='#555555', bbox=dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.1'))
 
 # Etiqueta de subfigura
 ax.text(-0.08, 1.15, r'\textbf{b)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
@@ -508,16 +508,16 @@ for bars in [bars_tobii, bars_webgazer]:
     for bar in bars:
         height = bar.get_height()
         ax.text(bar.get_x() + bar.get_width() / 2, height - 5,
-                rf'$\mathbf{{{height:.2f}\%}}$', ha='center', va='top', fontsize=16, 
-                color='white', weight='bold')
+                rf'$\mathbf{{{height:.2f}\%}}$', ha='center', va='top', fontsize=20, 
+                color='#555555', weight='bold', bbox=dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.1'))
 
 # Configuración de ejes
-ax.set_xlabel(r"\textbf{Test Case (User-Screen/Device distance)}", fontsize=16, color='#555555')
-ax.set_ylabel(r"\textbf{STMF (\%)}", fontsize=16, color='#555555')
+ax.set_xlabel(r"\textbf{Test Case (User-Screen/Device distance)}", fontsize=22, color='#555555')
+ax.set_ylabel(r"\textbf{STMF (\%)}", fontsize=22, color='#555555')
 ax.set_xticks(x)
 ax.set_xticklabels(positions, fontsize=16, color='#555555')
 ax.set_yticks(np.linspace(0, 100, 6))
-ax.set_ylim(0, 110)
+ax.set_ylim(0, 100)
 ax.tick_params(axis='y', labelsize=16, colors='#555555')
 ax.grid(axis='y', linestyle='--', alpha=0.7)
 
@@ -554,14 +554,14 @@ x = np.arange(len(positions))
 fig, ax = plt.subplots(figsize=(9.85, 5.5))
 
 # Configuración de líneas con formato
-ax.plot(x, percentages_tobii, marker='o', linestyle='-', linewidth=3, markersize=10, 
+ax.plot(x, percentages_tobii, marker='o', linestyle='-', linewidth=3, markersize=20, 
         label=r"\textbf{Infrared/Tobii Pro Spark}", color='#B0B0B0', markerfacecolor='white', markeredgewidth=2)
-ax.plot(x, percentages_webgazer, marker='s', linestyle='-', linewidth=3, markersize=10, 
+ax.plot(x, percentages_webgazer, marker='s', linestyle='-', linewidth=3, markersize=20, 
         label=r"\textbf{Webcam/Webgazer.js}", color='#555555', markerfacecolor='white', markeredgewidth=2)
 
 # Etiquetas de los ejes
-ax.set_xlabel(r"\textbf{Test Case (User-Screen/Device distance)}", fontsize=16, color='#555555')
-ax.set_ylabel(r"\textbf{STMF (\%)}", fontsize=16, color='#555555')
+ax.set_xlabel(r"\textbf{Test Case (User-Screen/Device distance)}", fontsize=20, color='#555555')
+ax.set_ylabel(r"\textbf{STMF (\%)}", fontsize=20, color='#555555')
 
 # Configuración del eje X
 ax.set_xticks(x)
@@ -569,7 +569,7 @@ ax.set_xticklabels(positions, fontsize=16, color='#555555')
 
 # Configuración del eje Y
 ax.set_yticks(np.linspace(0, 100, 6))
-ax.set_ylim(0, 110)
+ax.set_ylim(0, 100)
 ax.tick_params(axis='y', labelsize=16, colors='#555555')
 
 # Formato de porcentaje en el eje Y
@@ -579,10 +579,10 @@ ax.yaxis.set_major_formatter(FuncFormatter(percent_formatter))
 
 # Etiquetas de los puntos
 for i, value in enumerate(percentages_tobii):
-    ax.text(x[i], value + 2, rf'$\mathbf{{{value:.2f}\%}}$', ha='center', fontsize=16, color='#B0B0B0')
+    ax.text(x[i] +0.05, value -8, rf'$\mathbf{{{value:.2f}\%}}$', ha='center', va= 'top' , fontsize=20, color='#B0B0B0', bbox=dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.1'))
 
 for i, value in enumerate(percentages_webgazer):
-    ax.text(x[i], value + 2, rf'$\mathbf{{{value:.2f}\%}}$', ha='center', fontsize=16, color='#555555')
+    ax.text(x[i] +0.05, value +7, rf'$\mathbf{{{value:.2f}\%}}$', ha='center', va='bottom' , fontsize=20, color='#555555', bbox=dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.1'))
 
 # Etiqueta de subfigura
 ax.text(-0.08, 1.15, r'\textbf{1b)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
@@ -633,17 +633,17 @@ for bars, hatch in zip([bars_tobii, bars_webgazer], hatch_patterns):
         bar.set_hatch(hatch)
 
 # Etiquetas de los ejes
-ax.set_xlabel(r"\textbf{Test Case (User-Screen/Device distance)}", fontsize=16, color='#555555')
-ax.set_ylabel(r"\textbf{MAE (px)}", fontsize=16, color='#555555')
+ax.set_xlabel(r"\textbf{Test Case (User-Screen/Device distance)}", fontsize=22, color='#555555')
+ax.set_ylabel(r"\textbf{MAE (px)}", fontsize=22, color='#555555')
 
 # Configuración del eje X
 ax.set_xticks(x)
-ax.set_xticklabels(positions, fontsize=16, color='#555555')
+ax.set_xticklabels(positions, fontsize=22, color='#555555')
 
 # Configuración del eje Y
 ax.set_yticks(np.linspace(0, 400, 5))
 ax.set_ylim(0, 400)
-ax.tick_params(axis='y', labelsize=16, colors='#555555')
+ax.tick_params(axis='y', labelsize=22, colors='#555555')
 
 # Formato de valores en el eje Y
 def px_formatter(x, pos): 
@@ -654,15 +654,15 @@ ax.yaxis.set_major_formatter(FuncFormatter(px_formatter))
 for bars in [bars_tobii, bars_webgazer]:
     for bar in bars:
         height = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width() / 2, height - 10,  # Ajuste vertical
-                rf'$\mathbf{{{height:.2f}px}}$', ha='center', va='top', fontsize=14, 
-                color='white', weight='bold')
+        ax.text(bar.get_x() + bar.get_width() / 2, height + 30,  # Ajuste vertical
+                rf'$\mathbf{{{height:.2f}px}}$', ha='center', va='top', fontsize=18, 
+                color='#555555', weight='bold', bbox=dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.1'))
 
 # Etiqueta de subfigura
 ax.text(-0.08, 1.15, r'\textbf{2)}', fontsize=26, color='black', ha='left', va='top', transform=ax.transAxes)
 
 # Leyenda
-ax.legend(fontsize=16, frameon=True)
+ax.legend(fontsize=22, frameon=True)
 
 # Ajuste final y guardado
 plt.grid(axis='y', linestyle='--', alpha=0.7)
@@ -693,7 +693,7 @@ bars = ax.bar(tools, percentages, color=[ 'orange','skyblue',])
 # Añadir etiquetas y título
 ax.set_ylabel("% EITOF")
 ax.set_title("%Events Including Test Object Fixations (%EITOF) by Device/Software (TC7)")
-ax.set_ylim(0, 110)  # Limitar el eje Y para espacio adicional
+ax.set_ylim(0, 100)  # Limitar el eje Y para espacio adicional
 
 # Mostrar porcentaje en las barras
 for bar in bars:
@@ -740,16 +740,16 @@ for bar, hatch in zip(bars, hatch_patterns):
 for bar, pct in zip(bars, new_df['% Matching Fixation']):
     height = bar.get_height()
     ax.text(bar.get_x() + bar.get_width() / 2, height - 5,  
-            rf'$\mathbf{{{pct:.2f}\%}}$', ha='center', va='top', fontsize=16, 
-            color='white', weight='bold')
+            rf'$\mathbf{{{pct:.2f}\%}}$', ha='center', va='top', fontsize=22, 
+            color='#555555', weight='bold', bbox=dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.1'))
 
 # Etiquetas de los ejes
-ax.set_ylabel(r"\textbf{MTMF (\%)}", fontsize=16, color='#555555')
+ax.set_ylabel(r"\textbf{MTMF (\%)}", fontsize=22, color='#555555')
 
 # Configuración del eje Y
-ax.set_yticks(np.linspace(0, 110, 6))
-ax.set_ylim(0, 110)
-ax.tick_params(axis='y', labelsize=16, colors='#555555')
+ax.set_yticks(np.linspace(0, 100, 6))
+ax.set_ylim(0, 100)
+ax.tick_params(axis='y', labelsize=22, colors='#555555')
 
 # Formato de valores en el eje Y
 def percent_formatter(x, pos): 
@@ -908,8 +908,9 @@ for autotext in autotexts:
     autotext.set_weight('bold')
     autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
 
-ax.set_title(r'a) \textbf{Know and day-to-day use} of a \textbf{Infrared device}',
-             fontsize=11, color='black', pad=1) 
+# ax.set_title(r'a) \textbf{Know and day-to-day use} of a \textbf{Infrared device}',
+#              fontsize=11, color='black', pad=1) 
+ax.set_title(r'a)', fontsize=20, color='black', pad=1, loc='left')
 
 ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
 plt.tight_layout(pad=0.1)
@@ -938,9 +939,9 @@ for autotext in autotexts:
     autotext.set_weight('bold')
     autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
 
-ax.set_title(r'b) \textbf{Know and day-to-day use} of a \textbf{Webcam device}',
-             fontsize=11, color='black', pad=1) 
-
+# ax.set_title(r'b) \textbf{Know and day-to-day use} of a \textbf{Webcam device}',
+#              fontsize=11, color='black', pad=1) 
+ax.set_title(r'b)', fontsize=20, color='black', pad=1, loc='left')
 ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
 plt.tight_layout(pad=0.1)
 plt.savefig('output/figs_questionnaire/1b_KnowUse_Webcam.jpg', dpi=300, bbox_inches='tight')
@@ -969,9 +970,9 @@ for autotext in autotexts:
     autotext.set_weight('bold')
     autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
 
-ax.set_title(r'a) \textbf{Fatigue feeling} after experiment with \textbf{Infrared device}',
-             fontsize=11, color='black', pad=1) 
-
+# ax.set_title(r'a) \textbf{Fatigue feeling} after experiment with \textbf{Infrared device}',
+#              fontsize=11, color='black', pad=1) 
+ax.set_title(r'a)', fontsize=20, color='black', pad=1, loc='left')
 ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
 plt.tight_layout(pad=0.1)
 plt.savefig('output/figs_questionnaire/2a_Fatigue_Infrared.jpg', dpi=300, bbox_inches='tight')
@@ -998,8 +999,9 @@ for autotext in autotexts:
     autotext.set_weight('bold')
     autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
 
-ax.set_title(r'b) \textbf{Fatigue feeling} after experiment with \textbf{Webcam device}',
-             fontsize=11, color='black', pad=1) 
+# ax.set_title(r'b) \textbf{Fatigue feeling} after experiment with \textbf{Webcam device}',
+#              fontsize=11, color='black', pad=1) 
+ax.set_title(r'b)', fontsize=20, color='black', pad=1, loc='left')
 
 ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
 plt.tight_layout(pad=0.1)
@@ -1029,8 +1031,9 @@ for autotext in autotexts:
     autotext.set_weight('bold')
     autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
 
-ax.set_title(r'a) \textbf{Concentration level} during experiment due to the use of \textbf{Infrared device}',
-             fontsize=11, color='black', pad=1) 
+# ax.set_title(r'a) \textbf{Concentration level} during experiment due to the use of \textbf{Infrared device}',
+#              fontsize=11, color='black', pad=1) 
+ax.set_title(r'a)', fontsize=20, color='black', pad=1, loc='left')
 
 ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
 plt.tight_layout(pad=0.1)
@@ -1059,8 +1062,9 @@ for autotext in autotexts:
     autotext.set_weight('bold')
     autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
 
-ax.set_title(r'b) \textbf{Concentration level} during experiment due to the use of \textbf{Webcam device}',
-             fontsize=11, color='black', pad=1) 
+# ax.set_title(r'b) \textbf{Concentration level} during experiment due to the use of \textbf{Webcam device}',
+#              fontsize=11, color='black', pad=1)
+ax.set_title(r'b)', fontsize=20, color='black', pad=1, loc='left')
 
 ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
 plt.tight_layout(pad=0.1)
@@ -1091,8 +1095,9 @@ for autotext in autotexts:
     autotext.set_weight('bold')
     autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
 
-ax.set_title(r'a) \textbf{Potential feeling of privacy threat} in the daily use of \textbf{Infrared device}',
-             fontsize=11, color='black', pad=1) 
+# ax.set_title(r'a) \textbf{Potential feeling of privacy threat} in the daily use of \textbf{Infrared device}',
+#              fontsize=11, color='black', pad=1) 
+ax.set_title(r'a)', fontsize=20, color='black', pad=1, loc='left')
 
 ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
 plt.tight_layout(pad=0.1)
@@ -1120,9 +1125,10 @@ for autotext in autotexts:
     autotext.set_weight('bold')
     autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
 
-ax.set_title(r'b) \textbf{Potential feeling of privacy threat} in the daily use of \textbf{Webcam device}',
-             fontsize=11, color='black', pad=1) 
+# ax.set_title(r'b) \textbf{Potential feeling of privacy threat} in the daily use of \textbf{Webcam device}',
+#              fontsize=11, color='black', pad=1) 
 
+ax.set_title(r'b)', fontsize=20, color='black', pad=1, loc='left')
 ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
 plt.tight_layout(pad=0.1)
 plt.savefig('output/figs_questionnaire/4b_Privacy_Webcam.jpg', dpi=300, bbox_inches='tight')
@@ -1151,10 +1157,10 @@ for autotext in autotexts:
     autotext.set_weight('bold')
     autotext.set_bbox(dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.2'))
 
-ax.set_title(r'\textbf{Intrusiveness sense} after experiment',
-             fontsize=11, color='black', pad=1) 
+# ax.set_title(r'\textbf{Intrusiveness sense} after experiment',
+#              fontsize=11, color='black', pad=1) 
 
-ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=11, frameon=True, fancybox=True)
+ax.legend(labels, loc='upper center', bbox_to_anchor=(0.5, 0), fontsize=12, frameon=True, fancybox=True)
 plt.tight_layout(pad=0.1)
 plt.savefig('output/figs_questionnaire/5_Intrusiveness_Sense.jpg', dpi=300, bbox_inches='tight')
 
@@ -1179,12 +1185,13 @@ ax.set_yticks(y_pos)
 ax.set_yticklabels(labels)
 ax.set_xlabel("Number of Participants", fontsize=16)
 ax.set_xticks(np.arange(0, max(sizes) + 1, 1))
-ax.set_title(r'Symptoms after experiment with \textbf{Infrared device}', fontsize=16, pad=8)
+ax.set_title(r'a) Symptoms after experiment with \textbf{Infrared device}', fontsize=16, pad=8)
+# ax.set_title(r'a)', fontsize=20, color='black', pad=1, loc='left')
 
 plt.tight_layout(pad=0.5)
 plt.savefig('output/figs_questionnaire/6a_symptoms_infrared.jpg', dpi=300, bbox_inches='tight')
 
-#6a Symtoms Infrared Device
+#6b Symtoms Webcam Device
 
 labels = ["No symptoms reported", "Tearing", "Burning Eyes", "Dryness", "Irritation", "Tiredness of eyes"]
 sizes = [7, 0, 0, 2, 0, 1]
@@ -1204,6 +1211,6 @@ ax.set_yticks(y_pos)
 ax.set_yticklabels(labels)
 ax.set_xlabel("Number of Participants", fontsize=16)
 ax.set_xticks(np.arange(0, max(sizes) + 1, 1))
-ax.set_title(r'Symptoms after experiment with \textbf{Webcam device}', fontsize=16, pad=8)
+ax.set_title(r'b) Symptoms after experiment with \textbf{Webcam device}', fontsize=16, pad=8)
 plt.tight_layout(pad=0.5)
 plt.savefig('output/figs_questionnaire/6b_symptoms_webcam.jpg', dpi=300, bbox_inches='tight')
