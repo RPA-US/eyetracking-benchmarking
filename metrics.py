@@ -248,11 +248,12 @@ def postprocess_RQ4_df(df, filename):
     
     return df
 
-def execute(json_path, filename):
+def execute(json_path, filename,observer_camera_distance=50):
     # Cargar los polígonos de las AOIs
     polygons_json = load_polygons(json_path)
     # Calcular el umbral de distancia
-    threshold = get_distance_threshold_by_resolution()
+    threshold = get_distance_threshold_by_resolution(observer_camera_distance=observer_camera_distance)
+
     # Procesar los archivos CSV
     for file in os.listdir(input_dir):
         if file == filename:
@@ -266,7 +267,7 @@ def execute(json_path, filename):
             postprocessed_df_2.to_csv(output_file_path, index=False)
             print(f"Preprocessed DataFrame saved to {output_file_path}")
 
-tests = ["s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10","s11"]
+tests = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10"]
 
 for i, test in enumerate(tests, start=1):
     # DEFINIR Directorios de entrada y salida. Elegir tests correspondiente al suejeto
@@ -283,28 +284,28 @@ for i, test in enumerate(tests, start=1):
 
     ### Ejecuciones ###
     # RQ1 - Static UI elements - %Matching Fixations . Familiy Form Scenario (High and Low density)
-    execute("configuration/01_01_static_form_density_low.json", "RQ1_tobii_form_density_low.csv")
-    execute("configuration/01_01_static_form_density_low.json", "RQ1_webgazer_form_density_low.csv")
+    execute("configuration/01_01_static_form_density_low.json", "SQ1_tobii_form_density_low.csv")
+    execute("configuration/01_01_static_form_density_low.json", "SQ1_webgazer_form_density_low.csv")
     # execute("configuration/01_02_static_form_density_medium.json", "RQ1_tobii_form_density_medium.csv")
     # execute("configuration/01_02_static_form_density_medium.json", "RQ1_webgazer_form_density_medium.csv")
-    execute("configuration/01_02_static_form_density_high.json", "RQ1_tobii_form_density_high.csv")
-    execute("configuration/01_02_static_form_density_high.json", "RQ1_webgazer_form_density_high.csv")
+    execute("configuration/01_02_static_form_density_high.json", "SQ1_tobii_form_density_high.csv")
+    execute("configuration/01_02_static_form_density_high.json", "SQ1_webgazer_form_density_high.csv")
 
     # RQ2 - Alternance UI Element - %Events captured - Buttons click Scenario
-    execute("configuration/02_alternance_buttons.json", "RQ2_tobii_alternance_buttons.csv")
-    execute("configuration/02_alternance_buttons.json", "RQ2_webgazer_alternance_buttons.csv")
+    execute("configuration/02_alternance_buttons.json", "SQ2_tobii_alternance_buttons.csv")
+    execute("configuration/02_alternance_buttons.json", "SQ2_webgazer_alternance_buttons.csv")
 
     # RQ3 - Position - %Matching Fixations - Medium Density form scenario
-    execute("configuration/03_position.json", "RQ3_tobii_position_50cm.csv")
-    execute("configuration/03_position.json", "RQ3_tobii_position_70cm.csv")
-    execute("configuration/03_position.json", "RQ3_tobii_position_90cm.csv")
-    execute("configuration/03_position.json", "RQ3_webgazer_position_50cm.csv")
-    execute("configuration/03_position.json", "RQ3_webgazer_position_70cm.csv")
-    execute("configuration/03_position.json", "RQ3_webgazer_position_90cm.csv")
+    execute("configuration/03_position.json", "SQ3_tobii_position_50cm.csv")
+    execute("configuration/03_position.json", "SQ3_tobii_position_70cm.csv",70)
+    execute("configuration/03_position.json", "SQ3_tobii_position_90cm.csv",90)
+    execute("configuration/03_position.json", "SQ3_webgazer_position_50cm.csv")
+    execute("configuration/03_position.json", "SQ3_webgazer_position_70cm.csv",70)
+    execute("configuration/03_position.json", "SQ3_webgazer_position_90cm.csv",90)
 
     # RQ4 - RPM - Time Matching Intersection - RPM Scenario
-    execute("configuration/04_rpm.json", "RQ4_tobii_rpm.csv")
-    execute("configuration/04_rpm.json", "RQ4_webgazer_rpm.csv")
+    execute("configuration/04_rpm.json", "SQ4_tobii_rpm.csv")
+    execute("configuration/04_rpm.json", "SQ4_webgazer_rpm.csv")
 
     # RQX (DISCARDED) - Notification - Pop-up Noise Detection - Notification Scenario
     # Only questions

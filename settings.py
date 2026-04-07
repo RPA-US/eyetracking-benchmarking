@@ -20,22 +20,28 @@ def get_distance_threshold_by_resolution(
     height=HEIGHT_SCREEN
     ):
     
-    angle_radians = np.radians(I_DT_THRESHOLD_ANGLE)#Convert angle to radians
-    sin_1_value = np.sin(angle_radians)
-    print(f"sin({I_DT_THRESHOLD_ANGLE}º) = {sin_1_value}")
+    #
+    half_angle_radians = np.radians(I_DT_THRESHOLD_ANGLE / 2) # Mitad del ángulo en radianes
+    tan_half_angle = np.tan(half_angle_radians)
+    print(f"tan({I_DT_THRESHOLD_ANGLE}º / 2) = {tan_half_angle}")
     
-    diameter_fixation = sin_1_value*observer_camera_distance*2 #Se multiplica por 2 para obtener el diámetro
+    # 2. Cálculo del diámetro en cm (tamaño físico en la pantalla)
+    diameter_fixation = tan_half_angle * observer_camera_distance * 2 
     print(f"Fixation Boundary (diameter): {diameter_fixation} cm.")
 
-    screen_diagonal_pixels = math.sqrt((width)**2 + (height)**2)#diagonal de la pantalla en píxeles. Dependiendo de la resolución de la pantalla, tendrá un valor diferente
+    # El resto de tu código se mantiene exactamente igual
+    screen_diagonal_pixels = math.sqrt((width)**2 + (height)**2)
     print(f"Screen Diagonal Resolution (in pixels): {screen_diagonal_pixels} px.")
     
-    pixels_per_inches = screen_diagonal_pixels/screen_inches
+    pixels_per_inches = screen_diagonal_pixels / screen_inches
     print(f"Pixels per Inches: {pixels_per_inches} px/inches.")
 
-    pixels_per_centimetres = pixels_per_inches/inch_per_centimetres
+    pixels_per_centimetres = pixels_per_inches / inch_per_centimetres
     print(f"Pixels per centimetres: {pixels_per_centimetres} px/centimetres.")
 
     pixels_threshold_i_dt = int(diameter_fixation * pixels_per_centimetres)
     print(f"I-DT threshold (in pixels): {pixels_threshold_i_dt} px.")
+    
     return pixels_threshold_i_dt
+
+get_distance_threshold_by_resolution()
